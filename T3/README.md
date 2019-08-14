@@ -192,10 +192,11 @@ Existen varios tipos de operadores:
 ***
 
 Aquellos que manipulan datos numéricos
+
 |||||||
 |-|-|-|-|-|-|
 |+|-|*|/|div|%|
-|+=|-=|*=|/=|||
+|+=|-=|*=|/=||
 
 
 ##### Asignación
