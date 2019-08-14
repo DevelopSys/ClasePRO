@@ -26,7 +26,8 @@
         - Tipos de flujos. Flujos de bytes y de caracteres.
             - Clases relativas a flujos. Jerarquías de clases.
         - Utilización de flujos.
-    - Entrada/salida estándar: 􏰀 Entrada desde teclado.
+    - Entrada/salida estándar:
+        - Entrada desde teclado.
         - Salida a pantalla.
     - Almacenamiento de información en ficheros:
         - Ficheros de datos. Registros.
