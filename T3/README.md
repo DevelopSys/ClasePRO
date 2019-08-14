@@ -1,271 +1,129 @@
 <a name="indice"></a>
-- [Identificación de los elementos de un programa informático:](#tema3)
-    - Estructura y bloques fundamentales.
-    - Identificadores.
-    - Palabras reservadas.
-    - Variables. Declaración, inicialización y utilización. Almacenamiento en memoria.
-    - Tipos de datos.
-    - Literales.
-    - Constantes.
-    - Operadores y expresiones. Precedencia de operadores
-    - Conversiones de tipo. Implícitas y explicitas (casting).
-    - Comentarios.
+- Uso de estructuras de control:
+    - Estructuras de selección.
+    - Estructuras de repetición
+    - Estructuras de salto.
 
-#### [Volver al índice](#indice)
-
-#### Estructuras y bloques fundamentales
+#### Estructuras de selección
 ****
 
-Los bloques fundamentales dentro de un programa son:
+Cuando un programa llega a una parte de ejecución donde hay dos o mas alternativas de acción y solo una de estas tendrá lugar, se ejecuta mediante una estructura de selección. En java existen principalmente dos estructuras de selección: if y switch
 
-- Clases
-- Variables
-- Métodos
-- Bloques
+##### if
+***
 
-Existen más elementos que se explicarán más adelante pero los fundamentales son los comentados.
+Estructura que ejecutará el bloque de código que cumpla con la condición a evaluar. La sintaxis de la estructura es la siguiente.
 
-##### Clases
-****
-
-Representan el "molde" desde el cual se pueden "hacer" realidad cada uno de los elementos que formarán parte del programa informático. Para su creación se utiliza la palabra reservada class. La sentencia correcta para su creación es 
 ````
-modificador_acceso nombre_clase {
-
+if (condición){
+    //sentencias a ejecutar
 }
-````
-````
-public class Ejemplo{
-
+else{
+    //sentencias a ejecutar si no se cumple la condición anterior
 }
 ````
 
-Lo normal es la existencia de una clase por cada archivo, el cual debe tener el mismo nombre de la clase.
-
-
-##### Variables
-****
-
-Serán explicadas más adelante y tienen como objetivo guardar datos que serán utilizados durante la ejecución del programa
-
-##### Métodos
-****
-
-Son las funcionalidades individuales que pueden ser llamadas desde cualquier parte del código. Su estructura o firma es la siguiente
-
 ````
-modificador_acceso valor_retorno nombre_método(parámetro) {
-````
-
-En el caso de tener un valor de retorno es obligatorio que tenga la palabra reservada return
-
-````
-public int sumarNumeros(int op1, int op2){
-    int suma = op1+op2;
-    return suma;
-}
-
-sumarNumeros(5,8);
-````
-
-````
-public void mostrarMensaje(){
-    System.out.println("Sacar mensaje por consola");
-}
-mostrarMensaje();
-````
-
-##### Bloques
-Los bloques de código son partes del programa que tienen una ejecución especófica. Dentro de los bloques encontramos los estamentos que se encargan de realizar por ejemplo repeticiones, toma de decisiones, etc...
-****
-
-#### Identificadores
-****
-
-#### Palabras reservadas
-****
-
-Las palabras reservadas son aquellas que tienen un significado específico y no pueden ser utilizadas para definir elementos como variables, métodos y/o clases. Las palabras reservadas en java son:
-
-||||||||
-|-|-|-|-|-|-|-|
-|abstract|assert|boolean|break|byte|case|catch|
-|char|class|const|continue|default|do|double|
-|else|enum|extends|final|finally|float|for|
-|goto|ifv|implements|import|instanceof|int|interface|
-|long|native|new|package|private|protected|public|
-|return|short|static|strictfp|super|switch|synchronized|
-|this|throw|throws|transient|try|void|volatile|
-|while|||||||
-
-#### Variables
-****
-
-Se define variable como cualquier elemento que guarde datos que serán utilizados en código algún momento. Para su uso se defie el tipo, su nombre y su valor
-````
-tipo nombre = valor
-String nombre = "variable";
-int edad = 20;
-boolean experiencia = false;
-````
-Hay que tener en cuenta las siguientes cosas a la hora de trabajar con varianles: 
-
-- Nombres descriptivos
-- No utilizar palabras reservadas
-- Comienzan en minúsculas o _, nunca con números
-- Cada palabra con mayúsculas excepto la primera
-
-Según su lugar de declaración pueden existir:
-
-- Variables gobales: aquellas declaradas al comienzo de la clase. Su utilización puede ser en toda la clase
-- Variables de método: aquellas declaradas dentro de un bloque (como por ejemplo un método). Su utilización se restringe al método donde han sido declaradas
-- Variables estáticas: aquellas que son declaradas con la palabra reservada static y pueden ser accedidas sin necesidad de crear un objeto de la clase. 
-- Variables finales o constantes: aquellas que no pueden cambiar su valor. Su nombre debe ir el mayúsculas.
-
-````
-public class Introduccion {
-    // variables globales
-    String nombre = "Develop";
-    int edad = 19;
-    boolean experiencia = false;
-    // variable estática
-    static String nombreAccesible = "Elemento";
-    // variable final
-    final static double PI = Math.PI;
-
-
-
-    protected void metodoInicial(){
-        // variables de método
-        String nombre= "Luis";
-        char letra = 'a';
-        System.out.println(nombre);
-        System.out.println(this.nombre);
+public class ControlDeFlujo {
+    
+    int nota;
+    public void estructuraIfBasica(){
+        nota = 7;
+        if (nota <5){
+            System.out.println("El examen está suspenso");
+        }
+        else{
+            System.out.println("El examen está aprobado");
+        }
     }
     
-    protected void metodoInicialDos(){
-        // variable de método no accesible
-        System.out.println(letra);
+    public static void main(String[]args){
+        ControlDeFlujo control = new ControlDeFlujo();
+        control.estructuraIfBasica();
+    }  
+}
+````
+Adicionalmente se puede construid un bloque if con condiciones alternativas, donde se evaluará cada condición si la anterior no se ha cumplido. Si ninguna de las anteriores se ha cumplido se ejecutará las sentencias escritas en el bloque del else. Modificando el ejemplo anterior una posibilidad sería
+
+````
+public class ControlDeFlujo {
+    
+    int nota;
+      
+    public void estructuraIfAlternativa(){
+        nota = 7;
+        if (nota <5){
+            System.out.println("El examen está suspenso");
+        }
+        else if (nota == 5){
+            System.out.println("El examen se ha aprobado justo");
+        }
+        else if (nota <9){
+            System.out.println("El examen se ha aprobado con buena nota");
+        }
+        else if (nota ==9){
+            System.out.println("El examen se ha aprobado con muy buena nota");
+        }
+        else{
+            System.out.println("El examen está perfecto");
+        }
     }
     
+    public static void main(String[]args){
+        ControlDeFlujo control = new ControlDeFlujo();
+        control.estructuraIfAlternativa();
+    } 
 }
 ````
 
-#### Tipos de datos
-****
-
-Los tipos de datos utilizados en programación son:
-
-|Tipo| Tamaño y formato |Rango|
-|--|--|--|
-|  | Enteros |	|
-| byte |8 bits - complemento a 2  |$$ -2^7 al 2^7 -1 $$	|
-| short | 16 bits - complemento a 2 |	$$ -2^15 a 2^15 -1 $$|
-| int| 32 bits - complemento a 2 |$$ -2^31 al 2^31 -1 $$	|
-| long | 64 bits - complemento a 2 |	$$ -2^63 al 2^63 -1 $$|
-|  |Reales  |	|
-|  float| 32 bits - IEEE 754 |	|
-|  double| 64 bits - IEEE 754 |	|
-|  | Resto |	|
-|  char| 16 bits - caracteres UNICODE |	|
-|  boolean| 1bit |	|
-|  |  |	|
-
-
-#### Literales
-****
-
-#### Constantes
-****
-
-#### Operadores y expresiones
-****
-
-Existen varios tipos de operadores: 
-
-- Aritméticos
-- De Asignación
-- Relacionales 
-- Lógicos
-
-##### Aritméticos
+##### switch
 ***
 
-Aquellos que manipulan datos numéricos
+La sentencias switch evalúa un valor de entrada para ejecutar un caso concreto. De la misma forma que la sentencia anterior, también hay una salida en el caso de no cumplirse ninguna de los valores expuestos. Es recomendable utilizar este tipo de estructura si se deben poner más de dos casos alternativos en la estructura if else. La sintaxis de la estructura es la siguiente:
 
-|||||||
-|-|-|-|-|-|-|
-|+|-|*|/|div|%|
-|+=|-=|*=|/=||
+````
+switch(evaluar){
+   case opcion1:
+   break
 
+   case opcion2:
+   break
 
-##### Asignación
-***
+   default:
+   break
+}
+````
+````
+public class ControlDeFlujo {
 
-=
+    int nota;
 
-##### Relacionales
-***
+    public void estructuraSwitch() {
+        nota = 8;
+        switch (nota) {
+            case 1:
+                System.out.println("La note obtenida es un 1");
+                break;
+            case 5:
+                System.out.println("La nota obtenida es un 5");
+                break;
+            case 10:
+                System.out.println("La nota obtenida es un 10");
+                break;
+            default:
+                System.out.println("La nota obtenida no está contemplada en este bloque");
+                break;
+        }
+    }
 
-|||||||
-|-|-|-|-|-|-|
-|==|!=|>|<|>=|<=|
+    public static void main(String[] args) {
+        ControlDeFlujo control = new ControlDeFlujo();
+        control.estructuraSwitch();
+    }
+}
+````
 
-##### Lógicos
-***
+En el estamento switch no es obligatorio el caso default, pero si recomendable para que se ejecute una parte de código siempre y cuando la entrada no esté contemplada en el bloque
 
-||||
-|-|-|-|
-|!|&|||
-
-
-#### Conversiones
+#### Estructuras de repetición
 ****
-
-#### Comentarios
-****
-
-Los comentarios son una de los elementos principales dentro del código de programación. Ayudan al entendimiento del mismo y al mantenimiento del mismo. Existen dos tipos de comentarios en java:
-
-- Comentarios de linea: aquellos que comentan una línea específica del programa
-````
-// se utilizan estos carácteres para poder crear un comentario de línea
-````
-- Comentarios de bloque: aquellos que se utilizan para comentar varias líneas en un mismo sitio:
-/* Todo aquello encerrado entre estos carácteres forma parte de un comentario de bloque */
-
-**Uso de comentarios especiales**
-
-Los comentarios son tan importantes que existe una herramienta propia de java que genera documentación a partir de comentarios creados. Esta herramienta se conoce como javadoc. Para que un comentario sea interpretado por javadoc debe tener la siguiente estructura /**Comentarios*/. Además, para que se genere una documentación adecuada debe incluir los siguientes epígrafes:
-
-|||
-|-|-|
-| @author | Autor del elemento a documentar | 
-| @version	| Versión del elemento de la clase | 
-| @return	| Indica los parámetros de salida | 
-| @exception	| Indica la excepción que puede generar | 
-| @param	| Código para documentar cada uno de los parámetros | 
-| @see	| Una referencia a otra clase o utilidad | 
-| @deprecated	| El método ha sido reemplazado por otro | 
-
-````
-/**
-* Frase corta descriptiva
-* Descripción de la clase
-* @author Nombre Apellido / Empresa
-* @version 0.1
-*/
-````
-````
-/**
-* Frase corta descriptiva
-* Descripción del método.
-* @param param1 descripción del parámetro.
-* @return qué devuelve el método.
-* @exception tipo de excepción que lanza el método y en qué caso
-* @see paquete.Clase#metodo Código al que se hace referencia
-* @throws IllegalArgumentException el param1 no tiene el formato deseado
-*/
-````
-
-
