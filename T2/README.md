@@ -249,7 +249,32 @@ Existen varios tipos de operadores:
 
 ![operadores aritméticos](./images/aritmeticos.png)
 
+Para los siguientes ejemplos tomase como referencia las siguientes variables:
 
+- byte a = 34;
+- int b = 11;
+- long c = 9;
+- float d = 34.7F;
+
+Los ejemplos de operadores serían:
+
+- a++;  // “a” vale 35
+-   b--;  // “b” vale 10
+-   --c;  // “c” vale 8
+-   ++d; // “d” vale 35.7
+- n1 = 3 * n1; // “n1” vale 36 (3 * n1→3*12→36) 
+- b=b+5; //“b”vale15(b+5→10+5→15)
+- n1 = n1 / b ; // “n1” vale 1 (n1 / b → 12/10 → 1) 
+- b = b % 3; // “b” vale 1 (b % 3 → 10 % 3 → 1)
+- b = -b; // “b” vale -1 (-b→-10)
+- d = d / c; // “d” vale 4.4625 (d / c → 35.7 / 8 → 4.4625) 
+- d = a / c; // “d” vale 4 (a / c → 35 / 8 → 4)
+- e = e / 5; // “e” vale -4 (e / 5 → -23 / 5 → -4)
+- e = e % 5; // “e” vale -3 (e % 5 → -23 % 5 → -3)
+- c = c / -5; // “c” vale -1 (c / -5 → 8 / -5 → -1)
+- c = c % -5; // “c” vale 3 (c % -5 → 8 % -5 → 3)
+- e = e / -5; // “e” vale 4 (e / -5 → -23 / -5 → 4)
+- e = e % -5; // “e” vale -3 (e % -5 → -23 % -5 → -3)
 
 ##### Asignación
 ***
@@ -263,6 +288,18 @@ Existen varios tipos de operadores:
 
 ![operadores de comparación](./images/comparacion.png)
 
+Sean las siguientes variables:
+- int a = 20, b = 2,c = 7;
+- char d = 'b';
+- float e = 20.5F;
+
+Los ejemplos serían los siguientes:
+
+- a+1==3*c → 20+1==3*7 → 21==3*7→ 21==21 → true 
+- d+3>'h' → 98+3>104 → 101>104 → false
+- e-b<=a → 20.5-2<=20 → 18.5<=20.0 → true
+
+Este tipo de sentencias, al devolver una variable booleana se utiliza mucho en bloques if como se verá en el siguiente tema
 
 ##### Lógicos
 ***
@@ -272,8 +309,21 @@ Existen varios tipos de operadores:
 
 #### Conversiones
 ****
+En algunos casos nos interesará asignar a una variable el valor de otra variable de tipo “superior”. En tal caso, se tendrán que convertir el valor a asignar al tipo de la variable destino con el operador de conversión de tipos.
 
+Sean las siguientes variables:
+- int numero = 0; 
+- float valor = 0; 
+- char letra = 'a'; 
+- double peso = 64.7;
 
+Para convertir una variable de un tipo en otro tipo se utiliza el casteo directo siempre y cuando el tipo al que se quiera pasar sea mayor que el del origen. Para ello se pone entre paréntesis el tipo al que se quiere pasar.
+
+- numero = (int) peso; // int < double 
+- letra = (char) peso; // char < double 
+- valor = (float) peso; // float < double
+
+De no ser así, se utilizará el parseo, método propio de cada uno de los tipos.
 
 #### Comentarios
 ****
