@@ -12,7 +12,22 @@ Cuando un programa llega a una parte de ejecución donde hay dos o mas alternati
 ##### if
 ***
 
-Estructura que ejecutará el bloque de código que cumpla con la condición a evaluar. La sintaxis de la estructura es la siguiente.
+Estructura que ejecutará el bloque de código que cumpla con la condición a evaluar. Existen tres posibilidades de ejecución:
+
+- if
+- if else
+- if else if else
+
+Los diagramas de flujo para cada una de las posibilidades son:
+
+- if 
+
+![flujo if](./images/flujoif.png)
+
+- if else
+-  if else if else
+
+La sintaxis de la estructura es la siguiente.
 
 ````
 if (condición){
@@ -43,7 +58,7 @@ public class ControlDeFlujo {
     }  
 }
 ````
-Adicionalmente se puede construid un bloque if con condiciones alternativas, donde se evaluará cada condición si la anterior no se ha cumplido. Si ninguna de las anteriores se ha cumplido se ejecutará las sentencias escritas en el bloque del else. Modificando el ejemplo anterior una posibilidad sería
+Adicionalmente se puede construir un bloque if con condiciones alternativas, donde se evaluará cada condición si la anterior no se ha cumplido. Si ninguna de las anteriores se ha cumplido se ejecutará las sentencias escritas en el bloque del else. Modificando el ejemplo anterior una posibilidad sería
 
 ````
 public class ControlDeFlujo {
