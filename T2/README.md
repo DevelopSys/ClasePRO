@@ -46,15 +46,20 @@ Lo normal es la existencia de una clase por cada archivo, el cual debe tener el 
 ##### Variables
 ****
 
-Serán explicadas más adelante y tienen como objetivo guardar datos que serán utilizados durante la ejecución del programa
+Serán explicadas más adelante y tienen como objetivo guardar datos que serán utilizados durante la ejecución del programa. Su estructura básica es la siguiente:
+
+````
+tipo nombre = valor
+String palabra = "Hola"
+````
 
 ##### Métodos
 ****
 
-Son las funcionalidades individuales que pueden ser llamadas desde cualquier parte del código. Su estructura o firma es la siguiente
+Son las funcionalidades individuales que pueden ser llamadas desde cualquier parte del código. Para poder ejecutar todo el interior del mismo simplemente hay que llamarlo por su nombre, con los parámetros que se indiquen. Su estructura o firma es la siguiente
 
 ````
-modificador_acceso valor_retorno nombre_método(parámetro) {
+modificador_acceso valor_retorno nombre_método(parámetro nombre) {
 ````
 
 En el caso de tener un valor de retorno es obligatorio que tenga la palabra reservada return
@@ -75,12 +80,36 @@ public void mostrarMensaje(){
 mostrarMensaje();
 ````
 
+Existen también métodos estáticos, los cuales pueden ser llamados simplemente con el nombre de la clase.nombre_metodo
+
+Su sintaxis es la siguiente:
+
+````
+
+static retorno nombre_método (parámetros)
+{
+}
+````
+
+Ejemplos: 
+
+1. Crea un nuevo programa que muestre ¡Hola mundo!, para la salida por consola se haga en un método sin datos de entrada ni salida de nombre “saludar”. 
+2. Crea un método que se llame saludarPerso el cual admita un parámetro de tipo string y muestre por consola el mensaje "Hola NombreIntroducido".
+3. Crea un programa en el se defina una constante global con el valor del número pi (3,1416) y se muestre por consola. Se definirá un método de nombre “mostrarPI” sin datos de entrada ni salida. (mostrarPI)
+4. Crea un método que admita como parámetros dos números y muestre por consola su suma. 
+
 ##### Bloques
 Los bloques de código son partes del programa que tienen una ejecución específica. Dentro de los bloques encontramos los estamentos que se encargan de realizar por ejemplo repeticiones, toma de decisiones, etc...
 ****
 
 #### Identificadores
 ****
+Un identificador es una palabra que representa elementos de un lenguaje de programación.
+
+En java un identficador se define del siguiente modo:
+- Comienza con una letra, un subrayado (_) o un símbolo de dólar ($). Los siguientes caracteres pueden ser letras, dígitos y subrayado.
+- Se distinguen las mayúsculas de las minúsculas.
+- No hay una longitud máxima establecida para el identificador
 
 #### Palabras reservadas
 ****
@@ -218,36 +247,33 @@ Existen varios tipos de operadores:
 ##### Aritméticos
 ***
 
-Aquellos que manipulan datos numéricos
+![operadores aritméticos](./images/aritmeticos)
 
-|||||||
-|-|-|-|-|-|-|
-|+|-|*|/|div|%|
-|+=|-=|*=|/=||
 
 
 ##### Asignación
 ***
 
-=
+![operadores de asignación](./asignacion)
 
-##### Relacionales
+
+
+##### Relacionales o de comparación
 ***
 
-|||||||
-|-|-|-|-|-|-|
-|==|!=|>|<|>=|<=|
+![operadores de comparación](./images/comparacion)
+
 
 ##### Lógicos
 ***
 
-||||
-|-|-|-|
-|!|&|||
+![operadores lógicos](./images/logicos.png)
 
 
 #### Conversiones
 ****
+
+
 
 #### Comentarios
 ****
