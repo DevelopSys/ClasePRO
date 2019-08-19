@@ -76,7 +76,7 @@ mostrarMensaje();
 ````
 
 ##### Bloques
-Los bloques de código son partes del programa que tienen una ejecución especófica. Dentro de los bloques encontramos los estamentos que se encargan de realizar por ejemplo repeticiones, toma de decisiones, etc...
+Los bloques de código son partes del programa que tienen una ejecución específica. Dentro de los bloques encontramos los estamentos que se encargan de realizar por ejemplo repeticiones, toma de decisiones, etc...
 ****
 
 #### Identificadores
@@ -174,9 +174,36 @@ Los tipos de datos utilizados en programación son:
 
 #### Literales
 ****
+Los valores literales son aquellos que podemos asignar a las variables. Dependiendo del tipo de variable podremos asignar unos valores u otros, tal y como se ha visto en los puntos anteriores. Además de todos los tipos literales vistos en la tabla anterior, también se pueden utilizar elementos especiales, siempre y cuando comiencen con la barra invertida:
+|caracter|acción|
+|-|-|
+|b|retrocesov
+|t|tabular la cadena|
+|n|salto de línea|
+|f|form feed|
+|r|retorno de carro|
+|'|comilla simple|
+|"|comilla doble|
+|\|barra invertida|
 
 #### Constantes
 ****
+Como ya se comentó en el bloque de las variables una constante es un valor de un tipo con un nombre que no se puede modificar durante la ejecución del programa. En su definición se acompañan con la palabra reservada final. Existen multitud de constantes creadas en el lenguaje. Un claro ejemplo son los valores máximos y mínimos de cada uno de los tipos de datos primitivos númericos y de carácter se almacenan en las siguientes constantes globales:
+
+1. Byte.MIN_VALUE || Byte.MAX_VALUE
+2.  Short.MIN_VALUE || Short.MAX_VALUE
+3.  Integer.MIN_VALUE || Integer.MAX_VALUE
+4.  Long.MIN_VALUE || Long.MAX_VALUE
+5.  Float.MIN_NORMAL || Float.MAX_VALUE
+6.  Double.MIN_NORMAL || Double.MAX_VALUE
+7.  (int) Character.MIN_VALUE || (int) Character.MAX_VALUE
+
+Como se puede ver, todas las constantes por definición se definen con nombres en mayúsculas. Del mismo modo, para que estas sean accesibles desde fuera de la clase de forma directa, suelen ir acompañadas del modificador static
+
+````
+final static double VALOR = 9.5;
+
+````
 
 #### Operadores y expresiones
 ****
