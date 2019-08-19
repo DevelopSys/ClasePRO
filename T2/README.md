@@ -254,7 +254,7 @@ Existen varios tipos de operadores:
 ##### Asignación
 ***
 
-![operadores de asignación](./asignacion.png)
+![operadores de asignación](./images/asignacion.png)
 
 
 
