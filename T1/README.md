@@ -25,13 +25,13 @@ Una vez descargado e instalado <a href="https://www.oracle.com/technetwork/java/
 
 Para ello:
 
-![lvariable de entorno](./images/variable1.png)
-![lvariable de entorno](./images/variable2.png)
-![lvariable de entorno](./images/variable3.png)
-![lvariable de entorno](./images/variable4.png)
-![lvariable de entorno](./images/variable5.png)
-![lvariable de entorno](./images/variable6.png)
-![lvariable de entorno](./images/variable7.png)
+- ![lvariable de entorno](./images/variable1.png)
+- ![lvariable de entorno](./images/variable2.png)
+- ![lvariable de entorno](./images/variable3.png)
+- ![lvariable de entorno](./images/variable4.png)
+- ![lvariable de entorno](./images/variable5.png)
+- ![lvariable de entorno](./images/variable6.png)
+- ![lvariable de entorno](./images/variable7.png)
 
 Para poder comprobar que todo ha funcionado correctamente se puede ejecutar el siguiente comando:
 
