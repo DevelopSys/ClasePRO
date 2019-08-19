@@ -16,7 +16,7 @@ Estructura que ejecutará el bloque de código que cumpla con la condición a ev
 
 - if
 - if else
-- if else if else
+- if elseif else
 
 Los diagramas de flujo para cada una de las posibilidades son:
 
@@ -25,9 +25,16 @@ Los diagramas de flujo para cada una de las posibilidades son:
 ![flujo if](./images/flujoif.png)
 
 - if else
--  if else if else
+
+![flujo if](./images/flujoifelse.png)
+
+-  if elseif else
+
+![flujo if](./images/flujoifelse2.png)
 
 La sintaxis de la estructura es la siguiente.
+
+- if
 
 ````
 if (condición){
@@ -35,6 +42,31 @@ if (condición){
 }
 else{
     //sentencias a ejecutar si no se cumple la condición anterior
+}
+````
+
+- if else 
+
+````
+if (condición){
+    //sentencias a ejecutar
+}
+else{
+    //sentencias a ejecutar si no se cumple la condición anterior
+}
+````
+
+- if elseif else
+
+````
+if (condición){
+    //sentencias a ejecutar
+}
+else if (condición){
+    //sentencias a ejecutar si no se cumple la condición anterior
+}
+else{
+	//sentencias a ejecutar
 }
 ````
 
@@ -94,7 +126,14 @@ public class ControlDeFlujo {
 ##### switch
 ***
 
-La sentencias switch evalúa un valor de entrada para ejecutar un caso concreto. De la misma forma que la sentencia anterior, también hay una salida en el caso de no cumplirse ninguna de los valores expuestos. Es recomendable utilizar este tipo de estructura si se deben poner más de dos casos alternativos en la estructura if else. La sintaxis de la estructura es la siguiente:
+La sentencias switch evalúa un valor de entrada para ejecutar un caso concreto. De la misma forma que la sentencia anterior, también hay una salida en el caso de no cumplirse ninguna de los valores expuestos. Es recomendable utilizar este tipo de estructura si se deben poner más de dos casos alternativos en la estructura if else. 
+
+El diagrama de flujo es el siguiente:
+
+![flujo switch](./images/flujoswitch.png)
+
+
+La sintaxis de la estructura es la siguiente:
 
 ````
 switch(evaluar){
@@ -148,7 +187,13 @@ Son aquellas que mediante la evaluación de una sentencia, ejecuta n veces una s
 ##### for
 ***
 
-Una sentencia for es utilizada cuando se necesita recorrer un conjunto de datos determinado, como por ejemplo un array de datos. Para ello lo que se necesita indicar el inicio, el final y el incremente utilizado cada vez que se realice un recorrido. La sintaxis de esta estructura es:
+Una sentencia for es utilizada cuando se necesita recorrer un conjunto de datos determinado, como por ejemplo un array de datos. Para ello lo que se necesita indicar el inicio, el final y el incremente utilizado cada vez que se realice un recorrido.
+
+El diagrama de flujo es el siguiente:
+
+![flujo for](./images/flujofor.png)
+
+La sintaxis de esta estructura es:
 
 ````
 for (inicio; final: incremento){
@@ -186,7 +231,13 @@ Una sentencia do o do while ejecuta un conjunto de líneas de código siempre y 
 
 **do while**
 
-Esta estructura ejecuta una serie de líneas de código para después evaluar si una condición es verdadera. En este tipo de ejecuciones las líneas de código se ejecutan al menos una vez. La sintaxis de esta estructura es:
+Esta estructura ejecuta una serie de líneas de código para después evaluar si una condición es verdadera. En este tipo de ejecuciones las líneas de código se ejecutan al menos una vez. 
+
+El diagrama de flujo es el siguiente:
+
+![flujo do while](./images/flujodowhile.png)
+
+La sintaxis de esta estructura es:
 
 ````
 do{
@@ -207,7 +258,13 @@ do{
 
 **while**
 
-Una estructura while es exactamente lo mismo que la anterior con la diferencia de que antes de ejecutar las líneas de código se evalúa la condición de entrada, donde en el caso de ser verdadera ejecuta las líneas de código. La sintaxis a utilizar es:
+Una estructura while es exactamente lo mismo que la anterior con la diferencia de que antes de ejecutar las líneas de código se evalúa la condición de entrada, donde en el caso de ser verdadera ejecuta las líneas de código. 
+
+El diagrama de flujo es el siguiente:
+
+![flujo while](./images/flujowhile .png)
+
+La sintaxis a utilizar es:
 
 ````
 while(condición){
@@ -233,6 +290,10 @@ Las estructuras de salto se utilizan para controlar el flujo del programa. En cu
 
 Dentro de la iteracion en un bucle el uso de esta sentencia rompe la iteracion de dicho bucle. Un ejemplo claro de su uso es el bloque switch
 
+El diagrama de flujo es el siguiente:
+
+![flujo break](./images/flujobreak.png)
+
 ````
 int numero = 10;
 
@@ -249,6 +310,10 @@ do{
 ##### continue
 
 Se utiliza dentro de un bloque para saltar una iteración del bloque cuando se cumple la condición donde está indicado
+
+El diagrama de flujo es el siguiente:
+
+![flujo continue](./images/flujocontinue.png)
 
 ````
 int numero = 11;
