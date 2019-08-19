@@ -39,7 +39,6 @@ a = in.nextLine();  //a es de tipo String
 
 #### Estructuras y bloques fundamentales
 ****
-
 Los bloques fundamentales dentro de un programa son:
 
 - Clases
