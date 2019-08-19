@@ -123,6 +123,17 @@ public class ControlDeFlujo {
 }
 ````
 
+Ejemplos a realizar:
+
+1. Pedir por teclado un entero y guardarlo en una variable llamada a. Comprobar si “a” es par. De serlo, se almacena en la cadena “s” el texto “Es par”. Al final del bloque mostrar el mensaje por pantalla
+2. Pedir por teclado un entero y guardarlo en una variable llamada a. Comprobar si “a” es par o menor que 10 o menor que 100. De ser par, se incrementa en una unidad “a”; de no ser par, si es menor que 10, se decrementa “a” en una unidad; de no ser par, ni ser menor que 10, si es menor que 100, se duplica el valor de “a” y se incrementa en una unidad; de no ser par, ni menor que 10, ni menor que 100, entonces se le asigna a “a” el valor de 0. Al final del bloque mostrar el valor de la por pantalla
+3. Pedir por teclado un entero y guardarlo en una variable llamada a. Comprobar los siguientes casos:
+	4. Si es menor que 10 imprimir:
+		5. Si es menor que 0 imprimir el mensaje "negativo"
+		6. Si es menor que 10 imprimir el mensaje "un dígito"
+	7. Si es menor que 99 imprimir el mensaje "dos dígitos"
+	8. Si es mayor que 99 imprimir el mensaje "tres dígitos"
+	
 ##### switch
 ***
 
@@ -179,6 +190,17 @@ public class ControlDeFlujo {
 
 En el estamento switch no es obligatorio el caso default, pero si recomendable para que se ejecute una parte de código siempre y cuando la entrada no esté contemplada en el bloque
 
+Ejemplos a realizar:
+
+1. Pedir por teclado un valor que será guardado en una variable llamada "a". Comprobar los siguientes casos:
+	2. Si el número introducido es 1 imprimir el mensaje "Número 1"
+	2. Si el número introducido es 2 imprimir el mensaje "Número 2"
+	2. Si el número introducido es 3 imprimir el mensaje "Número 3"
+	2. Si el número introducido es 4 imprimir el mensaje "Número 4"
+	2. Si el número introducido es diferente el mensaje "Número desconocido"
+
+
+
 #### Estructuras de repetición
 ****
 
@@ -223,6 +245,11 @@ for (int index: numeros) {
 }
 ````
 
+Ejemplos a realizar:
+
+1. Pedir un número por teclado. En el caso que el número introducir sea mayor que 10 o menor que 0 el programa parará la ejecución con el mensaje "dato erróneo". En caso contrario mostrará la tabla de multiplicar del número introducido con la siguiente estructura: "5 por 1 = 5" "5 por 2 = 10"  ...
+2. Realizar un programa que lea por teclado 10 números y los sume. Al final del proceso mostrará la suma total
+3. Generar 100 números aleatorios entre 1 y 1000 (Math.random()*1001), ambos incluisve, mostrar cada número generado y contabilizar cuántos de ellos son pares.
 
 ##### while // do while
 ***
@@ -279,6 +306,12 @@ while (numero>0){
     numero--;
 }
 ````
+
+Ejemplos a realizar:
+
+1. Realiza un programa que lee enteros pares hasta introducir un impar. El programa cuenta el número de positivos de los números leído y lo mostrará cuando se introduzca un impar
+2. Generar números aleatorios entre 0 y 1000 hasta obtener un cero (momento en el cual el programa terminará), y contabilizar cuántos de ellos son pares. Al final del programa se mostrará cuantos pares se han obtenido
+3. Realizar un menú con 4 posibilidades, donde cada vez que se pulse una opción aparezca el mensaje "Pulsada la opción 1". Tras mostrar el mensaje se volverá a mostrar el menú con su correspondiente ejecución. La 4 posibilidad parará la ejecución con el mensaje "saliendo ...". En el caso de introducir un número que no esté entre 1 y 4 aparecerá el mensaje "número no contemplado"
 
 #### Estructuras de salto
 ***
