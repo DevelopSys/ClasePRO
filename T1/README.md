@@ -15,6 +15,10 @@
 - <a href="https://github.com" target=»_blank>GitHub</a>
 - <a href="https://dev.mysql.com/downloads/connector/j/5.1.html" target=»_blank>JDBC Connector</a>
 
+### Lenguajes de programación
+
+![lenguajes de programación](./images/lenguajes.png)
+
 ### Instalar JDK y setear variable de entorno
 ### Instalar Intellij IDEA
 ### Crear cuenta de github y manejo
