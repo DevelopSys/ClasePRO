@@ -13,6 +13,30 @@
 
 #### [Volver al índice](#indice)
 
+Antes de empezar y aunque se explicará más adelante en detalle es necesario saber que para poder leer datos por teclado se hará utilizando la clase Scanner que se encuentra en la librería o paquete “java.útil”.
+Se definirá una constante global de tipo Scanner con el valor inicial de fichero de entrada el de la consola: final Scanner in = new Scanner(System.in);
+
+Para poder definir una variable de tipo Scanner en una aplicación se tendrá que importar dicha clase en la aplicación de la siguiente manera:
+````
+Scanner in = new Scanner(System.in);
+````
+Existen métodos específicos para cada uno de los datos los cuales son los siguientes:
+
+````
+a = in.next();  //a es de tipo String
+a = in.nextByte();  //a es de tipo byte
+a = in.nextShort();  //a es de tipo short
+a = in.nextInt();  //a es de tipo int
+a = in.nextLong();  //a es de tipo long
+a = in.nextFloat();  //a es de tipo float introducido con ,
+a = in.nextDouble();  //a es de tipo double introducido con ,
+a = in.nextBoolean();  //a es de tipo boolean
+a = in.next().charAt(0);  //a es de tipo char
+a = in.nextLine();  //a es de tipo String
+// la ejecución de in.nextLine() vacía el buffer de lectura	
+````
+
+
 #### Estructuras y bloques fundamentales
 ****
 
