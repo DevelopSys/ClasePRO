@@ -174,7 +174,8 @@ Los tipos de datos utilizados en programación son:
 
 #### Literales
 ****
-Los valores literales son aquellos que podemos asignar a las variables. Dependiendo del tipo de variable podremos asignar unos valores u otros, tal y como se ha visto en los puntos anteriores. Además de todos los tipos literales vistos en la tabla anterior, también se pueden utilizar elementos especiales, siempre y cuando comiencen con la barra invertida:
+Los valores literales son aquellos que podemos asignar a las variables. Dependiendo del tipo de variable podremos asignar unos valores u otros, tal y como se ha visto en los puntos anteriores. Además de todos los tipos literales vistos en la tabla anterior, también se pueden utilizar elementos especiales, siempre y cuando comiencen con la barra invertida :
+
 |carácter|acción|
 |--|--|
 |b|retroceso|
@@ -184,7 +185,6 @@ Los valores literales son aquellos que podemos asignar a las variables. Dependie
 |r|retorno de carro|
 |'|comilla simple|
 |"|comilla doble|
-|\|barra invertida|
 
 #### Constantes
 ****
