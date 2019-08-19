@@ -247,21 +247,21 @@ Existen varios tipos de operadores:
 ##### Aritméticos
 ***
 
-![operadores aritméticos](./images/aritmeticos)
+![operadores aritméticos](./images/aritmeticos.png)
 
 
 
 ##### Asignación
 ***
 
-![operadores de asignación](./asignacion)
+![operadores de asignación](./asignacion.png)
 
 
 
 ##### Relacionales o de comparación
 ***
 
-![operadores de comparación](./images/comparacion)
+![operadores de comparación](./images/comparacion.png)
 
 
 ##### Lógicos
