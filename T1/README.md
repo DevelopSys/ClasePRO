@@ -17,7 +17,23 @@
 
 ### Lenguajes de programación
 
+Según diversos autores es un programa destinado a la construcción de otros programas informáticos. Su nombre se debe a que comprende un lenguaje formal que está diseñado para organizar algoritmos y procesos lógicos que serán luego llevados a cabo por un ordenador o sistema informático, permitiendo controlar así su comportamiento físico, lógico y su comunicación con el usuario humano. Existen numeros lenguajes de programación, muchos de ellos específicos para algunas tareas. No es necesario conocer todos los existentes ya que el manejo avanzado de uno permite cambiar entre lenguajes sin mucho trabajo, simplemente es necesario conocer la sintaxis del nuevo lenguaje. La mayoría de ellos se basan en un mismo concepto: programación orientada a objetos, por lo que es lo realmente importante de manejar. 
+
+Una lista de los principales lenguajes de programación y su uso en mercado a Agosto de 19 (según el estudio Índice TIOBE)
+
+Fuente: https://concepto.de/lenguaje-de-programacion/#ixzz5x7qcsJqZ
+
 ![lenguajes de programación](./images/lenguajes.png)
+
+#### ¿Qué es un algoritmo?
+
+Un algoritmo es una serie de instrucciones que son ejecutadas para poder solventar un problema. Según esta definición, un algoritmo podría ser cualquier tarea cotidiana a la que nos enfrentamos. Cuando estamos hablando de ordenadores, a los algoritmos hay que añadirle datos de entrada (inputs) y datos de salida (outputs) los cuales interfieren con el desarrollo del problema.
+
+Cuando una persona se enfrenta a un problema cotidiano no piensa cuales son los pasos que tienenq ue dar para poder solucionarlo ya que la gran mayoría está automatizado. Si estamos hablando de un algorítmo informático, es necesario decirle paso a paso al ordenador cuales son las tareas que se deben llevar a cabo.
+
+Ejemplos:
+
+1. Define el algorimo para realizar una tarea cotidiana
 
 ### Instalar JDK y setear variable de entorno
 
@@ -38,8 +54,7 @@ es un es un entorno de desarrollo integrado para el desarrollo de programas escr
 
 Una vez descargado e instalado la configuración inicial para poder empezar a trabajar no necesita de grades cosas. Simplemente hay que asegurarse que se ha detectado el jdk de java. Para ello hay que entrar en project structure
 
-![project structure](./intellij.png)
-
+![project structure](./images/intellij.png)
 
 Para ver todas las funcionalidades existe una <a href="https://www.jetbrains.com/help/idea/discover-intellij-idea.html" target="_blank">guía oficial</a> donde se pueden consultar
 
