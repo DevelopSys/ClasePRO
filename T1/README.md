@@ -79,6 +79,7 @@ Con esa configuración hecha se podrá:
     - Commit: acepta los cambios realizados en el repositorio local (se debe dejar un mensaje de información)
     ![intellij github](./images/git2.png)
     - Push: sube al repositorio remoto los cambios aceptados desde un commit determinado (ambos pasos se pueden realizar en uno solo)
+    
     ![intellij github](./images/git3.png)
     - Pull: comprobación de posibles cambios en el repositorio remoto para descargarlos al local
     - Branch: ramas del proyecto que podrán ser creadas por cualquier persona que realice una petición. Estas deberán ser aprobadas por el creador del proyecto para que formen parte del mismo
