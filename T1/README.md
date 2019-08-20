@@ -12,7 +12,9 @@
 - <a href="https://docs.oracle.com/en/java/javase/12/docs/api/index.html" target=»_blank> Java 12 API</a>
 - <a href="https://www.jetbrains.com/idea/download/" target=»_blank> Intellij IDEA IDE</a>
 - <a href="https://www.eclipse.org/downloads/" target=»_blank> Eclipse IDE</a>
+- <a href="https://git-scm.com/downloads" target="blank">Git</a>
 - <a href="https://github.com" target=»_blank>GitHub</a>
+- <a href="https://desktop.github.com">GitHub Desktop</a>
 - <a href="https://dev.mysql.com/downloads/connector/j/5.1.html" target=»_blank>JDBC Connector</a>
 
 ### Lenguajes de programación
@@ -60,3 +62,29 @@ Para ver todas las funcionalidades existe una <a href="https://www.jetbrains.com
 
 
 ### Crear cuenta de github y manejo
+
+GitHub es una plataforma de control de versiones mediante la cual se pueden compartir y mantener proyectos informáticos entre equipos de trabajo de forma muy sencilla. Existen dos modalidades: gratis y de pago. La diferencia básicamente es el acceso a los códigos o repositorios que se crean dentro de una cuenta. Mientras que la modalidad de pago puedes subir códigos que no serán vistos más que por los usuarios que se indique, la modalidad gratuita permite que los códigos sean vistos por toda la comunidad.
+
+Para darse de <a href="https://github.com" target=»_blank>alta en GitHub</a> tan solo en necesario un correo electrónico e indicar un nombre de usuario y contraseña. Adicionalmente, para poder trabajar con la herramienta de control de versiones es necesario <a href="https://git-scm.com/downloads" target="blank">descargar el software git</a>, el cual permite la ejecición de los comandos necesarios para el manejo de los repositorios. Opcionalmente se puede descargar un cliente gráfico para el manejo de los comandos (se puede manejar simplemente con comandos en terminal) como por ejemplo el <a href="https://desktop.github.com">cliente oficial</a>
+
+https://conociendogithub.readthedocs.io/en/latest/
+
+Todo lo visto anteriormente se puede utilizar para trabajar mediante comandos o mediante la web (con la sesión iniciada), pero también se puede trabajar diréctamente desde el IDE seleccionado para programar (en nuestro caso Intellij IDEA). Para ello dentro de las preferencias hay que seleccionar en el árbol de la derecha la opción de "Control de versiones --> GitHub". Una vez ahí se añade una cuenta, la cual permitirá trabajar con repositorios propios o de otra persona (fork)
+
+![intellij github](./images/git1.png)
+
+Con esa configuración hecha se podrá:
+- Clonar un repositorio directamente desde la opción "Checkout from control version"
+- Manejar un repositorio ya clonado desde el proyecto, confirmando y subiendo los cambios realizados:
+    - Commit: acepta los cambios realizados en el repositorio local (se debe dejar un mensaje de información)
+    ![intellij github](./images/git2.png)
+    - Push: sube al repositorio remoto los cambios aceptados desde un commit determinado (ambos pasos se pueden realizar en uno solo)
+    ![intellij github](./images/git3.png)
+    - Pull: comprobación de posibles cambios en el repositorio remoto para descargarlos al local
+    - Branch: ramas del proyecto que podrán ser creadas por cualquier persona que realice una petición. Estas deberán ser aprobadas por el creador del proyecto para que formen parte del mismo
+
+
+
+
+
+
