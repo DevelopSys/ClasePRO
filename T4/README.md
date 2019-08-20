@@ -27,8 +27,6 @@ Son utilizados para leer y escribir información que esta almacenada en forma bi
 - System.in implementa la entrada estándar. Se trata de una instancia de la clase OutputStream la cual realiza un flujo de bytes de salida
 - System.err implementa la salida de error, similar a la anterior pero utilizada para mostrar mensajes de error con las excepciones 
 
-![jerarquía clases](./images/javaio2.png)
-
 
 #### Flujos de carácteres
 
@@ -36,7 +34,10 @@ Son utilizados para leer y escribir información que esta almacenada en forma de
 
 - Manejados con la clase Reader y Writer
 
-![jerarquía clases](./images/javaio1.png)
+#### Jerarquía de clases
+
+![jerarquía clases](./images/javaio.png)
+
 
 #### Scanner
 
