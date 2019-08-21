@@ -11,7 +11,7 @@
         - Apertura y cierre de ficheros. Modos de acceso.
         - Escritura y lectura de información en ficheros.
         - Almacenamiento de objetos en ficheros. Persistencia. 
-        -  Serialización. 􏰀 Utilización de los sistemas de ficheros.
+        - Serialización. 􏰀 Utilización de los sistemas de ficheros.
         - Creación y eliminación de ficheros y directorios.
 
 ### Flujos 
@@ -173,7 +173,7 @@ Ejemplos a realizar (realizarlo con las comprobaciones de existencia):
 
 **Modifica todos los ejemplos para pedir los nombres por consola**
 
-#### Lectura y escritura en ficheros
+#### Lectura y escritura de caracteres en ficheros
 
 ##### Lectura
 
@@ -231,5 +231,193 @@ bw.write();
 bw.newLine();
 ````
 
+Del mismo modo que pasaba con la lectura, es obligatorio cerrar el flujo al terminar cualquier operación
+
 Ejemplos:
 1. Crea un programa que pida por consola los siguientes datos: nombre, apellido, edad. Tras pedir el último dato lo escribirá en un fichero llamado usuarios.txt (se creara si no existe en la raíz del proyecto). El programa seguirá pidiendo datos hasta que no se pare la ejecución
+
+#### Lectura y escritura de bytes en ficheros
+
+Para la lectura y escritura de bytes el proceso es muy parecido. Una de las primeras diferencias que encontramos es la necesidad de tener un objeto de tipo FileStream, que depende de un objeto de tipo File
+
+````
+File f = new File ("src/documentos/ejemplo.txt);
+FileInputStream fis = new FileInputStream(f);
+````
+
+Este flujo deberá ser cerrado cada vez que se termine la acción que se lleva a cabo
+
+````
+fis.close();
+````
+
+##### Lectura
+Para la lectura se utiliza el objeto de tipo FileInputStream y el método read
+````
+FileInputStream fis = new FileInputStream(f);
+int caracteres;
+byte[] caracterByte = new byte[1];
+while ((caracteres = fis.read(caracterByte)) != -1) {
+	//devolución byte combertido a coódigo ASCII
+	System.out.println((char) caracteres);
+	System.out.println(new String(caracterByte));
+}
+fis.close();
+````
+
+Hay que tener en cuenta que este método me devuelve el valor numérico correspondiente, el cual hay que pasar a byte y a String consecutivamente para poder leer el contenido de forma comprensible
+
+##### Escritura
+
+Para la escritura se utiliza el objeto de tipo FileOutputStream y el método write. Para poder utilizar este método hay que pasarle una cadena de bytes, por lo que habrá que convertir el objeto a guardar en bytes
+
+````
+FileOutputStream fos = new FileOutputStream(f);
+String texto = "ejemplo de texto a guardar codificado en bytes";
+byte[] caracterByte = texto.getBytes();
+System.out.println(caracterByte);
+fos.write(caracterByte);
+fos.close();
+
+````
+
+**Al trabajar todo el rato en bytes y tener que convertir de forma manual los datos, este proceso resulta bastante tedioso. Para poder mejorar el flujo de datos se utiliza la clase DataStream, la cual escribe bytes y lee el byte traduciéndolo a su tipo correspondiente**
+
+##### DataInput y DataOutput
+
+Las clases DataInputStream y DataOutputStream permiten procesar ficheros binarios secuenciales de tipos básicos.Tanto la entrada como la salida tienen dependencias de los explicado en los puntos anteriores (FileStream y FileInput / FileOutput)
+
+###### DataInput
+
+La clase DataInputStream permite leer registros, campo a campo, de ficheros binarios de tipos básicos.
+
+````
+DataInputStream fe = new DataInputStream(new FileInputStream(new File("src/ejemplo.bin")));
+````
+
+Los métodos que se pueden utilizar para la lectura son:
+````
+a = fe.readUTF();
+a = fe.readChar();
+a = fe.readBoolean();
+a = fe.readByte();
+a = fe.readShort();
+a = fe.readInt();
+a = fe.readLong();
+a = fe.readFloat();
+a = fe.readDouble();
+a = fe.readLine();
+````
+
+###### DataOutput
+
+La clase DataOutputStream permite escribir registros de ficheros binarios de tipos básicos.
+
+````
+DataOutputStream fs = new DataOutputStream(new FileOutputStream(new File("src/ejemplo.bin")));
+````
+
+Los métodos más utilizados para la escritura son:
+
+````
+DataOutputStream dos = new DataOutputStream(new FileOutputStream(f));
+dos.writeChars("Ejemplo de escritura");
+dos.writeChar('\n');
+dos.writeInt(100);
+````
+
+Del mismo modo que se han escrito char o int se puede escribir cualquier tipo indicándolo en el método writeXXX();
+
+**En todos los casos expuestos en el trabajo con ficheros, es necesario la captura de excepciones por la posibilidad de no existencia de los ficheros, errores de I/O, etc...**
+
+#### Trabajando con objetos: ObjectStream
+
+Las clases ObjectInputStream y ObjectOutputStream permiten procesar ficheros binarios secuenciales de objetos. La extensión del fichero deberá ser .obj
+
+##### ObjectInput
+La clase ObjectInputStream permite leer registros de tipo un objeto. Hay que tener en cuenta que para poder guardar / leer un objeto este debe ser serializado (implementar la interfaz serializable) de forma que sea procesado por partes.
+
+````
+ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
+Object o = ois.readObject();
+for (Producto p: (ArrayList<Producto>)o
+) {
+	System.out.println(p.getNombre());
+}
+ois.close();
+````
+
+##### ObjectOutput
+
+Para la escritura se utiliza un objeto de tipo ObjectOutStream con el método writeXXX y el tipo concreto. En este caso existe la posibilidad de ejecutar el método writeObject(), teniendo en cuenta que el objeto que se quiera escribir haya implementado la interfaz serializable
+
+````
+ArrayList<Producto> listaProductos = new ArrayList<Producto>();
+listaProductos.add(new Producto("Nombre1", "Descripcion1", 12));
+listaProductos.add(new Producto("Nombre2", "Descripcion2", 23));
+listaProductos.add(new Producto("Nombre3", "Descripcion3", 43));
+listaProductos.add(new Producto("Nombre4", "Descripcion4", 62));
+listaProductos.add(new Producto("Nombre5", "Descripcion5", 145));
+try {
+	ObjectOutputStream oos = new ObjectOutputStream(new 	FileOutputStream(f));
+	oos.writeObject(listaProductos);
+	oos.close();
+} catch (IOException e) {
+	e.printStackTrace();
+}
+````
+
+#### Ficheros aleatorios
+
+Hasta este punto se ha trabajado con ficheros secuenciales (aquellos que deben ser leídos en orden). Java permite la creación de ficheros de acceso aleatorio que permite el acceso para escritura o lectura en un punto determinado. 
+
+#### RandomAccessFile
+
+La clase RandomAccessFile permite procesar ficheros binarios con acceso directo de tipos básicos u objetos. La extensión del fichero deberá ser .raf
+
+````
+RandomAccessFile f = new RandomAccessFile(new File(src/ejemplo.raf),"r");
+````
+
+La r del constructor hace referencia al tipo de apertura (lectura). Las posibilidades son rw
+
+Los métodos más utilizados son:
+````
+// Cerrar un fichero abierto en modo lectura o escritura:
+f.close();
+// Obtener la posición actual del fichero:
+pos = f.getFilePointer();  //pos es de tipo long
+// Obtener la longitud del fichero:
+lon = f.length();  //lon es de tipo long
+// Posicionarse al principio del fichero:
+f.seek(0);
+// Posicionarse al final del fichero:
+f.seek(f.length());
+// Posicionarse a “pos” bytes del principio:
+f.seek(pos);
+//Leer el siguiente campo del registro (“a” sería de tipo “String”, 
+//“char”, “boolean”, “byte”, “short”, “int”, “long”, “float”,
+//“double” y de nuevo un “String”):
+a = f.readUTF().trim();
+a = f.readChar();
+a = f.readBoolean();
+a = f.readByte();
+a = f.readShort();
+a = f.readInt();
+a = f.readLong();
+a = f.readFloat();
+a = f.readDouble();
+a = f.readLine();
+// Grabar el siguiente campo del registro (“a” sería de tipo
+//“String”, “char”, “boolean”, “byte”, “short”, “int”, “long”, 
+//“float” y “double”):
+f.writeUTF(a);
+f.writeChar(a);
+f.writeBoolean(a);
+f.writeByte(a);
+f.writeShort(a);
+f.writeInt(a);
+f.writeLong(a);
+f.writeFloat(a);
+f.writeDouble(a);
+````
