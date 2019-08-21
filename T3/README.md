@@ -12,7 +12,29 @@ Cuando un programa llega a una parte de ejecución donde hay dos o mas alternati
 ##### if
 ***
 
-Estructura que ejecutará el bloque de código que cumpla con la condición a evaluar. La sintaxis de la estructura es la siguiente.
+Estructura que ejecutará el bloque de código que cumpla con la condición a evaluar. Existen tres posibilidades de ejecución:
+
+- if
+- if else
+- if elseif else
+
+Los diagramas de flujo para cada una de las posibilidades son:
+
+- if 
+
+![flujo if](./images/flujoif.png)
+
+- if else
+
+![flujo if](./images/flujoifelse.png)
+
+-  if elseif else
+
+![flujo if](./images/flujoifelse2.png)
+
+La sintaxis de la estructura es la siguiente.
+
+- if
 
 ````
 if (condición){
@@ -20,6 +42,31 @@ if (condición){
 }
 else{
     //sentencias a ejecutar si no se cumple la condición anterior
+}
+````
+
+- if else 
+
+````
+if (condición){
+    //sentencias a ejecutar
+}
+else{
+    //sentencias a ejecutar si no se cumple la condición anterior
+}
+````
+
+- if elseif else
+
+````
+if (condición){
+    //sentencias a ejecutar
+}
+else if (condición){
+    //sentencias a ejecutar si no se cumple la condición anterior
+}
+else{
+	//sentencias a ejecutar
 }
 ````
 
@@ -43,7 +90,7 @@ public class ControlDeFlujo {
     }  
 }
 ````
-Adicionalmente se puede construid un bloque if con condiciones alternativas, donde se evaluará cada condición si la anterior no se ha cumplido. Si ninguna de las anteriores se ha cumplido se ejecutará las sentencias escritas en el bloque del else. Modificando el ejemplo anterior una posibilidad sería
+Adicionalmente se puede construir un bloque if con condiciones alternativas, donde se evaluará cada condición si la anterior no se ha cumplido. Si ninguna de las anteriores se ha cumplido se ejecutará las sentencias escritas en el bloque del else. Modificando el ejemplo anterior una posibilidad sería
 
 ````
 public class ControlDeFlujo {
@@ -76,10 +123,28 @@ public class ControlDeFlujo {
 }
 ````
 
+Ejemplos a realizar:
+
+1. Pedir por teclado un entero y guardarlo en una variable llamada a. Comprobar si “a” es par. De serlo, se almacena en la cadena “s” el texto “Es par”. Al final del bloque mostrar el mensaje por pantalla
+2. Pedir por teclado un entero y guardarlo en una variable llamada a. Comprobar si “a” es par o menor que 10 o menor que 100. De ser par, se incrementa en una unidad “a”; de no ser par, si es menor que 10, se decrementa “a” en una unidad; de no ser par, ni ser menor que 10, si es menor que 100, se duplica el valor de “a” y se incrementa en una unidad; de no ser par, ni menor que 10, ni menor que 100, entonces se le asigna a “a” el valor de 0. Al final del bloque mostrar el valor de la por pantalla
+3. Pedir por teclado un entero y guardarlo en una variable llamada a. Comprobar los siguientes casos:
+	4. Si es menor que 10 imprimir:
+		5. Si es menor que 0 imprimir el mensaje "negativo"
+		6. Si es menor que 10 imprimir el mensaje "un dígito"
+	7. Si es menor que 99 imprimir el mensaje "dos dígitos"
+	8. Si es mayor que 99 imprimir el mensaje "tres dígitos"
+	
 ##### switch
 ***
 
-La sentencias switch evalúa un valor de entrada para ejecutar un caso concreto. De la misma forma que la sentencia anterior, también hay una salida en el caso de no cumplirse ninguna de los valores expuestos. Es recomendable utilizar este tipo de estructura si se deben poner más de dos casos alternativos en la estructura if else. La sintaxis de la estructura es la siguiente:
+La sentencias switch evalúa un valor de entrada para ejecutar un caso concreto. De la misma forma que la sentencia anterior, también hay una salida en el caso de no cumplirse ninguna de los valores expuestos. Es recomendable utilizar este tipo de estructura si se deben poner más de dos casos alternativos en la estructura if else. 
+
+El diagrama de flujo es el siguiente:
+
+![flujo switch](./images/flujoswitch.png)
+
+
+La sintaxis de la estructura es la siguiente:
 
 ````
 switch(evaluar){
@@ -125,6 +190,17 @@ public class ControlDeFlujo {
 
 En el estamento switch no es obligatorio el caso default, pero si recomendable para que se ejecute una parte de código siempre y cuando la entrada no esté contemplada en el bloque
 
+Ejemplos a realizar:
+
+1. Pedir por teclado un valor que será guardado en una variable llamada "a". Comprobar los siguientes casos:
+	2. Si el número introducido es 1 imprimir el mensaje "Número 1"
+	2. Si el número introducido es 2 imprimir el mensaje "Número 2"
+	2. Si el número introducido es 3 imprimir el mensaje "Número 3"
+	2. Si el número introducido es 4 imprimir el mensaje "Número 4"
+	2. Si el número introducido es diferente el mensaje "Número desconocido"
+
+
+
 #### Estructuras de repetición
 ****
 
@@ -133,7 +209,13 @@ Son aquellas que mediante la evaluación de una sentencia, ejecuta n veces una s
 ##### for
 ***
 
-Una sentencia for es utilizada cuando se necesita recorrer un conjunto de datos determinado, como por ejemplo un array de datos. Para ello lo que se necesita indicar el inicio, el final y el incremente utilizado cada vez que se realice un recorrido. La sintaxis de esta estructura es:
+Una sentencia for es utilizada cuando se necesita recorrer un conjunto de datos determinado, como por ejemplo un array de datos. Para ello lo que se necesita indicar el inicio, el final y el incremente utilizado cada vez que se realice un recorrido.
+
+El diagrama de flujo es el siguiente:
+
+![flujo for](./images/flujofor.png)
+
+La sintaxis de esta estructura es:
 
 ````
 for (inicio; final: incremento){
@@ -163,6 +245,11 @@ for (int index: numeros) {
 }
 ````
 
+Ejemplos a realizar:
+
+1. Pedir un número por teclado. En el caso que el número introducir sea mayor que 10 o menor que 0 el programa parará la ejecución con el mensaje "dato erróneo". En caso contrario mostrará la tabla de multiplicar del número introducido con la siguiente estructura: "5 por 1 = 5" "5 por 2 = 10"  ...
+2. Realizar un programa que lea por teclado 10 números y los sume. Al final del proceso mostrará la suma total
+3. Generar 100 números aleatorios entre 1 y 1000 (Math.random()*1001), ambos incluisve, mostrar cada número generado y contabilizar cuántos de ellos son pares.
 
 ##### while // do while
 ***
@@ -171,7 +258,13 @@ Una sentencia do o do while ejecuta un conjunto de líneas de código siempre y 
 
 **do while**
 
-Esta estructura ejecuta una serie de líneas de código para después evaluar si una condición es verdadera. En este tipo de ejecuciones las líneas de código se ejecutan al menos una vez. La sintaxis de esta estructura es:
+Esta estructura ejecuta una serie de líneas de código para después evaluar si una condición es verdadera. En este tipo de ejecuciones las líneas de código se ejecutan al menos una vez. 
+
+El diagrama de flujo es el siguiente:
+
+![flujo do while](./images/flujodowhile.png)
+
+La sintaxis de esta estructura es:
 
 ````
 do{
@@ -192,7 +285,13 @@ do{
 
 **while**
 
-Una estructura while es exactamente lo mismo que la anterior con la diferencia de que antes de ejecutar las líneas de código se evalúa la condición de entrada, donde en el caso de ser verdadera ejecuta las líneas de código. La sintaxis a utilizar es:
+Una estructura while es exactamente lo mismo que la anterior con la diferencia de que antes de ejecutar las líneas de código se evalúa la condición de entrada, donde en el caso de ser verdadera ejecuta las líneas de código. 
+
+El diagrama de flujo es el siguiente:
+
+![flujo while](./images/flujowhile .png)
+
+La sintaxis a utilizar es:
 
 ````
 while(condición){
@@ -208,6 +307,12 @@ while (numero>0){
 }
 ````
 
+Ejemplos a realizar:
+
+1. Realiza un programa que lee enteros pares hasta introducir un impar. El programa cuenta el número de positivos de los números leído y lo mostrará cuando se introduzca un impar
+2. Generar números aleatorios entre 0 y 1000 hasta obtener un cero (momento en el cual el programa terminará), y contabilizar cuántos de ellos son pares. Al final del programa se mostrará cuantos pares se han obtenido
+3. Realizar un menú con 4 posibilidades, donde cada vez que se pulse una opción aparezca el mensaje "Pulsada la opción 1". Tras mostrar el mensaje se volverá a mostrar el menú con su correspondiente ejecución. La 4 posibilidad parará la ejecución con el mensaje "saliendo ...". En el caso de introducir un número que no esté entre 1 y 4 aparecerá el mensaje "número no contemplado"
+
 #### Estructuras de salto
 ***
 
@@ -217,6 +322,10 @@ Las estructuras de salto se utilizan para controlar el flujo del programa. En cu
 ***
 
 Dentro de la iteracion en un bucle el uso de esta sentencia rompe la iteracion de dicho bucle. Un ejemplo claro de su uso es el bloque switch
+
+El diagrama de flujo es el siguiente:
+
+![flujo break](./images/flujobreak.png)
 
 ````
 int numero = 10;
@@ -234,6 +343,10 @@ do{
 ##### continue
 
 Se utiliza dentro de un bloque para saltar una iteración del bloque cuando se cumple la condición donde está indicado
+
+El diagrama de flujo es el siguiente:
+
+![flujo continue](./images/flujocontinue.png)
 
 ````
 int numero = 11;

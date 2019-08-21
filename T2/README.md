@@ -13,9 +13,32 @@
 
 #### [Volver al índice](#indice)
 
+Antes de empezar y aunque se explicará más adelante en detalle es necesario saber que para poder leer datos por teclado se hará utilizando la clase Scanner que se encuentra en la librería o paquete “java.útil”.
+Se definirá una constante global de tipo Scanner con el valor inicial de fichero de entrada el de la consola: final Scanner in = new Scanner(System.in);
+
+Para poder definir una variable de tipo Scanner en una aplicación se tendrá que importar dicha clase en la aplicación de la siguiente manera:
+````
+Scanner in = new Scanner(System.in);
+````
+Existen métodos específicos para cada uno de los datos los cuales son los siguientes:
+
+````
+a = in.next();  //a es de tipo String
+a = in.nextByte();  //a es de tipo byte
+a = in.nextShort();  //a es de tipo short
+a = in.nextInt();  //a es de tipo int
+a = in.nextLong();  //a es de tipo long
+a = in.nextFloat();  //a es de tipo float introducido con ,
+a = in.nextDouble();  //a es de tipo double introducido con ,
+a = in.nextBoolean();  //a es de tipo boolean
+a = in.next().charAt(0);  //a es de tipo char
+a = in.nextLine();  //a es de tipo String
+// la ejecución de in.nextLine() vacía el buffer de lectura	
+````
+
+
 #### Estructuras y bloques fundamentales
 ****
-
 Los bloques fundamentales dentro de un programa son:
 
 - Clases
@@ -46,15 +69,20 @@ Lo normal es la existencia de una clase por cada archivo, el cual debe tener el 
 ##### Variables
 ****
 
-Serán explicadas más adelante y tienen como objetivo guardar datos que serán utilizados durante la ejecución del programa
+Serán explicadas más adelante y tienen como objetivo guardar datos que serán utilizados durante la ejecución del programa. Su estructura básica es la siguiente:
+
+````
+tipo nombre = valor
+String palabra = "Hola"
+````
 
 ##### Métodos
 ****
 
-Son las funcionalidades individuales que pueden ser llamadas desde cualquier parte del código. Su estructura o firma es la siguiente
+Son las funcionalidades individuales que pueden ser llamadas desde cualquier parte del código. Para poder ejecutar todo el interior del mismo simplemente hay que llamarlo por su nombre, con los parámetros que se indiquen. Su estructura o firma es la siguiente
 
 ````
-modificador_acceso valor_retorno nombre_método(parámetro) {
+modificador_acceso valor_retorno nombre_método(parámetro nombre) {
 ````
 
 En el caso de tener un valor de retorno es obligatorio que tenga la palabra reservada return
@@ -75,12 +103,36 @@ public void mostrarMensaje(){
 mostrarMensaje();
 ````
 
+Existen también métodos estáticos, los cuales pueden ser llamados simplemente con el nombre de la clase.nombre_metodo
+
+Su sintaxis es la siguiente:
+
+````
+
+static retorno nombre_método (parámetros)
+{
+}
+````
+
+Ejemplos: 
+
+1. Crea un nuevo programa que muestre ¡Hola mundo!, para la salida por consola se haga en un método sin datos de entrada ni salida de nombre “saludar”. 
+2. Crea un método que se llame saludarPerso el cual admita un parámetro de tipo string y muestre por consola el mensaje "Hola NombreIntroducido".
+3. Crea un programa en el se defina una constante global con el valor del número pi (3,1416) y se muestre por consola. Se definirá un método de nombre “mostrarPI” sin datos de entrada ni salida. (mostrarPI)
+4. Crea un método que admita como parámetros dos números y muestre por consola su suma. 
+
 ##### Bloques
-Los bloques de código son partes del programa que tienen una ejecución especófica. Dentro de los bloques encontramos los estamentos que se encargan de realizar por ejemplo repeticiones, toma de decisiones, etc...
+Los bloques de código son partes del programa que tienen una ejecución específica. Dentro de los bloques encontramos los estamentos que se encargan de realizar por ejemplo repeticiones, toma de decisiones, etc...
 ****
 
 #### Identificadores
 ****
+Un identificador es una palabra que representa elementos de un lenguaje de programación.
+
+En java un identficador se define del siguiente modo:
+- Comienza con una letra, un subrayado (_) o un símbolo de dólar ($). Los siguientes caracteres pueden ser letras, dígitos y subrayado.
+- Se distinguen las mayúsculas de las minúsculas.
+- No hay una longitud máxima establecida para el identificador
 
 #### Palabras reservadas
 ****
@@ -174,9 +226,36 @@ Los tipos de datos utilizados en programación son:
 
 #### Literales
 ****
+Los valores literales son aquellos que podemos asignar a las variables. Dependiendo del tipo de variable podremos asignar unos valores u otros, tal y como se ha visto en los puntos anteriores. Además de todos los tipos literales vistos en la tabla anterior, también se pueden utilizar elementos especiales, siempre y cuando comiencen con la barra invertida :
+
+|carácter|acción|
+|--|--|
+|b|retroceso|
+|t|tabular la cadena|
+|n|salto de línea|
+|f|form feed|
+|r|retorno de carro|
+|'|comilla simple|
+|"|comilla doble|
 
 #### Constantes
 ****
+Como ya se comentó en el bloque de las variables una constante es un valor de un tipo con un nombre que no se puede modificar durante la ejecución del programa. En su definición se acompañan con la palabra reservada final. Existen multitud de constantes creadas en el lenguaje. Un claro ejemplo son los valores máximos y mínimos de cada uno de los tipos de datos primitivos númericos y de carácter se almacenan en las siguientes constantes globales:
+
+1. Byte.MIN_VALUE || Byte.MAX_VALUE
+2.  Short.MIN_VALUE || Short.MAX_VALUE
+3.  Integer.MIN_VALUE || Integer.MAX_VALUE
+4.  Long.MIN_VALUE || Long.MAX_VALUE
+5.  Float.MIN_NORMAL || Float.MAX_VALUE
+6.  Double.MIN_NORMAL || Double.MAX_VALUE
+7.  (int) Character.MIN_VALUE || (int) Character.MAX_VALUE
+
+Como se puede ver, todas las constantes por definición se definen con nombres en mayúsculas. Del mismo modo, para que estas sean accesibles desde fuera de la clase de forma directa, suelen ir acompañadas del modificador static
+
+````
+final static double VALOR = 9.5;
+
+````
 
 #### Operadores y expresiones
 ****
@@ -191,36 +270,83 @@ Existen varios tipos de operadores:
 ##### Aritméticos
 ***
 
-Aquellos que manipulan datos numéricos
+![operadores aritméticos](./images/aritmeticos.png)
 
-|||||||
-|-|-|-|-|-|-|
-|+|-|*|/|div|%|
-|+=|-=|*=|/=||
+Para los siguientes ejemplos tomase como referencia las siguientes variables:
 
+- byte a = 34;
+- int b = 11;
+- long c = 9;
+- float d = 34.7F;
+
+Los ejemplos de operadores serían:
+
+- a++;  // “a” vale 35
+-   b--;  // “b” vale 10
+-   --c;  // “c” vale 8
+-   ++d; // “d” vale 35.7
+- n1 = 3 * n1; // “n1” vale 36 (3 * n1→3*12→36) 
+- b=b+5; //“b”vale15(b+5→10+5→15)
+- n1 = n1 / b ; // “n1” vale 1 (n1 / b → 12/10 → 1) 
+- b = b % 3; // “b” vale 1 (b % 3 → 10 % 3 → 1)
+- b = -b; // “b” vale -1 (-b→-10)
+- d = d / c; // “d” vale 4.4625 (d / c → 35.7 / 8 → 4.4625) 
+- d = a / c; // “d” vale 4 (a / c → 35 / 8 → 4)
+- e = e / 5; // “e” vale -4 (e / 5 → -23 / 5 → -4)
+- e = e % 5; // “e” vale -3 (e % 5 → -23 % 5 → -3)
+- c = c / -5; // “c” vale -1 (c / -5 → 8 / -5 → -1)
+- c = c % -5; // “c” vale 3 (c % -5 → 8 % -5 → 3)
+- e = e / -5; // “e” vale 4 (e / -5 → -23 / -5 → 4)
+- e = e % -5; // “e” vale -3 (e % -5 → -23 % -5 → -3)
 
 ##### Asignación
 ***
 
-=
+![operadores de asignación](./images/asignacion.png)
 
-##### Relacionales
+
+
+##### Relacionales o de comparación
 ***
 
-|||||||
-|-|-|-|-|-|-|
-|==|!=|>|<|>=|<=|
+![operadores de comparación](./images/comparacion.png)
+
+Sean las siguientes variables:
+- int a = 20, b = 2,c = 7;
+- char d = 'b';
+- float e = 20.5F;
+
+Los ejemplos serían los siguientes:
+
+- a+1==3*c → 20+1==3*7 → 21==3*7→ 21==21 → true 
+- d+3>'h' → 98+3>104 → 101>104 → false
+- e-b<=a → 20.5-2<=20 → 18.5<=20.0 → true
+
+Este tipo de sentencias, al devolver una variable booleana se utiliza mucho en bloques if como se verá en el siguiente tema
 
 ##### Lógicos
 ***
 
-||||
-|-|-|-|
-|!|&|||
+![operadores lógicos](./images/logicos.png)
 
 
 #### Conversiones
 ****
+En algunos casos nos interesará asignar a una variable el valor de otra variable de tipo “superior”. En tal caso, se tendrán que convertir el valor a asignar al tipo de la variable destino con el operador de conversión de tipos.
+
+Sean las siguientes variables:
+- int numero = 0; 
+- float valor = 0; 
+- char letra = 'a'; 
+- double peso = 64.7;
+
+Para convertir una variable de un tipo en otro tipo se utiliza el casteo directo siempre y cuando el tipo al que se quiera pasar sea mayor que el del origen. Para ello se pone entre paréntesis el tipo al que se quiere pasar.
+
+- numero = (int) peso; // int < double 
+- letra = (char) peso; // char < double 
+- valor = (float) peso; // float < double
+
+De no ser así, se utilizará el parseo, método propio de cada uno de los tipos.
 
 #### Comentarios
 ****
