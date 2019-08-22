@@ -298,4 +298,4 @@ for (int i=0;i<t1.length;i++){
 
 #### Colecciones
 
-![colecciones](.images/colecciones.png)
+![colecciones](./images/colecciones.png)
