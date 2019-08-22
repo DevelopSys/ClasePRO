@@ -199,7 +199,6 @@ int[] numerosNuevos = numeros.clone();
 System.out.println(numerosNuevos.length);
 ````
 
-
 Para comparar arrays se ejecuta el método equal
 ````
 int[] numeros = {4, 1, 2, 6, 8, 3, 4, 89, 67, 32, 12};
@@ -212,3 +211,91 @@ int[] numerosCuatro = {4, 1, 2, 6, 8, 3, 4, 89, 67, 32, 12};
 System.out.println(igualesDos);
 ````
 
+#### Arrays multidimensionales
+
+Los arrays multidimensionales se pueden definir como una colección de colecciones de objetos o array de arrays. Esto quiere decir que dentro de cada una de las posiciones del array se encontrará a su vez otro array.
+
+Un array multidimensional está definido por dos parámetros, siendo el primero el número de posiciones y el segundo la posición concreta dentro del array de la posición indicada en el primer parámetro. En su creación estos dos elementos indican en número de filas y el número de columas de cada fila. 
+
+````
+//Los dos ejemplos representan el mismo tipo de array
+String[][] multidimensional = {{"primera","posición"},{"segunda","posición"},{"tercera","posición"}};
+String[][] multidimensional = new String[2][3];
+int[][] t1 = {{1,2,3}, {4,5,6}}; //2 filas por 3 columnas
+int[][] t2 = new int[2][3]
+//igual que en el caso anterior, en el caso de tener objetos de diferentes tipos se utilizará array multidimensional de Object
+Object[][] multidimensional = new Objecto[2][2];
+````
+
+Para poder acceder a un elemento concreto del array se realiza mediante posiciones.
+
+````
+int[][] t1 = {{1,2,3}, {4,5,6}}; //2 filas por 3 columnas
+ti1[1][1] // obtendrá el valor 4
+````
+
+Como se puede comprobar, el primer número indica la fila a la que se accede y el segundo indica la columna a la que se accede
+
+**al igual que pasa en la mayoría de casos en informática, el 0 es la primera posición**
+
+Del mismo modo que en los arrays unidimensionales, también se puede asignar un valor a una posición
+
+````
+int[][] t1 = {{1,2,3},{4,5,6}};
+System.out.println(t1[0][0]);
+t1[0][0]=20;
+System.out.println(t1[0][0]);
+````
+
+En el caso de querer recorrer el array se utiliza un for anidado para poder recorrer tanto las filas como las columnas
+
+````
+int[][] t1 = {{1,2,3},{4,5,6}};
+System.out.println(t1[0][0]);
+t1[0][0]=20;
+System.out.println(t1[0][0]);
+for (int i=0;i<t1.length;i++){
+	System.out.printf("Array número %d",i);
+	System.out.println();
+	for (int j = 0; j<t1[i].length;j++){
+		System.out.printf("Elemento del array %d",t1[i][j]);
+		System.out.println();
+	}
+}
+````
+
+O bien utilizar un foreach donde el primer bucle obtiene la fila y el segundo la columna
+
+````
+String[][] multidimensional = {{"primera","posición"},{"segunda","posición"},{"tercera","posición"}}; int i = 0;
+for (String[] temp : multidimensional){
+	System.out.println("El array que se está evaluando es: "+temp.toString());
+        for (String tempDos: temp){
+             System.out.println("El valor es: "+tempDos);
+        }
+}
+````
+
+Para poder buscar elementos dentro de un array multidimensional tan solo hay que recorrer los array al igual que se ha explicado, evaluando cada uno de los elementos de forma individual
+
+````
+int[][] t1 = {{1,2,3},{4,5,6}};
+System.out.println(t1[0][0]);
+t1[0][0]=20;
+System.out.println(t1[0][0]);
+for (int i=0;i<t1.length;i++){
+	System.out.printf("Array número %d",i);
+	System.out.println();
+	for (int j = 0; j<t1[i].length;j++){
+		System.out.printf("Elemento del array %d",t1[i][j]);
+		System.out.println();
+		if (t1[I][j]){
+			break;
+		}
+	}
+}
+````
+
+#### Colecciones
+
+![colecciones](.images/colecciones.png)
