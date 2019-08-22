@@ -21,21 +21,6 @@
     - Estructuras de selección.
     - Estructuras de repetición. Estructuras de salto.
 
-- [Lectura y escritura de información:](#tema4)
-    - Flujos (streams):
-        - Tipos de flujos. Flujos de bytes y de caracteres.
-            - Clases relativas a flujos. Jerarquías de clases.
-        - Utilización de flujos.
-    - Entrada/salida estándar:
-        - Entrada desde teclado.
-        - Salida a pantalla.
-    - Almacenamiento de información en ficheros:
-        - Ficheros de datos. Registros.
-        - Apertura y cierre de ficheros. Modos de acceso.
-        - Escritura y lectura de información en ficheros.
-        - Almacenamiento de objetos en ficheros. Persistencia. Serialización. 􏰀 Utilización de los sistemas de ficheros.
-        - Creación y eliminación de ficheros y directorios.
-
 - [Aplicación de las estructuras de almacenamiento:](#tema5)
     - Estructuras.
     - Arrays unidimensionales y multidimensionales:
@@ -52,6 +37,21 @@
         - Tipos de colecciones (listas, pilas, colas, tablas).
         - Jerarquías de colecciones.
         - Operaciones con colecciones. Acceso a elementos y recorridos. Uso de clases y métodos genéricos.        
+
+- [Lectura y escritura de información:](#tema4)
+    - Flujos (streams):
+        - Tipos de flujos. Flujos de bytes y de caracteres.
+            - Clases relativas a flujos. Jerarquías de clases.
+        - Utilización de flujos.
+    - Entrada/salida estándar:
+        - Entrada desde teclado.
+        - Salida a pantalla.
+    - Almacenamiento de información en ficheros:
+        - Ficheros de datos. Registros.
+        - Apertura y cierre de ficheros. Modos de acceso.
+        - Escritura y lectura de información en ficheros.
+        - Almacenamiento de objetos en ficheros. Persistencia. Serialización. 􏰀 Utilización de los sistemas de ficheros.
+        - Creación y eliminación de ficheros y directorios.
 
 - [Introducción a la orientación a objetos:](#tema6)
     - Clases. Atributos, métodos y visibilidad
