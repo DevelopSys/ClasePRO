@@ -299,3 +299,276 @@ for (int i=0;i<t1.length;i++){
 #### Colecciones
 
 ![colecciones](./images/colecciones.png)
+
+Las colecciones son contenedores de datos que, a diferencia de los arrays, tienen la capacidad de aumentar y disminuir su tamaño de forma dinámica según las necesidades del programa. Existen multitud de colecciones en el paquete utils, pero las principales son que trabajaremos son:
+
+- ArrayList
+- HashSet
+- Hashtable
+- HashMap
+- Stack
+
+##### ArrayList
+
+Lista que utiliza un array de tamaño modificable. Su manejo es bastante simple, teniendo como inconveniente el tiempo que se emplea en añadir o borrar elementos. Otro de sus elementos es que no es sincronizada, por lo que no puede ser utilizada por varios hilos (en lectura y escritura) al mismo tiempo.
+
+Para crear un arraylist:
+
+````
+ArrayList lista = new ArrayList();
+ArrayList<String> listaString = new ArrayList<String>();
+````
+
+Los dos constructores crean lo mismo, con la diferencia que el segundo "fuerza" a que todos los objetos de la lista sean Strings
+
+Los principales métodos de un ArrayList son:
+
+````
+// Añadir un elemento n a la lista por el final:
+lista.add(n);
+// Añadir un elemento n a la lista en una posición a:
+lista.add(a,n);
+// Vaciar la lista :
+lista.clear();
+// Clonar la lista :
+lista.clone();
+// Comprobar si la lista  contiene un elemento n:
+lista.contains(n) → boolean
+// Encontrar la posición de la primera aparición del elemento n en la lista  o -1 si no existe:
+lista.indexOf(n) → int
+// Encontrar la posición de la última aparición del elemento n en la lista  o -1 si no existe:
+lista.lastIndexOf(n) → int
+// Obtener el número de elementos de la lista
+lista.size()
+// Obtener el dato almacenado en la posición “i” de la lista :
+n = listaget(i);
+// Eliminar el valor entero de la lista  que ocupa la posición “n” (se devuelve el entero “a” eliminado):
+a = lista.remove(n);
+// Eliminar la primera aparición del valor entero “n” en la lista :
+lista.remove(n);
+// Modificar el valor almacenado en la lista en la posición “a” por el valor entero “n”:
+lista.set(a, n);
+````
+
+Con los métodos vistos anteriormente se puede por ejemplo recorrer todos los elementos que forman parte de una lista
+
+````
+for (int i=0;i<listaString.size();i++){
+	String elemento = listaString.get(i);
+	System.out.println(elemento);
+}
+````
+
+O bien con un foreach
+````
+for (String elemento: listaString) {
+	System.out.println(elemento);
+}
+````
+
+##### HashSet
+
+Una colección HashSet permite crear listas de datos con indices de acceso. Del mismo modo que un ArrayList se trata de una colección no sincronizada. A diferencia de las colecciones, un HashSet no puede contener objetos duplicados, ya que cada uno tiene un hashCode asignado
+
+El constructor para poder crear una lista es:
+
+````
+HashSet<Integer> lista = new HashSet<String>();
+HashSet<Persona> lista = new HashSet<Persona>();
+````
+
+Donde se indica el tipo de dato que guardará la lista. 
+
+Los métodos utilizados son:
+````
+// Añadir el elemento “a” en la lista (si ya existe, no se añade):
+lista.add(new Integer(a));
+// Vaciar el conjunto “c”:
+lista.clear();
+// Comprobar si en la lista existe el valor entero “a”:
+lista.contains(new Integer(a)) → boolean 
+// Conocer si el conjunto “c” está vacía:
+lista.isEmpty()→ boolean
+// Obtener el número de elementos que tiene la lista:
+lista.size()→ int
+// Eliminar el valor entero “n” en la lista:
+lista.remove(new Integer(n));
+````
+
+En el caso de añadir objetos creados, es recomendable la sobreescritura del método hasCode()
+````
+package tema2;
+
+public class Persona {
+
+    int clave;
+    String nombre, apellido;
+    int telefono;
+
+    public Persona(String nombre, String apellido, int telefono) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+    }
+
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    @Override
+    public int hashCode() {
+        int codigo;
+        codigo = getNombre().hashCode();
+        codigo += getTelefono();
+
+        return  codigo;
+
+    }
+}
+````
+
+Para poder recorrer los elementos de un HashMap se utiliza un objeto Iterator sobre la lista
+
+````
+Iterator<String> elementos = lista.iterator();
+for (Iterator<String> it = elementos; it.hasNext(); ) {
+	String s = it.next();
+	System.out.println(s);
+}
+````
+
+
+##### HashTable
+
+Esta estructura de datos utiliza una función hash para identificar los datos mediante una clave asociada. Este tipo de colecciones tienen un tamaño modificable ya que incrementa / decrementa cuando se añaden o borran elementos. Una de las grandes características de este tipo de colecciones es que es sincronizable, ya que puede ser accedido por dos hilos al mismo tiempo
+
+Los constructores que se pueden utilizar para crear una HashTable son:
+
+````
+Hashtable listaHash = new Hashtable();
+// se puede identificar el tipo de la clave asociada y el tipo del objeto
+Hashtable<Integer, Integer> listaHash = new Hashtable<Integer, Integer>();
+````
+
+Los métodos más utilizados son:
+
+````
+// Vaciar la tabla “t”:
+t.clear();
+// Comprobar si en la tabla “t” existe el valor “a”:
+t.contains(a) → boolean 
+//Comprobar si en la tabla “t” existe el índice de cadena “s”:
+t.containsKey(s) → boolean
+// Obtiene en la tabla “t” el valor “n” con el índice “s”:
+n = t.get(s);
+// Conocer si la tabla “t” está vacía:
+t.isEmpty()→ boolean
+Añadir el valor “a” en “t” con el índice “s” o reemplazar el índice “s” si ya existe:
+//Añadir
+t.put(s, a); 
+//Reemplazar b por a
+b = t.put(s, a); 
+// Eliminar el valor de “t” que ocupa el índice “s”;
+a = t.remove(s);
+// Obtener el número de elementos que tiene la tabla “t”:
+t.size()→ int
+````
+
+Para poder recorrer los elementos de una lista HasstTable hay que obtener las claves asociadas a cada uno, y con ellas obtener el valor. Para ello se utilizan los métodos:
+````
+Enumeration<tipo_clave> elementos = lista.elements();
+Enumeration<tipo_clave> clavesElementos = lista.keys();
+````
+
+Con el primero de los métodos se obtiene un enumeration con todos los elementos. En este caso no se puede aplicar un foreach para poder recorrerlo por lo que se utiliza un while:
+````
+Enumeration<Integer> elementos = hashtable.elements();
+while (elementos.hasMoreElements()) {
+	System.out.println(elementos.nextElement().toString());
+}
+````
+
+Con el segundo método se obtienen todas las claves de los elementos de la lista. Con la misma estructura que el caso anterior se puede aplicar un while donde se saca objeto a objeto mediante sus claves
+````
+Enumeration<Integer> claves = hashtable.keys();
+while (claves.hasMoreElements()){
+	Integer elemento = hashtable.get(claves.nextElement());
+	System.out.println(elemento.toString());
+}
+````
+
+Si se quiere borrar un elemento que cumple una determinada condición
+````
+Enumeration<Integer> elementos = hashtable.elements();
+while (elementos.hasMoreElements()) {
+	if (elementos.nextElement() == 1){
+		hashtable.remove()
+	}
+}
+````
+
+##### HashMap
+
+El concepto de uso y métodos son los mismos que la colección HashTable, con la diferencia que no se trata de una colección sincronizarle
+
+##### Stack
+
+Un Stack permite apilar objetos. 
+
+````
+Stack<Integer> a = new Stack<Integer>();
+````
+
+Los métodos utilizados son:
+````
+// Vaciar la pila:
+a.clear();
+// Comprobar si la pila está vacía:
+a.isEmpty()
+// Elimina el elemento superior de la pila:
+a.pop();
+// Consultar el último apilado:
+a.peek();
+// Apilar un entero:
+a.push(8);
+// obtener todos los elementos de una pila
+a.elements()
+// obtener el elemento de la posición 2
+a.elementAt(2)
+// clonar la pila
+a.clone()
+// evaluar si el elemento 2 está contenido en la pila
+a.contains(2)
+// añadir el elemento 2
+a.add(5)
+// obtener el primer elemento
+a.firstElement()
+// obtener el último elemento
+a.lastElement()
+````
+
+Para poder recorrer los elementos de una pila
+````
+Iterator<Integer> iterator = numeros.iterator();
+for (Integer n: numeros) {
+	System.out.println(n);
+}
+````
+ O bien 
+
+````
+Enumeration<Integer> enumeration = numeros.elements();
+while (enumeration.hasMoreElements()) {
+	System.out.println(enumeration.nextElement());
+}
+````
+
