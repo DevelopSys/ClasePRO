@@ -1,11 +1,11 @@
-- [Introducción a la programación:](#tema1)
+- <a href="./T1">Introducción a la programación:</a>
     - Datos, algoritmos y programas.
     - Paradigmas de programación.
     - Lenguajes de programación.
     - Herramientas y entornos para el desarrollo de programas.
     - Errores y calidad de los programas.
 
-- [Identificación de los elementos de un programa informático:](#tema2)
+- <a href="./T2">Identificación de los elementos de un programa informático:</a>
     - Estructura y bloques fundamentales.
     - Identificadores.
     - Palabras reservadas.
@@ -17,11 +17,11 @@
     - Conversiones de tipo. Implícitas y explicitas (casting).
     - Comentarios.
 
-- [Uso de estructuras de control:](#tema3)
+- <a href="./T3">Uso de estructuras de control:</a>
     - Estructuras de selección.
     - Estructuras de repetición. Estructuras de salto.
 
-- [Aplicación de las estructuras de almacenamiento:](#tema5)
+- <a href="./T4">Aplicación de las estructuras de almacenamiento:</a>
     - Estructuras.
     - Arrays unidimensionales y multidimensionales:
         - Declaración.
@@ -38,7 +38,7 @@
         - Jerarquías de colecciones.
         - Operaciones con colecciones. Acceso a elementos y recorridos. Uso de clases y métodos genéricos.        
 
-- [Lectura y escritura de información:](#tema4)
+- <a href="./T5">Lectura y escritura de información:</a>
     - Flujos (streams):
         - Tipos de flujos. Flujos de bytes y de caracteres.
             - Clases relativas a flujos. Jerarquías de clases.
@@ -53,14 +53,14 @@
         - Almacenamiento de objetos en ficheros. Persistencia. Serialización. 􏰀 Utilización de los sistemas de ficheros.
         - Creación y eliminación de ficheros y directorios.
 
-- [Introducción a la orientación a objetos:](#tema6)
+- <a href="./T1">Introducción a la orientación a objetos:</a>
     - Clases. Atributos, métodos y visibilidad
     - Objetos. Estado, comportamiento e identidad. Mensajes.
     - Encapsulado. Visibilidad.
     - Relaciones entre clases.
     - Principios básicos de la orientación a objetos.
 
-- [Desarrollo de clases:](#tema7)
+- <a href="./T1">Desarrollo de clases:</a>
     - Concepto de clase.
     - Estructura y miembros de una clase.
     - Creación de atributos. Declaración e inicialización.
@@ -75,7 +75,7 @@
     - Librerías y paquetes de clases. Utilización y creación.
     - Documentación sobre librerías y paquetes de clases.
 
-- [Utilización de objetos:](#tema8)
+- <a href="./T1">Utilización de objetos:</a>
     - Características de los objetos.
     - Constructores.
     - Instanciación de objetos. Declaración y creación.
@@ -86,7 +86,7 @@
     - Destrucción de objetos y liberación de memoria.
 
 
-- [Utilización avanzada de clases:](#tema9)
+- <a href="./T1">Utilización avanzada de clases:</a>
     - Relaciones entre clases. Composición de clases.
     - Herencia. Concepto y tipos (simple y múltiple).
     - Superclases y subclases.
@@ -101,7 +101,7 @@
         - Comprobación estática y dinámica de tipos.
     - Conversiones de tipos entre objetos (casting).
     - Clases y tipos genéricos o parametrizados.
-- [Control y manejo de excepciones:](#tema10)
+- <a href="./T1">Control y manejo de excepciones:</a>
     - Excepciones. Concepto.
     - Jerarquías de excepciones.
     - Manejo de excepciones:
@@ -110,7 +110,7 @@
         - Lanzar excepciones.
         - Crear clases de excepciones.
 
-- [Gestión de bases de datos relacionales e interfaces gráficas:](#tema11)
+- <a href="./T1">Gestión de bases de datos relacionales e interfaces gráficas:</a>
     - Interfaces gráficos de usuario simples. 
         - Concepto de evento.
         - Creación de controladores de eventos.
