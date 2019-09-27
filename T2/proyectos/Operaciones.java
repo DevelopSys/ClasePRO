@@ -74,6 +74,9 @@
         decision = numero1!=numero2;
         System.out.println(decision);
         
+        System.out.printf("NOMBRE \t APELLIDO \t DNI \t LETRA \n");
+        System.out.printf("%s \t %s \t %d \t %s \n", "nombre","apellido",123,"A");
+        
     }
 
 }
