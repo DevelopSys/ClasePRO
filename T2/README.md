@@ -391,6 +391,35 @@ El orden de aplicación de los operadores es:
 ![operadores lógicos](./images/logicos.png)
 
 
+##### Comparación de cadenas	
+
+Cuando se intenta comparar una cadena de texto, no es suficiente con el uso de operadores de comparación, sino que es necesario del uso de métodos que nos ofrece la propia clase String como son equal compareTo(). Para ello tan solo es necesario llamar a los métodos desde la propia palabra.
+````
+String palabraUno = "Hola";
+String palabraDos = "Adios";
+String palabraTres = "Adios";
+
+
+boolean comparacion = palabraUno.equals(palabraDos);
+boolean comparacionDos = palabraDos.equals(palabraTres);
+System.out.printf("La comparación es %b %n",comparacion);
+System.out.printf("La comparación es %b %n",comparacionDos);
+````
+
+En el caso del uso del método compareTo, la salida del método será 0 si las dos palabras son iguales
+
+````
+String palabraUno = "Hola";
+String palabraDos = "Adios";
+String palabraTres = "Adios";
+
+boolean comparacion = palabraUno.compareTo(palabraDos)==0;
+System.out.printf("La comparación es %b %n",comparacionDos)
+
+
+````
+
+
 #### Conversiones
 ****
 En algunos casos nos interesará asignar a una variable el valor de otra variable de tipo “superior”. En tal caso, se tendrán que convertir el valor a asignar al tipo de la variable destino con el operador de conversión de tipos.
