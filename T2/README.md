@@ -348,6 +348,12 @@ Los ejemplos de operadores serían:
 - e = e / -5; // “e” vale 4 (e / -5 → -23 / -5 → 4)
 - e = e % -5; // “e” vale -3 (e % -5 → -23 % -5 → -3)
 
+El orden de aplicación es el siguiente:
+
+![operadores aritméticos](./images/aritorden.png)
+
+
+
 ##### Asignación
 ***
 
@@ -375,6 +381,12 @@ Este tipo de sentencias, al devolver una variable booleana se utiliza mucho en b
 
 ##### Lógicos
 ***
+Son aquellos utilizados para evaluar expresiones booleanas. Al igual que los operadores de comparación, son muy utilizados para aplicarlos en estructuras de control
+
+![operadores lógicos](./images/operadoreslogicos.png)
+
+
+El orden de aplicación de los operadores es:
 
 ![operadores lógicos](./images/logicos.png)
 
