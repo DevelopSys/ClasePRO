@@ -438,6 +438,16 @@ Para convertir una variable de un tipo en otro tipo se utiliza el casteo directo
 
 De no ser así, se utilizará el parseo, método propio de cada uno de los tipos.
 
+#### Otros operadores
+
+Existen otro tipo de operadores en Java que se irán viendo a lo largo del curso. Entre ellos están:
+
+- []: Declaración de variables de tipo Array. Este tipo de variables permite declarar conjunto de datos en un mismo elemento.
+- new: Declaración para crear un tipo de objeto complejo. Se utiliza para instanciar objetos de tipos concretos.
+- .: Carácter utilizado para acceder a los mátodos y/o variables que están declarados dentro de una clase.
+- this: palabra reservada para llamar a métodos y/o variables declarados en la propia clase.
+- <tipo>: carácteres utilizados para marcár un tipo concreto en una variable de tipo colección.
+
 #### Comentarios
 ****
 
