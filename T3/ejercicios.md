@@ -1,4 +1,6 @@
 
+## if - else
+
 1. (MayorQue) Hágase un programa que lea dos enteros y compruebe si el primero es o no mayor que el segundo. En la salida se mostrará “El primero es mayor que el segundo” o “El primero no es mayor que el segundo”.  
 2. (SumaTres) Hágase un programa que lea tres enteros positivos, y compruebe si alguno es suma de los otros dos. En la salida se mostrará “Ninguno es suma de los otros dos” o “8 = 2 + 6” (en este último caso se introdujeron los números 2, 8 y 6). SumaTres.java
 3. (Condiciones) Léase un número entero. Se comprobará si dicho número es o no múltiplo de 20, y también se comprobará si está o no entre -100 y 100. En la salida se mostrará uno de los siguientes menasajes: 
@@ -26,3 +28,19 @@ El algoritmo para obtener si un año es bisiesto es el siguiente: Inicialmente 
 12. (UnIncremento) Dado un número entero, se incrementará en 2 unidades si es par, en 3 unidades si es múltiplo de 3, en 5 unidades si es múltiplo de 5, y si no, se incrementará en una unidad. Sólo se realiza un incremento. 
 13. (Fecha) Pedir el día, mes y año de una fecha e indicar si la fecha es correcta. Con meses de 28, 30 y 31 días. Sin años bisiestos.
 14. (FechaSiguiente) Pedir el día, mes y año de una fecha correcta y mostrar la fecha del día siguiente. suponer que todos los meses tienen 30 días excepto febrero que tiene 28.
+
+## do while
+
+1. Leer números enteros hasta introducir un 0. El programa obtendrá la suma de todos
+los números positivos. (SumarPositivos)
+2. Calcúlese el mínimo común múltiplo de dos números entre 1 y 100. Para obtener el mcm se tomará uno de los valores introducidos y se irá multiplicando por 1, 2, 3, etc, hasta que el valor obtenido sea múltiplo del otro número, que sería el valor buscado. (MinimoComunMultiplo)
+3. Generar números enteros aleatorios entre 0 y 100 hasta obtener el 0. El programa mostrará cada uno de los datos generados y obtendrá el mayor de los números generados. (MayorNumero)
+4. Introducir un entero no negativo, y convertirlo a binario, octal y hexadecimal. (BinarioOctalHexadecimal)
+5. Realizar un menú de 4 opciones, donde se mostrará por pantalla el siguiente formato
+	- 1. Opción1
+	- 2. Opción2
+	- 3. Opción3
+	- 4. Opción4
+	- 5. Salir
+	- Introduce la opción seleccionada
+Cada vez que se pulse una opción aparecerá un mensaje por pantalla que ponga "La opción seleccionada es 1". En el caso de meter una diferente pondrá "opción no contemplada". El programa se repetiría hasta que introduzca el 0
