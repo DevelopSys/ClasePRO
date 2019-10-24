@@ -72,3 +72,24 @@ Al seleccionar una de las opciones el sistema realizará la operación correspon
 	
 Al introducir un número el sistema comprobará que es mayor que 0. En caso de no serlo mostrará el mensaje "No válido, introduce otro", esperando una nueva introducción de datos. Una vez introducido, al seleccionar una de las opciones el sistema realizará la conversión correspondiente y mostrará el resultado por pantalla de la siguiente forma "El número XX en base10 es igual que XX en baseXX". Una vez terminada la operación volverá a mostrar el menú y pedir un número. (MenuBases)
 
+## instrucción for
+
+- Se leerá el número de temperaturas a introducir (de ser 0 o negativo se establecerá a 10). Obténgase la media con dos decimales de las temperaturas inroducidas por consola. (TemperaturasIntroducidas)
+
+- Considérese un número entre 0 y 10. Se mostrará la tabla de multiplicar de dicho número con el formato: 5 x 3 = 15 (desde 0 hasta 10 en líneas distintas). (TablaDeMultiplicar)
+
+- Calcular el factorial de un número entre 0 y 20. El factorial de un número se define del siguiente modo: F(0) = 1; F(1) = 1; F(n) = n(n-1)(n-2) ... 1 siendo n>1. (Factorial)
+
+- Dado dos enteros entre 0 y 5 (la base y el exponente), obtener la potencia del primero elevado al segundo sin utilizar el método “pow”. Por ejemplo, base = 3 y exponente = 5, 35=3x3x3x3x3=243. Casos particulares: 00 = Error y n0 = 1.(BaseExponente)
+
+- Mostrar todos los números pares comprendidos entre dos dados. (ParesEntreDosDados)
+
+- Simúlese el lanzamiento de un dado. Se introducirá el número de veces que se lanza el dado (de no ser positivo, se establecerá a 100). (Dado)
+
+- Pedir 10 números. Mostrar la media de los números positivos, la media de los números negativos y la cantidad de ceros (NumerosTipos)
+
+- Pedir 10 sueldos. Mostrar su suma, media y cuantos hay mayores de 1000€.(Sueldos)
+
+- Dadas 6 notas, escribir la cantidad de alumnos aprobados, condicionados (=4) y suspensos.(NotasTipos)
+
+- Pedir un número N, introducir N sueldos, y mostrar el sueldo máximo. Donde N es un número pedido por teclado
