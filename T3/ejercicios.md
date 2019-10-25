@@ -100,18 +100,7 @@ Al introducir un número el sistema comprobará que es mayor que 0. En caso de n
 
 - Dibujar por consola un Cuadrado de + . Para ello se pedirá por consola el tamaño del lado y se imprimirá el cuadrado con el siguiente formato (CuadradoFor)
 
-++++
-++++
-++++
-++++
-
 - Modificar el ejercicio anterior para dibujar un cuadrado donde las aristas exteriores tengan el caracter - y la parte inteirior del cuadrado tenga el caracter +. (CuadradoFormato)
-
------
--+++-
--+++-
--+++-
------
 
 - Pedir una palabra por teclado y mostrar su contraria. Por ejemplo se introducirá la palabra programacion y se mostrará por consola la palara noicamargorp (InversaPalabra)
 
