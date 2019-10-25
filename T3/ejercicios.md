@@ -78,6 +78,10 @@ Al introducir un número el sistema comprobará que es mayor que 0. En caso de n
 
 - Considérese un número entre 0 y 10. Se mostrará la tabla de multiplicar de dicho número con el formato: 5 x 3 = 15 (desde 0 hasta 10 en líneas distintas). (TablaDeMultiplicar)
 
+- Modificar el ejercicio anterios para calcular la tabla de multiplicar de todos los números (TablaTodos)
+
+- Modificar el ejercicio anteriore para calcular la tabla de multiplicar de los numeros comprendidos en un rango de números pedidos. Por ejemplo, las tablas de los números comprendidos entre el 3 y el 7 (3,4,5,6,7)
+
 - Calcular el factorial de un número entre 0 y 20. El factorial de un número se define del siguiente modo: F(0) = 1; F(1) = 1; F(n) = n(n-1)(n-2) ... 1 siendo n>1. (Factorial)
 
 - Dado dos enteros entre 0 y 5 (la base y el exponente), obtener la potencia del primero elevado al segundo sin utilizar el método “pow”. Por ejemplo, base = 3 y exponente = 5, 35=3x3x3x3x3=243. Casos particulares: 00 = Error y n0 = 1.(BaseExponente)
@@ -92,4 +96,34 @@ Al introducir un número el sistema comprobará que es mayor que 0. En caso de n
 
 - Dadas 6 notas, escribir la cantidad de alumnos aprobados, condicionados (=4) y suspensos.(NotasTipos)
 
-- Pedir un número N, introducir N sueldos, y mostrar el sueldo máximo. Donde N es un número pedido por teclado
+- Pedir un número N, introducir N sueldos, y mostrar el sueldo máximo. Donde N es un número pedido por teclado (Sueldos)
+
+- Dibujar por consola un Cuadrado de + . Para ello se pedirá por consola el tamaño del lado y se imprimirá el cuadrado con el siguiente formato (CuadradoFor)
+
+++++
+++++
+++++
+++++
+
+- Modificar el ejercicio anterior para dibujar un cuadrado donde las aristas exteriores tengan el caracter - y la parte inteirior del cuadrado tenga el caracter +. (CuadradoFormato)
+
+-----
+-+++-
+-+++-
+-+++-
+-----
+
+- Pedir una palabra por teclado y mostrar su contraria. Por ejemplo se introducirá la palabra programacion y se mostrará por consola la palara noicamargorp (InversaPalabra)
+
+- Pedir una palabra por teclado y comprobar si es o con capicua. Una palabra es palíndromo cuando se lee igual de izquieda a derecha que de derecha a izquierda. Por ejemplo ana, oro, radar. Para poder hacer la comprobacion no se tendrán en cuenta mayusculas ni acentos (CapicuaPalabra)
+
+- Modifica el ejercicio anterior para comprobar si una frase introducida es palíndromo. Para ello se deben eliminar todos los espacios y comprobar si la frase se lee igual de izquierda a derecha que de derecha a izquierda. Por ejemplo: Allí ves Sevilla.  Para poder hacer la comprobacion no se tendrán en cuenta mayusculas ni acentos (PalindromoFrase)
+
+- Realiza una clase que simule el funcionamiento del juego del ahorcado. Para ello se introduce una palabra por teclado y el jugador tendrá que adivinarla como máximo en 10 intentos. El funcionamiento del juego es el siguiente (palabra hola):
+
+1. Se mostrará el número de letras que tiene la palabra con caracteres ( _ _ _ _ _ )
+2. Cada vez que el usuario introduce una letra, si esta coincide con alguna de la palabra se mostrará la letra sustityendo el caracter correspodiente ( _ _ L _ ). Si la letra no existe restará uno a los intentos
+3. Si se agotan los intentos, se avisará al usuario que ha perdido el juego. Si acierta la palabra antes de agotar los intentos se avisará que todo se ha realizado correctamente
+(AhorcadoPalabra)
+
+
