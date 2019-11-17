@@ -1,0 +1,84 @@
+import java.util.Scanner;
+
+public class Palabras {
+
+    public static void main(String[] args) {
+
+        String palabra = "hola";
+        String adivinada = "";
+        char letra = 'h';
+
+        if (palabra.contains(String.valueOf(letra))){
+            int pos = palabra.indexOf('h');
+            for (int i=0;i<palabra.length();i++){
+                if (i!=pos){
+                    adivinada+='_';
+                }
+                else {
+                    adivinada+=letra;
+                }
+            }
+        }else
+        {
+            System.out.println("Fallo");
+        }
+        adivinada +="\n";
+        System.out.println(adivinada);
+
+        System.out.println("*****");
+
+
+        letra = 'o';
+        if (palabra.contains(String.valueOf(letra))){
+            int pos = palabra.indexOf('o');
+            for (int i=0;i<palabra.length();i++){
+                if (i!=pos){
+                    adivinada+='_';
+                }
+                else {
+                    adivinada+=letra;
+                }
+            }
+        }else
+        {
+            System.out.println("Fallo");
+        }
+        System.out.println(adivinada);
+        adivinada +="\n";
+
+        letra = 'l';
+        if (palabra.contains(String.valueOf(letra))){
+            int pos = palabra.indexOf('l');
+            for (int i=0;i<palabra.length();i++){
+                if (i!=pos){
+                    adivinada+='_';
+                }
+                else {
+                    adivinada+=letra;
+                }
+            }
+        }else
+        {
+            System.out.println("Fallo");
+        }
+        System.out.println(adivinada);
+        adivinada +="\n";
+
+        letra = 'a';
+        if (palabra.contains(String.valueOf(letra))){
+            int pos = palabra.indexOf('a');
+            for (int i=0;i<palabra.length();i++){
+                if (i!=pos){
+                    adivinada+='_';
+                }
+                else {
+                    adivinada+=letra;
+                }
+            }
+        }else
+        {
+            System.out.println("Fallo");
+        }
+        System.out.println(adivinada);
+    }
+}
