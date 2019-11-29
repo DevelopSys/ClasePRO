@@ -6,18 +6,28 @@
 
 Se deberá mostrar por pantalla la siguiente salida
 
-	Salida
+	SALIDA
 	````
 	Número de temas: 10
+	
 	Tema 1: Introducción
+
 	Tema 2: Estructuras de datos
+
 	Tema 3: Estructuras
+
 	Tema 4: Colecciones
+
 	Tema 5: Orientación a objetos
+
 	Tema 6: Clases y Objetos
+
 	Tema 7; Abstracción, Herencia y Polimorfismo
+
 	Tema 8: Ficheros y Excepciones
+
 	Tema 9: Bases de datos
+
 	Tema 10: Interfaces
 	````
 
