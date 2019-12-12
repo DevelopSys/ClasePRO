@@ -92,7 +92,7 @@ Las palabras generadas son:
 	- Me quede sin vidas
 	
 11. (ChampionArray) Desarrolla un programa que simule los cruzes del sorteo de la champion. Para ello debes saber que eisten dos bombos:
-	- bombo1:  Barcelona, PSG, Bayern, Manchester City, Juventus, RB Leizpzig, Valencia
+	- bombo1:  Barcelona, PSG, Bayern, Manchester City, Juventus, RB Leizpzig, Valencia, Liverpool
 	- bombo2:  Real Madrid, Tottenham, Nápoles, B. Dortmund, O. Lyon, Chelsea, Atalanta, Atético de Madrid
 El programa debe empajerar un equipo del bombo1 con un equipo del bombo2 sin repetir posibilidades y mostrarlo por pantalla con el siguiente formato:
 ````
