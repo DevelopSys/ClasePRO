@@ -106,4 +106,38 @@ El programa debe empajerar un equipo del bombo1 con un equipo del bombo2 sin rep
 	- pedir el nombre de cada uno de los participantes
 	- sacar por pantalla el orden de las parejas resultantes
 	
-	  
+13. Crear un programa que mediante un menú permita:
+	- Crear un array de números enteros con n posiciones pedidas.
+	- Rellenar el array creado con números aleatorios.
+	- Rellenar el array creado con números pedidos por consola.
+	- Ordenar el array de mayor a menor
+	- Clonar el array con una una mayor longitud. Para ello pedir al usuario la nueva longitud (si esta es inferior a la que la existe continuar pidiendo)
+	- Mover todas las posiciones (pedir al usuario que seleccione la orientación)
+	- Mostrar por pantalla el array según está
+
+## Ejercicios Arrays multidimensionales
+
+14. (MultidimensionalAutomático) Crear un programa que:
+	- pida por consola el número de filas y el número de coumnas (de ser inferior a 1 continuará pidiendo)
+	- Rellene de forma automática todas las celdas con números aleaotrios entre 0 y 100
+	- Muestre por pantalla el array relleno con * entre cada fila
+
+15. (MultidimensionalAlumno) Crear un programa guarde en un array multidimensional un número determinado de alumnos. Cada alumno tendrá un nombre y tres notas. El programa deberá sacar un menú con la siguiente estructura:
+- Definir el número de alumnos a registrar: si ya hay definido un número de alumnos saltará un error o si el numero es menor que uno
+- Registrar alumnos: si no hay número de alumnos definido o si ya hay alumnos registrados saldrá un mensaje de error (deberá ser diferente)
+- Ver datos de alumnos con nota media: se mostrará en cada línea la información del alumno con el siguiente formato. Si no hay alumnos registrados saltará un mensaje de error
+- Ver datos de un alumno concreto: pedirá un nombre, lo buscará y mostrará sus datos. Si no hay alumnos registrados o no existe mostrará un mensaje que muestre el aviso (deberá ser diferente)
+- Ver medias de la asignatura 1: Se mostrará la media de la asignatura 1. Si no hay alumnos se mostrará un aviso
+- Ver medias de la asignatura 2: Se mostrará la media de la asignatura 2. Si no hay alumnos se mostrará un aviso
+- Ver medias de la asignatura 3: Se mostrará la media de la asignatura 3. Si no hay alumnos se mostrará un aviso
+- Salir 
+
+````
+El formato de salida será el siguiente
+****Alumno suNombre****
+****Alumno suNombre****
+Nota1: 6
+Note2: 5
+Nota3: 7
+Nota media: 6
+````
