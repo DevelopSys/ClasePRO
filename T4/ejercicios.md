@@ -106,7 +106,7 @@ El programa debe empajerar un equipo del bombo1 con un equipo del bombo2 sin rep
 	- pedir el nombre de cada uno de los participantes
 	- sacar por pantalla el orden de las parejas resultantes
 	
-13. Crear un programa que mediante un menú permita:
+13. (MenuArray)Crear un programa que mediante un menú permita:
 	- Crear un array de números enteros con n posiciones pedidas.
 	- Rellenar el array creado con números aleatorios.
 	- Rellenar el array creado con números pedidos por consola.
@@ -134,7 +134,6 @@ El programa debe empajerar un equipo del bombo1 con un equipo del bombo2 sin rep
 
 ````
 El formato de salida será el siguiente
-****Alumno suNombre****
 ****Alumno suNombre****
 Nota1: 6
 Note2: 5
