@@ -253,7 +253,7 @@ Los modificadores de acceso de los elementos de la clase son:
 
 Hay que tener en cuenta que las variables casi siempre debería ser *privadas*  de forma que no puedan ser accedidas de forma directa, tan solo mediante métodos que sean públicos (son los llamados getters y setters)
 
-Ejercicio crea una clase con la siguiente definición UML
+Ejercicio: crea una clase con la siguiente definición UML
 
 ![Clase persona UML](./images/personauml.jpg)
 
