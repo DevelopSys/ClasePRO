@@ -1,9 +1,9 @@
 - Introducción a la orientación a objetos
+    - Principios básicos de la orientación a objetos.
     - Clases. Atributos, métodos y visibilidad
     - Objetos. Estado, comportamiento e identidad. Mensajes.
     - Encapsulado. Visibilidad.
     - Relaciones entre clases.
-    - Principios básicos de la orientación a objetos.
 
 ### Introducción a la programación orientada a objetos
 
@@ -65,3 +65,75 @@ public class Coche {
 - **Visibilidad**
 
 La visibilidad de una clase, métodos y propiedades el el acceso que cada uno de los elementos tiene, desde donde podrán ser vistos. Más adelante se verá con detalle pero cada uno de los elementos podrán tener una visibilidad *public*, *protected*, *private*
+
+- **Objetos**
+
+Cuando se desarrolla una clase se dice que en realidad lo que se está haciendo es un modelo que puede ser utilizado en cualquier parte del código de programación. Para poder utilizar estas clases (con toda la funcionalidad que se define en su interior) es necesario implementar o crear un objeto de la propia clase. Digamos que la clase representa el molde y el objeto representa la clase llevada a la realizada (el concepto es instancia). Para poder crear un objeto (ya hemos utilizado simples y complejos) se utiliza la palabra ***new***
+
+````
+// crea un objeto de tipo teclado (por lo tanto existe una clase de tipo teclado)
+Scanner teclado = new Scanner(System.in)
+// crea un objeto de tipo String array
+String[] arrayPalabras = new String[]
+````
+
+Hasta este punto hemos utilizado objetos de tipo primitivo como los int, float, etc... que no necesitan palabra new al ser datos muy simples, pero también en algunos casos se ha utilizado la palabra new para poder crear aquellos tipos complejos que nos permiten una funcionalidad un poco más avanzada (uso de sus métodos).
+
+````
+Scanner teclado = new Scanner(System.in);
+teclado.nextInt();
+````
+
+Todos los datos complejos que hemos utilizado son tipos que ha están creados en el sistema, pero gracias al uso de las clases que se han definido al principio, nosotros podemos crear nuestros propios tipos para crear objetos. Imaginad que en el programa se necesita utilizar un tipo especial que represente un coche:
+
+````
+// archivo coche.java
+public class Coche {
+
+    String bastidor;
+    int caballos, velocidad;
+    
+    public void acelerar(int v){
+        this.velocidad = this.velocidad + v;
+    }
+    
+    public void deceledad(int v){
+        this.velocidad = this.velocidad - v;
+    }
+    
+    public void reprogramar(int cv) {
+        this.caballos = cv;
+    }
+}
+````
+
+Mediante esta clase ya se tiene la posibilidad de crear un objeto de tipo Coche desde partes del programa con el acceso a todas sus funcionalidades. Para poder utilizarlo hay que utilizar la palabra reservada new
+
+````
+public class Entrada {
+
+    public static void main(String[] args) {
+        Coche cocheUno = new Coche();
+        cocheUno.acelerar(100);
+        
+        Coche cocheDos = new Coche();
+        cocheDos.acelerar(50);
+    }
+}
+
+````
+Lo interesante de esto es que una vez se ha creado la clase (el molde para poder generar objetos), se podrán crear tantos objetos como se quiera teniendo la posibilidad de personalizarlos
+
+--------
+
+Esta metodología de programación no es exclusivo del ámbito informático, ya que si pensamos en cualquier aspecto de una cadena de montaje o proceso de producción nos encontramos con una forma muy similar de ejecutar las cosas. Suponer el ejemplo de un coche, donde cada elemento está compuesto por multitud de piezas que todas juntas hacen que el coche funcione correctamente. Es imposible tener un plano o diseño donde aparezcan todas y cada una de las piezas, sino que cada parte del coche tiene su propio plano donde a su vez se divide en muy pequeñas funcionalidades: motor, chasis, cableado, etc...
+
+Una vez se han comprendido la funcionalidad de la orientación a objetos y los elementos que la hacen posible en java, es importante tener en cuenta los principales conceptos que hacen de la orientación a objetos un mecanismo muy potente a la hora de realizar un programa informático:  encapsulación, herencia y polimorfismo
+
+### Encapsulación
+
+Consiste en ocultar aquellos elementos que no se quieren mostrar cuando un objeto es utilizado, pero son necesarios para el funcionamiento de este. Si volvemos al ejemplo de la fabricación de un coche, un conductor no necesita saber como funciona la caja de cambio o el motor, simplemente lo utiliza sin necesidad de conocer su funcionamiento al detalle. En informática pasa exactamente lo mismo; en un programa informático se utilizarán objetos que no es necesario que quién lo esté utilizando sepa con exactitud su funcionamiento. 
+
+### Herencia
+
+En el lenguaje de programación Java se permite la creación de clases a través de clases ya existentes, cogiendo
