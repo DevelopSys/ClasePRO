@@ -136,4 +136,127 @@ Consiste en ocultar aquellos elementos que no se quieren mostrar cuando un objet
 
 ### Herencia
 
-En el lenguaje de programación Java se permite la creación de clases a través de clases ya existentes, cogiendo
+En el lenguaje de programación Java se permite la creación de clases a través de clases ya existentes, cogiendo todos sus métodos - variables y haciéndolas propias de la clase. Este concepto es muy importante ya que de esta forma se puede realizar clases con muy poco código, siempre especializando clases superiores. Además esta característica del lenguaje permite utilizar el concepto de *polimorfismo*. Para poder utilizar la herencia se usa la palabra reservada extends
+
+````
+// archivo Coche.java
+public class Coche {
+
+    String bastidor;
+    int caballos, velocidad;
+    
+    public void acelerar(int v){
+        this.velocidad = this.velocidad + v;
+    }
+    
+    public void deceledad(int v){
+        this.velocidad = this.velocidad - v;
+    }
+    
+    public void reprogramar(int cv) {
+        this.caballos = cv;
+    }
+}
+````
+````
+// archivo Deportivo.java
+public class Deportivo extends Coche{
+    
+    int par;
+    int cilindros;
+    
+    public void calcularParMotor(){
+        par = (velocidad * cilindros)/2;
+    }
+}
+````
+
+Por defecto la clase Deportivo no tiene ninguna variable llamada velocidad, pero al haber extendido de Coche que si lo tiene, está disponible para la clase. 
+Se suele decir que las clases que extienden de otras son especializaciones. En Java, todas las clases son subclases de la superase Object
+
+### Polimorfismo
+
+Este concepto va de la mano del visto en el punto anterior. Gracias a esta característica una clase puede ser utilizada con un tipo diferente dependiendo de las necesidades del programa. En el ejemplo anterior si se quería instancia un objeto de los tipos coche y deportivo se hacía de la siguiente forma 
+
+````
+Coche c = new Coche()
+Deportivo d = new Deportivo()
+````
+
+Gracias a que la clase Deportivo ha extendido de coche, también podría valer la siguiente instancia
+````
+Coche d = new Deportivo
+````
+
+## Clases
+
+Hasta ahora se han resuelto ejercicios en los que se han almacenado datos en variables de tipos básicos (o complejos si hablamos de String), y se han modificado dichos datos con métodos. Todas estas variables han sido llamadas desde una misma clase donde encontrábamos el método main. Por ejemplo, para leer un contacto se almacenaba en una variable de tipo cadena el nombre y en una de tipo entero, el teléfono. También necesitábamos métodos para leer nombres y teléfonos válidos, modificarlos y mostrarlos por consola. Si se quiere trabajar de esta forma se podrían solucionar muchos problemas, pero en el 100% de los casos nos encontraríamos con muchísimo código para hacer tareas demasiado simples. Para ello se utiliza el concepto de clase, que lo definimos como el tipo que un programador crea para poder utilizarlo en diferentes partes del programa. Estas clases son creadas en archivos separados y utilizadas en cualquier parte  (bien sea otras clases que representen otros tipos o directamente en la clase que tiene el método main). Por ejemplo, una clase sería un coche donde este tiene características (variables que cualifican) como color, marca, modelo ó cv y funcionalidades (métodos que dan funcionalidades) como acelerar, girar, frenar. 
+
+![Clase coche UML](./images/cocheuml.jpg)
+
+Para poder crear una clase se puede hacer directamente desde el la carpeta src, pero para mantener el código organizado (y así poder utilizar los modificadores de acceso que se explicarán) se utilizan los paquetes. Estos se crean organizando clases por funcionalidades por ejemplo. Una vez se ha creado un paquete, al inicio de todas las clases que pertenezcan al mismo aparecerá la palabra package 
+
+````
+package introduccion;
+
+public class Coche {
+
+    String bastidor;
+    int caballos, velocidad;
+
+    public void acelerar(int v){
+        this.velocidad = this.velocidad + v;
+    }
+
+    public void deceledad(int v){
+        this.velocidad = this.velocidad - v;
+    }
+
+    public void reprogramar(int cv) {
+        this.caballos = cv;
+    }
+}
+
+````
+
+Una vez se crea un paquete, se puede crear una clase dentro. A la hora de declarar una clase se tienen los siguiente elementos:
+````
+Package nombre.paquete
+
+public class NombreClase{
+
+	// variables de clase: existirán en todo el cuerpo de la clase
+	public nombreVariable;
+	private otraVariable;
+	protected otraVariableMas
+
+	// métodos: funcionalidades que tendrá un objeto de la clase
+	public void miMetodoUno(){
+		// variable de método
+	}
+	private void miMetodoDos(){
+		// variable de método
+	}
+	protected void miMetodoTres(){
+		// variable de método
+	}
+	
+}
+
+````
+
+Los modificadores de acceso de los elementos de la clase son:
+- private → Sólo se puede acceder a ese miembro en clase donde se define. Es decir, el atributo “otraVariable” sólo puede ser referenciado en la clase donde ha sido creado
+- protected → Sólo se puede acceder a ese miembro en la clase donde se define y en las clases que deriven de dicha clase (es decir aquellas que hayan extendido de la misma) o estén en el mismo paquete.
+- public → Se puede acceder a ese miembro desde cualquier clase. Por ejemplo, los métodos “metodoUno()” y  la variable “nombreVariable” puede ser accedidos desde cualquier clase una vez que se haya creado un objeto de la clase.
+- package → En caso de no poner nada sólo se puede acceder a ese miembro en la clase donde se define, y en las clases de su mismo paquete
+
+Hay que tener en cuenta que las variables casi siempre debería ser *privadas*  de forma que no puedan ser accedidas de forma directa, tan solo mediante métodos que sean públicos (son los llamados getters y setters)
+
+Ejercicio crea una clase con la siguiente definición UML
+
+![Clase persona UML](./images/personauml.jpg)
+
+**Los métodos setter son aquellos que modifican el valor de la variable**. Para la definición de estos métodos se pide como argumento en el método el valor que se quiere asignar a la variable en cuestión
+
+**Los métodos getter son aquellos que obtienen el valor de la variable**. Para la definición de estos métodos no se piden argumentos en el método y se retorna el valor que tiene asignado la variable en cuestión.
