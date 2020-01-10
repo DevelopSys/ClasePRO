@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Entrada {
+public class EntradaCoches {
 
     static Scanner teclado = new Scanner(System.in);
     static ArrayList<Object[]> coches;
