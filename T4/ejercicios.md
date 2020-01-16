@@ -140,3 +140,14 @@ Note2: 5
 Nota3: 7
 Nota media: 6
 ````
+
+## Ejercicios ArrayList / HashTable
+
+16 Realizar una aplicación que gestione usuarios mediante arrays,  donde los cuales constan de nombre (string), apellido (string), teléfono (int) y dni (string): La funcionalidad de la aplicación se guiará por un menú
+con las siguientes opciones:
+- Agregar persona: Pedirá los daos de nombre, apellido, teléfono y dni. Una vez pedidos agregará la persona en la lista.
+- Buscar persona: Pedirá un dni y sacará por pantalla todos los datos de la persona
+asociada con el formato Nombre: XXX, Apellido: XXX, Teléfono: XXX
+- Borrar persona: Pedirá un dni y la eliminará de la lista
+- Listar personas: Listará todo los elementos existentes en la lista con el formato Nombre: XXX, Apellido: XXX, Teléfono: XXX
+- En todos los casos se deberá de dar confirmación al usuario tanto del éxito de la operación como de la ejecución incorrecta de la opción
