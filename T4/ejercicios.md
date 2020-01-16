@@ -143,7 +143,17 @@ Nota media: 6
 
 ## Ejercicios ArrayList / HashTable
 
-16 Realizar una aplicación que gestione usuarios mediante arrays,  donde los cuales constan de nombre (string), apellido (string), teléfono (int) y dni (string): La funcionalidad de la aplicación se guiará por un menú
+16. (Garaje) Desarrollar una aplicación para el control de un garaje. El funcionamiento de la aplicación será desde consola mediante un menú que permita acceder a las diferentes opciones. Para la aplicación tendremos que tener en cuenta las siguientes cosas:
+- Un coche está formado por los siguientes atributos: marca (string) modelo (string), coste (int), matricula (string).
+Las opciones de la aplicación serán las siguientes:
+- Añadirá un coche al taller, pidiéndome todos los datos necesarios 
+- Listar coches
+- Buscar coches: Se pedirá una matrícula y se mostrarán los datos del coche.
+- Mostrar costes: Se mostrará el coste acumulado de todos los coches de la lista.
+- Eliminar coche: Se pedirá una matrícula y se eliminará el coche de la lista
+- Vaciar garaje: Eliminará todos los coches de la lista
+ 
+17. (Agenda) Realizar una aplicación que gestione usuarios mediante arrays,  donde los cuales constan de nombre (string), apellido (string), teléfono (int) y dni (string): La funcionalidad de la aplicación se guiará por un menú
 con las siguientes opciones:
 - Agregar persona: Pedirá los daos de nombre, apellido, teléfono y dni. Una vez pedidos agregará la persona en la lista.
 - Buscar persona: Pedirá un dni y sacará por pantalla todos los datos de la persona
