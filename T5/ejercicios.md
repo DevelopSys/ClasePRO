@@ -23,4 +23,25 @@ Desarrollar una clase Cuadrado
 -	Tenga un método que calcule su área (A=b*a)
 -	Tenga un método que calcule su perímetro (2*a+2*b)
 
-Desarrollar una clase entrada donde: se mostrará un menú por el cual se podrán seleccionar opciones a ejecutar (operaciones con triangulo, con circulo y con cuadrado) una vez seleccionada la figura a trabajar se pedirá los datos necesarios (base, altura o radio) y la operación a realizar (calcular area, diámetro y/o perímetro)
+Desarrollar una clase entrada donde: se mostrará un menú por el cual se podrán seleccionar opciones a ejecutar (operaciones con triangulo, con circulo y con cuadrado) una vez seleccionada la figura a trabajar se pedirá los datos necesarios (base, altura o radio) y la operación a realizar (calcular area, diámetro y/o perímetro)- El menú será el siguiente:
+- 1 Trabajar con triángulos
+	- Introduce base
+	- Introduce altura
+	- Que operación quieres hacer
+		- Calcular área
+		- Mostrar datos
+- 2 Trabajar con círculos
+	- Introduce radio
+	- Que operación quieres hacer
+		- Calcular área
+		- Calcular diámetro
+		- Mostrar datos
+- 3 Trabajar con cuadrados
+	- Introduce base
+	- Introduce altura
+	- Que operación quieres hacer
+		- Calcular área
+		- Calcular perímetro
+		- Mostrar datos
+
+
