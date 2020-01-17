@@ -6,7 +6,6 @@ Desarrollar una clase Triangulo que:
 
 -	Tenga un constructor vacío y un constructor con base y altura
 -	Tenga dos atributos tipo int, base y altura
--	Tenga un argumento de tipo double área
 -	Tenga un método que calcule su área (A=(b*al)/2)
 
 Desarrollar una clase Círculo
