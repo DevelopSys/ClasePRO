@@ -5,7 +5,7 @@ Desarrollar una clase Triangulo que:
 
 
 -	Tenga un constructor vacío y un constructor con base y altura
--	Tenga tres atributos tipo int, base y altura
+-	Tenga dos atributos tipo int, base y altura
 -	Tenga un argumento de tipo double área
 -	Tenga un método que calcule su área (A=(b*al)/2)
 
@@ -20,7 +20,7 @@ Desarrollar una clase Cuadrado
 
 -	Tenga un constructor vacío y un constructor con base y altura
 -	Tenga dos atributos int base y altura
--	Tenga dos atributos de tipo doublé área y perímetro
+-	Tenga dos atributos de tipo double área y perímetro
 -	Tenga un método que calcule su área (A=b*a)
 -	Tenga un método que calcule su perímetro (2*a+2*b)
 
