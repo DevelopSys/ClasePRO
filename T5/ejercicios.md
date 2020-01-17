@@ -30,12 +30,14 @@ Desarrollar una clase entrada donde: se mostrará un menú por el cual se podrá
 	- Que operación quieres hacer
 		- Calcular área
 		- Mostrar datos
+	- Pulsa enter para continuar (teclado.next())
 - 2 Trabajar con círculos
 	- Introduce radio
 	- Que operación quieres hacer
 		- Calcular área
 		- Calcular diámetro
 		- Mostrar datos
+	- Pulsa enter para continuar (teclado.next())
 - 3 Trabajar con cuadrados
 	- Introduce base
 	- Introduce altura
@@ -43,5 +45,5 @@ Desarrollar una clase entrada donde: se mostrará un menú por el cual se podrá
 		- Calcular área
 		- Calcular perímetro
 		- Mostrar datos
-
+	- Pulsa enter para continuar (teclado.next())
 
