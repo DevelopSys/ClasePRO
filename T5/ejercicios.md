@@ -81,3 +81,23 @@ Desarrollar una clase llamada Entrada que en su método main:
 - 5: Listar agenda (lista todos los contactos de la agenda con sus datos)
 
 **Es muy parecido al ejercicio de arraylist que guardaba array de Object. En este caso se guardan en el arraylist o hashtable objetos de tipo persona**
+
+
+4. (ConsumicionAplicacion) Créese una clase de nombre “Consumición” en el paquete “clases” que permita determinar el coste de una determinada consumición.  y métodos:
+• Se tendrá una clase “Articulo” con los distintos tipos de productos
+(caña, refresco, pincho, tapa, bocadillo, vino, etc)
+• Devolver y establecer el artículo.
+• Devolver y establecer el precio (valor con dos decimales positivo)
+• Devolver y establecer el número de unidades (valor positivo)
+• Obtener el coste de la consumición.
+• Inicializar el artículo, el precio y número de unidades de todas las posibles formas.
+• Inicializar el articulo y el precio (en cualquier orden);  el artículo y el número de unidades (en cualquier orden); y el precio y el número de unidades (en cualquier orden)
+• Inicialmente el artículo toma el valor de “caña”; el precio, “1.00” y el número de unidades, “1”.
+
+Crear una clase consumición que conste de un conjunto de artículos. La clase permitirá:
+
+- agregar artículos
+- cucluar cuenta
+- devolver cuenta
+- estado de la cuenta
+
