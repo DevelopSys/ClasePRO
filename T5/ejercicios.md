@@ -83,21 +83,29 @@ Desarrollar una clase llamada Entrada que en su método main:
 **Es muy parecido al ejercicio de arraylist que guardaba array de Object. En este caso se guardan en el arraylist o hashtable objetos de tipo persona**
 
 
-4. (ConsumicionAplicacion) Créese una clase de nombre “Consumición” en el paquete “clases” que permita determinar el coste de una determinada consumición.  y métodos:
-• Se tendrá una clase “Articulo” con los distintos tipos de productos
-(caña, refresco, pincho, tapa, bocadillo, vino, etc)
-• Devolver y establecer el artículo.
-• Devolver y establecer el precio (valor con dos decimales positivo)
-• Devolver y establecer el número de unidades (valor positivo)
-• Obtener el coste de la consumición.
-• Inicializar el artículo, el precio y número de unidades de todas las posibles formas.
-• Inicializar el articulo y el precio (en cualquier orden);  el artículo y el número de unidades (en cualquier orden); y el precio y el número de unidades (en cualquier orden)
-• Inicialmente el artículo toma el valor de “caña”; el precio, “1.00” y el número de unidades, “1”.
+4. (ConsumicionAplicacion) 
 
-Crear una clase consumición que conste de un conjunto de artículos. La clase permitirá:
+Créese una clase de nombre “Cuenta” que permita realizar pedidos. Para eso crea una clase consumición que tenga los siguientes métodos y atributos:
 
-- agregar artículos
-- cucluar cuenta
-- devolver cuenta
-- estado de la cuenta
+- Tendrá un atributo de tipo int "Identificador"
+- Tendrá un atributo de tipo boolean "Estado"
+- Tendrá un atributo de tipo "ArrayList" donde se guardarán Artículos
+- Crear un método que permita agregar un artículo a la lista
+- Crear un método que retorne el número de artículos que tiene la consumición 
+- Crear un método que retorne el coste total de la consumición.
+- Crear un setter para el atributo estado
 
+Crear una clase de tipo Articulo que tenga;
+
+- Un atributo de tipo String (nombre) double (coste)
+- Un constructor que pida nombre y coste. Inicializará el artículo con los valores dados
+- Un método que ponga el precio del artículo
+
+Crear una clase Entrada que permita:
+
+- Registrar una cuenta
+- Agregar artículos a la cuenta
+- Obtener el valor de una cuenta
+
+
+**Repetir el ejercicio con un menú que permita realizar consumiciones en diferentes cuentas**
