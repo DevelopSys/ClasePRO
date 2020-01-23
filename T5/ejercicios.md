@@ -103,9 +103,11 @@ Crear una clase de tipo Articulo que tenga;
 
 Crear una clase Entrada que permita:
 
-- Registrar una cuenta
-- Agregar artículos a la cuenta
-- Obtener el valor de una cuenta
+- Una colección (arraylist o hashtable) que permita registrar consumiciones
+- Registrar una cuenta en la coleccion
+- Agregar artículos a una cuenta existente en la colección
+- Obtener el valor de una cuenta existente en la colección
+- Cambiar el estado de una cuenta existente en la colección.
 
 
 **Repetir el ejercicio con un menú que permita realizar consumiciones en diferentes cuentas**
