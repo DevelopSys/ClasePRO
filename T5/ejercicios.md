@@ -85,7 +85,7 @@ Desarrollar una clase llamada Entrada que en su método main:
 
 4. (ConsumicionAplicacion) 
 
-Créese una clase de nombre “Cuenta” que permita realizar pedidos. Para eso crea una clase consumición que tenga los siguientes métodos y atributos:
+Créese una clase de nombre “Cuenta” que permita realizar pedidos. Para eso crea una clase "consumición "Cuenta"" que tenga los siguientes métodos y atributos:
 
 - Tendrá un atributo de tipo int "Identificador"
 - Tendrá un atributo de tipo boolean "Estado"
