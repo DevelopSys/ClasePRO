@@ -82,8 +82,59 @@ Desarrollar una clase llamada Entrada que en su método main:
 
 **Es muy parecido al ejercicio de arraylist que guardaba array de Object. En este caso se guardan en el arraylist o hashtable objetos de tipo persona**
 
+4. (Carrera)
 
-4. (ConsumicionAplicacion) 
+Desarrollar una clase Coche que tenga las siguientes características:
+
+- Atributo de tipo int que represente los caballos 
+- Atributo de tipo int que represente la velocidad
+- Atributo de tipo String que represente la matricula
+- Atributo de tipo String que represente el modelo
+- Atributo de tipo double que represente los kilómetros recorridos
+- Un constructor vacío que inicialice los cv a 0, la velocidad a 0, la matricula a 0000AAA, el modelo a "sin especificar" y los km a 0.0
+- Un constructor con los siguientes parámetros: modelo, matrícula y cv. Se iniciarán los atributos a los parámetros pasados y el resto lo hará a los valores por defecto
+- Un método acelerar que reciba como parámetros un argumento de tipo int, que no retorne nada y realice la siguiente funcionalidad:
+	- Incrementa la velocidad en la cantidad pasada por parámetros
+	- Incrementa los kilómetros en: velocidad * ((caballos)*número aleatorio entre 1 y 10)
+	- La velocidad máxima del coche es 180, en el caso de superarla se pondrá el valor 180 y se mostrará un mensaje por pantalla
+- Un método frenar que reciba como parámetros un argumento de tipo int, que no retorne nada y realice la siguiente funcionalidad:
+	- Decrementa la velocidad en la cantidad pasada por parámetros
+	- La velocidad mínima del coche es 0, en el caso de superarla se pondrá el valor 180 y se mostrará un mensaje por pantalla
+- Un método parar que no recibirá nada por parámetros y que no devuelva nada. Su funcionalidad será la siguiente:
+	- Pondrá la velocidad del cocha a 0
+- Un método resetear que no reciba nada por parámetros y no devuelva nada. Su funcionalidad será la siguiente:
+	- Pondrá la velocidad del coche a 0 y los kilómetros a 0
+- Un método mostrar datos que muestre por pantalla los datos del coche con el siguiente formato:
+	- Matrícula: XXX Modelo: XXX CV: XXX Velocidad: XXX Kilómetros: XXX
+- Un método setter para cada uno de los atributos
+- Un método getter para cada uno de los atributos
+
+Desarrollar una clase Entrada que represente el punto de entrada de la aplicación. La funcionalidad de la aplicación será la siguiente
+
+- Crear dos coches:
+	- (CocheA) Uno con el constructor por defectoç
+	- (CocheB) Uno pasando modelo, matricula y caballos
+- Muestra por pantalla los datos de los dos coches
+- Modifica la velocidad del CocheA en un número aleatorio entre 10 y 30
+- Modifica los datos del CocheB y por
+	- Modelo, Matricula y CV
+- Modifica la velocidad del CocheB en un número aleatorio entre 10 y 30
+- Muestra por pantalla los datos de los dos coches
+- Imprime por pantalla el siguiente mensaje, teniendo en cuenta que el coche ganador será el que más km haya recorrido
+	- El ganador es modelo matricula con km recorridos
+
+5. (Carrera)
+
+Modifica el ejercicio anterior para que en la clase entrada:
+
+- Exista un atributo de tipo int que sea kilometrosEtapa iniciado a 10000
+- El programa deberá realizar aceleraciones de los dos coches de forma sucesiva, mientras que ninguno de los dos haya llegado al valor de kilometrosEtapa (do while)
+- Cuando uno de los dos coches haya llegado a los mostrará por pantalla el siguiente mensaje, teniendo en cuenta que el coche ganador será el que más km haya recorrido
+	- El ganador es modelo matricula con km recorridos
+
+6. (Equipo)	
+
+7. (ConsumicionAplicacion) 
 
 Créese una clase de nombre “Cuenta” que permita realizar pedidos. Para eso crea una clase "consumición "Cuenta"" que tenga los siguientes métodos y atributos:
 
