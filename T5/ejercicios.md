@@ -157,8 +157,11 @@ Desarrollar una clase Equipo que tenga las siguientes características:
 Desarrollar una clase Entrada que tenga la siguiente funcionalidad:
 
 - Crear dos equipos:
-	
+	- (EquipoA) construido con el constructor que pide un nombre
+	- (EquipoB) construido con el constructor que pide un nombre y tres int
+- Realizar un ataques sucesivos del EquipoA y el EquipoB. Tras cada uno de los ataques mostrar el siguiente mensaje "El resultado es EqupoA X - EqiuipoB X)
 
+- Tras realizar 3 ataques de cada equipo y mostrar el resultado definitivo
 
 	
 7. (ConsumicionAplicacion) 
