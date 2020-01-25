@@ -134,6 +134,33 @@ Modifica el ejercicio anterior para que en la clase entrada:
 
 6. (Equipo)	
 
+Desarrollar una clase Equipo que tenga las siguientes características:
+
+- Un atributo de tipo String que sea el nombre
+- Tres atributos de tipo int que sean el nivelAtaque, nivelCentro y nivelDefensa
+- Un atributo int que sean los goles
+- Un constructor que pida por parámetros un nombre y que tenga la siguiente funcionalidad:
+	- Inicialice el nombre al pasado por parámetros
+	- Inicialice el nivel de ataque a un número aleatorio entre 0 y 100
+	- Inicialice el nivel de centro a un número aleatorio entre 0 y 100
+	- Inicialice el nivel de defensa a un número alaatorio entre 0 y 100
+	- Inicialice los goles a 0
+- Un constructor que pida por parámetros un nombre y que tenga la siguiente funcionalidad:
+	- Inicialice el nombre al pasado por parámetros	
+	- Inicialice el nivel de ataque al número pasado
+	- Inicialice el nivel de centro al número pasado
+	- Inicialice el nivel de defensa al número pasado
+- Un método atacar que no reciba nada por parámetros y retorne un booleano. La funcionalidad será la siguiente
+	- Retornará true (se ha metido gol) si el resultado de la operación de (nivelAtaque * (aleatorio entre 0-1) + (nivelCentro * aleatorio entre 0-1)/2) es superior a 90. Además sumará uno a la variable goles
+	- Retornará false en el resto de los casos
+
+Desarrollar una clase Entrada que tenga la siguiente funcionalidad:
+
+- Crear dos equipos:
+	
+
+
+	
 7. (ConsumicionAplicacion) 
 
 Créese una clase de nombre “Cuenta” que permita realizar pedidos. Para eso crea una clase "consumición "Cuenta"" que tenga los siguientes métodos y atributos:
