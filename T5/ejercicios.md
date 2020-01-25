@@ -123,7 +123,7 @@ Desarrollar una clase Entrada que represente el punto de entrada de la aplicaci�
 - Imprime por pantalla el siguiente mensaje, teniendo en cuenta que el coche ganador será el que más km haya recorrido
 	- El ganador es modelo matricula con km recorridos
 
-5. (Carrera)
+5. (CarreraCompleta)
 
 Modifica el ejercicio anterior para que en la clase entrada:
 
