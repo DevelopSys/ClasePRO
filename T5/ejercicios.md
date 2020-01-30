@@ -163,6 +163,22 @@ Desarrollar una clase Entrada que tenga la siguiente funcionalidad:
 
 - Tras realizar 3 ataques de cada equipo y mostrar el resultado definitivo
 
+**MODIFICACIÓN**
+
+Desarrollar una clase Jugador que tenga las siguientes características:
+
+- Atributo de tipo String (nombre)
+- Atributo de tipo String (posicion)
+- Atributo de tipo boolean (estrella)
+- Atributo de tipo int (calidad)
+- Crear un constructor que pida por parámetro un nombre,  una posición,  y una calidad. Se iniciará los atributos a los parámetros pasados. El atributo estrella será true si la calidad es superior a 90, sino será false.
+- Un método mostrarDatos que imprima por pantalla los datos del jugador
+
+Modificar la clase Equipo para que tenga:
+- Un atributo de tipo Arraylist que se inicialice a vacío en todos los constructores
+- Un método que no devuelva nada y que pida por parámetros un objeto de tipo jugador. El método agregará a la lista de jugadores el pasado por parámetros
+- Un método que sea listarDelateros que no devuelva nada y muestre por consola los datos de los delantros
+
 	
 7. (ConsumicionAplicacion) 
 
