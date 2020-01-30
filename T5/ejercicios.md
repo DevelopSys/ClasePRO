@@ -192,3 +192,11 @@ Crear una clase Entrada que permita:
 
 
 **Repetir el ejercicio con un menú que permita realizar consumiciones en diferentes cuentas**
+
+8. (Cajero)
+
+Desarrollar una aplicación que simule el funcionamiento de un cajero automático. Este cajero debe manejar cuentas que estén definidas por un identificador único, un pin con el cual poder operar y un titular (la versión fácil de la práctica declarará esta variable como String, pero la versión difícil declara esta variable como Persona (que a su vez tiene nombre y apellidos). Hay que tener en cuenta que una misma persona puede tener varias cuentas. Las operaciones que se pueden realizar sobre las cuentas son:
+
+- Ingresar un saldo determinado
+- Sacar dinero: solo si el saldo restante no es negativo
+- Consultar el estado de la cuenta: donde nos dice el saldo actual
