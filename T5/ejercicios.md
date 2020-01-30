@@ -145,7 +145,7 @@ Desarrollar una clase Equipo que tenga las siguientes características:
 	- Inicialice el nivel de centro a un número aleatorio entre 0 y 100
 	- Inicialice el nivel de defensa a un número alaatorio entre 0 y 100
 	- Inicialice los goles a 0
-- Un constructor que pida por parámetros un nombre y que tenga la siguiente funcionalidad:
+- Un constructor que pida por parámetros un storing (nombre) y tres enteros (niveles de ataque medio y defensa) y que tenga la siguiente funcionalidad:
 	- Inicialice el nombre al pasado por parámetros	
 	- Inicialice el nivel de ataque al número pasado
 	- Inicialice el nivel de centro al número pasado
