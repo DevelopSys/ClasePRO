@@ -259,3 +259,80 @@ Crear una clase entrada que tenga:
 - Crear un coche con tipo de gasolina 
 - Ejecutar el método ponerGasolina del coche (respotando una cantidad concreta). 
 	- Prueba todas las convinanciones para comprobar los posibles fallos del método.
+
+10. (IMC)
+
+Crear una clase Persona que tenga las siguientes características:
+
+- Tres atributos de tipo String nombre, DNI, sexo (H hombre, M mujer)
+- Dos atributos de tipo double peso y altura. 
+- Un atributo de tipo int edad
+- Un constructor por defecto, que inicialice todos los valores por defecto (aquellos que sean Complejos pondrá "defecto").
+- Un constructor con el nombre, edad y sexo, el resto por defecto.
+- Un constructor con todos los atributos como parámetro.
+- Un método calcularIMC que no pida nada por parámetros y que devuelva un int. La funcionalidad del método será la siguiente
+	- calculará si la persona esta en su peso ideal (peso/(altura^2))
+		- si esta fórmula devuelve un valor menor que 20, la función devuelve un -1
+		- si devuelve un número entre 20 y 25 (incluidos), significa que esta por debajo de su peso ideal la función devuelve un 0
+		- si devuelve un valor mayor que 25 significa que tiene sobrepeso, la función devuelve un 1. 
+- Un método esMayorDeEdad que no admita parámetros y retorne un booleano. Si la persona es mayor igual que 18 retornará true, sino false
+- toString: devuelve toda la información del objeto forrajeada en json
+- getter y setter correpondientes
+
+Crear una clase Entrada que tenga las siguientes características
+
+- Pide por teclado el nombre, la edad, sexo, peso y altura.
+- Crea 3 objetos de tipo persona
+	- el primer objeto obtendrá las anteriores variables pedidas por teclado
+	- el segundo objeto obtendrá todos los anteriores menos el peso y la altura
+	- el último por defecto, para este último utiliza los métodos set para darle a los atributos un valor.
+- Para cada objeto, comprobar el imc mostrando un aviso para cada caso
+	- Estas en peso ideal, estas en sobrepeso o estás por debajo de peso
+- Por último, mostrar la información de cada objeto.
+
+11. (Llamadas)
+
+Crear una clase LlamadaLocal que tenga las siguientes características:
+- Dos atributos de tipo long (numeroOrigen y numeroDestino)
+- Atributo de tipo double (coste)
+- Atributo de tipo double (duración). Expresado en segundos
+- Constructor que pida por parámetros dos parámetros de tipo double (nOrigen y nDestino) y un parámetro de tipo double (duración). Se calculará automáticamente el coste teniendo en cuenta que el coste de cada segundo es de 0,15 más un establecimiento de llamada de 0,50
+- Un método mostrar datos que mostrará todos los datos de la llamada
+- Los getter y setter correspondientes
+
+Crear una clase LlamadaNacional que tenga las siguientes características:
+- Dos atributos de tipo long (numeroOrigen y numeroDestino)
+- Atributo de tipo double (coste)
+- Atributo de tipo int (destino). Podrá ser A, B o C
+- Atributo de tipo double (duración). Expresado en segundos
+- Constructor que pida por parámetros dos parámetros de tipo double (nOrigen y nDestino) y un parámetro de tipo double (duración). Se calculará automáticamente el coste teniendo en cuenta que:
+	-  el coste de cada segundo es de 0,40 si el destino es A
+	-  el coste de cada segundo es de 0,50 si el destino es B
+	-  el coste de cada segundo es de 0,60 si el destino es A
+	-  más un establecimiento de llamada de 0,70
+- Un método mostrar datos que mostrará todos los datos de la llamada
+- Los getter y setter correspondientes
+
+Crear una clase Centralita con las siguientes características: 
+
+- Atributo Arraylist con lista de llamadas locales
+- Atributo Arraylist con lista de llamadas nacional
+- Atributo de tipo int con el coste acumulado
+- Un constructor que inicialice los valores por defecto
+- Un método agregarLocal que no devuelva nada y que admita por parámetros una llamada local. La funcionalidad del método agregará la llamada local a la lista de llamadas local
+- Un método agregarNacional que no devuelva nada y que admita por parámetros una llamada nacional. La funcionalidad del método agregará la llamada nacional a la lista de llamadas nacionales
+- Un método listarLocales que no admita parámetros y que no devuelva nada. Mostrará por pantalla los datos de todas las llamadas locales
+- Un método listarNacionalesque no admita parámetros y que no devuelva nada. Mostrará por pantalla los datos de todas las llamadas nacionales
+- Un método mostrarCostes que no admita parámetros y que no devuelva nada. Mostrará por pantalla el coste acumulado de la centralita
+- Los métodos getter y setter correspondientes
+
+Crear una clase Entrada con las siguientes características:
+
+- Un atributo de tipo Centralita
+
+Se creará un menú con la siguiente disposición:
+	- Agregar llamada local
+	- Agregar llamada nacional
+	- Mostrar datos de llamadas locales
+	- Mostrar datos de llamadas nacionales
+	- Mostrar coste acumulados 
