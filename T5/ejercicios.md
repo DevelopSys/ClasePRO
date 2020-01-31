@@ -216,3 +216,46 @@ Desarrollar una aplicación que simule el funcionamiento de un cajero automátic
 - Ingresar un saldo determinado
 - Sacar dinero: solo si el saldo restante no es negativo
 - Consultar el estado de la cuenta: donde nos dice el saldo actual
+
+9. (Gasolinera)
+
+Crear una clase Surtidor que tenga los siguientes elementos:
+- Atributo int (capacidadTotal) que represente los litros máximos de gasolina que admite
+- Atributo int (capacidadActual) que represente los litros que tiene de gasolina cargados
+- Atributo string que represente el tipo de gasolina que tiene
+- Atributo boleado que represente si está o no funcionando el surtidor
+- Constructor que pida por parámetros la capacidadTotal y el tipo de gasolina e inicialice los atributos.El atributo funcionamiento se iniciará funcionando a true y el atributo capacidadActual será igual que la capacidadTotal.
+- Constructor que pida por parámetros el tipo de gasolina (y lo inicialice) y el resto de elementos los inicie por defeco.
+- Un método arreglar que no pida parámetros, no retorne nada y modifique el valor de atributo funcionamiento a true
+- Un método que rellenar que no devuelva nada y que admita por parámetros un int. El método agregará a la capacidadActual lo pasado por parámetros
+- Un método quitarGasolina que reciba por parámetros un int. El método quitará del atributo capacidadTotal lo pasado por parámetros
+- Los getter y setter correpondientes
+
+Crear una clase Gasolinera que tenga los siguientes elementos:
+- Un atributo de tipo string (nombre)
+- Un atributo de tipo ArrayLista donde se guardarán los surtidores (lista)
+- Un atributo de tipo int (ganancias)
+- Un constructor que pida por parámetros un nombre y lo inicialice. El resto de atributos los inicializará por defecto.
+- Un método que sea obtenerGanancias que no reciba nada y que devuelva un int. El método retornará la variable ganancias
+- Los getter y setter
+
+Crear una clase Coche que tenga los siguientes elementos:
+- Un atributo de tipo string (tipo de gasolina)
+- Un atributo de tipo int (litrosDeposito)
+- Un constructor que admita un argumento de tipo string y lo inicialice. Los litrosDeposito los iniciará a 0
+- Un método que sea ponerGasolina que no devuelva nada y que admita por parámetros un objeto de tipo surtidor y un int con la cantidad de litros a repostar. La funcionalidad será la siguiente:
+	- El coche ejecutará el método quitarGasolina del surtidor
+		- Si el surtidor está vacío o intentas poner más gasolina de la que tiene el surtidor saltará un aviso
+		- Si el surtidor está averiado saltará un aviso
+		- Si el tipo de gasolina del coche es diferente al tipo de gasolina del surtidor saltará un aviso
+		- Si no se sumará a litrosDeposito lo que se ha reportado, y al surtidor  se le restarán los litros
+
+
+Crear una clase entrada que tenga:
+
+- Crear tres surtidores. Dos con capacidad total y tipo de gasolina y uno con tipo de gasolina
+- Crear una gasolinera. 
+- Agregar los tres surtidores a la gasolinera   
+- Crear un coche con tipo de gasolina 
+- Ejecutar el método ponerGasolina del coche (respotando una cantidad concreta). 
+	- Prueba todas las convinanciones para comprobar los posibles fallos del método.
