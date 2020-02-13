@@ -2,9 +2,9 @@
 1. (ListaMultimedia) 
 
 Desarrollar una aplicación para la gestión de una colección multimedia. Todo elemento multimedia tiene 4 características; identificador, titulo, autor, tamaño, formato. Adicionalmente cada uno de los elementos tendrán:
-a. Imagen (ISBN, número de páginas)
+a. Libro (ISBN, número de páginas)
 b. Video (director, actores)
-c. Audio (duración, formato)
+c. Audio (duración, soporte)
 La aplicación deberá poder manejar cualquier tipo de objeto, dando la posibilidad de:
 1. Añadir a la colección (preguntara que tipo de objeto y los elementos correspondientes)
 a. Los datos serán pedidos por consola
@@ -109,4 +109,25 @@ Para la realización de la práctica se desarrollarán las siguientes clases:
 - Entrada: main
 
 Decide cuales son los métodos que se deberían de poner en herencia
+
+5. (InterfazInicial)
+
+Crea una interfaz llamada Ejecutable que tenga los siguientes métodos:
+- variable constante nombre que tenga el valor de EJECUCIÓN
+- ejecutar que no reciba nada y devuelva un booleano
+- parar que recibe nada y no devuelva nada
+- reiniciar que no recibe nada y no devuelva nada. 
+
+Crea una clase Elemento abstracta que tenga las siguientes características
+-  identificador, titulo, autor, tamaño, formato,
+
+Crea final una clase Imagen que tenga las siguientes características y que extienda de Elemento
+- ISBN
+
+Crea final una clase Audio que tenga las siguientes características y que extienda de Elemento
+- duración, soporte
+
+Ambas clases implementarán la interfaz Ejecutable
+
+
 
