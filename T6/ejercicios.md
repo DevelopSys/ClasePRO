@@ -90,7 +90,7 @@ Existen tres tipos de llamadas:
 
 - Las llamadas locales que no tienen coste
 - Las llamadas provinciales que cuestan 15 céntimos el segundo.
-- Las llamadas provinciales que dependiendo de la franja horaria en la que se realicen cuestan: 20 céntimos en franja 1, 25 céntimos en franja 2 y 30 céntimos en franja 3, cada segundo.
+- Las llamadas nacionales que dependiendo de la franja horaria en la que se realicen cuestan: 20 céntimos en franja 1, 25 céntimos en franja 2 y 30 céntimos en franja 3, cada segundo.
 
 Todas las llamadas tienen como datos el número origen de la llamada, el número destino y su duración en segundos.
 
@@ -103,6 +103,7 @@ Con la centralita se podrá
 Para la realización de la práctica se desarrollarán las siguientes clases:
 
 - Llamada (Abstracta): nOrigen, nDestino, coste
+- LlamadaProvincial
 - LlamadaLocal
 - LlamadaNacional: franja
 - Centralita: arraylist
