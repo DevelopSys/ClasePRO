@@ -38,6 +38,50 @@
         - Jerarquías de colecciones.
         - Operaciones con colecciones. Acceso a elementos y recorridos. Uso de clases y métodos genéricos.        
 
+- <a href="./T1">Introducción a la orientación a objetos:</a>
+    - Clases. Atributos, métodos y visibilidad
+    - Objetos. Estado, comportamiento e identidad. Mensajes.
+    - Encapsulado. Visibilidad.
+    - Relaciones entre clases.
+    - Principios básicos de la orientación a objetos.
+    - Concepto de clase.
+    - Estructura y miembros de una clase.
+    - Creación de atributos. Declaración e inicialización.
+    - Creación de métodos. Declaración, argumentos y valores de retorno.
+    - Creación de constructores.
+    - Ámbito de atributos y variables.
+    - Sobrecarga de métodos.
+    - Visibilidad. Modificadores de clase, de atributos y de métodos.
+    - Paso de parámetros. Paso por valor y paso por referencia.
+    - Utilización de clases y objetos.
+    - Utilización de clases heredadas.
+    - Librerías y paquetes de clases. Utilización y creación.
+    - Documentación sobre librerías y paquetes de clases.
+
+- <a href="./T1">Utilización de objetos, herencia y polimormismo:</a>
+    - Características de los objetos.
+    - Constructores.
+    - Instanciación de objetos. Declaración y creación.
+    - Utilización de métodos. Parámetros y valores de retorno.
+    - Utilización de propiedades.
+    - Utilización de métodos estáticos.
+    - Almacenamiento en memoria. Tipos básicos vs objetos.
+    - Destrucción de objetos y liberación de memoria.
+    - Relaciones entre clases. Composición de clases.
+    - Herencia. Concepto y tipos (simple y múltiple).
+    - Superclases y subclases.
+    - Constructores y herencia.
+    - Modificadores en clases, atributos y métodos.
+    - Sobreescritura de métodos.
+    - Clases y métodos abstractos y finales.
+    - Interfaces. Clases abstractas vs. Interfaces.
+    - Polimorfismo:
+        - Concepto.
+        - Polimorfismo en tiempo de compilación (sobrecarga) y polimorfismo en tiempo de ejecución (ligadura dinámica).
+        - Comprobación estática y dinámica de tipos.
+    - Conversiones de tipos entre objetos (casting).
+    - Clases y tipos genéricos o parametrizados.
+
 - <a href="./T5">Lectura y escritura de información:</a>
     - Flujos (streams):
         - Tipos de flujos. Flujos de bytes y de caracteres.
@@ -53,54 +97,6 @@
         - Almacenamiento de objetos en ficheros. Persistencia. Serialización. 􏰀 Utilización de los sistemas de ficheros.
         - Creación y eliminación de ficheros y directorios.
 
-- <a href="./T1">Introducción a la orientación a objetos:</a>
-    - Clases. Atributos, métodos y visibilidad
-    - Objetos. Estado, comportamiento e identidad. Mensajes.
-    - Encapsulado. Visibilidad.
-    - Relaciones entre clases.
-    - Principios básicos de la orientación a objetos.
-
-- <a href="./T1">Desarrollo de clases:</a>
-    - Concepto de clase.
-    - Estructura y miembros de una clase.
-    - Creación de atributos. Declaración e inicialización.
-    - Creación de métodos. Declaración, argumentos y valores de retorno.
-    - Creación de constructores.
-    - Ámbito de atributos y variables.
-    - Sobrecarga de métodos.
-    - Visibilidad. Modificadores de clase, de atributos y de métodos.
-    - Paso de parámetros. Paso por valor y paso por referencia.
-    - Utilización de clases y objetos.
-    - Utilización de clases heredadas.
-    - Librerías y paquetes de clases. Utilización y creación.
-    - Documentación sobre librerías y paquetes de clases.
-
-- <a href="./T1">Utilización de objetos:</a>
-    - Características de los objetos.
-    - Constructores.
-    - Instanciación de objetos. Declaración y creación.
-    - Utilización de métodos. Parámetros y valores de retorno.
-    - Utilización de propiedades.
-    - Utilización de métodos estáticos.
-    - Almacenamiento en memoria. Tipos básicos vs objetos.
-    - Destrucción de objetos y liberación de memoria.
-
-
-- <a href="./T1">Utilización avanzada de clases:</a>
-    - Relaciones entre clases. Composición de clases.
-    - Herencia. Concepto y tipos (simple y múltiple).
-    - Superclases y subclases.
-    - Constructores y herencia.
-    - Modificadores en clases, atributos y métodos.
-    - Sobreescritura de métodos.
-    - Clases y métodos abstractos y finales.
-    - Interfaces. Clases abstractas vs. Interfaces.
-    - Polimorfismo:
-        - Concepto.
-        - Polimorfismo en tiempo de compilación (sobrecarga) y polimorfismo en tiempo de ejecución (ligadura dinámica).
-        - Comprobación estática y dinámica de tipos.
-    - Conversiones de tipos entre objetos (casting).
-    - Clases y tipos genéricos o parametrizados.
 - <a href="./T1">Control y manejo de excepciones:</a>
     - Excepciones. Concepto.
     - Jerarquías de excepciones.
