@@ -130,5 +130,73 @@ Crea final una clase Audio que tenga las siguientes características y que extie
 
 Ambas clases implementarán la interfaz Ejecutable
 
+6. (Biblioteca)
+
+Crea una aplicación para la gestión de una biblioteca. Para ello realiza las siguientes clases
+
+- Trabajador: 
+	- Atributos: nombre, apellido, dni
+	- Constructor: todos los datos
+	- Métodos: mostrarDatos, getter y setter
+- Socio:
+	- Atributos: nombre, apellido, dni, numero socio y arraylist prestamos
+	- Métodos: mostrarDatos, getter y setter
+	- Constructores: se pedirá nombre, apellido y dni. El número de socio se generará automáticamente. 
+- Libro: 
+	- Atributos: id, sección, ISBN, Titulo, Autor, Páginas, Editorial, estado (boolean)
+	- Métodos: mostrarDatos, getter y setter
+	- Constructor: todos los parámetros
+- Revista: 
+	-Atributos:  id, sección, ISBN, Titulo, estado (boolean)
+	- Constructor: todos los parámetros
+- DVD:
+	-Atributos:  id, sección, Titulo, Año de edición, director, actores, tipo (enum con col valores intriga, terror, comedia y drama) y estado (boolean)
+	- Constructor: todos los parámetros
+- CD:
+	- Atributos:  id, sección,Titulo, Año edición, tipo (enum con los valores musical, monologo y educativo) y estado (boolean)
+	- Constructor: todos los parámetros
+
+**Realiza la linea de herencia que creas necesaria**
+
+Realiza una interfaz Prestar con los siguientes métodos:
+
+- prestar() que devuelva un booleano
+- devolver() que devuelva un booleano
+
+Dicha interfaz será implementado en todos los elementos que sean prestables y modificará el atributo estado 
+
+- Biblioteca: 
+	- Atributos: 
+		- Arraylist de trabajadores y socios
+		- Arraylist de libros, revistas, dvds y cd
+	- Métodos
+		- Registrar una persona (socio o trabajador) pide como parámetros un elemento de tipo persona
+		- Registrar un elemento alquilable (cd, dvd, libro, revista) pide como parámetros un elemento de tipo alquilable (o la clase de la herencia)
+		- Realizar préstamo. Pide como parámetro un socio y un elemento alquilable. Si el elemento no está prestado se le prestará al socio y se le asociará a su lista. De no ser así se mostrará un mensaje
+		- Realizar devolución. Pide como parámetro un socio y un elemento alquilable.
+		- Mostrar elementos prestados: No pide nada por parámetros y mostrará los datos de los elementos prestados
+		- Mostrar elementos disponibles: No pide nada por parámetros y mostrará los datos de los elementos que están disponibles
+		- Mostrar elementos de un socio. Se pide por consola un dni y se mostrarán los datos de los elementos prestados a ese socio.
+
+
+Realizar una entrada con dos posibilidades
+
+Crear tanto Empresa, trabajadores, socios, revistas, cd, dvd e ir haciendo registros
+Comprobar la funcionalidad de todos los mñetodos
+
+Ó
+
+Realizar un menú que tenga las opciones
+- 1. Dar de alta un socio
+- 2. Dar de alta un elemento
+	- 2.1 CD
+	- 2.2 DVD
+	- 2.3 Revista
+	- 2.4 Libro
+- 3. Prestar un elemento
+- 4. Devolver un elemento
+- 5. Ver elementos prestados a un socio concreto
+- 6. Mostrar elementos disponibles
+- 7. Mostrar elementos prestados-  
 
 
