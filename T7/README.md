@@ -601,3 +601,187 @@ Y la salida
 1 dato externo 
 2 dato externo dato interno 
 ````
+
+### Clases anidadas estáticas 
+
+El uso de clases anidadas estáticas es muy parecido a las vistas con anterioridad, con las siguientes diferencias: 
+
+- Se utiliza el modificador static en las clases anidadas para poder crearlas
+- Una clase anidada estática no puede acceder a los métodos y/o variables de su clase contenedora a no ser que estos estén declarados como estáticos
+- Una clase anidada estática puede ser utilizada de forma directa, por lo que se pueden crear objetos de su tipo sin necesidad de la existencia de un objeto de la clase contenedora.
+
+Basándonos en el ejemplo anterior tendríamos la clase ClaseExternaExt, definida en un archivo .java
+
+````
+public class ClaseExternaExt {
+
+    private String dato;
+    private static int numero;
+
+    public ClaseExternaExt(String dato, int numero) {
+        this.dato = dato;
+        this.numero = numero;
+    }
+
+    public void mostrarDatos(){
+        System.out.printf(String.format("%d %s %n",getNumero(),getDato()));
+    }
+
+    public String getDato() {
+        return dato;
+    }
+
+    public void setDato(String dato) {
+        this.dato = dato;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+}
+
+````
+
+Dentro de este mismo archivo se puede definir una clase anidada estática con la palabra static, pero que no puede acceder a ninguno de los método ni variables definidas en la clase ClaseExternaExt
+
+````
+public class ClaseExternaExt {
+
+    private String dato;
+    private int numero;
+    private static boolean datoAccesible;
+
+    public ClaseExternaExt(String dato, int numero) {
+        this.dato = dato;
+        this.numero = numero;
+        if (numero>0){
+            datoAccesible = true;
+        }
+        else {
+            datoAccesible = false;
+        }
+    }
+
+    public String getDato() {
+        return dato;
+    }
+
+    public void setDato(String dato) {
+        this.dato = dato;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    static class ClaseInternaExt{
+
+        private int numeroInterno;
+        private String datoInterno;
+
+        public ClaseInternaExt(int numeroInterno, String datoInterno) {
+            if (datoAccesible==true){
+            this.numeroInterno = numeroInterno;
+            this.datoInterno = datoInterno;}
+            System.out.println("el objeto se creará con los parámetros por defecto");
+        }
+
+        public int getNumeroInterno() {
+            return numeroInterno;
+        }
+
+        public String getDatoInterno() {
+            return datoInterno;
+        }
+    }
+}
+
+````
+
+La modificación con el ejemplo anterior es que la clase contenedora tiene un atributo de tipo booleano que se declara como static. Este atributo es el único que será accesible por la clase estática. Como se puede ver, el atributo datoAccesible se utiliza en el constructor. Si bien esta posibilidad existe no es muy recomendable ya que como se verá mas adelante es peligroso ya que se puede crear un objeto de la clase anidada sin necesidad de un objeto de la clase contenedora (por lo que podría dar un nulo en aquellos datos que son utilizados). Por lo tanto para el ejemplo se quitarán:
+
+````
+public class ClaseExternaExt {
+
+    private String dato;
+    private int numero;
+
+    public ClaseExternaExt(String dato, int numero) {
+        this.dato = dato;
+        this.numero = numero;
+
+    }
+
+    public String getDato() {
+        return dato;
+    }
+
+    public void setDato(String dato) {
+        this.dato = dato;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    static class ClaseInternaExt{
+
+        private int numeroInterno;
+        private String datoInterno;
+
+        public ClaseInternaExt(int numeroInterno, String datoInterno) {
+            this.numeroInterno = numeroInterno;
+            this.datoInterno = datoInterno;
+        }
+
+        public void mostrarDatoInterno(){
+            System.out.printf(String.format("%d %s %n",getNumeroInterno(),getDatoInterno()));
+        }
+
+        public int getNumeroInterno() {
+            return numeroInterno;
+        }
+
+        public String getDatoInterno() {
+            return datoInterno;
+        }
+    }
+}
+
+````
+
+Con esto terminado, en la entrada se puede ver como existe la posibilidad de crear un objeto de la clase anidada (y acceso a todos sus métodos) sin necesidad de tener un objeto de la clase contenedora
+
+````
+package github;
+
+public class Entrada {
+
+    public static void main(String[] args) {
+
+
+        ClaseExternaExt.ClaseInternaExt claseInternaExt = new ClaseExternaExt.ClaseInternaExt(1,"dato interno");
+        claseInternaExt.mostrarDatoInterno();
+
+    }
+}
+
+````
+
+Y la salida
+
+````
+1 dato interno 
+````
