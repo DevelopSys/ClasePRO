@@ -383,6 +383,6 @@ MENSAJE EJEMPLO PARA LANZARLO DESDE CLASE ANÓNIMA
 mensaje ejemplo para lanzarlo desde clase anónima
 ````
 
-Ambas lineas son llamadas desde el método lanzarMensajes de la claseMensajes, pero su definición está escrita en el main cuando se crea el objeto de tipo interfaz.
+Ambas líneas son llamadas desde el método lanzarMensajes de la claseMensajes, pero su definición está escrita en el main cuando se crea el objeto de tipo interfaz.
 
 Esta forma de trabajar es muy utilizada en los escuchadores de las librerías gráficas de java como wat, swing y javafx, algunas de las cuales se verán al final del curso y principios del año que viene
