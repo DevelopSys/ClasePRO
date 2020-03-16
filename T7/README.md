@@ -385,4 +385,219 @@ mensaje ejemplo para lanzarlo desde clase anónima
 
 Ambas líneas son llamadas desde el método lanzarMensajes de la claseMensajes, pero su definición está escrita en el main cuando se crea el objeto de tipo interfaz.
 
-Esta forma de trabajar es muy utilizada en los escuchadores de las librerías gráficas de java como wat, swing y javafx, algunas de las cuales se verán al final del curso y principios del año que viene
+Esta forma de trabajar es muy utilizada en los escuchadores de las librerías gráficas de java como awt, swing y javafx, algunas de las cuales se verán al final del curso y principios del año que viene
+
+## Clases anidadas
+
+Las clases anidadas en java se pueden definir cómo la creación de una clase que está dentro de otra. Por regla general, cada archivo representa una clase individual, pero como ya vimos en el tema de los Enum también es posible unos dentro de otros. El uso de este tipo de clases es el siguiente:
+- Permite agrupar lógicamente clases que solo se utilizan en un lugar, sin la necesidad de tener que crear gran cantidad de archivos
+- Marca una relación de dependencia, ya que la clase anidada no puede existen sin la existencia de la clase principal (a no ser que la clase anidada sea estática)
+- El concepto de encapsulación se sigue manteniendo ya que una clase anidada puede acceder a todos los elementos de la clase en la que está declarada, aunque estos sean estáticos
+
+Como regla general existen dos tipos de clases anidadas: estáticas y no estáticas o también llamadas internas
+
+### Clases anidadas no estáticas o clases internas
+
+Se define una clase interna como aquella que está definida dentro de una clase y cumple los siguientes requisitos:
+
+- Puede tener acceso a todos los miembros de la clase a la que pertenece (incluso los declarados como privados)
+- Solo puede crearse un objeto de la clase interna si previamente existe un objeto de la clase donde es anidada
+
+Para poder verlo mejor vamos hacer un ejemplo:
+
+Imaginad la siguiente clase
+
+````
+public class ClaseExterna {
+
+    private String dato;
+    private int numero;
+
+    public ClaseExterna(String dato, int numero) {
+        this.dato = dato;
+        this.numero = numero;
+    }
+
+    public void mostrarDatos(){
+        System.out.printf(String.format("%d %s %n",getNumero(),getDato()));
+    }
+
+    public String getDato() {
+        return dato;
+    }
+
+    public void setDato(String dato) {
+        this.dato = dato;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+}
+````
+
+Esta clase está representada en un archivo .java y tienen un constructor, getter y setter, y un método mostrarDatos(). Es importante fijarse en que las variables que están definidas en la clase son privadas lo que quiere decir que nadie podrá acceder a ellas, ni siquiera un objeto que está definido desde fuera (para eso están los getter // setter - concepto de encapsulación)
+
+````
+public class Entrada {
+
+    public static void main(String[] args) {
+
+        ClaseExterna claseExterna = new ClaseExterna("dato externo",1);
+        claseExterna.mostrarDatos();
+    }
+}
+````
+
+En otro archivo .java queda representado el método main para poder acceder a todos aquellos elementos que no sean privados, como por ejemplo el método mostrarDatos.
+
+Hasta aquí el uso corriente. En algunas ocasiones es interesante que la ClaseExterna tenga asociada otra clase que represente un objeto propio, y como no se va a utilizar en ningún otro sitio se puede definir dentro (concepto de clase anidada o interna). Para ello en el mismo archivo .java donde se ha definido la clase ClaseExterna se crea otra clase adicional con la palabra class seguida del nombre (cuidado con los paréntesis, ya que la clase que se está creando está dentro)
+
+````
+public class ClaseExterna {
+
+    private String dato;
+    private int numero;
+
+    public ClaseExterna(String dato, int numero) {
+        this.dato = dato;
+        this.numero = numero;
+    }
+
+    public void mostrarDatos(){
+        System.out.printf(String.format("%d %s %n",getNumero(),getDato()));
+    }
+
+    public String getDato() {
+        return dato;
+    }
+
+    public void setDato(String dato) {
+        this.dato = dato;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    class ClaseInterna{
+        // definición de todos los elementos de la clase interna
+    }
+}
+````
+
+De esta forma se acaba de crear una clase interna, pudiendo declarar tanto variables como métodos además de acceder a todas las partes de la clase donde se ha definido (en este caso la ClaseExterna)
+
+````
+public class ClaseExterna {
+
+    private String dato;
+    private int numero;
+
+    public ClaseExterna(String dato, int numero) {
+        this.dato = dato;
+        this.numero = numero;
+    }
+
+    public void mostrarDatos(){
+        System.out.printf(String.format("%d %s %n",getNumero(),getDato()));
+    }
+
+    public String getDato() {
+        return dato;
+    }
+
+    public void setDato(String dato) {
+        this.dato = dato;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    class ClaseInterna{
+
+        private int numeroInterno;
+        private String datoInterno;
+
+        public ClaseInterna(int numeroInterno, String datoInterno) {
+            this.numeroInterno = numeroInterno + numero;
+            this.datoInterno = dato.concat(datoInterno);
+        }
+
+        public void mostrarDatosInternos(){
+            System.out.printf(String.format("%d %s %n",getNumeroInterno(),getDatoInterno()));
+        }
+
+        public int getNumeroInterno() {
+            return numeroInterno;
+        }
+
+        public void setNumeroInterno(int numeroInterno) {
+            this.numeroInterno = numeroInterno;
+        }
+
+        public String getDatoInterno() {
+            return datoInterno;
+        }
+
+        public void setDatoInterno(String datoInterno) {
+            this.datoInterno = datoInterno;
+        }
+    }
+}
+````
+
+En la definición de la clase interna se crean tantos elementos como sean necesarios, pudiendo acceder a los elementos de la clase superior. En el ejemplo, para poder crear una clase ClaseInterna se pide por constructor un String y un int, los cuales son añadidos a los anteriores, tal y como se puede ver en el constructor. 
+
+Una vez hecho esto se puede utilizar un objeto de ClaseInterna, siempre y cuando ya existe un objeto de la clase donde está declarada. Para ello en el la clase Entrada si se intenta crear un objeto de la forma "normal" da error:
+
+````
+
+// ERROR
+ClaseExterna.ClaseInterna claseInterna =  new ClaseInterna(1,"asd");
+
+````
+
+Cuando se trabaja con clases internas, es necesario la existencia previa de un objeto de la clase que lo contiene, sino es imposible crearlas
+
+````
+// CORRECTO
+ClaseExterna.ClaseInterna claseInterna =  claseExterna.new ClaseInterna(1,"dato interno");
+claseInterna.mostrarDatosInternos();
+````
+
+El ejemplo completo sería
+
+````
+public class Entrada {
+
+    public static void main(String[] args) {
+
+        ClaseExterna claseExterna = new ClaseExterna("dato externo",1);
+        claseExterna.mostrarDatos();
+
+        ClaseExterna.ClaseInterna claseInterna =  claseExterna.new ClaseInterna(1,"dato interno");
+        claseInterna.mostrarDatosInternos();
+    }
+}
+````
+
+Y la salida 
+
+````
+1 dato externo 
+2 dato externo dato interno 
+````
