@@ -785,3 +785,232 @@ Y la salida
 ````
 1 dato interno 
 ````
+
+## Genéricos
+
+Los genéricos son aquellos elementos se adaptan de forma automática a una misma funcionalidad pero con diferentes tipos de datos ya que en la creacion no se especa el tipo del mismo. Un ejemplo de genérico con el que ya se ha trabajado son los ArrayList y los HashTables. Si recordáis, cuando se creaba un objeto de tipo ArrayList o HashTable existían dos posibilidades:
+
+````
+// sin tipar, por lo que se podía añadir cualquier elemento
+// en este caso se utiliza un tipo genérico
+ArrayList listaElementosTotales = new ArrayList();
+// tipado, por lo que solo se pueden añadir elementos de tipo String
+ArrayList<String> listaElementosString = new ArrayList();
+        
+// sin tipar, por lo que se podía añadir cualquier elemento y cualquier clave
+// en este caso se utiliza un tipo genérico
+Hashtable tablaElementosTotales = new Hashtable();
+// tipado, por lo que solo se pueden añadir claves de tipo String y elementos de tipo Object
+Hashtable<String, Object> tablaElementosString = new Hashtable();
+````
+
+Si pensáis un poco en su uso, una alternativa al uso de genéricos sería el uso de Object (solución que utilizábamos con los arrays) ya que también admite cualquier tipo de objeto (pero sin restricciones). Sin embargo el uso de genéricos tiene bastantes más ventajas: 
+- garantizar la seguridad
+- evita la necesidad de hacer casteos
+- flexibilizar la creación de clases que admiten varios tipos de parámetros
+- favorece la creación de métodos que son independientes al tipo de dato
+
+Imaginad que se quiere crear una clase que admite parámetros de tipo String, otra con la misma funcionalidad que admite parámetros de tupo Integer y por último otra que admite parámetros de tipo Boolean. La necesidad de crear tres clases se elimina si se crea una clase que admite objetos de tipo genérico, el cual se define en el momento de creación del objeto. 
+
+Si pensáis un poco en su uso, una alternativa al uso de genéricos sería el uso de Object ya que también admite cualquier tipo de objeto (pero sin restricciones)
+
+Cuando se utilizan genéricos se dividen en: interfaces y clases
+
+### Interfaces genéricas
+
+Se trata del mismo concepto de interfaz que se ha visto a lo largo del curso, con la diferencia que no se indica alguno de los tipos que admiten los métodos. 
+
+Si recordáis una interfaz es un conjunto de métodos abstractos (con la posibilidad de tener algún método escrito - default) y constantes de un tipo concreto. Estos métodos no definían la funcionalidad, sino que marcaban un punto de comunicación entre dos clases que ya tenían configurada la herencia y no tienen nada que ver entre ellas. Cuando se realizan interfaces genéricas, no se indican los tipos de los métodos que serán utilizados tanto por los argumentos como por los tipos de retorno. Para ello se utilizan las letras T,S,Z de forma genérica (se podrán utilizar tantas letras como sean nacesarias). 
+
+Por ejemplo, imaginad que se tiene una ClaseA que tiene una colección de palabras y una ClaseB que tiene una colección de letras
+
+````
+public class ClasePalabras {
+
+    ArrayList<String> listaPalabras;
+
+    public ClasePalabras() {
+        this.listaPalabras = new ArrayList();
+    }
+    
+}
+````
+
+````
+public class ClaseNumeros {
+
+    ArrayList<Integer> listaNumeros;
+
+    public ClaseNumeros() {
+        this.listaNumeros = new ArrayList();
+    }
+    
+}
+
+````
+
+En ambas clases lo que se quiere es guardar una colación de datos. Adicionalmente lo que se quiere hacer que tener una interfaz para poder agregar y eliminar datos. Para ello se puede crear una interfaz que tenga la firma de los métodos necesarios. Una solución sería la siguiente:
+````
+public interface InterfazOperaciones {
+
+    void agregarElementoPalabra(String elemento);
+    void elimnarElementoPalabra(String elemento);
+
+    void agregarElementoNumero(Integer elemento);
+    void elimnarElementoNumero(Integer elemento);
+    
+    void mostrarDatos();
+
+}
+````
+
+En esta interfaz se crean los métodos que son necesarios en las clases comentadas más arriba y se implementa en ambas:
+
+````
+public class ClasePalabras implements InterfazOperaciones{
+
+    ArrayList<String> listaPalabras;
+
+    public ClasePalabras() {
+        this.listaPalabras = new ArrayList();
+    }
+
+    @Override
+    public void agregarElementoPalabra(String elemento) {
+
+    }
+
+    @Override
+    public void elimnarElementoPalabra(String elemento) {
+
+    }
+
+    @Override
+    public void agregarElementoNumero(Integer elemento) {
+
+    }
+
+    @Override
+    public void elimnarElementoNumero(Integer elemento) {
+
+    }
+
+    @Override
+    public void mostrarDatos() {
+
+    }
+}
+
+````
+
+Lo malo que tiene esto es que la ClasePalabras tiene métodos que no son necesarios, aunque hagan cosas muy parecidas. La solución a esto es modificar la interfaz y convertirla en genérica. Para esto lo que se hace es definir que el tipo de los métodos no es especificado directamente, utilizando la letra T
+
+````
+public interface InterfazOperaciones<T> {
+
+    void agregarElemento(T elemento);
+    void eliminarElemento(T elemento);
+    void mostrarDatos();
+
+}
+````
+
+De esta forma esta interfaz admite cualquier tipo de dato. Con esto ahora si se puede implementar de forma correcta en ambas clases, identificando cual es el tipo de cada interfaz. De forma automática se convertirán todos los parámetros de tipo T en el tipo indicado
+
+````
+public class ClasePalabras implements InterfazOperaciones<String>{
+
+    ArrayList<String> listaPalabras;
+
+    public ClasePalabras() {
+        this.listaPalabras = new ArrayList();
+    }
+
+    @Override
+    public void agregarElemento(String elemento) {
+        this.listaPalabras.add(elemento);
+    }
+
+    @Override
+    public void elimnarElemento(String elemento) {
+        this.listaPalabras.remove(elemento);
+    }
+
+    @Override
+    public void mostrarDatos() {
+        for (String palabra: listaPalabras
+             ) {
+            System.out.println(palabra);
+        }
+    }
+}
+
+````
+
+````
+public class ClaseNumeros implements InterfazOperaciones<Integer>{
+
+    ArrayList<Integer> listaNumeros;
+
+    public ClaseNumeros() {
+        this.listaNumeros = new ArrayList();
+    }
+
+    @Override
+    public void agregarElemento(Integer elemento) {
+        this.listaNumeros.add(elemento);
+    }
+
+    @Override
+    public void elimnarElemento(Integer elemento) {
+        this.listaNumeros.remove(elemento);
+    }
+
+    @Override
+    public void mostrarDatos() {
+        for (Integer numero: listaNumeros) {
+            System.out.println(numero);
+        }
+    }
+}
+````
+
+En la llamada de estas clases desde la clase main el trabajo es normal, ya que se crea un objeto de la clase y es la propia clase la que trabaja con los métodos implementados.
+
+````
+public class Entrada {
+
+    public static void main(String[] args) {
+
+        ClaseNumeros claseNumeros = new ClaseNumeros();
+        claseNumeros.agregarElemento(1);
+        claseNumeros.agregarElemento(2);
+        claseNumeros.agregarElemento(3);
+        claseNumeros.agregarElemento(4);
+        claseNumeros.mostrarDatos();
+
+        ClasePalabras clasePalabras = new ClasePalabras();
+        clasePalabras.agregarElemento("Uno");
+        clasePalabras.agregarElemento("Dos");
+        clasePalabras.agregarElemento("Tres");
+        clasePalabras.agregarElemento("Cuatro");
+        clasePalabras.agregarElemento("Uno");
+        clasePalabras.mostrarDatos();
+    }
+
+}
+````
+
+Y la salida 
+
+````
+1
+2
+3
+4
+Uno
+Dos
+Tres
+Cuatro
+Uno
+````
