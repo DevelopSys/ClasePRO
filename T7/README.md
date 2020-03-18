@@ -1014,3 +1014,90 @@ Tres
 Cuatro
 Uno
 ````
+
+
+### Clases genéricas
+
+Al igual que con las interfaces genéricas, la forma de trabajar con las clases genéricas es idéntica a las clases normales con la única diferencia que no se identifica el tipo de los argumentos, retornos, etc... hasta que el objeto de la clase es creado. Siguiente con el ejemplo anterior, se han creado dos clases que manejan elementos de tipo String e Integre respectivamente. Sin embargo se podría haber indicado a la clase que se gestionan elementos de tipo genérico, pudiendo pasar este genérico hasta la interfaz. Para ello se va a crear una clase nueva con el nombre ClaseElemento que tiene una lista de tipos genéricos
+
+````
+public class ClaseElementos<T>  {
+
+    ArrayList<T> listaElementos;
+}
+````
+
+Al no identificar el tipo de los elementos que se guardarán en el ArrayList existe la posibilidad de guardar cualquier tipo de objeto, siendo este definido en la creación del objeto
+
+````
+public class Entrada {
+
+    public static void main(String[] args) {
+        ClaseElementos<Integer> claseNumeros = new ClaseElementos();
+        ClaseElementos<String> clasePalabras = new ClaseElementos();
+    }
+}
+
+````
+
+Así se acaba de crear dos objetos donde uno se ha tipado con String y otro se ha tipado con Integer (sustituyendo al T de la clase). De esta forma la clase Elemento tendrá el tipo correspondiente. Si continuamos con el ejemplo anterior, la clase ClaseElemento implementaría la interfaz creada
+
+````
+public class ClaseElementos<T> implements InterfazOperaciones<T> {
+
+    ArrayList<T> listaElementos;
+
+    public ClaseElementos() {
+
+        listaElementos = new ArrayList();
+    }
+
+    @Override
+    public void agregarElemento(T elemento) {
+        listaElementos.add(elemento);
+    }
+
+    @Override
+    public void elimnarElemento(T elemento) {
+        listaElementos.remove(elemento);
+    }
+
+    @Override
+    public void mostrarDatos() {
+        for (T elemento: listaElementos
+        ) {
+            System.out.println(elemento);
+        }
+    }
+}
+
+````
+
+Al no poder identificarle un tipo de dato a la interfaz se utiliza el mismo dato genérico que se ha utilizado en la clase, pasándolo directamente en la definición del objeto. Con esto se podría crear un objeto tipado con String o con Integer de forma completa  (con toda la funcionalidad de los métodos) ahorrándonos la creación de una clase
+
+````
+public class Entrada {
+
+    public static void main(String[] args) {
+       
+        ClaseElementos<Integer> claseNumeros = new ClaseElementos();
+        // Error
+        // claseNumeros.agregarElemento("asd");
+        claseNumeros.agregarElemento(1);
+        claseNumeros.agregarElemento(2);
+        claseNumeros.agregarElemento(3);
+        claseNumeros.agregarElemento(4);
+        claseNumeros.mostrarDatos();
+
+        ClaseElementos<String> clasePalabras = new ClaseElementos();
+        // Error
+        // clasePalabras.agregarElemento(1);
+        clasePalabras.agregarElemento("Uno");
+        clasePalabras.agregarElemento("Dos");
+        clasePalabras.agregarElemento("Tres");
+        clasePalabras.agregarElemento("Cuatro");
+        clasePalabras.mostrarDatos();
+
+    }
+}
+````
