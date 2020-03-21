@@ -101,7 +101,7 @@ Una clase Torneo que tenga los siguientes atributos:
 Y los siguientes métodos
 - constructor que pida por parámetros un nombre y que inicialice el ArrayList de partidos
 - getter y setter
-- agregarPartido(Partido): se agregará el partido a la lista de partidos
+- realizarSorteo(ArrayListEquipos): se configurarán todos los partidos entre los equipos del ArrayList
 - jugarPartido(Partido): se jugará el partido con la misma mecánica que en el ejercicio anterior
 
 Crea una clase anidada Partido con las siguientes características:
