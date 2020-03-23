@@ -135,3 +135,89 @@ Crear una clase entrada con las siguientes características
 
 Si consideras necesario la creación de más métodos en alguna de las clases se puede hacer
 
+5. (Inventario)
+
+Realiza una clase Alimento con las siguientes características:
+
+- Atributo string calidad
+- Atributo string origen
+- int precio
+
+Y que tenga los siguientes métodos
+
+- constructor que pida todos los datos
+- mostrarDatos(): que retorne un string con todos los datos del alumno
+
+Realiza una clase Carne que extienda de alimento con las siguientes características:
+
+- Atributo int proteínas
+
+Y que tenga los siguientes métodos
+
+- constructor que pida todos los datos
+- mostrarDatos(): que retorne un string con todos los datos del alumno
+
+Realiza una clase Lacteo que extienda de alimento con las siguientes características:
+
+- Atributo int volumen
+
+Y que tenga los siguientes métodos
+
+- constructor que pida todos los datos
+- mostrarDatos(): que retorne un string con todos los datos del alumno
+
+Realiza una clase Mueble con las siguientes características:
+
+- Atributo string material
+- Atributo string peso
+- int precio
+
+Y que tenga los siguientes métodos
+
+- constructor que pida todos los datos
+- mostrarDatos(): que retorne un string con todos los datos del alumno
+
+Realiza una clase Silla que extienda de Mueble con las siguientes características:
+
+- Atributo int patas
+
+Y que tenga los siguientes métodos
+
+- constructor que pida todos los datos
+- mostrarDatos(): que retorne un string con todos los datos del alumno
+
+Realiza una clase Mesa que extienda de Muble con las siguientes características:
+
+- Atributo int capacidad
+
+Y que tenga los siguientes métodos
+
+- constructor que pida todos los datos
+- mostrarDatos(): que retorne un string con todos los datos del alumno
+
+Realizar una interfaz que sea Inventariable con los siguientes métodos:
+
+- atributo int IVA_ MUEBLES = 21
+- atributo int IVA_ ALIMENTOS = 10
+- calcularPrecio(); 
+
+Esta interfaz será implementadas en las clases expuestas anteriormente, con la siguiente funcionalidad: 
+
+- Para calcular el precio de los alimentos y muebles se multiplicara el precio por el IVA. El método mostrará por pantalla el precio final
+
+Crear una clase SupermercadoEspecífico que utilice un tipos genérico <V> con los siguientes atributos:
+
+- ArrayList de tipo V
+
+- registrarElemento( con argumento de tipo T).
+
+- mostrarPreciosFinales(): mostrará el precio final de todos los elementos del arraylist
+
+Crear una clase entrada que tenga las siguientes características
+
+- Crear un supermercado que solo admita alimentos
+- Agregar un par de filetes y un par de lácteos
+- Mostrar el precio final de todos los alimentos
+- Crear un supermercado que solo admita muebles
+- Agregar un par de sillas y un mesas de lácteos
+- Mostrar el precio final de todos los muebles
