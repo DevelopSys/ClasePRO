@@ -1101,3 +1101,84 @@ public class Entrada {
     }
 }
 ````
+
+#### Clases genéricas especializas
+
+Al igual que en los puntos anteriores se han creado clases genéricas que admitían cualquier tipo de dato, mediante el mecanismo de la especialización se puede crear clases que admitan solo determinado tipos de genéricos. Imaginad el caso tener la necesidad de crear una clase que admita cualquier tipo de dato numérico, bien sea Integer, Double, Float, Big, etc... Con la forma de crear clases genéricas que hemos visto antes esto es imposible:
+````
+public class ClaseNumeros<T>{
+
+	ArrayList<T> listaNumeros;
+	public void agregarNumero(T numero){
+		listaNumeros.add(numero)	
+	}
+
+	public void mostrarNumeros(){
+		for(T numero: listaNumeros){
+			System.out.println(numero)
+		}
+	}
+
+}
+
+````
+
+Es imposible ya que de la forma en la que se ha programado, cualquier tipo de dato es admitido:
+````
+public class Entrada{
+	public static void main(String [] args){
+		// admite cualquier tipo
+		ListaNumeros numeros1 = new ListaNumeros()
+		// admite solo numero Integer 
+		ListaNumeros<Integer> numeros2 = new ListaNumeros()
+		// admite solo numero Double
+		ListaNumeros<Double> numeros3 = new ListaNumeros()
+		// admite solo palabras
+		ListaNumeros<String> numeros4 = new ListaNumeros()
+	}
+}
+
+````
+
+Al tipar de forma genérica cualquier tipo puede ser utilizado. En los ejemplo anteriores se puede ver que sin poner genérico entra cualquier dato y tipándolo entra el tipo indicado incluso String, cosa que en este caso no es lo buscado. Para poder restringir un poco el tipo de genéricos que se indica se utiliza la extensión de genéricos. Para eso en la creación de la clase donde se define el genérico se pone que éste debe ser de un grupo concreto
+
+````
+public class ClaseNumeros<T extends Number>{
+
+	ArrayList<T> listaNumeros;
+	public void agregarNumero(T numero){
+		listaNumeros.add(numero)	
+	}
+
+	public void mostrarNumeros(){
+		for(T numero: listaNumeros){
+			System.out.println(numero)
+		}
+	}
+
+}
+
+````
+
+Con la definición del genérico :
+````
+<T extends Number>
+````
+Se indica que cuando se implemente la clase ClaseNumeros tan solo se podrá tipar con clases que haya extendido de Number. En este caso tan solo serán admitidos los tipos que representan números. Una vez hecho esto si se tipa con un dato diferente se produce un error.
+````
+public class Entrada{
+	public static void main(String [] args){
+		// admite cualquier tipo
+		ListaNumeros numeros1 = new ListaNumeros()
+		// admite solo numero Integer 
+		ListaNumeros<Integer> numeros2 = new ListaNumeros()
+		// admite solo numero Double
+		ListaNumeros<Double> numeros3 = new ListaNumeros()
+		// admite solo palabras produciendo un error
+		ListaNumeros<Float> numeros4 = new ListaNumeros()
+		// admite solo palabras produciendo un error
+		ListaNumeros<String> numeros5 = new ListaNumeros()
+	}
+}
+
+````
