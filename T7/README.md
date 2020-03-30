@@ -5,6 +5,7 @@
     - Clases anidadas
     - Generalización
     - Eventos 
+    - Tratamiento de excepciones
 
 ## Constructores estáticos
 
@@ -1182,3 +1183,12 @@ public class Entrada{
 }
 
 ````
+
+## Tratamiento de excepciones
+
+Cuando se programa hay que tratar que nuestro código sea lo más robusto posible. Para ello hay que tener en cuenta que en determinada ocasiones puede fallar aun que en un primer instante este s compile perfectamente. Existen multitud de casos en los que esto puede pasar: intentar utilizar un objeto con valor nulo, intentar acceder a una posición de un array que no existe, intentar hacer una operación matemática que no tenga resultado, intentar acceder a un recurso que no existe, superar la memoria del ordenador, etc.... En la mayoría de los casos comentados, el programador puede crear un mecanísmo por el cual se pueda actuar ante la situación para que el programa no pare de forma repentina. Es lo que se conoce como excepción.
+
+### Jerarquía y tipos de excepciones 
+
+![Jerarquía excepciones](./images/exception.png)
+ 
