@@ -1190,5 +1190,5 @@ Cuando se programa hay que tratar que nuestro código sea lo más robusto posibl
 
 ### Jerarquía y tipos de excepciones 
 
-![Jerarquía excepciones](./images/exception.png)
+![Jerarquía excepciones](./images/exceptions.png)
  
