@@ -42,7 +42,7 @@ Son utilizados para leer y escribir información que esta almacenada en forma de
 ### Entrada y salida por teclado
 ****
 
-**Para la entrada de datos se utilizan las clases de Scanner y BufferedReader**
+**Para la entrada de datos se utilizan las clases de Scanner y BufferedReades**
 
 #### Scanner
 
@@ -85,28 +85,54 @@ BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.
 
 **Para la salida de datos se utiliza la clase System.out.print**
 
+#### Salida común
+
+Para realiza una salida de datos común se utilizan las siguientes clases
+````
+System.out.println(valor); 
+System.out.print(valor);
+````
+En el caso de querer concatenar valores que se imprimen por pantalla, basta con utiliza el carácter + para realizar la tarea
+
+````
+System.out.println(valor+" "+valor); 
+
+````
+
+#### Salida formateada
+
+En muchos casos la utilización del carácter + para concatenar valores puede resultar muy poco útil. Para ello se puede utiliza la salida formateada. Para ello se utilizan las clases System.out.printf o String.format.
+
+Para poder utilizarlas, primero se define un patrón que representa la base del mensaje. Dentro de este patrón se incluyen los símbolos que se sustituirán en el formato del mensaje. Los símbolos son los siguientes:
+
+- %b Booleano
+- %h Hashcode
+- %s Cadena
+- %c Caracter unicode
+- %d Entero decimal
+- %o Entero octal
+- %x Entero hexadecimal
+- %f  Real decimal
+- %e Real notación científica
+- %g Real notación científica o decimal
+- %a Real hexadecimal con mantisa y exponente
+- %t Fecha u hora
+
+La sintaxis completa del formato sería la siguiente:
+````
+String frase = String.format("Curso de %s %.1f", "Java",1.9);
+System.out.println(frase);
+````
+
 ### Almacenamiento de información en ficheros
 ****
 #### La clase File
 
-La clase File hace referencia a una dirección expresada en String donde se apunta al fichero – directorio con el que se quiere trabajar. Es importante tener en cuenta que esta ruta puede apuntar a una ruta absoluta o ruta relativa, siempre siendo recomendable utilizar la ruta relativa
+La clase File hace referencia a una dirección expresada en String donde se apunta al fichero – directorio con el que se quiere trabajar. 
 
 ````
 File f = new File ("src/documentos/ejemplo.txt");
 ````
-
-Otra cosa a tener en cuenta de un objeto de tipo file es que puede ser tanto un fichero final como un directorio.
-
-````
-public class EntradaIntro {
-
-    public static void main(String[] args) {
-        File f = new File("src/github/flujodatos/documentos");
-        System.out.println(f.isDirectory());
-    }
-}
-````
-
 
 Algunas de las acciones que permite esta clase son:
 
@@ -129,8 +155,6 @@ f.create();
 f.delete();
 // lista los archivos del directorio indicado 
 f.list();
-// lista los archivos del directorio indicado (en formato file)
-f.listFiles();
 // indica si se puede leer
 f.canRead();
 // indica si se puede escribir
@@ -146,7 +170,6 @@ Ejemplos a realizar (realizarlo con las comprobaciones de existencia):
 3. Borrar un fichero
 4. Renombrar un fichero
 5. Crear un fichero en un directorio conocido.
-6. Comprobar cuales son todos los discos conectados al sistema
 
 **Modifica todos los ejemplos para pedir los nombres por consola**
 
@@ -167,7 +190,6 @@ Antes de explicar el resto de elementos de este objeto es necesario saber que lo
 fileReader.close();
 ````
 
-El objeto FileReader por si solo no permite una lectura "comprensible" sino que lo hace en formato de bytes. Para poder trabajar de forma comprensible se utiliza un objeto de tipo BufferedReader a partir de un FileReader
 
 Una vez creado el objeto bufferedreader se puede leer el contenido del fichero en formato carácter con el método readLine()
 ````
@@ -192,46 +214,6 @@ try {
 }
 ````
 
-En el bloque while lo que se hace es leer cada una de las lineas siempre y cuando la lectura devuelva un valor diferente de null. El fichero parará de leerse cuando se encuentre con un EOF
-
-Cuando se lee una palabra se puede aplicar multitud de métodos sobre esta todos ellos pertenecientes a la clase String que ya vimos en los primeros temas. Alguno de los ejemplos son:
-````
-// retorna un String[] con todas las palabras una vez se quita el carácter indicado
-linea.split(",");
-// retorna la posición del carácter indicado
-linea.indexOf("a");
-// retorna el carácter de la posición indicada
-linea.charAt(0);
-// retorna la última posición encontrada del carácter indicado
-linea.lastIndexOf('a');
-// retorna la palabra ubicada entre las posiciones indicadas
-linea.substring(0,4);
-// elimina los espacios vacíos al principio y final de la línea
-linea.trim();
-````
-
-En el caso de utilizar el método read() se obtiene un int, el cual es el número asociado al carácter (tabla ASCII), pudiendo convertirlo de la siguiente forma
-
-````
-public void conversionASCIILetra(File file){
-        try {
-            FileReader fileReader = new FileReader(file);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            int linea;
-            while ((linea = bufferedReader.read())>-1){
-            	// este ese en código ASCII
-                System.out.println(linea);
-                // Esta es la conversión a letra
-                System.out.println(Character.toChars(linea));
-
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-````
 
 ##### Escritura
 
