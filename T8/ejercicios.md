@@ -31,6 +31,7 @@ Crea una aplicación que lea el contenido del fichero y lo muestre por consola.
 	- El número de oraciones es de: X
 
 4. (TextoASCII) Modifica el ejercicio 3 para que una vez leído el contenido del fichero aparezca por consola el texto pero traducido a códigos ascii
+
 5. (ASCIIFichero) Modifica el ejercicio anterior para que al mismo tiempo que se lee el contenido del fichero del ejercicio3 se cree un nuevo documento donde se guarden los códigos ASCII de cada una de las lecturas 
 
 6. (ASCIITexto) Sea un fichero llamado código.txt localizado en un paquete llamado documentos con el siguiente contenido:
@@ -40,7 +41,77 @@ Crea una aplicación que lea el contenido del fichero y lo muestre por consola.
 7. (JuegoAdivinar) Crea una aplicación de adivinación. Para ello nada más empezar se pedirá el nombre del jugados y se generará un número aleatorio entre 0 y 20. El sistema irá pidiendo números por teclado hasta que se acierte el número. Cuando se adivine se deben producir las siguientes acciones: 
 	- Se escribe en un fichero llamado juego.txt el nombre del  usuario y el número de intentos realizados con el siguiente formato: nombre, intentos (Borja,6)
 	- Se preguntará si se quieren seguir introduciendo datos:
-		- En caso de contestar si, se volverán a pedir los mismos datos, crear el usuario y meterlo en la lista
+		- En caso de contestar si se volverán a pedir los mismos datos, crear el usuario y meterlo en la lista
 		- En caso de contestar no se deberá pedir el nombre del siguiente concursante
-5. (JuegoAdivinarRecord) Modificar el ejercicio anterior para que al arrancar el programa aparezca un mensaje que ponga: "El record lo tiene Borja con 6 intentos" (para poder realizar esto se lee el fichero y se obtiene el usuario que menos intentos tenga registrados)
+8. (JuegoAdivinarRecord) Modificar el ejercicio anterior para que al arrancar el programa aparezca un mensaje que ponga: "El record lo tiene Borja con 6 intentos" (para poder realizar esto se lee el fichero y se obtiene el usuario que menos intentos tenga registrados)
 
+9. (ListadoRecursivo) Crear un programa que liste de forma recursiva todas las carpetas, subcarpetas y ficheros de una rura concreta. Por ejemplo sea la siguiente estructura de directorios / ficheros:
+	- DirectorioA
+		- Fichero1
+		- Subdirectorio1
+			- Fichero11
+		- Subdirectorio2
+			- Fichero22
+			- Subdirectorio21
+				- Fichero 211
+				- Fichero 212
+			- Subdirectorio22
+				- Fichero 221
+		- Subdirectorio3
+			- Fichero31
+			
+Se deberá mostrar el siguiente mensaje
+
+Carpeta DirectorioA con contenido
+Fichero1
+Carpeta Subdirectorio1 con contenido
+Fichero11
+Carpeta Subdirectorio2 con contenido
+Fichero2
+Carpeta Subdirectorio21 con contenido
+Fichero211
+Fichero212
+Carpeta Subdirectorio22 con contenido
+Fichero221
+Carpeta Subdirectorio3 con contenido
+Fichero31
+
+9. (Finder) Crear un programa que liste de las carpetas y ficheros de una rura segun selección del usuario. Por ejemplo sea la siguiente estructura de directorios / ficheros:
+
+- DirectorioA
+	- Fichero1
+	- Subdirectorio1
+		- Fichero11
+	- Subdirectorio2
+		- Fichero22
+		- Subdirectorio21
+			- Fichero 211
+			- Fichero 212
+		- Subdirectorio22
+			- Fichero 221
+		- Subdirectorio3
+			- Fichero31
+			
+Inicialmente se mostrará el mensaje:
+
+Carpeta DirectorioA con contenido
+1 - Fichero1
+2 - Carpeta Subdirectorio1 
+3 - Carpeta Subdirectorio2
+4 - Carpeta Subdirectorio3
+
+Que quieres ver: (pedido por teclado)
+
+Se selaccionará un fichero o subcarpeta. En el caso de seleccionar un fichero se mostrará su conenido por consola. En el caso de seleccionar una carpeta se mostrará su contenido
+
+Que quieres ver: 2
+
+Carpeta subdirectorio2 con contenido:
+1 - Fichero22
+2 - Subdirectorio21
+3 - Subdirectorio22
+Que quieres ver: (pedido por teclado)
+
+Con la misma lógica que en el caso anterior.
+
+**Opcional: incluir una opción en todos los menús que sea Volver Atras, la cual mostrará todo el contenido del directorio padre**
