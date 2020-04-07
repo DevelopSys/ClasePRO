@@ -38,9 +38,9 @@ Crea una aplicación que lea el contenido del fichero y lo muestre por consola.
 *69 115 116 111 32 101 115 32 117 110 32 101 106 101 109 112 108 111 32 100 101 32 101 115 99 114 105 116 117 114 97 32 100 101 32 102 105 99 104 101 114 111 32 109 101 100 105 97 110 116 101 32 99 243 100 105 103 111 115 32 97 115 99 105 105 46 32 10 80 97 114 97 32 112 111 100 101 114 32 114 101 99 117 112 101 114 97 114 32 101 108 32 99 111 110 116 101 110 105 100 111 32 100 101 108 32 102 105 99 104 101 114 111 32 115 105 109 112 108 101 109 101 110 116 101 32 104 97 121 32 113 117 101 32 108 101 101 114 32 101 108 32 99 243 100 105 103 111 32 121 32 116 114 97 100 117 99 105 114 108 111 32 97 32 115 117 32 99 97 114 97 99 116 101 114 32 97 115 111 99 105 97 100 111 46 32 10 72 97 121 32 113 117 101 32 110 111 32 116 111 100 111 115 32 108 111 115 32 99 97 114 225 99 116 101 114 101 115 32 100 101 32 101 115 116 101 32 102 105 99 104 101 114 111 32 115 111 110 32 110 250 109 101 114 111 115*
 
 7. (JuegoAdivinar) Crea una aplicación de adivinación. Para ello nada más empezar se pedirá el nombre del jugados y se generará un número aleatorio entre 0 y 20. El sistema irá pidiendo números por teclado hasta que se acierte el número. Cuando se adivine se deben producir las siguientes acciones: 
-	8. Se escribe en un fichero llamado juego.txt el nombre del  usuario y el número de intentos realizados con el siguiente formato: nombre, intentos (Borja,6)
-	9. Se preguntará si se quieren seguir introduciendo datos:
-		2. En caso de contestar si, se volverán a pedir los mismos datos, crear el usuario y meterlo en la lista
-		3. En caso de contestar no se deberá pedir el nombre del siguiente concursante
+	- Se escribe en un fichero llamado juego.txt el nombre del  usuario y el número de intentos realizados con el siguiente formato: nombre, intentos (Borja,6)
+	- Se preguntará si se quieren seguir introduciendo datos:
+		- En caso de contestar si, se volverán a pedir los mismos datos, crear el usuario y meterlo en la lista
+		- En caso de contestar no se deberá pedir el nombre del siguiente concursante
 5. (JuegoAdivinarRecord) Modificar el ejercicio anterior para que al arrancar el programa aparezca un mensaje que ponga: "El record lo tiene Borja con 6 intentos" (para poder realizar esto se lee el fichero y se obtiene el usuario que menos intentos tenga registrados)
 
