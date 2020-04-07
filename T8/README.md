@@ -303,7 +303,7 @@ fos.close();
 
 ##### DataInput y DataOutput
 
-Las clases DataInputStream y DataOutputStream permiten procesar ficheros binarios secuenciales de tipos básicos.Tanto la entrada como la salida tienen dependencias de los explicado en los puntos anteriores (FileStream y FileInput / FileOutput)
+Las clases DataInputStream y DataOutputStream permiten procesar ficheros binarios secuenciales de tipos básicos.Tanto la entrada como la salida tienen dependencias de los explicado en los puntos anteriores (FileStream y FileInput / FileOutput). Este tipo de flujos permiten guardad datos primitivos como tal, al mismo tiempo que recuperarlos de la misma forma.
 
 ###### DataInput
 
@@ -352,6 +352,51 @@ Del mismo modo que se han escrito char o int se puede escribir cualquier tipo in
 
 Las clases ObjectInputStream y ObjectOutputStream permiten procesar ficheros binarios secuenciales de objetos. La extensión del fichero deberá ser .obj
 
+Antes de poder realizar la escritura y la lectura de elementos de tipo objeto, hay que tener en cuenta que los objetos leídos y/o escritos deben de ser de tipo Serializable. Para poder cumplir esto simplemente hay que implementar dicha interfaz, lo que permite utilizar el polimorfismo.
+
+La implementación sería de la siguiente forma. Para un objeto de tipo Usuario que tiene varios atributos y que se quiere guardar en un fichero sería de la siguiente forma: 
+
+````
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
+
+    private String nombre, apellido;
+    private int telefono;
+
+    public Usuario(String nombre, String apellido, int telefono) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+}
+````
+
+
 ##### ObjectInput
 La clase ObjectInputStream permite leer registros de tipo un objeto. Hay que tener en cuenta que para poder guardar / leer un objeto este debe ser serializado (implementar la interfaz serializable) de forma que sea procesado por partes.
 
@@ -384,6 +429,248 @@ try {
 	e.printStackTrace();
 }
 ````
+
+Cuando se intentan escribir objetos de tipo lista que apunta a otros objetos, estos también necesitan implementar la interfaz serializable: Por ejemplo si se tiene una clase que representa un Usuario:
+
+````
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
+
+    private String nombre, apellido, dni;
+    private int telefono;
+
+
+    public Usuario(String nombre, String apellido, String dni, int telefono) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.telefono = telefono;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+
+    public String mostrarDatos(){
+        return String.format("nombre: %s, apellidos: %s, teléfono: %d %n", getNombre(), getApellido(), getTelefono());
+    }
+}
+````
+ 
+Y un fichero que representa el conjunto de todos los usuarios, guardados en un ArrayList
+
+````
+package github.flujodatos.utils;
+
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
+
+    private String nombre, apellido, dni;
+    private int telefono;
+
+
+    public Usuario(String nombre, String apellido, String dni, int telefono) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.telefono = telefono;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+
+    public String mostrarDatos(){
+        return String.format("nombre: %s, apellidos: %s, teléfono: %d %n", getNombre(), getApellido(), getTelefono());
+    }
+}
+````
+
+Y un fichero entrada donde se esciben los datos
+
+````
+package github.flujodatos.utils;
+
+import java.io.*;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
+public class Agenda implements Serializable {
+
+    private ArrayList<Usuario> usuarios;
+
+    public Agenda() {
+        usuarios = new ArrayList();
+    }
+
+    public ArrayList<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(ArrayList<Usuario> usuarios) {
+        this.usuarios = usuarios;
+    }
+
+    public void agregarUsuario(Usuario usuario) {
+
+        Object[] existe = existeUsuario(usuario.getDni());
+        if ((boolean) existe[0]) {
+            System.out.println("el usuario ya existe");
+        } else {
+            usuarios.add(usuario);
+        }
+    }
+
+    public void borrarUsuario(String dni) {
+        Object[] existe = existeUsuario(dni);
+        if ((boolean) existe[0]) {
+            System.out.println("el usuario ya existe");
+            usuarios.remove((int) existe[1]);
+        } else {
+            System.out.println("este usuario no existe");
+        }
+    }
+
+    public void listarUsuarios() {
+        for (Usuario usuario : usuarios) {
+            System.out.print(usuario.mostrarDatos());
+        }
+    }
+
+    private Object[] existeUsuario(String dni) {
+
+        int i = 0;
+
+
+        for (Usuario usuario : usuarios) {
+            if (usuario.getDni().equals(dni)) {
+                return new Object[]{true, i};
+            }
+            i++;
+        }
+
+        return new Object[]{false, i};
+
+    }
+
+    public void exportarAgenda(File f) {
+        ObjectOutputStream oos;
+        try {
+            oos = new ObjectOutputStream(new FileOutputStream(f));
+            oos.writeObject(usuarios);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void importarAgenda(File f) {
+        ObjectInputStream ois;
+        try {
+            ois = new ObjectInputStream(new FileInputStream(f));
+            usuarios = (ArrayList<Usuario>) ois.readObject();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+````
+
+Este fichero representa todos los mecanismos para poder agregar/eliminar elementos al arraylist así como cualquier manipulación de los datos, como por ejemplo escribirlos/leerlos a un fichero
+
+Por último el fichero que representa la entrada. En este ejemplo se cumprueba si el fichero de los datos existe, y en caso de ser positivo los importa al sistema para que se pueda funcionar con datos desde el inicio. Del mismo modo, cuando se termina la ejecución del programa se exportan todos los datos del sistema
+
+````
+import java.io.*;
+
+public class Entrada {
+
+    public static void main(String[] args) {
+
+        File f = new File("src/github/flujodatos/documentos/agenda.obj");
+        Agenda a = new Agenda();
+
+        if (f.exists()){
+            a.importarAgenda(f);
+        }
+
+        if (a.getUsuarios().size()>0){
+            a.listarUsuarios();
+        }else{
+            System.out.println("la agenda está vacía");
+        }
+
+        a.agregarUsuario(new Usuario("Jose","Martin Perez","000000A",1111111));
+        a.agregarUsuario(new Usuario("Pedro","Lopez Merino","000000B",2222222));
+        a.agregarUsuario(new Usuario("Luis","Herrera Gomez","000000B",2222222));
+        a.borrarUsuario("000000C");
+        a.borrarUsuario("000000B");
+        a.listarUsuarios();
+        a.exportarAgenda(f);
+    }
+}
+````
+
 
 #### Ficheros aleatorios
 
