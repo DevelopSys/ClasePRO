@@ -107,7 +107,6 @@ public class EntradaIntro {
 }
 ````
 
-
 Algunas de las acciones que permite esta clase son:
 
 ````
@@ -254,6 +253,7 @@ Del mismo modo que pasaba con la lectura, es obligatorio cerrar el flujo al term
 Ejemplos:
 1. Crea un programa que pida por consola los siguientes datos: nombre, apellido, edad. Tras pedir el último dato lo escribirá en un fichero llamado usuarios.txt (se creara si no existe en la raíz del proyecto). El programa seguirá pidiendo datos hasta que no se pare la ejecución
 
+
 #### Lectura y escritura de bytes en ficheros
 
 Para la lectura y escritura de bytes el proceso es muy parecido. Una de las primeras diferencias que encontramos es la necesidad de tener un objeto de tipo FileStream, que depende de un objeto de tipo File
@@ -301,11 +301,28 @@ fos.close();
 
 **Al trabajar todo el rato en bytes y tener que convertir de forma manual los datos, este proceso resulta bastante tedioso. Para poder mejorar el flujo de datos se utiliza la clase DataStream, la cual escribe bytes y lee el byte traduciéndolo a su tipo correspondiente**
 
-##### DataInput y DataOutput
+#### Lectura y escritura con flujo de datos
+
+Del mismo modo que se ha utilizado antes las clase de FileWriter / Reader BufferedWriter / Reader para poder trabajar con un fichero leyendo y/o escribiendo caracteres en texto plano, también existe la posibilidad de escribir y/o leer datos en tipos primitivos concretos. En los casos anteriores si se quería escribir el número 1 se escribía como un carácter, del mismo modo que si se recuperaba. En el segundo caso si se quería tratar como un número había que realizar un casteo al dato al que se quería pasar.
+````
+FileWriter writer = new FileWriter(f);
+BufferedWriter bufferedWriter = new BufferedWriter(writer);
+bufferedWriter.write(boolean);
+````
+````
+FileReader reader = new FileReader(f);
+BufferedReader bufferedReader = new BufferedReader(reader);
+int numero  = Integer.parseInt(bufferedReader.readLine());
+````
+
+En muchas ocasiones esto no es muy práctico, ya que se necesita tanto guardad datos en un tipo concreto como recuperarlos en su tipo correspondiente. Para poder hacer esto se utiliza un flujo de streams que utiliza bytes tanto los fileinputstream (output) como los data input que se explican a continuación.
+
+
+#### DataInput y DataOutput
 
 Las clases DataInputStream y DataOutputStream permiten procesar ficheros binarios secuenciales de tipos básicos.Tanto la entrada como la salida tienen dependencias de los explicado en los puntos anteriores (FileStream y FileInput / FileOutput). Este tipo de flujos permiten guardad datos primitivos como tal, al mismo tiempo que recuperarlos de la misma forma.
 
-###### DataInput
+##### DataInput
 
 La clase DataInputStream permite leer registros, campo a campo, de ficheros binarios de tipos básicos.
 
@@ -327,7 +344,7 @@ a = fe.readDouble();
 a = fe.readLine();
 ````
 
-###### DataOutput
+##### DataOutput
 
 La clase DataOutputStream permite escribir registros de ficheros binarios de tipos básicos.
 
@@ -725,4 +742,549 @@ f.writeInt(a);
 f.writeLong(a);
 f.writeFloat(a);
 f.writeDouble(a);
+````
+
+### Apache POI
+
+Apache POI representa una librería para el trabajo con documentos del paquete office. Se trata de una librería oficial, por lo cual tiene soporte por parte de apache al igual que un API donde se pueden consultar los usos de cada uno de sus elementos. Para poder descargarlo se puede hacer directamente desde este link, seleccionado los binarios. Dentro de la carpeta que se descarga se encuentra el fichero poi-4.1.2.jar el cual representa la librería que se va a utilizar, para lo cual se necesita importarla dentro del proyecto, siguiendo los pasos:
+
+1. Seleccionar Mení File --> Project Structure
+2. Seleccionar la opción Libraries
+3. Seleccionar el icono del + --> New Java Library --> seleccionar la ubicación del fichero  poi-4.1.2.jar
+4. Pulsar en Apply y aceptar. 
+
+Se debe realizar el mismo proceso con los siguientes archivos, ya que existen dependencias entre ellos: common-compress, common-collections, common-math, xmlbeans cuyos links de adjuntan
+
+- https://commons.apache.org/proper/commons-compress/download_compress.cgi
+- http://commons.apache.org/proper/commons-collections/download_collections.cgi
+- https://mvnrepository.com/artifact/org.apache.commons/commons-math3/3.6.1
+- https://xmlbeans.apache.org/download/
+
+Para comprobar que todo ha funcionado de forma correcta, se puede seleccionar en la carpeta External Libraries del proyecto y debería de aparecer. Con esto el proyecto queda preparado para poder trabajar con ficheros office. Todo lo visto anteriormente es la base del uso de los ficheros office, ya que todo parte de un objeto de tipo File y un objeto de tipo FileInputStream o FileOutputStream, ya que se forma un flujo de datos de entrada o salida
+
+#### Ficheros xls
+
+Para poder trabajar con ficheros de tipo excel lo que hay que tener en cuenta es el uso de los siguientes objetos teniendo en cuenta que la dependencia es en vertical, es decir el siguiente depende de la existencia del anterior:
+
+````
+File archivo = new File("/src/archivos/fichero.xls")
+FileInputStream fileInputStream =  new FileInputStream(f);
+````
+
+- HSSFWorkbook / XSSFWorkbook (xls / xls): representa el fichero xls con el que se quiere trabajar
+
+````
+HSSFWorkbook archivoExcel = new HSSFWorkbook(fileInputStream);
+````
+
+
+- HSSFSheet / XSSFSheet: representa cada una de las hojas que forman el fichero excel
+
+````
+XSSFSheet hojaFichero = archivoExcel.getSheetAt(0);
+````
+
+- HSSFRow / XSSFRow: representa cada una de las filas que forman las hojas del fichero excel
+
+````
+XSSFRow filaFichero = hojaFichero.getRow(0);
+````
+
+- HSSFCell / XSSFCell: representa cada una de las celdas que forman cada una de las filas de un fichero excel
+
+````
+XSSFCell celdaFichero = filaFichero.getCell(0);
+````
+
+Con estos conceptos generales se pueden hacer diferentes cosas. Para este ejemplo se creará una clase adicional que tendrá un método por acción:
+
+##### Lectura de ficheros
+
+1. Para poder leer un fichero se necesita primero el objeto de tipo FileInputStream y el XSSFWorkbook asociado.
+
+````
+public class TrabajoExcel {
+
+    public void leerFicheroExcel(File f){
+        FileInputStream fileInputStream = null;
+        XSSFWorkbook archivoExcel = null;
+        
+        try {
+            fileInputStream= new FileInputStream(f);
+            archivoExcel = new XSSFWorkbook(fileInputStream);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+````
+
+*Dentro de este objeto, un método bastante útil es getNumberOfSheets()(), el cual devuelve el número de la hojas en un fichero. Con ella se podría recorrer todas las hojas*
+2. Ua vez se tiene esto lo que se crea es un objeto de tipo XSSFSheet, la cual representa de una de las horas del archivo de excel. Para poder crear el objeto se apunta a la hoja mediante una posición (la cual empieza en 0) o mediante el nombre de la misma
+
+````
+XSSFSheet hojaExcel = archivoExcel.getSheetAt(0);
+XSSFSheet hojaExcel = archivoExcel.getSheet("usuarios");
+````
+
+En el ejemplo se utilizará la creación mediante la posición
+
+````
+public class TrabajoExcel {
+
+    public void leerFicheroExcel(File f){
+        FileInputStream fileInputStream = null;
+        XSSFWorkbook archivoExcel = null;
+        XSSFSheet hojaExcel = null;
+
+        try {
+            fileInputStream= new FileInputStream(f);
+            archivoExcel = new XSSFWorkbook(fileInputStream);
+            hojaExcel = archivoExcel.getSheetAt(0);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+````
+
+*Dentro de este objeto, un método bastante útil es getLastRowNum(), el cual devuelve el número de la última fila escrita. Con ella se podría recorrer todas las filas.*
+
+
+3. Con la hoja creada se obtiene una fila. Para ello se utiliza un objeto de tipo XSSFRow
+
+````
+XSSFRow filaExcel = hojaExcel.getRow(0);
+````
+
+En el ejemplo sería
+
+````
+public class TrabajoExcel {
+
+    public void leerFicheroExcel(File f){
+        FileInputStream fileInputStream = null;
+        XSSFWorkbook archivoExcel = null;
+        XSSFSheet hojaExcel = null;
+        XSSFRow filaExcel = null;
+
+        try {
+            fileInputStream= new FileInputStream(f);
+            archivoExcel = new XSSFWorkbook(fileInputStream);
+            hojaExcel = archivoExcel.getSheetAt(0);
+            filaExcel = hojaExcel.getRow(0);
+            
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+````
+
+4. Por último para poder leer el contenido de la fila se necesita un objeto de tipo XSSFCell, pasa lo cual se utiliza
+
+````
+XSSFCell celda = filaExcel.getCell(0);
+````
+Y leer su contenido
+
+````
+celda.getStringCellValue()
+````
+Hay que tener en cuenta que dependiendo de contenido de la celda se leerá con un método u otro
+````
+celda.getNumericCellValue();
+````
+
+Por ello es importante antes de hacer la lectura evaluar el tipo de dato
+
+````
+if (celda.getCellType() == CellType.STRING) {
+	System.out.println(celda.getStringCellValue());
+}
+````
+
+En el ejemplo
+
+````
+package github.office;
+
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import java.io.*;
+import java.util.Iterator;
+
+public class TrabajoExcel {
+
+    public void leerFicheroExcel(File f) {
+        FileInputStream fileInputStream = null;
+        XSSFWorkbook archivoExcel = null;
+        XSSFSheet hojaExcel = null;
+        XSSFRow filaExcel = null;
+        XSSFCell celda = null;
+
+        try {
+            fileInputStream = new FileInputStream(f);
+            archivoExcel = new XSSFWorkbook(fileInputStream);
+            hojaExcel = archivoExcel.getSheetAt(0);
+            filaExcel = hojaExcel.getRow(0);
+            celda = filaExcel.getCell(0);
+            if (celda.getCellType() == CellType.STRING) {
+                System.out.println(celda.getStringCellValue());
+            }
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void leerContenidoCompleto(File file) {
+        FileInputStream ficheroInput = null;
+        XSSFWorkbook ficheroExcel = null;
+        XSSFSheet hojaExcel = null;
+        XSSFRow fileExcel = null;
+        XSSFCell celadaExcel = null;
+
+        try {
+            ficheroInput = new FileInputStream(file);
+            ficheroExcel = new XSSFWorkbook(ficheroInput);
+
+            Iterator<Sheet> hojaIterator = ficheroExcel.iterator();
+            while (hojaIterator.hasNext()) {
+                Sheet hoja = hojaIterator.next();
+                Iterator<Row> filaIterator = hoja.iterator();
+                while (filaIterator.hasNext()) {
+                    Row fila = filaIterator.next();
+                    Iterator<Cell> celdaIterator = fila.cellIterator();
+                    while (celdaIterator.hasNext()) {
+                        Cell celda = celdaIterator.next();
+                        if (celda.getCellType() == CellType.NUMERIC) {
+                            System.out.println(celda.getNumericCellValue());
+                        } else if (celda.getCellType() == CellType.STRING) {
+                            System.out.println(celda.getStringCellValue());
+                        }
+                    }
+                }
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+````
+
+
+**Leer todo el contenido de un fichero**
+
+Para poder leer el contenido completo de un fichero no es válido el método de antes, ya que habría que ir uno a uno modificando los elementos, o bien utilizando un for con los valores que obtienen los métodos getNumberOfSheets() y getLastRowNum(). La forma más correcta de hacerlo es mediante un objeto de tipo Iterator (igual que se recorría un HastTable). Para ello se utilizan objetos de tipo Sheet, Row y Cell que representan cada uno de los objetos antes vistos
+
+Al mismo tiempo, cuando se evalúa el contenido de una celda hay que tener en cuenta el tipo de dato que tiene en su interior para poder obtenerlo de forma correcta
+
+````
+package github.office;
+
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import java.io.*;
+import java.util.Iterator;
+
+public class TrabajoExcel {
+
+    public void leerFicheroExcel(File f) {
+        FileInputStream fileInputStream = null;
+        XSSFWorkbook archivoExcel = null;
+        XSSFSheet hojaExcel = null;
+        XSSFRow filaExcel = null;
+        XSSFCell celda = null;
+
+        try {
+            fileInputStream = new FileInputStream(f);
+            archivoExcel = new XSSFWorkbook(fileInputStream);
+            hojaExcel = archivoExcel.getSheetAt(0);
+            filaExcel = hojaExcel.getRow(0);
+            celda = filaExcel.getCell(0);
+            if (celda.getCellType() == CellType.STRING) {
+                System.out.println(celda.getStringCellValue());
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                archivoExcel.close();
+                fileInputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void leerContenidoCompleto(File file) {
+        FileInputStream ficheroInput = null;
+        XSSFWorkbook ficheroExcel = null;
+        XSSFSheet hojaExcel = null;
+        XSSFRow fileExcel = null;
+        XSSFCell celadaExcel = null;
+
+        try {
+            ficheroInput = new FileInputStream(file);
+            ficheroExcel = new XSSFWorkbook(ficheroInput);
+
+            Iterator<Sheet> hojaIterator = ficheroExcel.iterator();
+            while (hojaIterator.hasNext()) {
+                Sheet hoja = hojaIterator.next();
+                Iterator<Row> filaIterator = hoja.iterator();
+                while (filaIterator.hasNext()) {
+                    Row fila = filaIterator.next();
+                    Iterator<Cell> celdaIterator = fila.cellIterator();
+                    while (celdaIterator.hasNext()) {
+                        Cell celda = celdaIterator.next();
+                        if (celda.getCellType() == CellType.NUMERIC) {
+                            System.out.println(celda.getNumericCellValue());
+                        } else if (celda.getCellType() == CellType.STRING) {
+                            System.out.println(celda.getStringCellValue());
+                        }
+                    }
+                }
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                ficheroExcel.close();
+                ficheroInput.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+````
+
+##### Escritura de ficheros
+
+La forma de trabajar es la misma que en el caso anterior, con la diferencia que en vez de obtener los objetos de tipo sheet, row y cell estos se crean mediante código. Para el ejemplo se contará con un fichero xlsx
+
+1. Crear el fichero 
+````
+    public void escribirFichero(){
+        XSSFWorkbook ficheroExcel = null;
+        ficheroExcel = new XSSFWorkbook();
+    }
+
+````
+
+
+2. Crear la hoja
+
+````
+// también existe la posibilidad de crear la hoja con un nombre en el constructor
+HSSFSheet hoja = ficheroExcel.createSheet();
+````
+
+En el ejemplo
+
+````
+    public void escribirFichero(){
+        XSSFWorkbook ficheroExcel = null;
+        ficheroExcel = new XSSFWorkbook();
+        XSSFSheet hoja = ficheroExcel.createSheet();
+    }
+````
+
+3. Crear la fila indicando la posición 
+
+````
+XSSFRow fila = hoja.createRow(0);
+
+````
+
+En el ejemplo 
+````
+    public void escribirFichero(){
+        XSSFWorkbook ficheroExcel = null;
+        ficheroExcel = new XSSFWorkbook();
+        XSSFSheet hoja = ficheroExcel.createSheet();
+        XSSFRow fila = hoja.createRow(0);
+    }
+````
+
+
+4. Crear la celda  indicando la posición de la columna y escribirla   
+
+````
+XSSFCell celda = fila.createCell(0);
+// también se puede indicar el tipo de dato que va a guardar
+XSSFCell celdaTipo = fila.createCell(1, CellType.NUMERIC);
+````
+
+Para poder escribirla se utiliza el método setCellValue(), por lo que es necesario un objeto del tipo correspondiente
+
+````
+celda.setCellValue("Ejemplo");
+celdaTipo.setCellValue(1);
+````
+
+En el ejemplo
+
+````
+    public void escribirFichero(){
+        XSSFWorkbook ficheroExcel = null;
+        ficheroExcel = new XSSFWorkbook();
+        XSSFSheet hoja = ficheroExcel.createSheet();
+        XSSFRow fila = hoja.createRow(0);
+        XSSFCell celda = fila.createCell(0);
+        XSSFCell celdaTipo = fila.createCell(1, CellType.NUMERIC);
+        celda.setCellValue("Ejemplo");
+        celdaTipo.setCellValue(1);
+    }
+````
+
+
+
+5. Escribir el archivo excel en la ruta indicada
+````
+FileOutputStream fileOutput = new FileOutputStream("src/github/office/documentos/archivo_creado.xlsx");
+ficheroExcell.write(fileOutput);
+````
+
+En el ejemplo 
+````
+ public void escribirFichero(){
+
+        XSSFWorkbook ficheroExcel = null;
+        ficheroExcel = new XSSFWorkbook();
+        XSSFSheet hoja = ficheroExcel.createSheet();
+        XSSFRow fila = hoja.createRow(0);
+        XSSFCell celda = fila.createCell(0);
+        Cell celdaTipo = fila.createCell(1, CellType.NUMERIC);
+        celda.setCellValue("Ejemplo");
+        celdaTipo.setCellValue(1);
+        try {
+            FileOutputStream fileOutput = new FileOutputStream("src/github/office/documentos/archivo_creado.xlsx");
+            ficheroExcel.write(fileOut);
+            fileOutput.close();
+            ficheroExcel.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+````
+
+**Escribir todo el contenido de una lista**
+
+Para poder escribir el contenido de una lista completa en un fichero lo necesario es recorrer la lista y por cada recorrido crear una fila nueva. PAra el ejemplo se utilizará un objeto de tipo usuario
+
+````
+public class Usuario {
+    
+    private String nombre, apellido, telefono;
+
+    public Usuario(String nombre, String apellido, String telefono) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+}
+
+````
+
+````
+    public void escribirListaCompleta(){
+
+        XSSFWorkbook ficheroExcel = new XSSFWorkbook();
+        XSSFSheet hoja = ficheroExcel.createSheet("usuarios");
+        XSSFRow fila = hoja.createRow(0);
+        XSSFCell celda;
+        int numFilas=0;
+        ArrayList<Usuario> lista = getUsuarios();
+        String[]cabeceras = new String[]{"Nombre","Apellido","Télefono"};
+
+        for (int i=0;i<cabeceras.length;i++){
+            celda = fila.createCell(i);
+            celda.setCellValue(cabeceras[i]);
+        }
+        numFilas++;
+
+        for (Usuario u:lista) {
+            int numPosicionCelda = 1;
+            fila = hoja.createRow(numFilas);
+            celda = fila.createCell(numPosicionCelda);
+            celda.setCellValue(u.getNombre());
+            celda = fila.createCell(numPosicionCelda++);
+            celda.setCellValue(u.getApellido());
+            celda = fila.createCell(numPosicionCelda++, CellType.NUMERIC);
+            celda.setCellValue(u.getTelefono());
+            numFilas++;
+        }
+
+        try {
+            FileOutputStream fileOutput = new FileOutputStream("src/github/office/documentos/archivo_listado.xlsx");
+            ficheroExcel.write(fileOutput);
+            fileOutput.close();
+            ficheroExcel.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 ````
