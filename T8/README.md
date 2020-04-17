@@ -1288,3 +1288,191 @@ public class Usuario {
         }
     }
 ````
+
+#### Ficheros docx
+
+El trabajo con archivos word es muy similar al proceso anterior, con la única diferencia que los objetos con los que trabaja cambian de definición. Para este caso los objetos que se utilizarán son:
+
+- XWPFDocument: representa el documento de tipo word con el que se quiere trabajar
+
+
+````
+XWPFDocument documento = new XWPFDocument();
+````
+
+
+- XWPFParagraph: representa el párrafo del documento con el que se quiere trabajar. Un párrafo se diferencia del siguiente cuando hay un salto de linea
+
+````
+XWPFParagraph parrafo_doc = documento.createParagraph();
+````
+
+- XWPFRun: representa el objeto final con el que se escribe en el párrafo
+
+````
+XWPFRun run = parrafo_doc.createRun();
+````
+
+##### Lectura de ficheros
+
+1. Para poder leer un fichero se necesita primero el objeto de tipo FileInputStream y el XWPFDocument asociado.
+
+````
+public class TrabajoWord {
+
+
+    public void leerWord(File f){
+        FileInputStream fis = null;
+        XWPFDocument documentoWord = null;
+        try {
+            fis = new FileInputStream(f);
+            documentoWord = new XWPFDocument(fis);
+           
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+````
+
+2. Ua vez se tiene esto lo que se crea es un objeto de tipo XWPFParagraph. Lo mas sencillo es leer todos los párrafos de golpe e ir leyéndolos uno a uno mediante un foreach
+
+````
+    public void leerWord(File f){
+        FileInputStream fis = null;
+        XWPFDocument documentoWord = null;
+        try {
+            fis = new FileInputStream(f);
+            documentoWord = new XWPFDocument(fis);
+            List<XWPFParagraph> parrafos = documentoWord.getParagraphs();
+            for (XWPFParagraph paragraph :parrafos) {
+                System.out.println(paragraph.getText());
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+````
+
+*Dentro de este objeto, un método bastante útil es getLastRowNum(), el cual devuelve el número de la última fila escrita. Con ella se podría recorrer todas las filas.*
+
+
+3. Una vez se han leído todos los párrafos se procede a cerrar el fichero y el flujo de los datos
+
+````
+
+    public void leerWord(File f){
+        FileInputStream fis = null;
+        XWPFDocument documentoWord = null;
+        try {
+            fis = new FileInputStream(f);
+            documentoWord = new XWPFDocument(fis);
+            List<XWPFParagraph> parrafos = documentoWord.getParagraphs();
+            for (XWPFParagraph paragraph :parrafos) {
+                System.out.println(paragraph.getText());
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                fis.close();
+                documentoWord.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+````
+
+##### Escritura del fichero
+
+1. Se crea un objeto de tipo XWPFDocument
+
+````
+    public void escribirWord(File f) throws IOException {
+        XWPFDocument documento  = null;
+        try {
+            documento = new XWPFDocument();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        
+    }
+````
+
+2. Se crea un objeto de tipo XWPFParagraph partiendo del documento creado anteriormente
+````
+    public void escribirWord(File f) throws IOException {
+        XWPFDocument documento  = null;
+        try {
+            documento = new XWPFDocument();
+            XWPFParagraph titulo_doc = documento.createParagraph();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+````
+
+3. Se crea un objeto de tipo partiendo del párrafo creado anteriormente
+````
+    public void escribirWord(File f) throws IOException {
+        XWPFDocument documento  = null;
+        try {
+            documento = new XWPFDocument();
+            XWPFParagraph titulo_doc = documento.createParagraph();
+            XWPFRun run = titulo_doc.createRun();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+````
+
+4. Se escribe el texto y las propiedades partiendo del objeto de tipo XWPFRun mediante el método setXXX()
+````
+    public void escribirWord(File f) throws IOException {
+        XWPFDocument documento  = null;
+        try {
+            documento = new XWPFDocument();
+            XWPFParagraph titulo_doc = documento.createParagraph();
+            XWPFRun run = titulo_doc.createRun();
+            run.setText("Ejemplo de escritura en word")
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+````
+ 5. Como último paso se procede a crear un flujo de salida, escribir el documento en el flujo creado y cerrar los elementos
+````
+    public void escribirWord(File f) throws IOException {
+        XWPFDocument documento = null;
+        FileOutputStream fos = null;
+        try {
+            documento = new XWPFDocument();
+            XWPFParagraph titulo_doc = documento.createParagraph();
+            XWPFRun run = titulo_doc.createRun();
+            run.setText("Ejemplo de escritura en word");
+
+            fos = new FileOutputStream(f);
+            documento.write(fos);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                fos.close();
+                documento.close();
+            } catch (NullPointerException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+````
