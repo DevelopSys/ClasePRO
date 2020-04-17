@@ -114,4 +114,24 @@ Que quieres ver: (pedido por teclado)
 
 Con la misma lógica que en el caso anterior.
 
-**Opcional: incluir una opción en todos los menús que sea Volver Atras, la cual mostrará todo el contenido del directorio padre**
+**Opcional: incluir una opción en todos los menús que sea Volver Atrás, la cual mostrará todo el contenido del directorio padre**
+
+10. (ListaObjetos) Crea un programa de gestión de usuarios que tendrán nombre, apellido y teléfono. Para ellos mediante un menú se podrá:
+
+	a. Agregar usuarios --> se pedirán por teclado
+	b. Listar usuario --> mostrará los datos por consola de todos los usuarios que se han registrado
+	c. Salir --> saldrá del sistema
+	
+**Cuando se pulse la opción de salir se preguntará al usuario si quiere exportar la lista de usuarios registrados. En caso de decir SI se generará un archivo .obj **
+
+12. (ObjetoLista) Modifica el ejercicio anterior para que nada más arrancar el programa se escriban todos los objetos que están en un fichero .obj en la lista
+
+13. (ExcelLista) Sea el archivo de excel que se adjunta en classroom, exportar un todos los elementos que están en el Excel a una lista. Esta lista constará de usuarios que tienen las siguientes características: tratamiento (string), nombre (string), apellidos (string), país (string), email (string), movil (int)
+
+14. (ListaExcel) Crea un programa de gestión de usuarios que tendrán nombre, apellido y teléfono. Para ellos mediante un menú se podrá:
+
+	12. Agregar usuarios --> se pedirán por teclado
+	13. Listar usuario --> mostrará los datos por consola de todos los usuarios que se han registrado
+	14. Salir --> saldrá del sistema
+	
+**Cuando se pulse la opción de salir se preguntará al usuario si quiere exportar la lista de usuarios registrados. En caso de decir SI se generará un xl **
