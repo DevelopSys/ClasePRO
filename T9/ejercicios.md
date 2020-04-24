@@ -14,9 +14,11 @@
 Realiza una conexión con un programa donde la conexión esté separada en una clase adicional llamada GestionBD
 
 2. Crea un método en la clase GestionBD donde se realicen las siguiente operaciones
+
 	- Inserta 3 perfiles de forma manual (mediante un statemet) en la tabla perfiles con los siguientes nombres: trabajador, director, gerente
 
 	- Inserta 4 usuarios de forma manual  (mediante un prepare statement). Cada usuario tendrá solo nombre, apellido, teléfono y país. Los usuarios serán:
+	
 		-. Heide-Marie, Rausch, 2145024, Holanda
 		
 		-. Liam, Montgomery, 016977, España
@@ -38,6 +40,7 @@ Realiza una conexión con un programa donde la conexión esté separada en una c
 
  	
 5. Crea un método en la clase GestiónBD donde se realicen las siguientes operaciones
+
 	-. (Mediante un statement)Actualiza aquellos sueldos de los usuarios que son de España y pongo a 10000
 	
 	-. (Mediante un statement)Actualiza aquellos sueldos de los usuarios que son de Alemania y su nombre es  Leah y pongo a 5000
