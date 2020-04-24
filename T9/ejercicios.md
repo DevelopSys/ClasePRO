@@ -14,18 +14,18 @@
 Realiza una conexión con un programa donde la conexión esté separada en una clase adicional llamada GestionBD
 
 2. Crea un método en la clase GestionBD donde se realicen las siguiente operaciones
-	3. Inserta 3 perfiles de forma manual (mediante un statemet) en la tabla perfiles con los siguientes nombres: trabajador, director, gerente
+	- Inserta 3 perfiles de forma manual (mediante un statemet) en la tabla perfiles con los siguientes nombres: trabajador, director, gerente
 
-	4. Inserta 4 usuarios de forma manual  (mediante un prepare statement). Cada usuario tendrá solo nombre, apellido, teléfono y país. Los usuarios serán
-		5. Heide-Marie, Rausch, 2145024, Holanda
-		6. Liam, Montgomery, 016977, España
-		7. Ioanna, Van der Gaag, 978229, Belgica
-		8. Eloane, Bourgeois, 0595439, Francia
-		9. Mina, Rieger, 8154354, Alemania
-		10. Celesta, Langenhuizen, 2399626, España
-		11. Leah, Lee, 312333, Alemania
-		12. Armand, Lucas, 423445, Holanda
-		13. Leah, Jim, 312333, Francia
+	- Inserta 4 usuarios de forma manual  (mediante un prepare statement). Cada usuario tendrá solo nombre, apellido, teléfono y país. Los usuarios serán
+		-. Heide-Marie, Rausch, 2145024, Holanda
+		-. Liam, Montgomery, 016977, España
+		-. Ioanna, Van der Gaag, 978229, Belgica
+		-. Eloane, Bourgeois, 0595439, Francia
+		-. Mina, Rieger, 8154354, Alemania
+		-. Celesta, Langenhuizen, 2399626, España
+		-. Leah, Lee, 312333, Alemania
+		-. Armand, Lucas, 423445, Holanda
+		-. Leah, Jim, 312333, Francia
 
 
  	
