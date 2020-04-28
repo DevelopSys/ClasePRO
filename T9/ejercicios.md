@@ -56,4 +56,6 @@ Realiza una conexión con un programa donde la conexión esté separada en una c
 
 6. Modifica todo el programa de los ejercicios anteriores para que realice los siguientes pasos
 	7. Al abrir, si la base de datos no tiene registros, se lea el fichero generado en el ejercicio anterior y guarde en la base de datos todos los usuarios que están en el arraylist
+	
+	
 
