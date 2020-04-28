@@ -1,5 +1,5 @@
 1. (CreacionBD) Crea una base de datos con la siguiente estructura:
-	2. Tabla usuario:
+	-. Tabla usuario:
 		3. Id numérico (PK)
 		4. Nombre texto 
 		5. Apellido texto
@@ -7,7 +7,7 @@
 		7. Sueldo numérico
 		8. Pais texto
 		7. Perfil numérico 
-	8. Tabla Perfiles
+	-. Tabla Perfiles
 		9. Id numérico (PK)
 		10. Nombre texto
 
