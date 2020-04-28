@@ -57,13 +57,32 @@ Realiza una conexión con un programa donde la conexión esté separada en una c
 6. Modifica todo el programa de los ejercicios anteriores para que realice los siguientes pasos
 	7. Al abrir, si la base de datos no tiene registros, se lea el fichero generado en el ejercicio anterior y guarde en la base de datos todos los usuarios que están en el arraylist
 	
-	8. Modifica la estructura de la base de datos para que la tabla usuarios y la tabla perfiles tenga una relación uno a uno
-	9. Modifica la estructura de la tabla usuarios añadiéndole las siguientes columnas:
+7. Modifica la estructura de la base de datos para que la tabla usuarios y la tabla perfiles tenga una relación uno a uno
+
+8. Modifica la estructura de la tabla usuarios añadiéndole las siguientes columnas:
 		
 		- correo: varchar de 50
 		- password: varchar de 50
 		
-	10. Realiza operaciones de actualización sobre todos los usuarios de la tabla usuarios donde se pida lo siguiente
+9. Realiza operaciones de actualización sobre todos los usuarios de la tabla usuarios donde se pida lo siguiente:
+
+````
+Introduce el id del usuario a actualizar
+Id: 1 // metido por teclado
+// en el caso de no encontrar el id saltará un mensaje de error
+Usuario Borja recuperado
+Introduce su correo electrónico
+Correo: Borja.martin@cesjuanpablosegundo.es // introducido por teclado
+Introduce su password
+Correo: Ejemplo1@ // introducido por teclado
+````
+
+Realiza esta operación con todos los usuarios
+
+10. Realiza la simulación de un login. Para ello nada más inicial el programa se pedirá usuario (utilizar el correo) y contraseña:
+
+	-  Si el login ha sido correcto mostrar el mensaje de iniciado sesionando con éxito. 
+	-  Si el login es incorrecto mostrar el mensaje de volver a intentarlo, pidiendo de nuevo usuario y contraseña
 	
 	
 
