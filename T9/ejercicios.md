@@ -57,5 +57,13 @@ Realiza una conexión con un programa donde la conexión esté separada en una c
 6. Modifica todo el programa de los ejercicios anteriores para que realice los siguientes pasos
 	7. Al abrir, si la base de datos no tiene registros, se lea el fichero generado en el ejercicio anterior y guarde en la base de datos todos los usuarios que están en el arraylist
 	
+	8. Modifica la estructura de la base de datos para que la tabla usuarios y la tabla perfiles tenga una relación uno a uno
+	9. Modifica la estructura de la tabla usuarios añadiéndole las siguientes columnas:
+		
+		- correo: varchar de 50
+		- password: varchar de 50
+		
+	10. Realiza operaciones de actualización sobre todos los usuarios de la tabla usuarios donde se pida lo siguiente
+	
 	
 
