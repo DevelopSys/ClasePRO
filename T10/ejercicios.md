@@ -1,7 +1,9 @@
 1. Realiza una aplicación que conste de una ventana en la cual aparezca un formulario para introducir usuarios, los cuales tienen como propiedades nombre, apellido y teléfono. En cada uno de los campos solo se podrán meter los siguientes elementos:
+
 	-. Nombre: textos con una longitud máxima de 10 letras
 	-. Apellidos: textos con una longitud máxima de 30 letras y mínimo de 2 palabras
 	-. Teléfono: solo números con una longitud máxima de 9
+
 El formulario constará de un botón agregar, el cual introducirá en un arraylist el usuario introducido y un botón ver que mostrará por consola todos los usuarios introducidos
 
 2. Realizar una aplicación que muestre el aspecto gráfico y funcional de una calculadora, teniendo en cuenta que solo se pueden hacer las operaciones matemáticas básicas. 
