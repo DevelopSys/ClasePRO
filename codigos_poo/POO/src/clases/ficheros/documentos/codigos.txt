@@ -1,0 +1,2 @@
+ejemplo de escritura de fichero
+ejemplo de escritura de fichero nueva linea

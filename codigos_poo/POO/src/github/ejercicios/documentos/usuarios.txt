@@ -1,0 +1,2 @@
+Usuario{nombre='asdasd', apellido='asdasd', telefono=123}
+Usuario{nombre='zxczxc', apellido='zxczxc', telefono=42}
