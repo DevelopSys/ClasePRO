@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Bar {
 
     /*
@@ -22,6 +24,22 @@ public class Bar {
     */
 
     public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        double facturaTotal, facturaBocadillos, facturaBebidas;
+        int numeroBebidas, numeroBocadillos;
+        final double precioBebida=1.25, precioBocadillo= 2.05;
+
+        System.out.println("Cuantas bebidas queréis:");
+        numeroBebidas = teclado.nextInt();
+        System.out.println("Cuantos bocadillos queréis:");
+        numeroBocadillos = teclado.nextInt();
+
+        facturaBebidas = (numeroBebidas*precioBebida);
+        facturaBocadillos = (numeroBocadillos*precioBocadillo);
+        facturaTotal = facturaBebidas+facturaBocadillos;
+        System.out.printf("El precio de los bocadillos es: %.2f%n",facturaBocadillos);
+        System.out.printf("El precio de los bebidas es: %.2f%n",facturaBebidas);
+        System.out.printf("El precio total de la cuenta es: %.2f%n",facturaTotal);
 
     }
 
