@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:stretchColumns="*"
+        android:weightSum="1">
+
+        <TableRow
+
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2">
+
+            <Button android:text="sdfghj"
+                android:layout_height="match_parent"
+                ></Button>
+
+            <Button android:text="sdfghj"
+                android:layout_height="match_parent"
+                ></Button>
+
+            <Button android:text="sdfghj"></Button>
+
+            <Button android:text="sdfghj"></Button>
+        </TableRow>
+
+        <TableRow
+
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2">
+
+            <Button android:text="sdfghj"></Button>
+
+            <Button android:text="sdfghj"></Button>
+
+            <Button android:text="sdfghj"></Button>
+
+            <Button android:text="sdfghj"></Button>
+        </TableRow>
+
+        <TableRow
+
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2">
+
+            <Button android:text="sdfghj"></Button>
+
+            <Button android:text="sdfghj"></Button>
+
+            <Button android:text="sdfghj"></Button>
+
+            <Button android:text="sdfghj"></Button>
+        </TableRow>
+        <TableRow
+
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2">
+
+            <Button android:text="sdfghj"></Button>
+
+            <Button android:text="sdfghj"></Button>
+
+            <Button android:text="sdfghj"></Button>
+
+            <Button android:text="sdfghj"></Button>
+        </TableRow>
+        <TableRow
+
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2">
+
+
+            <Button android:text="sdfghj"
+                android:layout_span="2"></Button>
+
+            <Button android:text="sdfghj"></Button>
+
+            <Button android:text="sdfghj"></Button>
+        </TableRow>
+
+
+    </TableLayout>
+
+
+</LinearLayout>

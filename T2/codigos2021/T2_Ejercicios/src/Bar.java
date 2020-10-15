@@ -23,9 +23,16 @@ public class Bar {
 
     */
 
+
+    /**
+     * Metodo de entrada
+     * Programa que ejecuta la factura de un bar
+     * @author Borja Martin
+     * @version 1.0
+     */
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
-        double facturaTotal, facturaBocadillos, facturaBebidas;
+        /*double facturaTotal, facturaBocadillos, facturaBebidas;
         int numeroBebidas, numeroBocadillos;
         final double precioBebida=1.25, precioBocadillo= 2.05;
 
@@ -39,8 +46,23 @@ public class Bar {
         facturaTotal = facturaBebidas+facturaBocadillos;
         System.out.printf("El precio de los bocadillos es: %.2f%n",facturaBocadillos);
         System.out.printf("El precio de los bebidas es: %.2f%n",facturaBebidas);
-        System.out.printf("El precio total de la cuenta es: %.2f%n",facturaTotal);
+        System.out.printf("El precio total de la cuenta es: %.2f%n",facturaTotal);*/
+
+        int segundos = teclado.nextInt();
+
+        int h = segundos / 3600;
+
+        segundos = segundos % 3600;
+
+        int m = segundos / 60;
+
+        int s = segundos % 60;
+
+        System.out.printf("La conversión es %d horas %d minutos %d segundos", h, m, s);
 
     }
+
+
+
 
 }
