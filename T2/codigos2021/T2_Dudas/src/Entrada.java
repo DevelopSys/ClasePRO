@@ -97,7 +97,10 @@ public class Entrada {
 
         // logicas AND(&&)--> false si una de las condiciones es falsa OR(||) verdadero si una de las condiciones es verdadera
 
-        cumple = numeroCumpleUno>0 || (numeroCumpleDos!= 40 && false);
+        // op1  op2 AND (y) --> false --> RESULTADO FALSE
+        // op1  op2 OR (o) --> true --> RESULTADO TRUE
+
+        cumple = numeroCumpleUno>0 && (numeroCumpleDos!= 40 && false);
 
 
     }
