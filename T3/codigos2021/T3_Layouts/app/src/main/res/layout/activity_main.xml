@@ -8,11 +8,28 @@
     android:weightSum="1"
     tools:context=".MainActivity">
 
-    <EditText
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.2" />
+        android:layout_weight="0.2"
+        android:orientation="vertical">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            android:enabled="false"
+            android:inputType="number"
+            android:id="@+id/edit_resumen"/>
 
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:inputType="number"
+            android:layout_weight="0.7"
+            android:id="@+id/edit_operaciones"/>
+
+    </LinearLayout>
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -24,78 +41,32 @@
 
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.2">
+            android:layout_weight="1">
 
-            <Button android:text="sdfghj"
+            <Button
                 android:layout_height="match_parent"
+                android:text="1"
+                android:id="@+id/boton_cal1"
                 ></Button>
 
-            <Button android:text="sdfghj"
+            <Button
                 android:layout_height="match_parent"
-                ></Button>
+                android:text="2"
+                android:id="@+id/boton_cal2"></Button>
 
-            <Button android:text="sdfghj"></Button>
+            <Button
+                android:layout_height="match_parent"
+                android:text="3"
+                android:id="@+id/boton_cal3"></Button>
 
-            <Button android:text="sdfghj"></Button>
+            <Button
+                android:layout_height="match_parent"
+                android:text="+"
+                android:id="@+id/boton_cal4"></Button>
         </TableRow>
 
-        <TableRow
-
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.2">
-
-            <Button android:text="sdfghj"></Button>
-
-            <Button android:text="sdfghj"></Button>
-
-            <Button android:text="sdfghj"></Button>
-
-            <Button android:text="sdfghj"></Button>
-        </TableRow>
-
-        <TableRow
-
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.2">
-
-            <Button android:text="sdfghj"></Button>
-
-            <Button android:text="sdfghj"></Button>
-
-            <Button android:text="sdfghj"></Button>
-
-            <Button android:text="sdfghj"></Button>
-        </TableRow>
-        <TableRow
-
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.2">
-
-            <Button android:text="sdfghj"></Button>
-
-            <Button android:text="sdfghj"></Button>
-
-            <Button android:text="sdfghj"></Button>
-
-            <Button android:text="sdfghj"></Button>
-        </TableRow>
-        <TableRow
-
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.2">
 
 
-            <Button android:text="sdfghj"
-                android:layout_span="2"></Button>
-
-            <Button android:text="sdfghj"></Button>
-
-            <Button android:text="sdfghj"></Button>
-        </TableRow>
 
 
     </TableLayout>
