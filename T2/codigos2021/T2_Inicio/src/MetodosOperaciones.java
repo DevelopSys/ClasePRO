@@ -9,6 +9,8 @@ public class MetodosOperaciones {
         Scanner teclado = new Scanner(System.in);
         double op1, op2;
 
+        //new MetodosOperaciones().metodoVacio();
+
         System.out.println("Vas a realizar operaciones");
         teclado =new Scanner(System.in);
         System.out.println("Introduce primer número");
@@ -21,10 +23,27 @@ public class MetodosOperaciones {
         System.out.printf("el resultado de la multiplicaciónes: %.2f%n",res);
         //new MetodosOperaciones().metodoDivision();
         //new MetodosOperaciones().metodoModulo();
+        //new MetodosOperaciones().metodoSuma(3,8);
+        new MetodosOperaciones().metodoSuma(123,34);
+        // 9
+        double operando1 = new MetodosOperaciones().metodoMultiplicacion(3,3); // 9
+        double operando2 = new MetodosOperaciones().metodoMultiplicacion(5,2); // 10
+        new MetodosOperaciones().metodoSuma(operando1,operando2);
+
+        int numeroInt = 123; // int --> double o int --> long
+        double numeroDouble = numeroInt;
+        int numeroIntNuevo = (int) numeroDouble;
+
+        //String palabra = String.valueOf(numeroInt);
+        String palabra = "dfg";
+        numeroInt = Integer.parseInt(palabra);
+        double div = (double) 1/ (int)3.50;
 
     }
 
-
+    public void metodoVacio(){
+        System.out.println("Ejecucion desde metodo vacio");
+    }
     public void metodoSuma(double n1, double n2){
         System.out.println("Operación de suma");
         resultado = n1+n2;
