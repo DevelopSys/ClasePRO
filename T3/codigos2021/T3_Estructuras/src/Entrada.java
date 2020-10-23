@@ -1,11 +1,48 @@
+import java.util.Scanner;
+
 public class Entrada {
+
+    Scanner teclado;
 
     public static void main(String[] args) {
 
+        Scanner teclado = new Scanner(System.in);
         System.out.println("Programa de estructuras de control");
-        //new Entrada().estructuraIF();
-        //new Entrada().estructraELSEIF();
-        new Entrada().estructuraIFELSEIF();
+        // new Entrada().estructuraIF();
+        // new Entrada().estructraELSEIF();
+        // new Entrada().estructuraIFELSEIF();
+        /*System.out.println("Introduce número a evaluar");
+        int numero = teclado.nextInt();
+        //new Entrada().esParUnNumero(numero); // true o false
+        if (new Entrada().esParUnNumero(numero)){
+            System.out.println("es par");
+        } else {
+            System.out.println("es impar");
+        }*/
+        /*
+        Realizar un menú con la siguiente estructura
+
+        1. Comprobar si es par
+        2. Comprobar si es impar
+        3. Comprobar si es positivo
+        4. Comprobar si es negativo
+        5. Realizar operaciones
+        0. Salir
+        Introduce la opción:
+        1
+
+
+        1- Pide un int por teclado y muestra si es par
+        2- Pide un int por teclado y muestra si es impar
+        3- Pide un int por teclado y muestra si es pos
+        4- Pide un int por teclado y muestra si es neg
+        5- Pide dos int por teclado y muestra sus operaciones (+,- ,*, /) llamadas por métodos con
+        argumentos y retornos
+
+
+         */
+        new Entrada().estructuraSwitch();
+
     }
 
     public void estructuraIF(){
@@ -96,5 +133,55 @@ public class Entrada {
 
         System.out.println("Saliendo de estrucutra IFELSEIF");
 
+    }
+    public boolean esParUnNumero(int numeroComprobar){
+        return numeroComprobar%2 == 0;
+    }
+    public void estructuraSwitch(){
+        /*
+        int valor = 1
+        switch(valor) --> int, char, string{
+            case 1:
+                ejecuciones
+            case 10:
+                ejecuciones
+            break;
+            case 100:
+                ejecuciones
+            break;
+            case 1000:
+                ejecuciones
+            break;
+            default:
+                ejecuciones
+            break;
+        }
+        linea 7
+         */
+        teclado = new Scanner(System.in);
+        System.out.println("Ejecución por sentencia SWITCH");
+        int numero;
+        System.out.println("Introduce un número");
+        numero = teclado.nextInt();
+        switch (numero){
+            case 1:
+                System.out.println("El numero es uno");
+                break;
+            case 2:
+                System.out.println("El numero es dos");
+                break;
+            case 3:
+                System.out.println("El numero es tres");
+                int n1 = teclado.nextInt();
+                new Entrada().metodo(n1,2);
+                break;
+            default:
+                System.out.println("numero incorrecto");
+                break;
+        }
+    }
+
+    public int metodo(int n1, int n2){
+        return 4;
     }
 }
