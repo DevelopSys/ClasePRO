@@ -379,6 +379,7 @@ public class Entrada {
                     break;
                 case 4:
                     System.out.println("Trabajando con OP4");
+                    // realizar cambios iterativos
                     break;
                 default:
                     System.out.println("Caso no contemplado");
