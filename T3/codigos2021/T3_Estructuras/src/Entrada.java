@@ -4,6 +4,13 @@ public class Entrada {
 
     Scanner teclado;
 
+    // intentar para mañana
+    /* sacar las tablas de multiplicar de todos los numeros
+       pedir por teclado un número y calcular su factorial
+       4 = 4*3*2*1
+       7 = 7*6*5*4*3*2*1
+     */
+
     public static void main(String[] args) {
 
         Scanner teclado = new Scanner(System.in);
@@ -45,7 +52,12 @@ public class Entrada {
         //new Entrada().ejercicioSW();
         //new Entrada().estructuraWHILE();
         //new Entrada().estrucutraDOWHILE();
-        new Entrada().menuIterativo();
+        //new Entrada().menuIterativo();
+        //new Entrada().estructuraFOR();
+        //new Entrada().ejecricioMultiplicacion();
+        //new Entrada().estructuraFORANIDADO();
+        //new Entrada().ejercicioAcumulador();
+        new Entrada().ejercicioAleatorios();
     }
 
     public void ejercicioSW() {
@@ -149,7 +161,6 @@ public class Entrada {
         double resultado = (double) op1 / (double) op2;
         return resultado;
     }
-
 
     public void estructuraIF() {
         /*
@@ -344,6 +355,54 @@ public class Entrada {
         System.out.println("Saliendo del do-while");
     }
 
+    public void estructuraFOR() {
+        System.out.println("Ejecución por sentencia FOR");
+        /*
+        linea 1
+        for(inicio; final; incremento){
+            // ejecutar
+            linea 2
+        }
+        linea 3
+         */
+
+        //int aleatorio = (int) (Math.random()*1001);
+        for (int i = 0; i <= 5; i++) {
+            System.out.println("Ejecucion dentro del for " + i);
+            // se incremente i en 1
+        }
+
+        System.out.println("Saliendo del FOR");
+
+
+    }
+
+    public void estructuraFORANIDADO(){
+        for (int i=1;i<=4;i++){
+            System.out.println("Menu "+i);
+            for (int x=0;x<=5;x++){
+                System.out.println("SubMenu "+" "+i +" "+x);
+                // incrementa x
+            }
+            // incrementa i
+        }
+        /*
+        i=1
+        System.out.println("Menu 1");
+        System.out.println("SubMenu 0");
+        System.out.println("SubMenu 1");
+        System.out.println("SubMenu 2");
+        System.out.println("SubMenu 3");
+        System.out.println("SubMenu 4");
+        System.out.println("SubMenu 5");
+        System.out.println("Menu 2");
+
+
+
+         */
+
+    }
+
     public void menuIterativo() {
         /*
         System.out.println("1. Opcion1");
@@ -366,7 +425,7 @@ public class Entrada {
             System.out.println("5. Salir");
             System.out.println("Introduce opcion");
             opcion = teclado.nextInt();
-            switch (opcion){
+            switch (opcion) {
                 case 1:
                     System.out.println("Trabajando con OP1");
                     System.out.println("Estas seguro que quieres salir del caso (y/n)");
@@ -379,6 +438,20 @@ public class Entrada {
                     break;
                 case 4:
                     System.out.println("Trabajando con OP4");
+                    char letra;
+                    do {
+                        System.out.println("Estas seguro que quieres salir (y/n)");
+                        letra = teclado.next().charAt(0);
+                        switch (letra) {
+                            case 'y':
+                                System.out.println("saliendo del caso 4");
+                                break;
+                            case 'n':
+                                System.out.println("Repitiendo menú");
+                                break;
+                        }
+                    } while (letra != 'y');
+
                     // realizar cambios iterativos
                     break;
                 default:
@@ -387,12 +460,68 @@ public class Entrada {
                     opcion = 5;
                     break;
             }
-        } while (opcion!=5);
+        } while (opcion != 5);
 
+
+    }
+
+    public void ejecricioMultiplicacion() {
+
+        teclado = new Scanner(System.in);
+        int numero;
+        System.out.println("Introduce el número del que quieres ver su tabla");
+        numero = teclado.nextInt();
+        if (numero > 10 || numero < 0) {
+            System.out.println("Dato incorrecto");
+        } else {
+            // 0,1,2,3,4,5,6,7,8,9,10
+            int resultado;
+
+            System.out.printf("La tabla del número %d es:%n",numero);
+            for (int i=0;i<=10;i++){
+                // repetido 11 veces
+                resultado = numero * i;
+                System.out.printf("%d * %d = %d%n", numero, i, resultado);
+            }
+        }
+    }
+
+    public void ejercicioAcumulador(){
+        int numero=0, sumatorio=0;
+        teclado = new Scanner(System.in);
+
+        for (int i=1; i<=10;i++){
+            System.out.println("Introduce numero");
+            numero= teclado.nextInt();
+            sumatorio += numero;
+        }
+
+        System.out.println("La suma total es: "+sumatorio);
+    }
+
+    public void ejercicioAleatorios(){
+        //Math.random(); // genera un numero aleatorio entre 0 y 0.99
+        int contadorPares=0, contadorImpares=0, aleatorio;
+        //System.out.println((int)(Math.random()*1001));
+
+        for (int i=0; i<100; i++){
+            aleatorio = (int) (Math.random()*1001);
+            System.out.println(aleatorio);
+            if (aleatorio%2==0){
+                contadorPares++;
+            } else {
+                contadorImpares++;
+            }
+        }
+
+        System.out.printf("El núemro de pares es: %d%n",contadorPares);
+        System.out.printf("El núemro de impares es: %d%n",contadorImpares);
 
     }
 
     public int metodo(int n1, int n2) {
         return 4;
     }
+
+
 }
