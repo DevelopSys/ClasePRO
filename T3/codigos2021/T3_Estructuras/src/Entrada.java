@@ -57,7 +57,70 @@ public class Entrada {
         //new Entrada().ejecricioMultiplicacion();
         //new Entrada().estructuraFORANIDADO();
         //new Entrada().ejercicioAcumulador();
-        new Entrada().ejercicioAleatorios();
+        //new Entrada().ejercicioAleatorios();
+        //new Entrada().estructuraFOREACH();
+        //new Entrada().ejercicioTablas();
+        new Entrada().ejercicioFactorial();
+    }
+
+    public void ejercicioTablas(){
+
+        for (int i =0;i<=10;i++){
+            System.out.println("La tabla del "+i);
+            for (int j=0;j<=10;j++){
+                System.out.printf("%d * %d = %d%n",i,j,i*j);
+            }
+            System.out.println("Terminada tabla del "+i);
+
+        }
+
+    }
+
+    public void ejercicioFactorial(){
+
+        // 4 --> 4*3*2*1
+        // 6 --> 6*5*4*3*2*1
+        int factorial=1;
+        int numero = 5; // 3*2*1
+        int resultadoFacto=1;
+        for(int i=numero-1;i>=1;i--){
+            // 3*2 -- sumo al factorial
+            // 3*1
+            int resultado =numero*i;
+            //int resultadoFactorial *= resultado;
+            System.out.printf("%d * %d = %d%n", numero,i,resultado);
+            resultadoFacto *= resultado;
+        }
+
+        System.out.println(resultadoFacto);
+        /*for (int i=numero;i>1;i--){
+            // 3*1
+            // 3*2
+            // 3*1
+
+            int resultado = numero *i;
+            System.out.printf("%d * %d%n ", factorial,i);
+
+
+            //factorial *= i;
+            //facfactoRecursivo(i);
+        }*/
+
+        /*
+        factorial = 1
+        1 - factorial = 1*4 --> 4
+        2 - factorial = 4*3 --> 12
+        3 - factorial = 12*2 --> 24
+        4 - factorial = 24*1 --> 24
+         */
+
+        System.out.println(factorial);
+
+    }
+
+    public int factoRecursivo(int indice){
+
+        return 0;
     }
 
     public void ejercicioSW() {
@@ -400,6 +463,28 @@ public class Entrada {
 
 
          */
+
+    }
+
+    public void estructuraFOREACH(){
+        double numero = 5;
+        int[] numeros = {1,2,234,234,5};
+        //numeros.length; -> 5
+        /*System.out.println(numeros[0]);
+        System.out.println(numeros[1]);
+        System.out.println(numeros[2]);
+        System.out.println(numeros[3]);
+        System.out.println(numeros[4]);*/
+
+        /*for(int i=0;i<numeros.length;i++){
+            System.out.println(numeros[i]);
+            // numeros[5]
+        }*/
+        // 123,3123,123,21312,123
+        for (int item : numeros) {
+            System.out.println(item);
+        }
+
 
     }
 
