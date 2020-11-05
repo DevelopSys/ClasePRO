@@ -60,7 +60,8 @@ public class Entrada {
         //new Entrada().ejercicioAleatorios();
         //new Entrada().estructuraFOREACH();
         //new Entrada().ejercicioTablas();
-        new Entrada().ejercicioFactorial();
+        //new Entrada().ejercicioFactorial();
+        new Entrada().trabajoPalabras();
     }
 
     public void ejercicioTablas(){
@@ -602,6 +603,38 @@ public class Entrada {
         System.out.printf("El núemro de pares es: %d%n",contadorPares);
         System.out.printf("El núemro de impares es: %d%n",contadorImpares);
 
+    }
+
+    public void trabajoPalabras(){
+        String palabra = "Hola esto es un ejemplo de frase";
+        // longitud de la palabra
+        //System.out.println(palabra.length());
+        // la letra de una posición
+        //palabra.charAt(3);
+        // EJERCICIO CLASE
+        // Introduzco una letra y me dice
+        // si esta o no en una palabra
+        // cuantas veces aparece en una palabra
+        char letra;
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("Introduce letra");
+        letra = teclado.next().charAt(0);
+        int contador=0;
+        for (int i=0;i<palabra.length();i++){
+            //System.out.println(palabra.charAt(i));
+            if (String.valueOf(palabra.charAt(i)).toLowerCase().equals(String.valueOf(letra))){
+               contador++;
+            }
+        }
+
+        if (contador>0){
+            System.out.printf("la letra esta y son %d veces%n",contador);
+        } else {
+            System.out.println("Lo siento, la letra no está");
+        }
+
+        //String pFormateo = String.format("Esto es un ejemplo de formateo %s",palabra);
+        //System.out.println(pFormateo);
     }
 
     public int metodo(int n1, int n2) {
