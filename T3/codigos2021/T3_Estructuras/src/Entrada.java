@@ -64,32 +64,32 @@ public class Entrada {
         new Entrada().trabajoPalabras();
     }
 
-    public void ejercicioTablas(){
+    public void ejercicioTablas() {
 
-        for (int i =0;i<=10;i++){
-            System.out.println("La tabla del "+i);
-            for (int j=0;j<=10;j++){
-                System.out.printf("%d * %d = %d%n",i,j,i*j);
+        for (int i = 0; i <= 10; i++) {
+            System.out.println("La tabla del " + i);
+            for (int j = 0; j <= 10; j++) {
+                System.out.printf("%d * %d = %d%n", i, j, i * j);
             }
-            System.out.println("Terminada tabla del "+i);
+            System.out.println("Terminada tabla del " + i);
 
         }
 
     }
 
-    public void ejercicioFactorial(){
+    public void ejercicioFactorial() {
 
         // 4 --> 4*3*2*1
         // 6 --> 6*5*4*3*2*1
-        int factorial=1;
+        int factorial = 1;
         int numero = 5; // 3*2*1
-        int resultadoFacto=1;
-        for(int i=numero-1;i>=1;i--){
+        int resultadoFacto = 1;
+        for (int i = numero - 1; i >= 1; i--) {
             // 3*2 -- sumo al factorial
             // 3*1
-            int resultado =numero*i;
+            int resultado = numero * i;
             //int resultadoFactorial *= resultado;
-            System.out.printf("%d * %d = %d%n", numero,i,resultado);
+            System.out.printf("%d * %d = %d%n", numero, i, resultado);
             resultadoFacto *= resultado;
         }
 
@@ -119,7 +119,7 @@ public class Entrada {
 
     }
 
-    public int factoRecursivo(int indice){
+    public int factoRecursivo(int indice) {
 
         return 0;
     }
@@ -441,11 +441,11 @@ public class Entrada {
 
     }
 
-    public void estructuraFORANIDADO(){
-        for (int i=1;i<=4;i++){
-            System.out.println("Menu "+i);
-            for (int x=0;x<=5;x++){
-                System.out.println("SubMenu "+" "+i +" "+x);
+    public void estructuraFORANIDADO() {
+        for (int i = 1; i <= 4; i++) {
+            System.out.println("Menu " + i);
+            for (int x = 0; x <= 5; x++) {
+                System.out.println("SubMenu " + " " + i + " " + x);
                 // incrementa x
             }
             // incrementa i
@@ -467,9 +467,9 @@ public class Entrada {
 
     }
 
-    public void estructuraFOREACH(){
+    public void estructuraFOREACH() {
         double numero = 5;
-        int[] numeros = {1,2,234,234,5};
+        int[] numeros = {1, 2, 234, 234, 5};
         //numeros.length; -> 5
         /*System.out.println(numeros[0]);
         System.out.println(numeros[1]);
@@ -563,8 +563,8 @@ public class Entrada {
             // 0,1,2,3,4,5,6,7,8,9,10
             int resultado;
 
-            System.out.printf("La tabla del número %d es:%n",numero);
-            for (int i=0;i<=10;i++){
+            System.out.printf("La tabla del número %d es:%n", numero);
+            for (int i = 0; i <= 10; i++) {
                 // repetido 11 veces
                 resultado = numero * i;
                 System.out.printf("%d * %d = %d%n", numero, i, resultado);
@@ -572,40 +572,40 @@ public class Entrada {
         }
     }
 
-    public void ejercicioAcumulador(){
-        int numero=0, sumatorio=0;
+    public void ejercicioAcumulador() {
+        int numero = 0, sumatorio = 0;
         teclado = new Scanner(System.in);
 
-        for (int i=1; i<=10;i++){
+        for (int i = 1; i <= 10; i++) {
             System.out.println("Introduce numero");
-            numero= teclado.nextInt();
+            numero = teclado.nextInt();
             sumatorio += numero;
         }
 
-        System.out.println("La suma total es: "+sumatorio);
+        System.out.println("La suma total es: " + sumatorio);
     }
 
-    public void ejercicioAleatorios(){
+    public void ejercicioAleatorios() {
         //Math.random(); // genera un numero aleatorio entre 0 y 0.99
-        int contadorPares=0, contadorImpares=0, aleatorio;
+        int contadorPares = 0, contadorImpares = 0, aleatorio;
         //System.out.println((int)(Math.random()*1001));
 
-        for (int i=0; i<100; i++){
-            aleatorio = (int) (Math.random()*1001);
+        for (int i = 0; i < 100; i++) {
+            aleatorio = (int) (Math.random() * 1001);
             System.out.println(aleatorio);
-            if (aleatorio%2==0){
+            if (aleatorio % 2 == 0) {
                 contadorPares++;
             } else {
                 contadorImpares++;
             }
         }
 
-        System.out.printf("El núemro de pares es: %d%n",contadorPares);
-        System.out.printf("El núemro de impares es: %d%n",contadorImpares);
+        System.out.printf("El núemro de pares es: %d%n", contadorPares);
+        System.out.printf("El núemro de impares es: %d%n", contadorImpares);
 
     }
 
-    public void trabajoPalabras(){
+    public void trabajoPalabras() {
         // longitud de la palabra
         //System.out.println(palabra.length());
         // la letra de una posición
@@ -674,17 +674,72 @@ public class Entrada {
 
         //String pFormateo = String.format("Esto es un ejemplo de formateo %s",palabra);
         //System.out.println(pFormateo);
-
+        teclado = new Scanner(System.in);
+        System.out.println("Introduce letra");
+        char letra = teclado.next().charAt(0);
         String frase = "HOLA esto es UN ejemplo DE frase";
         //char letraUno = 'A';
         //char letraDos = 'o';
         // System.out.println(frase.substring(letraUno,letraDos));
         // solo se tendría que hacer cuando la u está en la frase,
         // si no está que me diga algo
-        frase = frase.replace('u','a');
-        System.out.println(frase);
+        if (frase.contains(String.valueOf(letra))) {
+            System.out.println("dime la nueva letra");
+            char letraNueva = teclado.next().charAt(0);
+            frase = frase.replace(letra, letraNueva);
+        } else {
+            System.out.println("La letra no está contenida");
+        }
+
+        // dada una frase guardada en variable, contar el número de
+        // vocales, consonantes y espacios
+        String fraseEvaluar = "Esta FraSe,es la que VoY a utilizar PArA evaluar" +
+                "el,ejercicio de,conteo";
+        fraseEvaluar = fraseEvaluar.toLowerCase();
+        int vocales = 0, consonantes = 0, espacios = 0;
+        //fraseEvaluar.charAt(0); --> e
+
+        /*for (int i = 0; i < fraseEvaluar.length(); i++) {
+            String letraEv = String.valueOf(fraseEvaluar.charAt(i));
+            if (!letraEv.equals(",")) {
+                if (letraEv.equals("a") || letraEv.equals("e")
+                        || letraEv.equals("i") || letraEv.equals("o") || letraEv.equals("u")) {
+                    vocales++;
+                } else if (letraEv.equals(" ")) {
+                    espacios++;
+                } else {
+                    consonantes++;
+                }
+            }
+        }*/
+
+        /*for (int i = 0; i < fraseEvaluar.length(); i++) {
+            String letraEv = String.valueOf(fraseEvaluar.charAt(i));
+            if (!Character.isDigit(fraseEvaluar.charAt(i))) {
+                if (letraEv.equals("a") || letraEv.equals("e")
+                        || letraEv.equals("i") || letraEv.equals("o") || letraEv.equals("u")) {
+                    vocales++;
+                } else if (letraEv.equals(" ")) {
+                    espacios++;
+                } else {
+                    consonantes++;
+                }
+            }*/
 
 
+            //System.out.println("Las vocales son "+vocales);
+            //System.out.println("Las consonantes son "+consonantes);
+            //System.out.println("Los espacions son "+espacios);
+
+
+            //System.out.println(frase);
+
+
+            //frase = frase.replace('u','a');
+            System.out.println(frase);
+
+
+        }
     }
 
     public int metodo(int n1, int n2) {
