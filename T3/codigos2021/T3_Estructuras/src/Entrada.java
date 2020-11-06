@@ -606,7 +606,6 @@ public class Entrada {
     }
 
     public void trabajoPalabras(){
-        String palabra = "Hola esto es un ejemplo de frase";
         // longitud de la palabra
         //System.out.println(palabra.length());
         // la letra de una posición
@@ -615,7 +614,7 @@ public class Entrada {
         // Introduzco una letra y me dice
         // si esta o no en una palabra
         // cuantas veces aparece en una palabra
-        char letra;
+        /*char letra;
         Scanner teclado = new Scanner(System.in);
         System.out.println("Introduce letra");
         letra = teclado.next().charAt(0);
@@ -631,10 +630,61 @@ public class Entrada {
             System.out.printf("la letra esta y son %d veces%n",contador);
         } else {
             System.out.println("Lo siento, la letra no está");
-        }
+        }*/
+
+        /*boolean estaPalabra = palabra.contains("e");
+        if (palabra.contains("e")){
+            System.out.println("La letra esta en la palabra");
+        } else {
+            System.out.println("La letra no esta en la palabra");
+        }*/
+
+        //char letraPalabra = palabra.toUpperCase().charAt(0);
+        //System.out.println(palabra.toLowerCase().charAt(0));
+        //System.out.println(palabra);
+        //String frase = "HOLA esto es UN ejemplo DE frase";
+        //String[] palabras = frase.toLowerCase().split(" ");
+        //System.out.println(frase.length());
+        /*for (String item :palabras) {
+            System.out.println(item);
+        }*/
+
+        //frase.equals("HOLA");
+        //System.out.println(frase.substring(5,9));
+        // pedir dos letras por teclado y
+        // sacar el substring comprendido entre esas dos letras
+        // o s
+        // se tiene que imprimir o es
+        //String frase = "HOLA esto es UN ejemplo DE frase";
+        // indexOF (primera coincidencia) o --> 8
+        // indexOF (s, 8) s --> 11
+        // lastIndexOF(s)
+        // lastIndexOF(s, 14)
+        /*Scanner teclado = new Scanner(System.in);
+        char letraInicio, letraFin;
+        System.out.println("Introduce letra inicial");
+        letraInicio = teclado.next().charAt(0);
+        System.out.println("Introduce letra final");
+        letraFin = teclado.next().charAt(0);
+        int posicionLetraInicio = frase.indexOf(letraInicio);
+        int posicionLetraFinal  = frase.indexOf(letraFin,posicionLetraInicio);
+        System.out.println(frase.substring(posicionLetraInicio,posicionLetraFinal+1));
+        //System.out.println(frase.substring(frase.indexOf(letraInicio),frase.indexOf(letraFin)+1));
+*/
 
         //String pFormateo = String.format("Esto es un ejemplo de formateo %s",palabra);
         //System.out.println(pFormateo);
+
+        String frase = "HOLA esto es UN ejemplo DE frase";
+        //char letraUno = 'A';
+        //char letraDos = 'o';
+        // System.out.println(frase.substring(letraUno,letraDos));
+        // solo se tendría que hacer cuando la u está en la frase,
+        // si no está que me diga algo
+        frase = frase.replace('u','a');
+        System.out.println(frase);
+
+
     }
 
     public int metodo(int n1, int n2) {
