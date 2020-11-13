@@ -4,7 +4,7 @@ public class Entrada {
 
     public static void main(String[] args) {
 
-        new Entrada().ejercicio4();
+        new Entrada().ejercicio6();
         // crear un programa que simule el funcionamiento del euromillon. PAra ello se
         // generarán 5 aleatorios y se guardan en una variable.
         // el sistema pedirá que introduzca los numeros con los que juego
@@ -13,7 +13,7 @@ public class Entrada {
 
     }
 
-    public void ejercicio1(){
+    public void ejercicio1() {
 
         //(LlenarArrays) Crear un array de int que tenga 5 posiciones
         // y rellenarla con números aleatorios del 10 al 50. Mostrar
@@ -22,30 +22,32 @@ public class Entrada {
         Scanner teclado = new Scanner(System.in);
         int numerosTotal = teclado.nextInt();
         int[] numeros = new int[numerosTotal];
-        for (int i=0;i<numerosTotal;i++){
-            numeros[i] = (int) (Math.random()*41)+10;
+        for (int i = 0; i < numerosTotal; i++) {
+            numeros[i] = (int) (Math.random() * 41) + 10;
             System.out.println(numeros[i]);
 
         }
     }
-    public void ejercicio2(){
+
+    public void ejercicio2() {
 
         //String[] temario = new String[10];
         String[] temario = {"Tema 1: Introducción"
-                ,"Tema 2: Identificadores","Tema 3: Estructuras"
-                ,"Tema 4: Colecciones","Tema 5: Orientación a objetos"
+                , "Tema 2: Identificadores", "Tema 3: Estructuras"
+                , "Tema 4: Colecciones", "Tema 5: Orientación a objetos"
                 , "Tema 6: Clases y Objetos", "Tema 7; Abstracción"
                 , "Tema 8: Herencia y Polimorfismo"
                 , "Tema 9: Ficheros y Excepciones"
                 , "Tema 10: Bases de datos", "Tema 11: Interfaces"};
 
-        System.out.println("Numero de temas: "+temario.length);
-        for (int i=0;i<temario.length;i++){
+        System.out.println("Numero de temas: " + temario.length);
+        for (int i = 0; i < temario.length; i++) {
             System.out.println(temario[i]);
         }
 
     }
-    public void ejercicio3(){
+
+    public void ejercicio3() {
         /*
         * (MultiplicarArray) Crear un array de 5 posiciones:
 
@@ -58,21 +60,21 @@ Saca la media de todos los elementos
         int[] numeros = new int[5];
 
         // rellenar
-        for (int i=0;i<numeros.length;i++){
+        for (int i = 0; i < numeros.length; i++) {
             System.out.println("Introduce teclado");
             int numeroIntro = teclado.nextInt();
             numeros[i] = numeroIntro;
         }
 
         // modificar
-        for(int i=0;i<numeros.length;i++){
-            int multiplicacion = numeros[i]*2;
+        for (int i = 0; i < numeros.length; i++) {
+            int multiplicacion = numeros[i] * 2;
             numeros[i] *= 2;
         }
 
         // mostrarlos
-        int sumatorio =0;
-        for (int item :numeros) {
+        int sumatorio = 0;
+        for (int item : numeros) {
             System.out.println(item);
             sumatorio += item;
         }
@@ -80,19 +82,20 @@ Saca la media de todos los elementos
 
         System.out.println(sumatorio);
         System.out.printf("La media de los números generados es: %.2f%n"
-                ,((double)sumatorio/(double) numeros.length));
+                , ((double) sumatorio / (double) numeros.length));
 
 
     }
-    public void ejercicio4(){
+
+    public void ejercicio4() {
         Scanner teclado = new Scanner(System.in);
-        int longitud, maximo=-99999, minimo=99999;
+        int longitud, maximo = -99999, minimo = 99999;
         int[] numeros;
         System.out.println("Introduce la longitud");
         longitud = teclado.nextInt();
         numeros = new int[longitud];
         // rellenar
-        for (int i=0;i<numeros.length;i++){
+        for (int i = 0; i < numeros.length; i++) {
             System.out.println("Introduce teclado");
             int numeroIntro = teclado.nextInt();
             numeros[i] = numeroIntro;
@@ -106,18 +109,19 @@ Saca la media de todos los elementos
         }
         // 1,23,3123,13,124,234,53,56,4567,58,678,97987564,354,213;
         // comprobar
-        for (int item: numeros) {
-           if (item>maximo) {
-               maximo = item;
-           }
-           if(item<minimo){
-               minimo = item;
-           }
+        for (int item : numeros) {
+            if (item > maximo) {
+                maximo = item;
+            }
+            if (item < minimo) {
+                minimo = item;
+            }
         }
-        System.out.println("El máximo es :"+maximo);
-        System.out.println("El mínimo es :"+minimo);
+        System.out.println("El máximo es :" + maximo);
+        System.out.println("El mínimo es :" + minimo);
     }
-    public void ejercicio5(){
+
+    public void ejercicio5() {
         /*
         *pida la longitud de dos arrays de enteros
 crea los array de enteros con las longitudes introducidas
@@ -137,12 +141,12 @@ rellena el tercer array con la suma de las posiciones (Array1.posicion1 + array2
         numeros1 = new int[longitud];
         numeros2 = new int[longitud];
         // rellenar
-        for (int i=0;i<numeros1.length;i++){
+        for (int i = 0; i < numeros1.length; i++) {
             System.out.println("Introduce teclado");
             int numeroIntro = teclado.nextInt();
             numeros1[i] = numeroIntro;
         }
-        for (int i=0;i<numeros2.length;i++){
+        for (int i = 0; i < numeros2.length; i++) {
             System.out.println("Introduce teclado");
             int numeroIntro = teclado.nextInt();
             numeros2[i] = numeroIntro;
@@ -150,11 +154,66 @@ rellena el tercer array con la suma de las posiciones (Array1.posicion1 + array2
 
         int[] arraySuma = new int[longitud];
         // relleno el array de suma
-        for(int i=0;i<longitud;i++){
-            arraySuma[i] = numeros1[i]+numeros2[i];
+        for (int i = 0; i < longitud; i++) {
+            arraySuma[i] = numeros1[i] + numeros2[i];
         }
-        for (int item:arraySuma) {
+        for (int item : arraySuma) {
             System.out.println(item);
+        }
+
+    }
+
+    public void ejercicio6() {
+
+        int[] numeros = {1, 2, 3, 4, 5};
+        // {5,1,2,3,4}
+        // aux = 5
+        // {5,1,2,3,4}
+
+        int aux = numeros[numeros.length - 1];
+        // aux = 5
+
+        // desde 4 hasta 1
+
+        // i = 4
+        // numeros[4] = numeros[3]
+        // i = 3
+        // numeros[3] = numeros[2]
+        // i = 2
+        // numeros[2] = numeros[1]
+        // i = 1
+        // numeros[1] = numeros[0]
+        // i = 0
+        // numeros[0] = numeros[4]
+
+        for (int i = numeros.length - 1; i >= 0; i--) {
+            if (i == 0) {
+                //numeros[i]=numeros[numeros.length - 1];
+                numeros[i] = aux;
+            } else {
+                numeros[i] = numeros[i - 1];
+            }
+        }
+        //numeros[0] = aux;
+
+        for (int item : numeros) {
+            System.out.print(item);
+        }
+
+        System.out.println("Nueva rotación");
+        int aux1 = numeros[0];
+        for (int i = 0; i < numeros.length; i++) {
+            if (i == numeros.length - 1) {
+                //numeros[i]=numeros[numeros.length - 1];
+                numeros[i] = aux1;
+            } else {
+                numeros[i] = numeros[i + 1];
+            }
+        }
+
+
+        for (int item : numeros) {
+            System.out.print(item);
         }
 
     }
