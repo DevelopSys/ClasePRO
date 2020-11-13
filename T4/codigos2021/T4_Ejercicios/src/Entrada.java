@@ -4,7 +4,7 @@ public class Entrada {
 
     public static void main(String[] args) {
 
-        new Entrada().ejercicio6();
+        new Entrada().ejercicio7();
         // crear un programa que simule el funcionamiento del euromillon. PAra ello se
         // generarán 5 aleatorios y se guardan en una variable.
         // el sistema pedirá que introduzca los numeros con los que juego
@@ -217,4 +217,141 @@ rellena el tercer array con la suma de las posiciones (Array1.posicion1 + array2
         }
 
     }
+
+    public void ejercicio7() {
+
+        Scanner teclado = new Scanner(System.in);
+        int longitud;
+        int[] numeros;
+        System.out.println("Introduce longitud del array");
+        longitud = teclado.nextInt();
+        numeros = new int[longitud];
+
+        for (int i = 0; i < numeros.length; i++) {
+            numeros[i] = (int) (Math.random() * 11);
+        }
+
+        for (int i = 0; i < numeros.length; i++) {
+            if (i == numeros.length - 1) {
+                System.out.println(numeros[i]);
+            } else {
+                System.out.printf("%d, ", numeros[i]);
+            }
+        }
+
+        // +- 1
+        System.out.println("Sumo uno a los pares y resto uno a los impares ");
+        for (int i = 0; i < numeros.length; i++) {
+
+            if (numeros[i] % 2 == 0) {
+                numeros[i] = numeros[i] + 1;
+            } else {
+                numeros[i] = numeros[i] - 1;
+            }
+        }
+
+        for (int i = 0; i < numeros.length; i++) {
+            if (i == numeros.length - 1) {
+                System.out.println(numeros[i]);
+            } else {
+                System.out.printf("%d, ", numeros[i]);
+            }
+        }
+
+        // Duplicar valores menores que 5
+        System.out.println("Duplico valores menores que 5");
+        for (int i = 0; i < numeros.length; i++) {
+
+            if (numeros[i] < 5) {
+                numeros[i] = numeros[i] * 2;
+            }
+        }
+
+        for (int i = 0; i < numeros.length; i++) {
+            if (i == numeros.length - 1) {
+                System.out.println(numeros[i]);
+            } else {
+                System.out.printf("%d, ", numeros[i]);
+            }
+        }
+
+        // Sumo +- 5 a todos
+        System.out.println("Sumo más menos 5");
+        for (int i = 0; i < numeros.length; i++) {
+            int aleatorio = (int) (Math.random() * 10) - 5;
+            numeros[i] = numeros[i] + aleatorio;
+        }
+
+        for (int i = 0; i < numeros.length; i++) {
+            if (i == numeros.length - 1) {
+                System.out.println(numeros[i]);
+            } else {
+                System.out.printf("%d, ", numeros[i]);
+            }
+        }
+
+        // Desplazo
+        System.out.println("Desplazo a un lado");
+        int aux1 = numeros[0];
+        for (int i = 0; i < numeros.length; i++) {
+            if (i == numeros.length - 1) {
+                //numeros[i]=numeros[numeros.length - 1];
+                numeros[i] = aux1;
+            } else {
+                numeros[i] = numeros[i + 1];
+            }
+        }
+
+        for (int i = 0; i < numeros.length; i++) {
+            if (i == numeros.length - 1) {
+                System.out.println(numeros[i]);
+            } else {
+                System.out.printf("%d, ", numeros[i]);
+            }
+        }
+
+        // Roto
+        System.out.println("Roto entre parejas");
+        boolean sePuede = false;
+        for (int i = 0; i < numeros.length; i++) {
+            if(longitud%2==0){
+                sePuede = true;
+            int aux = numeros[i];
+            numeros[i] = numeros[i+1];
+            numeros[i+1] = aux;
+            i++;}
+        }
+
+        if (sePuede){
+            for (int i = 0; i < numeros.length; i++) {
+                if (i == numeros.length - 1) {
+                    System.out.println(numeros[i]);
+                } else {
+                    System.out.printf("%d, ", numeros[i]);
+                }
+            }
+
+        } else
+        {
+            System.out.println("No se puede");
+        }
+
+        // Roto
+        System.out.println("Invierto");
+        for (int i = 0; i < numeros.length/2; i++) {
+            int aux = numeros[i];
+            numeros[i] = numeros[numeros.length-1-i];
+            numeros[numeros.length-1-i] = aux;
+        }
+
+        for (int i = 0; i < numeros.length; i++) {
+            if (i == numeros.length - 1) {
+                System.out.println(numeros[i]);
+            } else {
+                System.out.printf("%d, ", numeros[i]);
+            }
+        }
+    }
+
+
 }
