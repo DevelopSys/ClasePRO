@@ -358,7 +358,7 @@ public class Entrada {
             case 3:
                 System.out.println("El numero es tres");
                 int n1 = teclado.nextInt();
-                new Entrada().metodo(n1, 2);
+                //new Entrada().metodo(n1, 2);
                 break;
             default:
                 System.out.println("numero incorrecto");
@@ -727,24 +727,21 @@ public class Entrada {
             }*/
 
 
-            //System.out.println("Las vocales son "+vocales);
-            //System.out.println("Las consonantes son "+consonantes);
-            //System.out.println("Los espacions son "+espacios);
+        //System.out.println("Las vocales son "+vocales);
+        //System.out.println("Las consonantes son "+consonantes);
+        //System.out.println("Los espacions son "+espacios);
 
 
-            //System.out.println(frase);
+        //System.out.println(frase);
 
 
-            //frase = frase.replace('u','a');
-            System.out.println(frase);
+        //frase = frase.replace('u','a');
+        System.out.println(frase);
 
 
-        }
     }
-
-    public int metodo(int n1, int n2) {
-        return 4;
-    }
-
-
 }
+
+
+
+

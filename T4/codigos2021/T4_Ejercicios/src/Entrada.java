@@ -4,7 +4,7 @@ public class Entrada {
 
     public static void main(String[] args) {
 
-        new Entrada().ejercicio7();
+        new Entrada().ejercicio8();
         // crear un programa que simule el funcionamiento del euromillon. PAra ello se
         // generarán 5 aleatorios y se guardan en una variable.
         // el sistema pedirá que introduzca los numeros con los que juego
@@ -228,21 +228,16 @@ rellena el tercer array con la suma de las posiciones (Array1.posicion1 + array2
         numeros = new int[longitud];
 
         for (int i = 0; i < numeros.length; i++) {
-            numeros[i] = (int) (Math.random() * 11);
+            int aleatorio = (int) (Math.random() * 10);
+            numeros[i] = aleatorio;
+            //System.out.println(aleatorio);
         }
 
-        for (int i = 0; i < numeros.length; i++) {
-            if (i == numeros.length - 1) {
-                System.out.println(numeros[i]);
-            } else {
-                System.out.printf("%d, ", numeros[i]);
-            }
-        }
-
+        new Entrada().imprimirArray(numeros);
         // +- 1
+        System.out.println();
         System.out.println("Sumo uno a los pares y resto uno a los impares ");
         for (int i = 0; i < numeros.length; i++) {
-
             if (numeros[i] % 2 == 0) {
                 numeros[i] = numeros[i] + 1;
             } else {
@@ -250,45 +245,26 @@ rellena el tercer array con la suma de las posiciones (Array1.posicion1 + array2
             }
         }
 
-        for (int i = 0; i < numeros.length; i++) {
-            if (i == numeros.length - 1) {
-                System.out.println(numeros[i]);
-            } else {
-                System.out.printf("%d, ", numeros[i]);
-            }
-        }
+        new Entrada().imprimirArray(numeros);
 
         // Duplicar valores menores que 5
         System.out.println("Duplico valores menores que 5");
         for (int i = 0; i < numeros.length; i++) {
 
-            if (numeros[i] < 5) {
+            if (numeros[i] < 5 && numeros[i] > 0) {
                 numeros[i] = numeros[i] * 2;
             }
         }
 
-        for (int i = 0; i < numeros.length; i++) {
-            if (i == numeros.length - 1) {
-                System.out.println(numeros[i]);
-            } else {
-                System.out.printf("%d, ", numeros[i]);
-            }
-        }
-
+        new Entrada().imprimirArray(numeros);
         // Sumo +- 5 a todos
         System.out.println("Sumo más menos 5");
         for (int i = 0; i < numeros.length; i++) {
-            int aleatorio = (int) (Math.random() * 10) - 5;
+            int aleatorio = (int) (Math.random() * 11) - 5;
             numeros[i] = numeros[i] + aleatorio;
         }
 
-        for (int i = 0; i < numeros.length; i++) {
-            if (i == numeros.length - 1) {
-                System.out.println(numeros[i]);
-            } else {
-                System.out.printf("%d, ", numeros[i]);
-            }
-        }
+        new Entrada().imprimirArray(numeros);
 
         // Desplazo
         System.out.println("Desplazo a un lado");
@@ -302,56 +278,76 @@ rellena el tercer array con la suma de las posiciones (Array1.posicion1 + array2
             }
         }
 
-        for (int i = 0; i < numeros.length; i++) {
-            if (i == numeros.length - 1) {
-                System.out.println(numeros[i]);
-            } else {
-                System.out.printf("%d, ", numeros[i]);
-            }
-        }
+        new Entrada().imprimirArray(numeros);
 
         // Roto
+        // {1,2,3,4,5,6,7,8,9,10} --> 10 PAR
+        // {1,2,3,4,5,6,7,8,9,10,11} --> 11 PAR
         System.out.println("Roto entre parejas");
         boolean sePuede = false;
-        for (int i = 0; i < numeros.length; i++) {
-            if(longitud%2==0){
-                sePuede = true;
-            int aux = numeros[i];
-            numeros[i] = numeros[i+1];
-            numeros[i+1] = aux;
-            i++;}
+
+        if (longitud % 2 == 0) {
+            sePuede = true;
+            for (int i = 0; i < numeros.length; i++) {
+                int aux = numeros[i];
+                numeros[i] = numeros[i + 1];
+                numeros[i + 1] = aux;
+                i++;
+                // i++
+            }
         }
 
-        if (sePuede){
-            for (int i = 0; i < numeros.length; i++) {
-                if (i == numeros.length - 1) {
-                    System.out.println(numeros[i]);
-                } else {
-                    System.out.printf("%d, ", numeros[i]);
-                }
-            }
 
-        } else
-        {
+        if (sePuede) {
+            new Entrada().imprimirArray(numeros);
+
+        } else {
             System.out.println("No se puede");
         }
 
-        // Roto
+        // Inversión
         System.out.println("Invierto");
-        for (int i = 0; i < numeros.length/2; i++) {
+        for (int i = 0; i < numeros.length / 2; i++) {
             int aux = numeros[i];
-            numeros[i] = numeros[numeros.length-1-i];
-            numeros[numeros.length-1-i] = aux;
+            numeros[i] = numeros[numeros.length - 1 - i];
+            numeros[numeros.length - 1 - i] = aux;
         }
 
-        for (int i = 0; i < numeros.length; i++) {
-            if (i == numeros.length - 1) {
-                System.out.println(numeros[i]);
+        new Entrada().imprimirArray(numeros);
+    }
+
+    public void ejercicio8(){
+        String frase = "hola que tal estas yo muy bien";
+        String[] palabras = frase.split(" ");
+        String palabraMax=palabras[palabras.length-1], palabraMin=palabras[palabras.length-1];
+        //palabras --> {"hola","que","tal","estas","yo","muy","bien"};
+        for (int i=0;i<palabras.length;i++){
+
+            if(palabras[i].length() > palabraMax.length()){
+                palabraMax = palabras[i];
+            }
+            if(palabras[i].length()<palabraMin.length()){
+                palabraMin = palabras[i];
+            }
+            if (palabras[i].length()==3){
+                System.out.println(palabras[i]);
+            }
+        }
+
+        System.out.println("Más grande:"+palabraMax);
+        System.out.println("Más pequeña:"+palabraMin);
+
+
+
+    }
+
+    public void imprimirArray(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            if (i == array.length - 1) {
+                System.out.println(array[i]);
             } else {
-                System.out.printf("%d, ", numeros[i]);
+                System.out.printf("%d, ", array[i]);
             }
         }
     }
-
-
 }
