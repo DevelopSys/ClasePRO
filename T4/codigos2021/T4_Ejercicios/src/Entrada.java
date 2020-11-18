@@ -3,14 +3,7 @@ import java.util.Scanner;
 public class Entrada {
 
     public static void main(String[] args) {
-
-        new Entrada().ejercicio8();
-        // crear un programa que simule el funcionamiento del euromillon. PAra ello se
-        // generarán 5 aleatorios y se guardan en una variable.
-        // el sistema pedirá que introduzca los numeros con los que juego
-        // PREMIOS; 1 acertado (10) 2 acertados (100) 3 acertados(1000)
-        // 4 acertados (10000) 5 acertados (100000)
-
+        new Entrada().ejercicio9();
     }
 
     public void ejercicio1() {
@@ -316,30 +309,182 @@ rellena el tercer array con la suma de las posiciones (Array1.posicion1 + array2
         new Entrada().imprimirArray(numeros);
     }
 
-    public void ejercicio8(){
+    public void ejercicio8() {
         String frase = "hola que tal estas yo muy bien";
         String[] palabras = frase.split(" ");
-        String palabraMax=palabras[palabras.length-1], palabraMin=palabras[palabras.length-1];
+        String palabraMax = palabras[palabras.length - 1], palabraMin = palabras[palabras.length - 1];
         //palabras --> {"hola","que","tal","estas","yo","muy","bien"};
-        for (int i=0;i<palabras.length;i++){
+        for (int i = 0; i < palabras.length; i++) {
 
-            if(palabras[i].length() > palabraMax.length()){
+            if (palabras[i].length() > palabraMax.length()) {
                 palabraMax = palabras[i];
             }
-            if(palabras[i].length()<palabraMin.length()){
+            if (palabras[i].length() < palabraMin.length()) {
                 palabraMin = palabras[i];
             }
-            if (palabras[i].length()==3){
+            if (palabras[i].length() == 3) {
                 System.out.println(palabras[i]);
             }
         }
 
-        System.out.println("Más grande:"+palabraMax);
-        System.out.println("Más pequeña:"+palabraMin);
+        System.out.println("Más grande:" + palabraMax);
+        System.out.println("Más pequeña:" + palabraMin);
+
+
+    }
+
+    public void ejercicio9(){
+        Scanner teclado = new Scanner(System.in);
+        int longitud;
+        String [] palabrasGeneradas;
+        char [] letras = {'a','b','c','d','e','f','g','h','i','j','k'};
+        System.out.println("Cuantas palabras quieres generar");
+        longitud = teclado.nextInt();
+        palabrasGeneradas = new String[longitud];
+        for (int i = 0; i <longitud ; i++) {
+            System.out.println("Longitud de la palabra");
+            int longitudPalabra = teclado.nextInt();
+            String palabra = "";
+            for (int j = 0; j < longitudPalabra ; j++) {
+                // genero la palabra aleatoria
+                int aleatorio = (int) (Math.random()* letras.length);
+                char letraAleatoria = letras[aleatorio];
+                palabra = palabra+letraAleatoria;
+                //System.out.println(palabra);
+                palabrasGeneradas[i] = palabra;
+            }
+        }
+
+        for (String item :palabrasGeneradas) {
+            System.out.println("La palabra generada es: "+item);
+        }
+
+    }
+
+    public void ejercicio10() {
+        // crear un programa que simule el funcionamiento del euromillon. PAra ello se
+        // generarán 5 aleatorios y se guardan en una variable.
+        // el sistema pedirá que introduzca los numeros con los que juego
+        // PREMIOS; 1 acertado (10) 2 acertados (100) 3 acertados(1000)
+        // 4 acertados (10000) 5 acertados (100000)
+
+        Scanner teclado = new Scanner(System.in);
+        int[] boletoLoteria = new int[5];
+        int[] boletoMio = new int[5];
+        int aciertos = 0;
+
+        for (int i = 0; i < boletoLoteria.length; i++) {
+            int numero = (int) (Math.random() * 10);
+            boletoLoteria[i] = numero;
+            System.out.println("Introduce un numero de tu boleto");
+            int numeroMio = teclado.nextInt();
+            boletoMio[i] = numeroMio;
+            if (numero == numeroMio) {
+                aciertos++;
+            }
+        }
+
+
+        /*for (int i = 0; i < boletoLoteria.length; i++) {
+            int numero = (int) (Math.random() * 10);
+            boletoLoteria[i] = numero;
+        }
+        imprimirArray(boletoLoteria);
+        for (int i = 0; i < boletoMio.length; i++) {
+            System.out.println("Introduce un numero de tu boleto");
+            int numero = teclado.nextInt();
+            boletoMio[i] = numero;
+        }
+
+        imprimirArray(boletoMio);
+        // 1,9,3,6,4 --> juego
+        // 1,5,3,7,8 --> mio
+
+        for (int i = 0; i < boletoLoteria.length; i++) {
+            if (boletoLoteria[i] == boletoMio[i]) {
+                aciertos++;
+            }
+        }*/
+
+        // cuantas veces has acertado
+        switch (aciertos) {
+
+            case 0:
+                System.out.println("No has acertado ninguno");
+                break;
+            case 1:
+                System.out.println("Has ganado 10 euros");
+                break;
+            case 2:
+                System.out.println("Has ganado 100 euros");
+                break;
+            case 3:
+                System.out.println("Has ganado 1000 euros");
+                break;
+            case 4:
+                System.out.println("Has ganado 10000 euros");
+                break;
+            case 5:
+                System.out.println("Has ganado 100000 euros");
+                break;
+        }
+
+
+    }
+
+    public void ejercicio10Modificado() {
+
+        // 2347
+        // 4325
+
+        Scanner teclado = new Scanner(System.in);
+        int numeroLoteria = (int) (Math.random() * 1001);
+        int numero;
+        System.out.println("Con que numero quieres jugar");
+        numero = teclado.nextInt();
+
+        System.out.println(numeroLoteria);
+        System.out.println(numero);
+        int aciertos = 0;
+
+        String numeroLoteriaComparar = String.valueOf(numeroLoteria);
+        String numeroComparar = String.valueOf(numero);
+
+        // 349
+        // 193
+
+        if (numeroComparar.charAt(numeroComparar.length() - 1)
+                == numeroLoteriaComparar.charAt(numeroLoteriaComparar.length() - 1)) {
+            aciertos++;
+            if (numeroComparar.charAt(numeroComparar.length() - 2)
+                    == numeroLoteriaComparar.charAt(numeroLoteriaComparar.length() - 2)) {
+                aciertos++;
+                if (numeroComparar.charAt(numeroComparar.length() - 3)
+                        == numeroLoteriaComparar.charAt(numeroLoteriaComparar.length() - 3)) {
+                    aciertos++;
+                }
+            }
+
+        } else {
+            System.out.println("No has acertado nada");
+        }
+
+        for (int i = 0; i < numeroLoteriaComparar.length(); i++) {
+            if (numeroLoteriaComparar.charAt(i)== numeroComparar.charAt(i)){
+                aciertos++;
+            }
+        }
+
+        switch (aciertos){
+
+        }
+
 
 
 
     }
+
+
 
     public void imprimirArray(int[] array) {
         for (int i = 0; i < array.length; i++) {
