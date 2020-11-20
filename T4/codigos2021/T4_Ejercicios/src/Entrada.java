@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Entrada {
 
     public static void main(String[] args) {
-        new Entrada().ejercicio9();
+        new Entrada().ejercicio12();
     }
 
     public void ejercicio1() {
@@ -333,30 +333,30 @@ rellena el tercer array con la suma de las posiciones (Array1.posicion1 + array2
 
     }
 
-    public void ejercicio9(){
+    public void ejercicio9() {
         Scanner teclado = new Scanner(System.in);
         int longitud;
-        String [] palabrasGeneradas;
-        char [] letras = {'a','b','c','d','e','f','g','h','i','j','k'};
+        String[] palabrasGeneradas;
+        char[] letras = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k'};
         System.out.println("Cuantas palabras quieres generar");
         longitud = teclado.nextInt();
         palabrasGeneradas = new String[longitud];
-        for (int i = 0; i <longitud ; i++) {
+        for (int i = 0; i < longitud; i++) {
             System.out.println("Longitud de la palabra");
             int longitudPalabra = teclado.nextInt();
             String palabra = "";
-            for (int j = 0; j < longitudPalabra ; j++) {
+            for (int j = 0; j < longitudPalabra; j++) {
                 // genero la palabra aleatoria
-                int aleatorio = (int) (Math.random()* letras.length);
+                int aleatorio = (int) (Math.random() * letras.length);
                 char letraAleatoria = letras[aleatorio];
-                palabra = palabra+letraAleatoria;
+                palabra = palabra + letraAleatoria;
                 //System.out.println(palabra);
                 palabrasGeneradas[i] = palabra;
             }
         }
 
-        for (String item :palabrasGeneradas) {
-            System.out.println("La palabra generada es: "+item);
+        for (String item : palabrasGeneradas) {
+            System.out.println("La palabra generada es: " + item);
         }
 
     }
@@ -470,19 +470,86 @@ rellena el tercer array con la suma de las posiciones (Array1.posicion1 + array2
         }
 
         for (int i = 0; i < numeroLoteriaComparar.length(); i++) {
-            if (numeroLoteriaComparar.charAt(i)== numeroComparar.charAt(i)){
+            if (numeroLoteriaComparar.charAt(i) == numeroComparar.charAt(i)) {
                 aciertos++;
             }
         }
 
-        switch (aciertos){
+        switch (aciertos) {
 
         }
 
 
+    }
+
+    public void ejercicio11() {
+
+        Scanner teclado = new Scanner(System.in);
+        String palabraJugar;
+        String letra;
+        int vidas = 3;
+        String[] palabras = {"patata", "programacion", "sistemas", "pelicula"};
+        int aleatorio = (int) (Math.random() * palabras.length); // 0-3
+        palabraJugar = palabras[aleatorio];
+        String[] letrasPalabra = palabraJugar.split("");
+        String[] acertadas = new String[letrasPalabra.length];
+
+        do {
+
+            System.out.println("Introduce una letra");
+            letra = teclado.next();
+            System.out.println(letra);
+            // p
+            // _ _ _ _ _ _ _
+
+            for (int i = 0; i < letrasPalabra.length; i++) {
+
+                //System.out.print(" _ ");
+                if (letrasPalabra[i].equals(letra)) {
+                    System.out.printf(" %s ", letra);
+                    acertadas[i] = letra;
+                } else {
+                    boolean esta = false;
+                    for (int j = 0; j < acertadas.length; j++) {
+                        if (letrasPalabra[i].equals(acertadas[j])) {
+                            esta = true;
+                            break;
+                        }
+                    }
+                    if (esta) {
+
+                    } else {
+
+                    }
+                    // rutura de ejecucion;
+                }
+            }
+            //vidas--;
+            System.out.println();
+        } while (vidas > 0);
 
 
     }
+
+    public void ejercicio12() {
+        String[] bombo1 = {"Barcelona", "PSG", "Bayern", "Manchester City",
+                "Juventus", "RB Leizpzig", "Valencia", "Liverpool"};
+        String[] bombo2 = {"Real Madrid", "Tottenham", "Nápoles", "B. Dortmund",
+                "O. Lyon", "Chelsea", "Atalanta", "Atético de Madrid"};
+        boolean existe = false;
+        int[] sacados = new int[bombo1.length];
+
+        do{
+            int aleatorio1 = (int) (Math.random() * bombo1.length);
+            for (int i = 0; i < sacados.length; i++) {
+                if (sacados[i] == aleatorio1) {
+                    existe = true;
+                }
+            }
+            System.out.println(bombo1[aleatorio1]);
+        }while(existe);
+    }
+
 
 
 
