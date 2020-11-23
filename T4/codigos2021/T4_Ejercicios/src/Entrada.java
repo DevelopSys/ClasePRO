@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Entrada {
 
     public static void main(String[] args) {
-        new Entrada().ejercicio12();
+        new Entrada().ejercicio14();
     }
 
     public void ejercicio1() {
@@ -539,7 +539,7 @@ rellena el tercer array con la suma de las posiciones (Array1.posicion1 + array2
         boolean existe = false;
         int[] sacados = new int[bombo1.length];
 
-        do{
+        do {
             int aleatorio1 = (int) (Math.random() * bombo1.length);
             for (int i = 0; i < sacados.length; i++) {
                 if (sacados[i] == aleatorio1) {
@@ -547,11 +547,53 @@ rellena el tercer array con la suma de las posiciones (Array1.posicion1 + array2
                 }
             }
             System.out.println(bombo1[aleatorio1]);
-        }while(existe);
+        } while (existe);
     }
 
+    public void ejercicio14() {
+
+        Scanner teclado = new Scanner(System.in);
+        int filas = 0, columnas = 0;
+        int[][] numeros;
+        do {
+            System.out.println("Cuantas filas");
+            filas = teclado.nextInt();
+            System.out.println("Cuantas columnas");
+            columnas = teclado.nextInt();
+        } while (filas < 1 || columnas < 1);
+        numeros = new int[filas][columnas];
+
+        for (int i = 0; i < numeros.length; i++) {
+            for (int j = 0; j < numeros[i].length; j++) {
+                numeros[i][j] = (int) (Math.random() * 101);
+            }
+        }
+
+        int contandor = 0;
+        for (int[] fila : numeros) {
+            for (int numero : fila) {
+                System.out.printf("%d ", numero);
+            }
+            System.out.println();
+            if (contandor != numeros.length - 1) {
+                System.out.println("**************");
+            }
+            contandor++;
+        }
+    }
+
+    // realizar un programa que realiza la traduccion entre palabras
+    /*
+    {{"hola","hello","asdasd"},{"hola","hello","asdasd"}
+    ,{"hola","hello","asdasd"},{"hola","hello","asdasd"}}
+
+    dime palabra a traducir: hola
+    en ingles es: hello
+    en aleman es: sadasd
+    en finlandes es: asdasd
 
 
+     */
 
     public void imprimirArray(int[] array) {
         for (int i = 0; i < array.length; i++) {

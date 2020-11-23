@@ -1,4 +1,4 @@
-public class Entrada {
+public class Unidimensionales {
 
     public static void main(String[] args) {
 
