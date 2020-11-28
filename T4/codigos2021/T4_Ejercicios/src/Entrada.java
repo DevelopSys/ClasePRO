@@ -3,7 +3,8 @@ import java.util.Scanner;
 public class Entrada {
 
     public static void main(String[] args) {
-        new Entrada().ejercicio14();
+        new Entrada().menuAlumnos();
+        //menuAlumnos();
     }
 
     public void ejercicio1() {
@@ -594,6 +595,157 @@ rellena el tercer array con la suma de las posiciones (Array1.posicion1 + array2
 
 
      */
+
+    public void traductor() {
+        String[][] diccionario = {
+                {"hola", "hola_ingles", "hola_frances", "hola_aleman"},
+                {"adios", "adios_ingles", "adios_frances", "adios_aleman"},
+                {"comer", "comer_ingles", "comer_frances", "comer_aleman"}
+        };
+
+        // sacar todas las palabras originaleS???
+
+        /*for (int i = 0; i < diccionario.length ; i++) {
+            System.out.println(diccionario[i][3]);
+        }*/
+
+        // saber si la palabra hola está entre las originales
+        // y si está sacar sus traducciones
+
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("Que palabra quieres traducir");
+        String palabra = teclado.next();
+        int contador = 0;
+        boolean esta = false;
+
+        for (int i = 0; i < diccionario.length; i++) {
+            if (diccionario[i][0].equals(palabra)) {
+                System.out.println(diccionario[i][0]);
+                System.out.println("Y sus traducciones son");
+                for (int j = 1; j < diccionario[i].length; j++) {
+                    System.out.println(diccionario[i][j]);
+                }
+                esta = true;
+                break;
+            }
+
+        }
+
+        if (!esta) {
+            System.out.println("La palabra no está");
+        }
+
+
+        if (!palabra.equals("asdasd")) {
+
+        }
+    }
+
+    public void menuAlumnos() {
+
+        Scanner teclado = new Scanner(System.in);
+        Object[][] alumnos = null;
+        int contadorAlumno = 0;
+        int opcion = 0;
+
+        do {
+
+            System.out.println("1- Indicar número alumnos");
+            System.out.println("2- Registrar alumnos");
+            System.out.println("3- Media de todos los alumnos");
+            System.out.println("4- Ver datos alumno");
+            System.out.println("5- Media asignatura 1");
+            System.out.println("6- Media asignatura 2");
+            System.out.println("7- Media asignatura 3");
+            System.out.println("8- Salir");
+            System.out.println("Introduce una opción");
+            opcion = teclado.nextInt();
+
+            switch (opcion) {
+
+                case 1:
+
+                    if (alumnos != null) {
+                        System.out.println("La coleccion ya está inicializada");
+                    } else {
+                        System.out.println("Cuantos alumnos quieres registrar");
+                        int numeroAlumnos = teclado.nextInt();
+                        if (numeroAlumnos < 1) {
+                            System.out.println("No es posible");
+                        } else {
+                            alumnos = new Object[numeroAlumnos][4];
+                            listarArrayMulti(alumnos);
+                        }
+                    }
+                    break;
+
+                case 2:
+
+                    if (alumnos == null) {
+                        System.out.println("No has iniciado la coleccion");
+                    }
+                    else {
+                        if (contadorAlumno < alumnos.length) {
+                            String nombre;
+                            double nota1, nota2, nota3;
+                            System.out.println("Dime el nombre del alumno");
+                            nombre = teclado.next();
+                            System.out.println("Dime la nota1 del alumno");
+                            nota1 = teclado.nextDouble();
+                            System.out.println("Dime la nota2 del alumno");
+                            nota2 = teclado.nextDouble();
+                            System.out.println("Dime la nota3 del alumno");
+                            nota3 = teclado.nextDouble();
+                            alumnos[contadorAlumno][0] = nombre;
+                            alumnos[contadorAlumno][1] = nota1;
+                            alumnos[contadorAlumno][2] = nota2;
+                            alumnos[contadorAlumno][3] = nota3;
+                            contadorAlumno++;
+                            listarArrayMulti(alumnos);
+                        } else {
+                            System.out.println("no hay espacio para el alumno");
+                        }
+                    }
+
+                    break;
+                case 3:
+
+                    if (alumnos== null){
+                        System.out.println("No puedo sacar medias");
+                    } else {
+                        //[["borja",1,3,4],["borja",1,3,4],[null],[null]]
+                        double media;
+
+                        for (int i = 0; i < alumnos.length; i++) {
+                            System.out.println("Alumno");
+                            media=0.0;
+                            for (int j = 1; j < alumnos[i].length; j++) {
+                                media = media + (double)alumnos[i][j];
+                            }
+                            System.out.printf("la media del alumno es %.2f %n",media/3);
+                        }
+
+                    }
+
+                    break;
+
+            }
+
+        } while (opcion != 8);
+
+    }
+
+    public void listarArrayMulti(Object[][] array) {
+
+        for (Object[] elemento : array) {
+            System.out.println("Elemento");
+            for (Object item : elemento) {
+                System.out.println(item);
+            }
+            System.out.println();
+        }
+
+    }
 
     public void imprimirArray(int[] array) {
         for (int i = 0; i < array.length; i++) {
