@@ -52,17 +52,21 @@ public class EjercicioDos {
                     break;
                 case 4:
                     //Arrays.sort(numeros);
-                    for (int i = 0; i < (numeros.length - 1); i++) {
-                        System.out.println("ordeno para " + i);
-                        for (int j = 0; j < numeros.length - i - 1; j++) {
-                            System.out.println("ordeno para j:" + j);
+                    int elementos = numeros.length;
+                    while(elementos>0){
+                        for (int i = 0; i < (numeros.length - 1); i++) {
+                            System.out.println("ordeno para " + i);
+                            for (int j = 0; j < numeros.length - i - 1; j++) {
+                                System.out.println("ordeno para j:" + j);
 
-                            if (numeros[i] > numeros[i + 1]) {
-                                int aux = numeros[i + 1];
-                                numeros[i + 1] = numeros[i];
-                                numeros[i] = aux;
+                                if (numeros[i] > numeros[i + 1]) {
+                                    int aux = numeros[i + 1];
+                                    numeros[i + 1] = numeros[i];
+                                    numeros[i] = aux;
+                                }
                             }
                         }
+                        elementos--;
                     }
 
                     new EjercicioDos().listarNormal(numeros);
