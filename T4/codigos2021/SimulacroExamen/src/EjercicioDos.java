@@ -52,15 +52,14 @@ public class EjercicioDos {
                     break;
                 case 4:
                     //Arrays.sort(numeros);
+                    for (int i = 0; i < (numeros.length - 1); i++) {
+                        System.out.println("ordeno para " + i);
+                        for (int j = 0; j < numeros.length - i - 1; j++) {
+                            System.out.println("ordeno para j:" + j);
 
-                    for (int i = 0; i < numeros.length-1; i++) {
-                        System.out.println("ordeno para "+i);
-                        for (int j = 0; j <numeros.length-1-i ; j++) {
-                            System.out.println("ordeno para j:"+j);
-
-                            if (numeros[i]>numeros[i+1]){
-                                int aux = numeros[i+1];
-                                numeros[i+1]= numeros[i];
+                            if (numeros[i] > numeros[i + 1]) {
+                                int aux = numeros[i + 1];
+                                numeros[i + 1] = numeros[i];
                                 numeros[i] = aux;
                             }
                         }
@@ -74,6 +73,7 @@ public class EjercicioDos {
 
         } while (opcion != 6);
     }
+
     public int[] crearArray() {
         Scanner teclado = new Scanner(System.in);
         int[] array = new int[5];
@@ -84,18 +84,20 @@ public class EjercicioDos {
         }
         return array;
     }
-    public void obtenerPosicion(int[] array){
+
+    public void obtenerPosicion(int[] array) {
         int posicion;
         Scanner teclado = new Scanner(System.in);
         System.out.println("Introduce posición");
         posicion = teclado.nextInt();
-        if (posicion>=array.length){
+        if (posicion >= array.length) {
             System.out.println("Error");
         } else {
             System.out.println(array[posicion]);
         }
     }
-    public void listarNormal(int[] numeros){
+
+    public void listarNormal(int[] numeros) {
         for (int item : numeros) {
             System.out.println(item);
         }
