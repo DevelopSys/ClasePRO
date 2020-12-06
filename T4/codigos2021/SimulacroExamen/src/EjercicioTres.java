@@ -25,6 +25,10 @@ public class EjercicioTres {
                     if (coches == taller.length) {
                         System.out.println("Taller lleno");
                     } else {
+
+                        taller[coches] = new EjercicioTres().registrarCoche();
+                        coches++;
+
                         /*System.out.println("Cual es el modelo?");
                         String modelo = teclado.next();
                         System.out.println("Cuales son sus CV?");
@@ -123,6 +127,10 @@ public class EjercicioTres {
         System.out.println("Arreglo");
         double arreglos = teclado.nextDouble();
         Object[] coche = new Object[3];
-        coche[0] = modelo
+        coche[0] = modelo;
+        coche[1] = cv;
+        coche[2] = arreglos;
+
+        return coche;
     }
 }

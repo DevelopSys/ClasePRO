@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="libraryTable">
+    <library name="lib">
+      <CLASSES>
+        <root url="file://$USER_HOME$/Downloads/examenesfx/lib" />
+      </CLASSES>
+      <JAVADOC />
+      <NATIVE>
+        <root url="file://$USER_HOME$/Downloads/examenesfx/lib" />
+      </NATIVE>
+      <SOURCES />
+      <jarDirectory url="file://$USER_HOME$/Downloads/examenesfx/lib" recursive="false" />
+    </library>
+  </component>
+</project>
