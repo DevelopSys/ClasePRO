@@ -19,7 +19,17 @@ public class OperacionesArrays {
         //{1,2,3,4,5,6,7,8,9,10,0,0};
         int[] arraySub =  Arrays.copyOfRange(numeros,0,4);
 
+        new OperacionesArrays().metodoUno("hola","adios");
+        new OperacionesArrays().metodoUno("asd","asdass");
+        new OperacionesArrays().metodoUno("asd","gfd");
+
+    }
+
+
+    public void metodoUno(String param1, String param2){
 
 
     }
+
+
 }
