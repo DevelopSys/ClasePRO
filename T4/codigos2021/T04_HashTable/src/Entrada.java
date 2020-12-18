@@ -63,7 +63,7 @@ public class Entrada {
             System.out.println("Elemento iterado");
         }
 
-        coleccion.get
+        //coleccion.get
 
 
 
