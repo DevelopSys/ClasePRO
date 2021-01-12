@@ -1,9 +1,9 @@
 1. Crea una clase llamada persona con los siguientes elementos
 	- Propiedades: nombre (string) apellido (string) dni (string) edad (int) peso (double) altura (int)
 	- Métodos: 
-		4. mostrarDatos: sacará por pantalla los datos de la persona formateados
-		5. Métodos getters y setters asociados
-		6. Constructores:
+		- mostrarDatos: sacará por pantalla los datos de la persona formateados
+		- Métodos getters y setters asociados
+		- Constructores:
 			7. un constructor que permita crear una persona con todos los datos
 			8. Un constructor que permita crear una persona sin peso ni altura
 			9. Un constructor que permita crear una persona con nombre y apellidos, el resto de datos los pondrá a 0, excepto el dni que lo pondrá a 111111111X
