@@ -1,17 +1,21 @@
+package explicaciones;
+import java.util.Scanner;
+
 public class Entrada {
+
 
     public static void main(String[] args) {
 
+        Scanner teclado = new Scanner(System.in);
+
         Coche golf = new Coche();
         Coche focus = new Coche();
-        Coche ibiza = new Coche("Seat","Ibiza",100,125,0.0);
+        Coche ibiza = new Coche("Seat", "Ibiza", 100, 125, 0.0);
         Coche leon = new Coche("Seat", "Leon");
-
-
-        // seat ibiza 100 125 0
 
         System.out.println("Ejecución desde la clase entrada");
 
+        /*
         // marca = "marca defecto"
         // modelo = "modelo defecto"
 
@@ -59,5 +63,23 @@ public class Entrada {
         } else {
             System.out.println("El focus es más potente que el golf");
         }
+        */
+
+        golf.mostrarDatos();
+        System.out.println("Por favor introduce la velocidad que quieres acelerar");
+        int velocidad = teclado.nextInt();
+        // cuando se ejecuta el método, si la velocidad introducida es <=0 el método me de un false,
+        // sino el metodo me de un verdadero
+        //golf.acelerarVelocidad(velocidad); // retorna true o false
+        if (golf.acelerarVelocidad(velocidad)){
+            System.out.println("El coche ha acelerado");
+        } else {
+            System.out.println("El coche ha frenado o no ha acelerado");
+        }
+
+
+
+
+
     }
 }
