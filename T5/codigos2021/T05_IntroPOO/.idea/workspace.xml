@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3000f33-5d95-45a9-9b2b-392cd39c02f2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ejercicios/Persona.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ejercicios/ejerciciodos/Entrada.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/T05_IntroPOO/Coche.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/T05_IntroPOO/Coche.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/T05_IntroPOO/Entrada.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/T05_IntroPOO/Entrada.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Coche.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/explicaciones/Coche.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entrada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/explicaciones/Entrada.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/T05_IntroPOO/Coche.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/T05_IntroPOO/Entrada.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ejercicios/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ejercicios/ejericiouno/Persona.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +50,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Entrada (1)">
+    <configuration name="Entrada (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ejercicios.ejerciciodos.Entrada" />
+      <module name="T05_IntroPOO" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ejercicios.ejerciciodos.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Entrada" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="explicaciones.Entrada" />
       <module name="T05_IntroPOO" />
@@ -62,6 +73,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Entrada (1)" />
         <item itemvalue="Application.Entrada" />
       </list>
     </recent_temporary>
@@ -84,7 +96,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

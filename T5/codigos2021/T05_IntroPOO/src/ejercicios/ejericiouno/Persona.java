@@ -1,4 +1,4 @@
-package ejercicios;
+package ejercicios.ejericiouno;
 
 public class Persona {
 
@@ -17,7 +17,6 @@ public class Persona {
     * */
 
     public Persona(){
-
         this.nombre = "datos por defecto";
         this.apellido = "datos por defecto";
         this.dni = "1111111111X";
@@ -44,7 +43,7 @@ public class Persona {
         this.altura = 0;*/
     }
 
-    public Persona (String nombre, String apellido, String dni, int edad, int peso, int altura){
+    public Persona (String nombre, String apellido, String dni, int edad, double peso, int altura){
         this.peso = peso;
         this.edad = edad;
         this.dni = dni;
