@@ -1,5 +1,7 @@
 package ejercicios.ejericiouno;
 
+import java.util.Scanner;
+
 public class Persona {
 
     // variables
@@ -7,6 +9,7 @@ public class Persona {
     private String nombre, apellido, dni;
     private int edad, altura;
     private double peso;
+
 
     // constructores
 
@@ -64,54 +67,72 @@ public class Persona {
         System.out.printf("Altura: %d%n",altura);
         System.out.printf("Peso: %.2f%n",peso);
     }
+    public void agregarEdad(int edadIncremento){
+
+        this.edad += edadIncremento;
+    }
+
+
+    // IMC = peso / (altura * altura)
+
+    public double calcularIMC(){
+
+        //178 --> 1,78
+
+        // 70,00 /  (double) (180/100) -> 1,80 1,00
+
+
+        // (double) (int/int) --> 180/100 --> 1,80 --> 1,00
+        // ((double)int / (double) int) --> 180 / 100 --> 180,00 / 100,00 --> 1,80
+
+
+
+        double imc = this.peso / (((double)this.altura/(double)100 )* ((double)this.altura/(double)100));
+        //System.out.printf("El IMC es: %.2f%n",imc);
+        //Math.pow(this.altura,2);
+
+        return imc;
+
+    }
+
 
     // getter
     public String getNombre() {
         return this.nombre;
     }
-
     public double getPeso() {
         return peso;
     }
-
     public int getAltura() {
         return altura;
     }
-
     public int getEdad() {
         return edad;
     }
-
     public String getApellido() {
         return apellido;
     }
-
     public String getDni() {
         return dni;
     }
 
     // setters
 
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
-
     public void setAltura(int altura) {
         this.altura = altura;
     }
-
     public void setDni(String dni) {
         this.dni = dni;
     }
     public void setEdad(int edad) {
         this.edad = edad;
     }
-
     public void setPeso(double peso) {
         this.peso = peso;
     }
