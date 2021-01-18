@@ -18,7 +18,29 @@ public class Entrada {
         String nombre, apellido, dni;
         double peso;
         int edad, altura;
+        int contador = 1;
 
+        do {
+
+            nombre, apellido // pedidos con scanner
+            p1 = new Persona(nombre,apellido);
+
+            switch (contador) {
+                case 1:
+
+                    break;
+                case 2:
+                    p2 = new Persona(nombre,apellido);
+                    break;
+                case 3:
+                            p3 = new Persona(nombre,apellido);
+                    break;
+                case 4:
+                    p4 = new Persona(nombre,apellido);
+                    break;
+            }
+            contador++;
+        } while ();
 
         System.out.println("Introduce nombre:");
         nombre = teclado.next();
