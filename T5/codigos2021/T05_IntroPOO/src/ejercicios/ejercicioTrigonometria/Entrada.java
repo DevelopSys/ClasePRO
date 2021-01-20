@@ -54,6 +54,19 @@ public class Entrada {
                     break;
                 case 2:
                     System.out.println("Trabajando con circulos");
+                    Circulo circulo = new Circulo(); // a=0.0 r=0.0 d=0.0 calcularArea() calcularDiametro() setArea(valor)
+                    circulo.setArea(5); // a=5.0 r=0.0 d=0.0 calcularArea() calcularDiametro() setArea(valor)
+                    circulo.setArea(7); // a=7.0 r=0.0 d=0.0 calcularArea() calcularDiametro() setArea(valor)
+                    circulo.calcularArea(); // a=0.0 r=0.0 d=0.0 calcularArea() calcularDiametro() setArea(valor)
+                    circulo.getArea(); // --> 0
+
+
+                    Circulo circuloRadio = new Circulo(5); // a=0.0 r=5.0 d=0.0 calcularArea() calcularDiametro() setArea(valor)
+                    circuloRadio.setArea(7); // a=7.0 r=5.0 d=0.0 calcularArea() calcularDiametro() setArea(valor)
+                    circuloRadio.calcularArea(); // a=PI*25 r=5.0 d=0.0 calcularArea() calcularDiametro() setArea(valor)
+
+
+
                     teclado.next();
                     break;
                 case 3:
