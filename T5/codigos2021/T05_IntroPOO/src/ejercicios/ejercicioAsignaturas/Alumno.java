@@ -22,9 +22,15 @@ public class Alumno {
     // metodos
 
     public void verMatriculas(){
-        System.out.println(asignaturaUno.getIdentificador());
-        System.out.println(asignaturaDos.getIdentificador());
-        System.out.println(asignaturaTres.getIdentificador());
+        System.out.println(this.asignaturaUno.getIdentificador());
+        System.out.println(this.asignaturaDos.getIdentificador());
+        System.out.println(this.asignaturaTres.getIdentificador());
+    }
+
+    public void mostrarDatos(){
+        System.out.println(this.asignaturaUno.getCalificacion());
+        System.out.println(this.asignaturaDos.getCalificacion());
+        System.out.println(this.asignaturaTres.getCalificacion());
     }
 
 
