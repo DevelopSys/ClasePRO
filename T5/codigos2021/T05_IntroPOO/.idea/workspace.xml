@@ -20,14 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e3000f33-5d95-45a9-9b2b-392cd39c02f2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ejercicios/ejercicioAgenda/Agenda.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ejercicios/ejercicioAgenda/Entrada.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ejercicios/ejercicioAgenda/Persona.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/T05_IntroPOO/ejercicios/ejercicioCoche/Entrada.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/T05_IntroPOO/ejercicios/ejercicioCoche/Entrada.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/T05_IntroPOO/ejercicios/ejercicioCoche/Mecanico.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/T05_IntroPOO/ejercicios/ejercicioCoche/Mecanico.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ejercicios/ejercicioCoche/Entrada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ejercicios/ejercicioCoche/Entrada.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ejercicios/ejercicioCoche/Mecanico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ejercicios/ejercicioCoche/Mecanico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ejercicios/ejercicioAgenda/Agenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ejercicios/ejercicioAgenda/Agenda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ejercicios/ejercicioAgenda/Entrada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ejercicios/ejercicioAgenda/Entrada.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,21 +165,21 @@
       <screen x="0" y="23" width="1440" height="836" />
     </state>
     <state x="533" y="149" key="#com.intellij.ide.util.MemberChooser/0.23.1440.836@0.23.1440.836" timestamp="1611573496284" />
-    <state width="1398" height="399" key="GridCell.Tab.0.bottom" timestamp="1611579801397">
+    <state width="1398" height="399" key="GridCell.Tab.0.bottom" timestamp="1611581868370">
       <screen x="0" y="23" width="1440" height="836" />
     </state>
-    <state width="1398" height="399" key="GridCell.Tab.0.bottom/0.23.1440.836@0.23.1440.836" timestamp="1611579801397" />
-    <state width="1398" height="399" key="GridCell.Tab.0.center" timestamp="1611579801396">
+    <state width="1398" height="399" key="GridCell.Tab.0.bottom/0.23.1440.836@0.23.1440.836" timestamp="1611581868370" />
+    <state width="1398" height="399" key="GridCell.Tab.0.center" timestamp="1611581868370">
       <screen x="0" y="23" width="1440" height="836" />
     </state>
-    <state width="1398" height="399" key="GridCell.Tab.0.center/0.23.1440.836@0.23.1440.836" timestamp="1611579801396" />
-    <state width="1398" height="399" key="GridCell.Tab.0.left" timestamp="1611579801395">
+    <state width="1398" height="399" key="GridCell.Tab.0.center/0.23.1440.836@0.23.1440.836" timestamp="1611581868370" />
+    <state width="1398" height="399" key="GridCell.Tab.0.left" timestamp="1611581868369">
       <screen x="0" y="23" width="1440" height="836" />
     </state>
-    <state width="1398" height="399" key="GridCell.Tab.0.left/0.23.1440.836@0.23.1440.836" timestamp="1611579801395" />
-    <state width="1398" height="399" key="GridCell.Tab.0.right" timestamp="1611579801396">
+    <state width="1398" height="399" key="GridCell.Tab.0.left/0.23.1440.836@0.23.1440.836" timestamp="1611581868369" />
+    <state width="1398" height="399" key="GridCell.Tab.0.right" timestamp="1611581868370">
       <screen x="0" y="23" width="1440" height="836" />
     </state>
-    <state width="1398" height="399" key="GridCell.Tab.0.right/0.23.1440.836@0.23.1440.836" timestamp="1611579801396" />
+    <state width="1398" height="399" key="GridCell.Tab.0.right/0.23.1440.836@0.23.1440.836" timestamp="1611581868370" />
   </component>
 </project>

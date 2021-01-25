@@ -18,8 +18,45 @@ public class Agenda {
 
     // métodos
 
-    public void agregarPersona(Persona persona){
-        this.listaPersonas.add(persona);
+    /*public void agregarPersona(Persona persona){
+
+        boolean existe = false;
+
+        for (Persona personaItem : listaPersonas ) {
+            if (personaItem.getDni().toLowerCase().equals(persona.getDni().toLowerCase())){
+                existe = true;
+                System.out.println("No se puede agregar, ya hay una persona");
+                break;
+            }
+        }
+
+        if (!existe){
+            this.listaPersonas.add(persona);
+        } /*else{
+            System.out.println("No se puede agregar, ya hay una persona");
+        }
+
+    }*/
+
+    public boolean agregarPersona(Persona persona){
+
+        boolean existe = false;
+
+        for (Persona personaItem : listaPersonas ) {
+            if (personaItem.getDni().toLowerCase().equals(persona.getDni().toLowerCase())){
+                existe = true;
+                //System.out.println("No se puede agregar, ya hay una persona");
+                break;
+            }
+        }
+
+        if (!existe){
+            this.listaPersonas.add(persona);
+        } /*else{
+            System.out.println("No se puede agregar, ya hay una persona");
+        }*/
+        return existe;
+
     }
 
     public void borrarPersona(String dni){

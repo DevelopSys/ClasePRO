@@ -15,17 +15,25 @@ public class Entrada {
         agenda.agregarPersona(new Persona("Borja","123A",123));
         agenda.agregarPersona(new Persona("Celia","234B",123));
 
-        agenda.listarPersonas();
+        String dni;
+        do{
+            Scanner teclado = new Scanner(System.in);
+            dni = teclado.next();
+        } while (agenda.agregarPersona(new Persona("ASdasd",dni,123)));
 
+
+
+
+        //agenda.agregarPersona(new Persona("Celia","234B",123)); // true
+
+        //agenda.listarPersonas();
         //System.out.println(agenda.getListaPersonas().size());
         //agenda.borrarPersona("234B");
         //System.out.println(agenda.getListaPersonas().size());
         //agenda.buscarPersona("123A");
-        agenda.editarPersona("123A");
-
-        System.out.println("Nuevo listado.......");
-
-        agenda.listarPersonas();
+        //agenda.editarPersona("123A");
+        //System.out.println("Nuevo listado.......");
+        //agenda.listarPersonas();
 
 
     }
