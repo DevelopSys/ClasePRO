@@ -82,6 +82,74 @@ Desarrollar una clase llamada Entrada que en su método main:
 
 **Es muy parecido al ejercicio de arraylist que guardaba array de Object. En este caso se guardan en el arraylist o hashtable objetos de tipo persona**
 
+3. (Cajero Base)
+
+Realizar una aplicación que permita manejar el funcionamiento de un cajero. Para ello los requisitos que se marcan son los siguientes:
+
+- El programa tiene la capacidad de manejar las cuentas de dos bancos (BBVA y Santander). Cada banco tiene un nombre, un cif y un conjunto de cuentas
+- En cada banco los clientes pueden hacer la siguiente funcionalidad: abrir una cuenta (para lo que necesitan un dni y un saldo inicial) y cancelar una cuenta (para lo que necesitarán indicar su dni y el pin de la cuenta -la cuenta quedará eliminada del banco-)
+- Una cuenta siempre tendrá asociado un dni, un pin con el que poder operar y un saldo. Las operaciones que se pueden hacer sobre esta cuenta son: ingresar dinero (el sistema no deberá permitir ingresar un saldo negativo), sacar dinero (el sistema no deberá permitir sacar dinero si la cuenta se va a quedar en números rojos), ver un resumen de los datos de la cuelta. Para todas las operaciones a realizar sobre la cuenta el sistema pediná dni del titular - pin asociado, permitiendo la operacion si ambos son correctos.
+
+Antes de empezar a programar indica cuales son las clases, métodos, constructores y variables que tiene que tener el programa, justificando la existencia de cada una de ellas
+
+El sistema estará compuesto por un menú inicial que tendrá el siguiente aspecto
+
+````
+1 Introduce el banco con el que quieres operar
+	1. BBVA
+	2. Santander
+	
+--Seleccionado BBVA--
+1. Crear una cuenta
+2. Ingresar dinero
+3. Sacar dinero
+4. Ver cuentas de un cliente
+5. Ver todas las cuentas
+Que quieres hacer:
+
+
+-- Seleccionado crear cuenta
+Introduce DNI de titular
+Introduce pin asociado 
+Introduce saldo inicial
+--- Cuenta creada correctamente ---
+
+-- Seleccionado ingresar dinero
+Introduce DNI de titular
+Introduce pin asociado 
+Introduce saldo a ingresar
+--- Dinero ingresado correctamente ---
+
+-- Seleccionado sacar dinero
+Introduce DNI de titular
+Introduce pin asociado 
+Introduce saldo a sacar
+--- Dinero sacado correctamente ---
+
+-- Seleccionado ver cuentas cliente
+Introduce DNI de titular
+Las cuentas asociadas del cuente con DNI XXXXXXXX son:
+ISBN: xxxxxxx
+Saldo: xxxxxxx
+ISBN: xxxxxxx
+Saldo: xxxxxxx
+ISBN: xxxxxxx
+Saldo: xxxxxxx
+--- Listadas cuentas cliente correctamente ---
+
+-- Seleccionado ver cuentas del banco
+
+Las cuentas que tiene el banco son:
+ISBN: xxxxxxx
+Saldo: xxxxxxx
+ISBN: xxxxxxx
+Saldo: xxxxxxx
+ISBN: xxxxxxx
+Saldo: xxxxxxx
+--- Listadas cuentas correctamente ---
+````
+
+
 4. (Carrera)
 
 Desarrollar una clase Coche que tenga las siguientes características:
