@@ -87,7 +87,7 @@ Desarrollar una clase llamada Entrada que en su método main:
 Realizar una aplicación que permita manejar el funcionamiento de un cajero. Para ello los requisitos que se marcan son los siguientes:
 
 - El programa tiene la capacidad de manejar las cuentas de dos bancos (BBVA y Santander). Cada banco tiene un nombre, un cif y un conjunto de cuentas
-- En cada banco los clientes pueden hacer la siguiente funcionalidad: abrir una cuenta (para lo que necesitan un dni y un saldo inicial) y cancelar una cuenta (para lo que necesitarán indicar su dni y el pin de la cuenta -la cuenta quedará eliminada del banco-)
+- En cada banco los clientes pueden hacer la siguiente funcionalidad: abrir una cuenta (para lo que necesitan un dni, un pin y un saldo inicial) y cancelar una cuenta (para lo que necesitarán indicar su dni y el pin de la cuenta -la cuenta quedará eliminada del banco-)
 - Una cuenta siempre tendrá asociado un dni, un pin con el que poder operar y un saldo. Las operaciones que se pueden hacer sobre esta cuenta son: ingresar dinero (el sistema no deberá permitir ingresar un saldo negativo), sacar dinero (el sistema no deberá permitir sacar dinero si la cuenta se va a quedar en números rojos), ver un resumen de los datos de la cuelta. Para todas las operaciones a realizar sobre la cuenta el sistema pediná dni del titular - pin asociado, permitiendo la operacion si ambos son correctos.
 
 Antes de empezar a programar indica cuales son las clases, métodos, constructores y variables que tiene que tener el programa, justificando la existencia de cada una de ellas
