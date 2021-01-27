@@ -12,14 +12,29 @@ public class Entrada {
         Agenda agenda = new Agenda(); // tengo la posibilidad de acceder a sus propiedades, donde una de ellas
         // es el arraylist
         //System.out.println(agenda.getListaPersonas().size());
-        agenda.agregarPersona(new Persona("Borja","123A",123));
-        agenda.agregarPersona(new Persona("Celia","234B",123));
 
-        String dni;
+        agenda.listarPersonas();
+
+        agenda.agregarPersona(new Persona("Borja","123A",123)); // false
+        agenda.agregarPersona(new Persona("Celia","234B",123)); // false
+
+        // agenda.agregarPersona(new Persona("ASdasd","234B",123)); // true
+        // necesito que se introduzca una persona si o si: hasta que no la introduzcas, insiste
+        String dni, nombre;
+        int telefono;
+        boolean existePersona;
         do{
             Scanner teclado = new Scanner(System.in);
+            System.out.println("Introduce nombre");
+            nombre = teclado.next();
+            System.out.println("Introduce telenodo");
+            telefono = teclado.nextInt();
+            System.out.println("Introduce dni de la persona");
             dni = teclado.next();
-        } while (agenda.agregarPersona(new Persona("ASdasd",dni,123)));
+            // dni 123A // true
+            existePersona = agenda.agregarPersona(new Persona(nombre,dni,telefono));
+
+        } while (existePersona);
 
 
 
