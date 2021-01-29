@@ -20,9 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e3000f33-5d95-45a9-9b2b-392cd39c02f2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/ejercicios/ejerciciocajero/Banco.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ejercicios/ejerciciocajero/Cuenta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ejercicios/ejerciciocajero/Entrada.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ejercicios/ejercicioAgenda/Agenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ejercicios/ejercicioAgenda/Agenda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ejercicios/ejercicioAgenda/Entrada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ejercicios/ejercicioAgenda/Entrada.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,20 +72,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Entrada (5)">
-    <configuration name="Entrada (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ejercicios.ejerciciodos.Entrada" />
-      <module name="T05_IntroPOO" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ejercicios.ejerciciodos.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.Entrada">
     <configuration name="Entrada (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ejercicios.ejercicioTrigonometria.Entrada" />
       <module name="T05_IntroPOO" />
@@ -137,13 +125,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Entrada" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ejercicios.ejerciciocajero.Entrada" />
+      <module name="T05_IntroPOO" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ejercicios.ejerciciocajero.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Entrada" />
         <item itemvalue="Application.Entrada (5)" />
         <item itemvalue="Application.Entrada (4)" />
         <item itemvalue="Application.Entrada (3)" />
         <item itemvalue="Application.Entrada (2)" />
-        <item itemvalue="Application.Entrada (1)" />
       </list>
     </recent_temporary>
   </component>
