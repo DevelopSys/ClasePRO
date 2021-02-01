@@ -247,6 +247,17 @@ Modificar la clase Equipo para que tenga:
 - Un método que no devuelva nada y que pida por parámetros un objeto de tipo jugador. El método agregará a la lista de jugadores el pasado por parámetros
 - Un método que sea listarDelateros que no devuelva nada y muestre por consola los datos de los delantros
 
+Crear una clase partido que tenga los siguientes atributos;
+- Dos atributos de tipo equipo
+- un atibuto de tipo boolean. Representa si el partido se esta jugando o está terminado
+- un atributo de tipo int. Representa en que parte está
+- Un constructor con los dos equipos pasados por parámetros
+- Un método iniciarPartido: realiza tres ataques por cada parte
+- Un método mostrarResultado: muestra el resultado final del partido: EquipoA  XX - Equipo B XX 
+
+Implementar una funcionalidad para:
+
+- Cuando un equipo ataca marcará gol cuando su método atacar sea true y su niven de ataque sea mayor que el nivel de defensa del contrario
 	
 7. (ConsumicionAplicacion) 
 
