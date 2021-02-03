@@ -1,9 +1,13 @@
 package ejercicios.ejercicioEquipo;
 
+
+import java.util.ArrayList;
+
 public class Equipo {
 
     private int nivelAtaque, nivelDefensa, nivelCentro, numeroGoles;
     private String nombre;
+    private ArrayList<Jugador> plantilla;
 
     public Equipo(String nombre){
         //this.numeroGoles = 0;
@@ -11,6 +15,7 @@ public class Equipo {
         this.nivelAtaque = (int)(Math.random()*101);
         this.nivelDefensa = (int)(Math.random()*101);
         this.nivelCentro= (int)(Math.random()*101);
+        plantilla = new ArrayList<>();
     }
 
     public Equipo (String nombre, int nivelAtaque, int nivelCentro, int nivelDefensa){
@@ -18,13 +23,36 @@ public class Equipo {
         this.nivelCentro = nivelCentro;
         this.nivelDefensa = nivelDefensa;
         this.nivelAtaque = nivelAtaque;
+        plantilla = new ArrayList<>();
     }
+
+    public void ficharJugador(Jugador jugador){
+        this.plantilla.add(jugador);
+    }
+
+    public void listarEstrellas(){
+        for ( Jugador jugador : plantilla ) {
+            if (jugador.isEstrella()){
+                jugador.mostrarDatos();
+            }
+        }
+    }
+
+    public void listarDelanteros(){
+        for ( Jugador jugador : plantilla ) {
+            if (jugador.getPosicion().toLowerCase().equals("delantero")){
+                jugador.mostrarDatos();
+            }
+        }
+    }
+
 
     public boolean atacar(){
 
         // (nivelAtaque * (aleatorio entre 0-1) + (nivelCentro * aleatorio entre 0-1)/2 > 90
         if ((this.nivelAtaque *(int) (Math.random()*2)) + ((this.nivelCentro * (int) (Math.random()*2))/2) > 70){
-            numeroGoles++;
+            //System.out.println("Gol del "+nombre);
+            //numeroGoles++;
             return true;
         }
         return false;

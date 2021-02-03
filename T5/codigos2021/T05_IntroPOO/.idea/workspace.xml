@@ -20,12 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e3000f33-5d95-45a9-9b2b-392cd39c02f2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ejercicios/ejercicioCarrera/Coche.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ejercicios/ejercicioCarrera/Entrada.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ejercicios/ejercicioCarrera/EntradaCarrera.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ejercicios/ejercicioEquipo/Entrada.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ejercicios/ejercicioEquipo/Equipo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ejercicios/ejercicioEquipo/Jugador.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ejercicios/ejercicioEquipo/Partido.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/T05_IntroPOO/ejercicios/ejercicioEquipo/Entrada.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/T05_IntroPOO/ejercicios/ejercicioEquipo/Entrada.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/T05_IntroPOO/ejercicios/ejercicioEquipo/Equipo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/T05_IntroPOO/ejercicios/ejercicioEquipo/Equipo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ejercicios/ejercicioEquipo/Entrada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ejercicios/ejercicioEquipo/Entrada.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ejercicios/ejercicioEquipo/Equipo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ejercicios/ejercicioEquipo/Equipo.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
