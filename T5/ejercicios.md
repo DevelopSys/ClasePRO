@@ -261,7 +261,7 @@ Implementar una funcionalidad para:
 	
 7. (ConsumicionAplicacion) 
 
-Créese una clase de nombre “Cuenta” que permita realizar pedidos. Para eso crea una clase "consumición "Cuenta"" que tenga los siguientes métodos y atributos:
+Créese una clase de nombre “Cuenta” que permita realizar pedidos que tenga los siguientes métodos y atributos:
 
 - Tendrá un atributo de tipo int "Identificador"
 - Tendrá un atributo de tipo boolean "Estado"
