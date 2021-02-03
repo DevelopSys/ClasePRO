@@ -266,6 +266,7 @@ Créese una clase de nombre “Cuenta” que permita realizar pedidos que tenga 
 - Tendrá un atributo de tipo int "Identificador"
 - Tendrá un atributo de tipo boolean "Estado"
 - Tendrá un atributo de tipo "ArrayList" donde se guardarán Artículos
+- Crear un constructor que pida el identificador.
 - Crear un método que permita agregar un artículo a la lista
 - Crear un método que retorne el número de artículos que tiene la consumición 
 - Crear un método que retorne el coste total de la consumición.
