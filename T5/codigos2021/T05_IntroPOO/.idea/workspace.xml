@@ -20,8 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e3000f33-5d95-45a9-9b2b-392cd39c02f2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ejercicios/EjercicioConsumicion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ejercicios/ejercicioConsumicion/Articulo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ejercicios/ejercicioConsumicion/Cuenta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ejercicios/ejercicioConsumicion/Entrada.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ejercicios/EjercicioConsumicion.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,6 +54,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
@@ -70,7 +74,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Entrada (2)">
+  <component name="RunManager" selected="Application.Entrada (3)">
     <configuration name="Entrada (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ejercicios.ejercicioCarrera.Entrada" />
       <module name="T05_IntroPOO" />
@@ -97,12 +101,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Entrada (5)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ejercicios.ejercicioAgenda.Entrada" />
+    <configuration name="Entrada (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ejercicios.ejercicioConsumicion.Entrada" />
       <module name="T05_IntroPOO" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ejercicios.ejercicioAgenda.*" />
+          <option name="PATTERN" value="ejercicios.ejercicioConsumicion.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -138,11 +142,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Entrada (3)" />
         <item itemvalue="Application.Entrada (2)" />
         <item itemvalue="Application.EntradaCarrera" />
         <item itemvalue="Application.Entrada (1)" />
         <item itemvalue="Application.Entrada" />
-        <item itemvalue="Application.Entrada (5)" />
       </list>
     </recent_temporary>
   </component>
