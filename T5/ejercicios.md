@@ -338,7 +338,7 @@ Crear una clase entrada que tenga:
 - Agregar los tres surtidores a la gasolinera   
 - Crear un coche con tipo de gasolina 
 - Ejecutar el método ponerGasolina del coche (respotando una cantidad concreta). 
-	- Prueba todas las convinanciones para comprobar los posibles fallos del método.
+	- Prueba todas las combinación para comprobar los posibles fallos del método.
 
 10. (IMC)
 
