@@ -16,6 +16,7 @@ public class Entrada {
         jugador1.recargarDinero(3);
         jugador1.comprarCarton(1,3);
         jugador1.mostrarCartones();
+        
 
     }
 }
