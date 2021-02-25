@@ -6,15 +6,15 @@ public abstract class Figura {
     protected double area;
 
     // constructor
-   public Figura(){
+    public Figura() {
 
     }
 
     // metodos
     public abstract double calcularArea();
 
-    public void mostrarDatos(){
-        System.out.println("Area "+area);
+    public void mostrarDatos() {
+        System.out.println("Area " + area);
     }
 
     public double getArea() {
