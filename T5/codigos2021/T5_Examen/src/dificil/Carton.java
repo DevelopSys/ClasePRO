@@ -42,6 +42,7 @@ public class Carton {
        listaNumeros = new ArrayList<>();
        // generar 10 números únicos del 1 al 99
         rellenarCarton();
+        aciertos =0;
     }
 
     private void rellenarCarton(){
@@ -67,6 +68,7 @@ public class Carton {
 
         for (int num : listaNumeros) {
             if (num == numero){
+                aciertos++;
                 return true;
             }
         }

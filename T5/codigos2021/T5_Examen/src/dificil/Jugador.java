@@ -42,4 +42,23 @@ public class Jugador {
         }
     }
 
+    public String getDni() {
+        return dni;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public ArrayList<Carton> getListaCartones() {
+        return listaCartones;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public boolean isGanador() {
+        return ganador;
+    }
 }
