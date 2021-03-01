@@ -1,13 +1,17 @@
 package explicacion;
 
-public final class Deportivo extends Coche{
+import java.awt.*;
+
+public class Deportivo extends Coche{
 
     // marca cv bastido
     private int par;
+    Point punto;
 
     public Deportivo(String marca, int cv, int bastidor) {
         super(marca, cv, bastidor);
         this.par = 200;
+
     }
 
     public Deportivo(String marca, int cv, int bastidor, int par){
@@ -32,8 +36,7 @@ public final class Deportivo extends Coche{
 
     }
 
-    @Override
-    public void mostrarDatos() {
+    public void mostrarDatos(String elemento) {
         super.mostrarDatos();
         System.out.println("Par "+par);
     }
