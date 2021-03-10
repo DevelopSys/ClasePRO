@@ -1,11 +1,15 @@
 package ejercicios.ejercicioTrabajadoresInterfaz;
 
-public abstract class Directivo extends Persona {
+public final class Jefe extends Trabajador implements Responsable{
 
-    protected int beneficio;
-    public Directivo(){};
-    public Directivo(String dni, String nombre, String apellido, int beneficio) {
-        super(dni, nombre, apellido);
+    private int beneficio;
+
+    public Jefe() {
+
+    }
+
+    public Jefe(String dni, String nombre, String apellido, int id, int sueldo, int beneficio) {
+        super(dni, nombre, apellido, id, sueldo);
         this.beneficio = beneficio;
     }
 
@@ -21,5 +25,10 @@ public abstract class Directivo extends Persona {
 
     public void setBeneficio(int beneficio) {
         this.beneficio = beneficio;
+    }
+
+    @Override
+    public double emitirVoto(int numero) {
+        return 0.25*numero;
     }
 }
