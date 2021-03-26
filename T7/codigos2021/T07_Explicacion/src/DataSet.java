@@ -1,6 +1,9 @@
+import javax.xml.crypto.Data;
 import java.util.ArrayList;
 
 public class DataSet {
+
+    ArrayList<Equipo> listaTotalEquipos;
 
     public static DataSet newInstance() {
         // desde el newIntance quiero que retorneis diectamente un conjunto de equipos
@@ -9,40 +12,68 @@ public class DataSet {
         return dataSet;
     }
 
-    public static ArrayList newInstanceEquipos() {
+    public DataSet(Equipo equipo){
+        listaTotalEquipos = new ArrayList<>();
+        listaTotalEquipos.add(equipo);
+    }
+
+    public DataSet(){
+        listaTotalEquipos = new ArrayList<>();
+        listaTotalEquipos.add(new Equipo("At. Madrid","españa", 1));
+        listaTotalEquipos.add(new Equipo("Fc. Barcelona","españa", 2));
+        listaTotalEquipos.add(new Equipo("Real Madrid","españa", 3));
+        listaTotalEquipos.add(new Equipo("Manchester","inglaterra", 1));
+        listaTotalEquipos.add(new Equipo("City","inglaterra", 2));
+        listaTotalEquipos.add(new Equipo("Arsenal", "inglaterra",3));
+        listaTotalEquipos.add(new Equipo("Milan","italia", 1));
+        listaTotalEquipos.add(new Equipo("Juventus","italia", 2));
+        listaTotalEquipos.add(new Equipo("Inter","italia", 3));
+    }
+
+
+    public void addEquipo(Equipo equipo){
+        listaTotalEquipos.add(equipo);
+    }
+
+    public static ArrayList<Equipo> newInstanceEquipos(String liga) {
         // desde el newIntance quiero que retorneis diectamente un conjunto de equipos
         // pedidos
-        ArrayList<Equipo> equipos = new DataSet().getEquiposEspania();
-        return equipos;
-    }
 
-    public ArrayList<Equipo> getEquiposEspania(){
+        ArrayList<Equipo> equipos = null;
 
-        ArrayList<Equipo> equipos = new ArrayList<>();
-        equipos.add(new Equipo("At. Madrid",1));
-        equipos.add(new Equipo("Fc. Barcelona",2));
-        equipos.add(new Equipo("Real Madrid",3));
+        /*switch (liga) {
+            case "españa":
+                equipos = new DataSet().getEquiposEspania();
+                break;
+            case "italia":
+                equipos = new DataSet().getEquiposItalia();
+                break;
+            case "inglaterra":
+                equipos = new DataSet().getEquiposInglaterra();
+                break;
+            default:
+                System.out.println("Liga no reconocida");
+                equipos = new ArrayList<>();
+        }*/
 
-        return equipos;
-    }
 
-    public ArrayList<Equipo> getEquiposInglaterra(){
-
-        ArrayList<Equipo> equipos = new ArrayList<>();
-        equipos.add(new Equipo("Manchester",1));
-        equipos.add(new Equipo("City",2));
-        equipos.add(new Equipo("Arsenal",3));
-
-        return equipos;
-    }
-
-    public ArrayList<Equipo> getEquiposItalia(){
-
-        ArrayList<Equipo> equipos = new ArrayList<>();
-        equipos.add(new Equipo("Milan",1));
-        equipos.add(new Equipo("Juventus",2));
-        equipos.add(new Equipo("Inter",3));
 
         return equipos;
     }
+
+    public ArrayList<Equipo> getEquiposFiltrados(String ligaFiltrar){
+
+        ArrayList<Equipo> equiposFiltrados = new ArrayList<>();
+
+        for (Equipo itemEquipo:listaTotalEquipos ) {
+            if (itemEquipo.getLiga().equals(ligaFiltrar)){
+                //System.out.println(itemEquipo.getNombre());
+                equiposFiltrados.add(itemEquipo);
+            }
+        }
+
+        return equiposFiltrados;
+    }
+
+
 }
