@@ -56,9 +56,10 @@ En la clase Entrada:
 3. (partido)
 
 Crea una clase Partido con las siguientes características:
+
 - equipoLocal y equipo visitante de tipo Equipo (clase anidada interna)
 - jugado booleano.
-- numeroGoles int
+- golesLocal, golesVisitante int
 
 Y los siguientes métodos
 - setter y getter
@@ -67,7 +68,6 @@ Y los siguientes métodos
 - mostrarResultado(): mostrará por pantalla un mensaje con el resultado actual del partido NombreVisitante: X - NombreLocal: X
 
 Crea una clase anidad Equipo con las siguientes características:
-- int golesEncuentro
 - int puntos
 - String nombre
 
