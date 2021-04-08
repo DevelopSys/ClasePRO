@@ -2,6 +2,8 @@ package anonimas;
 
 public class Entrada {
 
+
+
     public static void main(String[] args) {
 
         Garaje garaje = new Garaje();

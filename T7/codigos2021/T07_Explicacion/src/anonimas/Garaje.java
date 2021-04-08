@@ -7,6 +7,7 @@ public class Garaje {
     private ArrayList<Coche> listaCoches;
     private ArrayList<CocheNormal> listaCocheNormal;
 
+
     public Garaje() {
         listaCoches = new ArrayList<>();
     }
