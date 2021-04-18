@@ -18,6 +18,8 @@ public class Entrada {
         listaEquipos.add(getafe);
         Torneo torneo = new Torneo("La liga",listaEquipos);
         torneo.realizarSorteo();
+        torneo.mostrarClasificacion();
+
         //System.out.println(torneo.getListaParticipantes().size());
         //Torneo.Partido partido = torneo.new Partido();
         //Torneo.Equipo equipo = new Torneo.Equipo();
