@@ -1,7 +1,10 @@
 package genericos;
 
+import java.util.ArrayList;
+
 public interface InterfazGenerica<T,S> {
 
+    //ArrayList<T> lista = new ArrayList<>();
     //CREATE
     void agregarElemento(T elemento);
     //READ
