@@ -27,6 +27,7 @@ public final class Carne extends Alimento{
 
     @Override
     public int calcularPrecio() {
-        double precioTotal = (precio * IVA_ALIMENTO) * 0.5;
+        double precioTotal = ((precio * IVA_ALIMENTO) +this.precio) * 1.5;
+        return (int)precioTotal;
     }
 }

@@ -10,8 +10,16 @@ public class Supermercado<T extends Invetariable> {
         listaProductos = new ArrayList<>();
     }
 
+
+
     public void registrarProducto(T prducto){
         listaProductos.add(prducto);
+    }
+
+    public void calcularPrecioAn(T generico){
+        int precio = generico.calcularPrecio() * 4;
+
+        System.out.println(precio);
     }
 
     public void calcularPrecios(){
@@ -19,5 +27,7 @@ public class Supermercado<T extends Invetariable> {
         for (T itemProducto: listaProductos) {
             precioFinal += itemProducto.calcularPrecio();
         }
+
+        System.out.println("La cantidad valorada es: "+precioFinal);
     }
 }

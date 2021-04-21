@@ -28,6 +28,8 @@ public final class Lacteo extends Alimento{
 
     @Override
     public int calcularPrecio() {
-        double precioTotal = precio * IVA_ALIMENTO;
+
+        double precioTotal = (precio * IVA_ALIMENTO)+this.precio;
+        return (int)precioTotal;
     }
 }

@@ -16,4 +16,9 @@ public final class Silla extends Mueble{
         String mensaje = "Material: %s\nPeso: %d\nPrecio: %d\nPatas: %d\n";
         return String.format(mensaje,material, peso, precio, patas);
     }
+
+    @Override
+    public int calcularPrecio() {
+        return 0;
+    }
 }

@@ -19,4 +19,9 @@ public final class Mesa extends Mueble {
         return String.format(mensaje,material, peso, precio, capacidad);
 
     }
+
+    @Override
+    public int calcularPrecio() {
+        return 0;
+    }
 }

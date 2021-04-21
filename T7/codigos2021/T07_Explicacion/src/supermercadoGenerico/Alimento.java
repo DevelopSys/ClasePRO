@@ -1,19 +1,21 @@
 package supermercadoGenerico;
 
-public abstract class Alimento implements Invetariable {
+public abstract class Alimento extends Producto {
 
     protected String calidad, origen;
-    protected int precio;
 
     public Alimento(String calidad, String origen, int precio) {
+        super(precio);
+        //super();
         this.calidad = calidad;
         this.origen = origen;
-        this.precio = precio;
     }
 
     public Alimento(){}
 
-    public abstract String mostrarDatos();
+    public void miMetodo(){
+
+    }
 
     public String getCalidad() {
         return calidad;
@@ -38,4 +40,5 @@ public abstract class Alimento implements Invetariable {
     public void setPrecio(int precio) {
         this.precio = precio;
     }
+
 }
