@@ -135,3 +135,49 @@ Con la misma lógica que en el caso anterior.
 	14. Salir --> saldrá del sistema
 	
 **Cuando se pulse la opción de salir se preguntará al usuario si quiere exportar la lista de usuarios registrados. En caso de decir SI se generará un xl **
+
+Crear la aplicación que gestione la superliga de Florentino. Para ello es necesario que tengas las siguientes clases
+
+-	Equipo
+	- presupuesto
+	- nombre
+	- nacionalidad
+	- golesFavor
+	- golesContra
+-	Superliga
+	- Arraylist fundadores
+	- Arraylist invitados
+	- Arraylist partidos
+	- int bote: se sumarán 300000 por cada participante
+	- Persona presidente
+	La superliga podrá
+	- Realizar sorteo
+	- Jugar torneo completo: la mecánica será la misma de los ejercicios de los realizados a lo largo del curso
+	- Repartir premios: Una vez jugados todos los partidos, se repartirán los premios mediante la siguiente lógica:
+	- El ganador se llevará el 50% del bote
+	    - El subcampeón se llevará el 20% del bote
+	    - El resto de participantes se repartirán el resto del bote a partes iguales
+	- Clase anidad Partido
+	    - equipoLocal
+	    - equipoVisitante
+	    - golesLocal
+	    - golesVisitante
+-	Persona
+	- nombre
+	- nivelCorrupción
+	- sueldo
+-	Uefa
+	- Persona presidente
+	- Tendrá la posibilidad de cancelar la superliga. Para poder cancelar la superliga el nivel de corrupción del presidente de la uefa debe ser mayor que el de la superliga. En el caso de ser igual se incrementará un 20% el sueldo al presundente de la uefa y un 40% el sueldo del presidente de la superliga.
+
+La funcionalidad de la aplicación se realizará mediante un menú con las siguientes opciones.
+
+1.	Crear superliga: creará la superliga con los 12 equipos fundadores
+2.	Invitar equipos: pedirá un número de equipo a los que se quiere invitar y los sacará del DataSet
+3.	Realizar sorteo
+4.	Jugar partidos: cada vez que se juegue un partido se escribirá en un fichero llamado partidos.txt
+5.	Exportar clasificación
+6.	Importar clasificación
+7.	Boicotear superliga
+8.	Salir
+
