@@ -136,7 +136,7 @@ Con la misma lógica que en el caso anterior.
 	
 **Cuando se pulse la opción de salir se preguntará al usuario si quiere exportar la lista de usuarios registrados. En caso de decir SI se generará un xl **
 
-Crear la aplicación que gestione la superliga de Florentino. Para ello es necesario que tengas las siguientes clases
+(superliga) Crear la aplicación que gestione la superliga de Florentino. Para ello es necesario que tengas las siguientes clases
 
 -	Equipo
 	- presupuesto
