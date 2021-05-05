@@ -1,1 +1,1 @@
-esto es un ejemplo de lectura
+esto es un ejemplo de lectura de un fichero txt

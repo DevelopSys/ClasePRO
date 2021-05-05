@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.IOException;
 
 public class EntradaFicheros {
@@ -7,12 +8,18 @@ public class EntradaFicheros {
         //operaciones.iniciarFicheros();
         //operaciones.leerDirectorio();
 
-        try {
+        /*try {
             operaciones.crearCarpeta();
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
 
+        //operaciones.listarDirectorio(new File("/Users/borjam/Desktop/repaso angular"),0);
+        try {
+            operaciones.leerFichero();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 }
