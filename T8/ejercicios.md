@@ -112,10 +112,51 @@ Carpeta subdirectorio2 con contenido:
 3 - Subdirectorio22
 Que quieres ver: (pedido por teclado)
 
-Con la misma lógica que en el caso anterior.
-
 **Opcional: incluir una opción en todos los menús que sea Volver Atrás, la cual mostrará todo el contenido del directorio padre**
 
+
+10. (lecturajson) Crea un archivo .txt que tenga la siguiente estructura
+
+````
+{nombre:"Borja", apellido:"Martin", edad:18, profesion: "profesor", aficciones: ["deporte","cine","musica","tecnología"]}
+````
+Lee el fichero txt y convierte su contenido en un objeto de tipo json con la librería correspondiente. 
+    - Muestra por consola solo el nombre y apellido. Muestra 
+    - Muestra por consolo cada una de las profesiones en lineas diferentes
+
+10. (lecturaObjetosJson) Crea un archivo .txt que tenga la siguiente estructura
+
+````
+{alumnos:[{nombre:"Sergio", apellido: "Gomez", edad:20}, {nombre:"Daniel", apellido: "Jimenez", edad:24},{nombre: "Jorge", apellido: "Sánchez", edad: 21},{nombre:"Cristina", apellido:"García", edad:25}], curso:"Desarrollo de Aplicacciones Multiplataforma,siglas:"DAM", nivel:1}
+````
+
+    - Lee el fichero y conviertelo en un objeto de tipo Json con la librería correspondiente
+    - Muestra por pantalla todos los datos de los alumnos uno a uno
+    - Muestra por pantalla solo los alumnos que tengan al menos 20 años
+
+10. (lecturaCompletaJSON) Coge el contenido del siguiente link y pégalo en un txt. 
+    - Lee el fichero y conviertelo en un objeto de tipo Json con la librería correspondiente
+    - Muestra todos los partidos del fichero con el siguiente formato:  Equipo1 X - Equipo2 X
+    - Crea método que pida por parámetros el nombre de un equipo y que muestre solo los partidos de dicho equipo. También sacará un resumen de cuantos goles a favor y en contra a obtenido
+    - Muestra por consola todos los partidos del json con el siguiente formato
+````
+Partido 1 Equipo1 vs Equipo2
+	Resultado: Equipo1 X Equipo2 X
+	Alineación Local : 
+		Jugador1 
+		Jugador2 Jugador3 Jugador4 Jugador5  
+		Jugador6 Jugador7 Jugador8
+		Jugador9 Jugador10 Jugador11
+	Cambios: Jugador1 Jugador2 Jugador3
+
+	Alineación visitante : 
+		Jugador1 
+		Jugador2 Jugador3 Jugador4 Jugador5  
+		Jugador6 Jugador7 Jugador8
+		Jugador9 Jugador10 Jugador11
+	Cambios: Jugador1 Jugador2 Jugador3
+
+````
 10. (ListaObjetos) Crea un programa de gestión de usuarios que tendrán nombre, apellido y teléfono. Para ellos mediante un menú se podrá:
 
 	a. Agregar usuarios --> se pedirán por teclado
@@ -135,3 +176,49 @@ Con la misma lógica que en el caso anterior.
 	14. Salir --> saldrá del sistema
 	
 **Cuando se pulse la opción de salir se preguntará al usuario si quiere exportar la lista de usuarios registrados. En caso de decir SI se generará un xl **
+
+(superliga) Crear la aplicación que gestione la superliga de Florentino. Para ello es necesario que tengas las siguientes clases
+
+-	Equipo
+	- presupuesto
+	- nombre
+	- nacionalidad
+	- golesFavor
+	- golesContra
+-	Superliga
+	- Arraylist fundadores
+	- Arraylist invitados
+	- Arraylist partidos
+	- int bote: se sumarán 300000 por cada participante
+	- Persona presidente
+	La superliga podrá
+	- Realizar sorteo
+	- Jugar torneo completo: la mecánica será la misma de los ejercicios de los realizados a lo largo del curso
+	- Repartir premios: Una vez jugados todos los partidos, se repartirán los premios mediante la siguiente lógica:
+	- El ganador se llevará el 50% del bote
+	    - El subcampeón se llevará el 20% del bote
+	    - El resto de participantes se repartirán el resto del bote a partes iguales
+	- Clase anidad Partido
+	    - equipoLocal
+	    - equipoVisitante
+	    - golesLocal
+	    - golesVisitante
+-	Persona
+	- nombre
+	- nivelCorrupción
+	- sueldo
+-	Uefa
+	- Persona presidente
+	- Tendrá la posibilidad de cancelar la superliga. Para poder cancelar la superliga el nivel de corrupción del presidente de la uefa debe ser mayor que el de la superliga. En el caso de ser igual se incrementará un 20% el sueldo al presundente de la uefa y un 40% el sueldo del presidente de la superliga.
+
+La funcionalidad de la aplicación se realizará mediante un menú con las siguientes opciones.
+
+1.	Crear superliga: creará la superliga con los 12 equipos fundadores
+2.	Invitar equipos: pedirá un número de equipo a los que se quiere invitar y los sacará del DataSet
+3.	Realizar sorteo
+4.	Jugar partidos: cada vez que se juegue un partido se escribirá en un fichero llamado partidos.txt
+5.	Exportar clasificación
+6.	Importar clasificación
+7.	Boicotear superliga
+8.	Salir
+
