@@ -112,6 +112,9 @@ Carpeta subdirectorio2 con contenido:
 3 - Subdirectorio22
 Que quieres ver: (pedido por teclado)
 
+**Opcional: incluir una opción en todos los menús que sea Volver Atrás, la cual mostrará todo el contenido del directorio padre**
+
+
 10. (lecturajson) Crea un archivo .txt que tenga la siguiente estructura
 
 ````
@@ -154,12 +157,6 @@ Partido 1 Equipo1 vs Equipo2
 	Cambios: Jugador1 Jugador2 Jugador3
 
 ````
-
-
-Con la misma lógica que en el caso anterior.
-
-**Opcional: incluir una opción en todos los menús que sea Volver Atrás, la cual mostrará todo el contenido del directorio padre**
-
 10. (ListaObjetos) Crea un programa de gestión de usuarios que tendrán nombre, apellido y teléfono. Para ellos mediante un menú se podrá:
 
 	a. Agregar usuarios --> se pedirán por teclado
