@@ -112,6 +112,50 @@ Carpeta subdirectorio2 con contenido:
 3 - Subdirectorio22
 Que quieres ver: (pedido por teclado)
 
+10. (lecturajson) Crea un archivo .txt que tenga la siguiente estructura
+
+````
+{nombre:"Borja", apellido:"Martin", edad:18, profesion: "profesor", aficciones: ["deporte","cine","musica","tecnología"]}
+````
+Lee el fichero txt y convierte su contenido en un objeto de tipo json con la librería correspondiente. 
+    - Muestra por consola solo el nombre y apellido. Muestra 
+    - Muestra por consolo cada una de las profesiones en lineas diferentes
+
+10. (lecturaObjetosJson) Crea un archivo .txt que tenga la siguiente estructura
+
+````
+{alumnos:[{nombre:"Sergio", apellido: "Gomez", edad:20}, {nombre:"Daniel", apellido: "Jimenez", edad:24},{nombre: "Jorge", apellido: "Sánchez", edad: 21},{nombre:"Cristina", apellido:"García", edad:25}], curso:"Desarrollo de Aplicacciones Multiplataforma,siglas:"DAM", nivel:1}
+````
+
+    - Lee el fichero y conviertelo en un objeto de tipo Json con la librería correspondiente
+    - Muestra por pantalla todos los datos de los alumnos uno a uno
+    - Muestra por pantalla solo los alumnos que tengan al menos 20 años
+
+10. (lecturaCompletaJSON) Coge el contenido del siguiente link y pégalo en un txt. 
+    - Lee el fichero y conviertelo en un objeto de tipo Json con la librería correspondiente
+    - Muestra todos los partidos del fichero con el siguiente formato:  Equipo1 X - Equipo2 X
+    - Crea método que pida por parámetros el nombre de un equipo y que muestre solo los partidos de dicho equipo. También sacará un resumen de cuantos goles a favor y en contra a obtenido
+    - Muestra por consola todos los partidos del json con el siguiente formato
+````
+Partido 1 Equipo1 vs Equipo2
+	Resultado: Equipo1 X Equipo2 X
+	Alineación Local : 
+		Jugador1 
+		Jugador2 Jugador3 Jugador4 Jugador5  
+		Jugador6 Jugador7 Jugador8
+		Jugador9 Jugador10 Jugador11
+	Cambios: Jugador1 Jugador2 Jugador3
+
+	Alineación visitante : 
+		Jugador1 
+		Jugador2 Jugador3 Jugador4 Jugador5  
+		Jugador6 Jugador7 Jugador8
+		Jugador9 Jugador10 Jugador11
+	Cambios: Jugador1 Jugador2 Jugador3
+
+````
+
+
 Con la misma lógica que en el caso anterior.
 
 **Opcional: incluir una opción en todos los menús que sea Volver Atrás, la cual mostrará todo el contenido del directorio padre**
