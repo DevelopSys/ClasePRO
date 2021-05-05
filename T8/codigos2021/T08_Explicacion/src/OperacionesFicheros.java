@@ -1,3 +1,9 @@
+
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.*;
 
 public class OperacionesFicheros {
@@ -33,7 +39,6 @@ public class OperacionesFicheros {
             System.out.println("No es un directorio");
         }
     }
-
     public void listarDirectorio(File file, int tabulaciones) {
 
         int contador = tabulaciones;
@@ -54,7 +59,6 @@ public class OperacionesFicheros {
             }
         }
     }
-
     public void crearCarpeta() throws IOException {
         System.out.println("Introduce el nombre de la carpeta a crear");
         BufferedReader lectura = new BufferedReader(new InputStreamReader(System.in));
@@ -62,7 +66,6 @@ public class OperacionesFicheros {
         File file = new File("/Users/borjam/Desktop/" + nombre + ".txt");
         file.mkdir();
     }
-
     public void getPArentFile() {
         File file = new File("/Users/borjam/Desktop");
         file.getParentFile().listFiles();
@@ -98,6 +101,81 @@ public class OperacionesFicheros {
             System.out.println("Fichero no encontrado o sin permisos");
         }
 
+    }
+    public void lecturaRepaso(){
+        File file = new File("src/resources/lectura.txt");
+        FileReader fileReader = null;
+        try {
+            fileReader = new FileReader(file);
+            // int ASCII
+            int asciCode=0;
+            String lectura="";
+            // asigna al asciCode del cabezal y lo compara con -1
+            // asciCode != -1
+            while ((asciCode = fileReader.read())!=-1){
+
+                System.out.print((char) asciCode);
+                lectura+=(char)asciCode;
+            }
+            // quiero el contenido entero de la lectura
+            System.out.println();
+            System.out.println("Impresion entera");
+            System.out.println(lectura);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                fileReader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void lecturaJSON(){
+        File file = new File("src/resources/lecturaJSON.txt");
+        String lecturaJSON="";
+        int numeroLectura=0;
+        FileReader fileReader = null;
+        try {
+            fileReader = new FileReader(file);
+            while ((numeroLectura = fileReader.read())!=-1){
+                lecturaJSON += (char)numeroLectura;
+            }
+            JSONObject jsonObject = new JSONObject(lecturaJSON);
+            System.out.println(jsonObject);
+            JSONArray hijos = jsonObject.getJSONArray("hijos");
+            for (int i = 0; i < hijos.length() ; i++) {
+                JSONObject objetoHijo = hijos.getJSONObject(i);
+                String nombre = objetoHijo.getString("nombre");
+                System.out.println(nombre);
+            }
+
+
+
+            //System.out.println(lecturaJSON);
+            /*String nombre = jsonObject.getString("nombre");
+            int edad = jsonObject.getInt("edad");
+            JSONArray aficiones = jsonObject.getJSONArray("aficiones");
+            System.out.println(nombre);
+            System.out.println(edad);
+            //System.out.println(aficiones);
+            for (int i = 0; i < aficiones.length(); i++) {
+                System.out.println(aficiones.get(i));
+            }*/
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            //System.out.println("Error en la creacion del JSON");
+            e.printStackTrace();
+        }
     }
 
 }

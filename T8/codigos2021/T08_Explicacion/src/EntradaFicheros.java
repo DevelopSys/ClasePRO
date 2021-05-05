@@ -15,11 +15,14 @@ public class EntradaFicheros {
         }*/
 
         //operaciones.listarDirectorio(new File("/Users/borjam/Desktop/repaso angular"),0);
-        try {
+        /*try {
             operaciones.leerFichero();
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
+
+        //operaciones.lecturaRepaso();
+        operaciones.lecturaJSON();
 
     }
 }
