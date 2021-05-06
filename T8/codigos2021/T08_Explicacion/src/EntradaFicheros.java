@@ -22,7 +22,7 @@ public class EntradaFicheros {
         }*/
 
         //operaciones.lecturaRepaso();
-        operaciones.lecturaJSON();
+        operaciones.lecturaClaves();
 
     }
 }

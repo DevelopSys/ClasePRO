@@ -1,5 +1,7 @@
 import org.json.*;
+
 import java.io.*;
+import java.util.Iterator;
 
 public class OperacionesFicheros {
 
@@ -34,6 +36,7 @@ public class OperacionesFicheros {
             System.out.println("No es un directorio");
         }
     }
+
     public void listarDirectorio(File file, int tabulaciones) {
 
         int contador = tabulaciones;
@@ -54,6 +57,7 @@ public class OperacionesFicheros {
             }
         }
     }
+
     public void crearCarpeta() throws IOException {
         System.out.println("Introduce el nombre de la carpeta a crear");
         BufferedReader lectura = new BufferedReader(new InputStreamReader(System.in));
@@ -61,10 +65,12 @@ public class OperacionesFicheros {
         File file = new File("/Users/borjam/Desktop/" + nombre + ".txt");
         file.mkdir();
     }
+
     public void getPArentFile() {
         File file = new File("/Users/borjam/Desktop");
         file.getParentFile().listFiles();
     }
+
     public void leerFichero() throws IOException {
         File file = new File("src/resources/lectura.txt");
         //System.out.println(file.isFile());
@@ -81,13 +87,13 @@ public class OperacionesFicheros {
 
             }while (numeroChar!=-1);*/
 
-            numeroChar =0;
+            numeroChar = 0;
             String palabraCompleta = "";
-            while ((numeroChar = lectorFichero.read())!=-1){
+            while ((numeroChar = lectorFichero.read()) != -1) {
                 //numeroChar = lectorFichero.read();
                 System.out.println(numeroChar);
                 //System.out.println((char) numeroChar);
-                palabraCompleta += (char)numeroChar;
+                palabraCompleta += (char) numeroChar;
             }
             System.out.println(palabraCompleta);
 
@@ -97,20 +103,21 @@ public class OperacionesFicheros {
         }
 
     }
-    public void lecturaRepaso(){
+
+    public void lecturaRepaso() {
         File file = new File("src/resources/lectura.txt");
         FileReader fileReader = null;
         try {
             fileReader = new FileReader(file);
             // int ASCII
-            int asciCode=0;
-            String lectura="";
+            int asciCode = 0;
+            String lectura = "";
             // asigna al asciCode del cabezal y lo compara con -1
             // asciCode != -1
-            while ((asciCode = fileReader.read())!=-1){
+            while ((asciCode = fileReader.read()) != -1) {
 
                 System.out.print((char) asciCode);
-                lectura+=(char)asciCode;
+                lectura += (char) asciCode;
             }
             // quiero el contenido entero de la lectura
             System.out.println();
@@ -130,15 +137,15 @@ public class OperacionesFicheros {
         }
     }
 
-    public void lecturaJSON(){
+    public void lecturaJSON() {
         File file = new File("src/resources/lecturaJSON.txt");
-        String lecturaJSON="";
-        int numeroLectura=0;
+        String lecturaJSON = "";
+        int numeroLectura = 0;
         FileReader fileReader = null;
         try {
             fileReader = new FileReader(file);
-            while ((numeroLectura = fileReader.read())!=-1){
-                lecturaJSON += (char)numeroLectura;
+            while ((numeroLectura = fileReader.read()) != -1) {
+                lecturaJSON += (char) numeroLectura;
             }
             JSONObject jsonObject = new JSONObject(lecturaJSON);
             String nombre = jsonObject.getString("nombre");
@@ -178,6 +185,84 @@ public class OperacionesFicheros {
             //System.out.println("Error en la creacion del JSON");
             e.printStackTrace();
         }
+    }
+
+    public void lecturaClaves() {
+        File file = new File("src/resources/partidos.txt");
+        String lecturaJSON = "";
+        int numeroLectura = 0;
+        FileReader fileReader = null;
+        try {
+            fileReader = new FileReader(file);
+            while ((numeroLectura = fileReader.read()) != -1) {
+                lecturaJSON += (char) numeroLectura;
+            }
+
+            JSONObject jsonObject = new JSONObject(lecturaJSON);
+            JSONArray partidos = jsonObject.getJSONArray("events");
+            //System.out.println(partidos);
+            JSONObject partidoUno = partidos.getJSONObject(0);
+            Iterator iterator = partidoUno.keys();
+            JSONArray arrayClaves = partidoUno.names();
+
+            while (iterator.hasNext()) {
+                String key = (String) iterator.next();
+                if (partidoUno.get(key) != null) {
+                    System.out.println(partidoUno.get(key));
+                }
+            }
+
+            //System.out.println(arrayClaves);
+            /*for (int i = 10; i < arrayClaves.length(); i++) {
+                if (partidoUno.get((String) arrayClaves.get(i))!= null) {
+                    System.out.println(partidoUno.get((String) arrayClaves.get(i)));
+                }
+            }*/
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            //System.out.println("Error en la creacion del JSON");
+            e.printStackTrace();
+        }
+
+    }
+
+    public void lecturaPartidos() {
+        File file = new File("src/resources/partidos.txt");
+        FileReader fileReader = null;
+        String temporada = "";
+        int lectura = 0;
+
+        try {
+            fileReader = new FileReader(file);
+            while ((lectura = fileReader.read()) != -1) {
+                temporada += (char) lectura;
+            }
+
+            JSONObject temporadaJSON = new JSONObject(temporada);
+            JSONArray array = temporadaJSON.getJSONArray("events");
+            for (int i = 0; i < array.length(); i++) {
+                JSONObject partido = array.getJSONObject(i);
+                String local = partido.getString("strHomeTeam");
+                String visitante = partido.getString("strAwayTeam");
+                ;
+                int golesLocal = Integer.valueOf(partido.getString("intHomeScore"));
+                int golesVisitante = Integer.valueOf(partido.getString("intAwayScore"));
+                System.out.printf("%s %d vs %s %d %n", local, golesLocal, visitante, golesVisitante);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
 }
