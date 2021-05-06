@@ -135,6 +135,9 @@ Lee el fichero txt y convierte su contenido en un objeto de tipo json con la lib
     - Muestra por pantalla solo los alumnos que tengan al menos 20 años
 
 10. (lecturaCompletaJSON) Coge el contenido del siguiente link y pégalo en un txt. 
+
+	https://www.thesportsdb.com/api/v1/json/1/eventsseason.php?id=4335&s=2020-2021
+
     - Lee el fichero y conviertelo en un objeto de tipo Json con la librería correspondiente
     - Muestra todos los partidos del fichero con el siguiente formato:  Equipo1 X - Equipo2 X
     - Crea método que pida por parámetros el nombre de un equipo y que muestre solo los partidos de dicho equipo. También sacará un resumen de cuantos goles a favor y en contra a obtenido
