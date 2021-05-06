@@ -152,7 +152,10 @@ public class OperacionesFicheros {
                 System.out.println(aficionItem);
             }
             JSONArray hijos = jsonObject.getJSONArray("hijos");
-            
+            for (int i = 0; i < hijos.length(); i++) {
+                String nombreHijo = hijos.getJSONObject(i).getString("nombre");
+                System.out.println(nombreHijo);
+            }
 
 
             //System.out.println(lecturaJSON);
