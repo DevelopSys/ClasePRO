@@ -141,14 +141,18 @@ public class OperacionesFicheros {
                 lecturaJSON += (char)numeroLectura;
             }
             JSONObject jsonObject = new JSONObject(lecturaJSON);
-            System.out.println(jsonObject);
-            JSONArray hijos = jsonObject.getJSONArray("hijos");
-            for (int i = 0; i < hijos.length() ; i++) {
-                JSONObject objetoHijo = hijos.getJSONObject(i);
-                String nombre = objetoHijo.getString("nombre");
-                System.out.println(nombre);
+            String nombre = jsonObject.getString("nombre");
+            int edad = jsonObject.getInt("edad");
+            JSONArray aficiones = jsonObject.getJSONArray("aficiones");
+            System.out.println(nombre);
+            System.out.println(edad);
+            for (int i = 0; i < aficiones.length(); i++) {
+                // ves capturando cada una de las posiciones
+                String aficionItem = aficiones.getString(i);
+                System.out.println(aficionItem);
             }
-
+            JSONArray hijos = jsonObject.getJSONArray("hijos");
+            
 
 
             //System.out.println(lecturaJSON);
