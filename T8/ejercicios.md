@@ -127,7 +127,7 @@ Lee el fichero txt y convierte su contenido en un objeto de tipo json con la lib
 10. (lecturaObjetosJson) Crea un archivo .txt que tenga la siguiente estructura
 
 ````
-{alumnos:[{nombre:"Sergio", apellido: "Gomez", edad:20}, {nombre:"Daniel", apellido: "Jimenez", edad:24},{nombre: "Jorge", apellido: "Sánchez", edad: 21},{nombre:"Cristina", apellido:"García", edad:25}], curso:"Desarrollo de Aplicacciones Multiplataforma,siglas:"DAM", nivel:1}
+{alumnos:[{nombre:"Sergio", apellido: "Gomez", edad:20}, {nombre:"Daniel", apellido: "Jimenez", edad:24},{nombre: "Jorge", apellido: "Sánchez", edad: 21},{nombre:"Cristina", apellido:"García", edad:25}], curso:"Desarrollo de Aplicacciones Multiplataforma",siglas:"DAM", nivel:1}
 ````
 
     - Lee el fichero y conviertelo en un objeto de tipo Json con la librería correspondiente
