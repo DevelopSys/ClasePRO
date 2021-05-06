@@ -1,9 +1,4 @@
-
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import org.json.*;
 import java.io.*;
 
 public class OperacionesFicheros {
