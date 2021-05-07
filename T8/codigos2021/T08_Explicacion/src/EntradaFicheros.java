@@ -22,7 +22,8 @@ public class EntradaFicheros {
         }*/
 
         //operaciones.lecturaRepaso();
-        operaciones.lecturaClaves();
+        //operaciones.lecturaClaves();
+        operaciones.lecturaBuffer();
 
     }
 }

@@ -265,4 +265,32 @@ public class OperacionesFicheros {
 
     }
 
+    public void lecturaBuffer(){
+
+        File file = new File("src/resources/lectura.txt");
+        FileReader lector = null;
+        BufferedReader bufferedReader = null;
+
+        try {
+            lector = new FileReader(file);
+            bufferedReader = new BufferedReader(lector);
+            String linea = null;
+            String lecturaCompleta="";
+
+            while( (linea = bufferedReader.readLine()) != null ){
+                lecturaCompleta += linea+"\n";
+            }
+
+
+            System.out.println(lecturaCompleta);
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }
