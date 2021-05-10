@@ -23,7 +23,8 @@ public class EntradaFicheros {
 
         //operaciones.lecturaRepaso();
         //operaciones.lecturaClaves();
-        operaciones.lecturaBuffer();
+        //operaciones.lecturaBuffer();
+        operaciones.escrituraFichero();
 
     }
 }
