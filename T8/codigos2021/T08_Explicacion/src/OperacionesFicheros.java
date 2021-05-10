@@ -293,4 +293,32 @@ public class OperacionesFicheros {
 
     }
 
+    public void escrituraFichero(){
+        File f = new File("src/resources/escritura.txt");
+        if (!f.exists()){
+            try {
+                f.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        // aseguro la existencia
+
+        FileWriter fw = null;
+        try {
+            fw = new FileWriter(f);
+            fw.write("Esto es un ejemplo de escritura");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                fw.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 }
