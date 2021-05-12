@@ -1,6 +1,8 @@
 import org.json.*;
+import utils.Coche;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class OperacionesFicheros {
@@ -265,7 +267,7 @@ public class OperacionesFicheros {
 
     }
 
-    public void lecturaBuffer(){
+    public void lecturaBuffer() {
 
         File file = new File("src/resources/lectura.txt");
         FileReader lector = null;
@@ -275,10 +277,10 @@ public class OperacionesFicheros {
             lector = new FileReader(file);
             bufferedReader = new BufferedReader(lector);
             String linea = null;
-            String lecturaCompleta="";
+            String lecturaCompleta = "";
 
-            while( (linea = bufferedReader.readLine()) != null ){
-                lecturaCompleta += linea+"\n";
+            while ((linea = bufferedReader.readLine()) != null) {
+                lecturaCompleta += linea + "\n";
             }
 
 
@@ -293,9 +295,9 @@ public class OperacionesFicheros {
 
     }
 
-    public void escrituraFichero(){
+    public void escrituraFichero() {
         File f = new File("src/resources/escritura.txt");
-        if (!f.exists()){
+        if (!f.exists()) {
             try {
                 f.createNewFile();
             } catch (IOException e) {
@@ -309,6 +311,8 @@ public class OperacionesFicheros {
         try {
             fw = new FileWriter(f);
             fw.write("Esto es un ejemplo de escritura");
+            fw.write("\n");
+            fw.write("Esto es otra linea del mensaje");
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -318,6 +322,140 @@ public class OperacionesFicheros {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    public void escrituraBuffer() {
+        File f = new File("src/resources/escritura_buffer.txt");
+        if (!f.exists()) {
+            try {
+                f.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        try {
+            fw = new FileWriter(f, true);
+            bw = new BufferedWriter(fw);
+            bw.newLine();
+            bw.write(31);
+            bw.newLine();
+            bw.write("Esto es una linea nueva pero anexada");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                bw.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void escribirWhile() {
+        File file = new File("src/resources/escritura_while.txt");
+        boolean existe = true;
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            existe = false;
+        }
+
+        FileWriter fw;
+        BufferedWriter bw = null;
+        //Scanner scanner = new Scanner(System.in);
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+        int numeroLineas = 6;
+        try {
+            fw = new FileWriter(file, existe);
+            bw = new BufferedWriter(fw);
+
+            do {
+                System.out.println("Mete la linea que quieres guardar");
+                String linea = bufferedReader.readLine();
+                bw.write(linea);
+                bw.newLine();
+                numeroLineas--;
+            } while (numeroLineas > 0);
+
+        } catch (IOException e) {
+
+        } finally {
+            try {
+                bw.close();
+            } catch (IOException e) {
+
+            }
+        }
+
+    }
+
+
+    public void escrituraObjetos(){
+
+        // FILE --> FILEOUTPUSTREAM --> OBJECTOUTPUTSTREAM --> ESCRITURA DE OBJETOS
+        File file = new File("src/resources/objetos.obj");
+        if (!file.exists()){
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+
+        try {
+            fos = new FileOutputStream(file);
+            oos = new ObjectOutputStream(fos);
+            ArrayList<Coche> listaCoches = new ArrayList<>();
+            Coche coche =new Coche("Ford","Focus",200,2000);
+            Coche coche2 =new Coche("Opel","Astra",200,2000);
+            listaCoches.add(coche);
+            listaCoches.add(coche2);
+            oos.writeObject(listaCoches);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                oos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+    }
+
+    public void lecturaObjetos(){
+        // FILE --> FILEINPUTSTREAM --> OBJETINPUTSTREAM --> LEACTURA DEL OBJETO
+        File file = new File("src/resources/objetos.obj");
+
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+
+        try {
+            fis = new FileInputStream(file);
+            ois = new ObjectInputStream(fis);
+            ArrayList<Coche>coches = (ArrayList<Coche>) ois.readObject();
+
+            //System.out.printf("%s",coche.toString());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
     }
 

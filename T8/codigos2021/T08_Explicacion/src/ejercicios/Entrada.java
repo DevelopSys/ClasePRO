@@ -7,6 +7,7 @@ public class Entrada {
         //jornadas.leerJornadas();
 
         Palabras palabras = new Palabras();
-        palabras.contarPalabras();
+        //palabras.contarPalabras();
+        palabras.escribirASCII();
     }
 }

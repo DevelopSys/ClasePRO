@@ -24,7 +24,12 @@ public class EntradaFicheros {
         //operaciones.lecturaRepaso();
         //operaciones.lecturaClaves();
         //operaciones.lecturaBuffer();
-        operaciones.escrituraFichero();
+        //operaciones.escrituraFichero();
+        //operaciones.escrituraBuffer();
+        //operaciones.escribirWhile();
+        //operaciones.escrituraObjetos();
+        operaciones.lecturaObjetos();
+
 
     }
 }

@@ -1,0 +1,4 @@
+6
+Esto es un ejemplo de fichero en modo buffer
+
+Esto es una linea nueva pero anexada
