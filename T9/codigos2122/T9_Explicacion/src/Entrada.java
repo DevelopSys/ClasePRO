@@ -1,4 +1,8 @@
+import database.SchemaDB;
+
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Entrada {
 
@@ -9,21 +13,72 @@ public class Entrada {
         try {
             connection = DriverManager.getConnection(connectionURL
                     ,"root","");
+/*
+            CREAR
+            Scanner teclado = new Scanner(System.in);
+            System.out.println("intro nombre");
+            String nombre = teclado.next();
+            System.out.println("intro apellido");
+            String apellido = teclado.next();
+            System.out.println("intro telefono");
+            int telefono = teclado.nextInt();
 
-            //CREAR
-            String queryCreate = "INSERT INTO usuario (nombre,apellido,telefono) VALUES ('Borja','Martin',1234)";
+            String queryCreate = "INSERT INTO "+ SchemaDB.DB_TAB_USER +"("+SchemaDB.COL_NAME_USER_TAB
+                    +","+SchemaDB.COL_SUR_USER_TAB+","+SchemaDB.COL_PHO_USER_TAB
+                    +") VALUES ('"+nombre+"','"+apellido+"',"+4567+")";*/
+
+            /*String queryCreatePat = "INSERT INTO %s (%s,%s,%s) VALUES ('%s','%s',%d)";
+            String queryCreate = String.format(queryCreatePat,
+                    SchemaDB.DB_TAB_USER,
+                    SchemaDB.COL_NAME_USER_TAB,SchemaDB.COL_SUR_USER_TAB,SchemaDB.COL_PHO_USER_TAB,
+                    nombre,apellido,telefono);
+
             Statement statementCreate = connection.createStatement();
+            System.out.println(statementCreate.executeUpdate(queryCreate));
 
-            statementCreate.executeUpdate(queryCreate); // me da un int
-            statementCreate.execute(queryCreate); // boolean
-            // solo lo utilizo si hago una query de SELECT
-            statementCreate.executeQuery(queryCreate); // resulset
 
-            //ACTUALIZAR
+            System.out.println("intro nombre nuevo");
+            String nombreNuevo = teclado.next();
+            System.out.println("intro nombre antiguo");
+            String nombreAntiguo = teclado.next();
+            String queryUpdatePat = "UPDATE %s SET %s = '%s' WHERE %s = '%s'";
+            String queryUpdate = String.format(queryUpdatePat,SchemaDB.DB_TAB_USER,
+                    SchemaDB.COL_NAME_USER_TAB,nombreNuevo,
+                    SchemaDB.COL_NAME_USER_TAB,nombreAntiguo);
+            Statement statementUpdate = connection.createStatement();
+            System.out.println(statementUpdate.executeUpdate(queryUpdate));
 
-            //BORRAR
+
+            System.out.println("intro nombre a borrar");
+            String nombreBorrar = teclado.next();
+            String queryDeletePat = "DELETE FROM %s WHERE %s = '%s'";
+            String queryDelete = String.format(queryDeletePat,SchemaDB.DB_TAB_USER,SchemaDB.COL_NAME_USER_TAB,nombreBorrar);
+            Statement statementDelete = connection.createStatement();
+            statementDelete.executeUpdate(queryDelete);*/
 
             //SELECCIONAR
+
+            String querySelectPat = "SELECT * FROM %s WHERE %s='%s'";
+            Statement statementSelect = connection.createStatement();
+            ResultSet resultadoQuery = statementSelect.executeQuery(String.format(querySelectPat,SchemaDB.DB_TAB_USER, SchemaDB.COL_NAME_USER_TAB,"Pedro"));
+
+            ArrayList listaUsuarios = new ArrayList();
+
+            for ( Object item : listaUsuarios ) {
+
+                Statement statement = connection.createStatement();
+                statement.executeQuery("INSERT INTO USUARIO (col,col,col) VALUES ('%s','%s',%d)");
+            }
+
+
+            while (resultadoQuery.next()){
+                String nombreResultado  = resultadoQuery.getString(SchemaDB.COL_NAME_USER_TAB);
+                String apellidoResultado = resultadoQuery.getString(SchemaDB.COL_SUR_USER_TAB);
+                System.out.printf("El registro es %s - %s%n",nombreResultado, apellidoResultado);
+                Usuario user = new Usuario(nombreResultado,apellidoResultado);
+                listaUsuarios.add(user)
+            }
+
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
