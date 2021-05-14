@@ -75,8 +75,8 @@ public class Entrada {
                 String nombreResultado  = resultadoQuery.getString(SchemaDB.COL_NAME_USER_TAB);
                 String apellidoResultado = resultadoQuery.getString(SchemaDB.COL_SUR_USER_TAB);
                 System.out.printf("El registro es %s - %s%n",nombreResultado, apellidoResultado);
-                Usuario user = new Usuario(nombreResultado,apellidoResultado);
-                listaUsuarios.add(user)
+                //Usuario user = new Usuario(nombreResultado,apellidoResultado);
+                //listaUsuarios.add(user)
             }
 
 
