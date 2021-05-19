@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="T9_Explicacion:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/T9_Explicacion_jar</output-path>
+    <root id="archive" name="T9_Explicacion.jar">
+      <element id="module-output" name="T9_Explicacion" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/librerias/mysql-connector-java-8.0.25.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/librerias/commons-codec-1.15.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

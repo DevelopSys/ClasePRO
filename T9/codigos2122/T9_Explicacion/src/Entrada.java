@@ -1,6 +1,6 @@
-import database.SchemaDB;
 
 import java.sql.*;
+import database.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -13,7 +13,7 @@ public class Entrada {
         try {
             connection = DriverManager.getConnection(connectionURL
                     ,"root","");
-/*
+            /*
             CREAR
             Scanner teclado = new Scanner(System.in);
             System.out.println("intro nombre");
@@ -54,13 +54,14 @@ public class Entrada {
             String queryDeletePat = "DELETE FROM %s WHERE %s = '%s'";
             String queryDelete = String.format(queryDeletePat,SchemaDB.DB_TAB_USER,SchemaDB.COL_NAME_USER_TAB,nombreBorrar);
             Statement statementDelete = connection.createStatement();
-            statementDelete.executeUpdate(queryDelete);*/
+            statementDelete.executeUpdate(queryDelete);
 
             //SELECCIONAR
 
             String querySelectPat = "SELECT * FROM %s WHERE %s='%s'";
             Statement statementSelect = connection.createStatement();
-            ResultSet resultadoQuery = statementSelect.executeQuery(String.format(querySelectPat,SchemaDB.DB_TAB_USER, SchemaDB.COL_NAME_USER_TAB,"Pedro"));
+            //ResultSet resultadoQuery = statementSelect.executeQuery(String.format(querySelectPat,SchemaDB.DB_TAB_USER, SchemaDB.COL_NAME_USER_TAB,"Pedro"));
+            ResultSet resultadoQuery = statementSelect.executeQuery(String.format(querySelectPat,SchemaDB, SchemaDB.COL_NAME_USER_TAB,"Pedro"));
 
             ArrayList listaUsuarios = new ArrayList();
 
@@ -78,6 +79,26 @@ public class Entrada {
                 //Usuario user = new Usuario(nombreResultado,apellidoResultado);
                 //listaUsuarios.add(user)
             }
+
+
+        */
+            String insertPreparePat = "INSERT INTO %s (%s,%s,%s) VALUES (?,?,?)";
+            PreparedStatement prepareInsert = connection.prepareStatement(String.format(insertPreparePat,
+                    SchemaDB.DB_TAB_USER,
+                    SchemaDB.COL_NAME_USER_TAB,
+                    SchemaDB.COL_SUR_USER_TAB,
+                    SchemaDB.COL_PHO_USER_TAB));
+
+            String nombre;
+
+            /*for (int i = 0; i < 3; i++) {
+                String.format(SchemaDB.queryInsertar,"asd","asd");
+                //prepareInsert.setString(i,nombre);
+            }*/
+            prepareInsert.setString(1,"borjaps");
+            prepareInsert.setString(2,"martinps");
+            prepareInsert.setInt(3,123123);
+            prepareInsert.executeUpdate();
 
 
         } catch (SQLException throwables) {
