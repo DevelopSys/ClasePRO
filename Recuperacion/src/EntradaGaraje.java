@@ -27,6 +27,20 @@ public class EntradaGaraje {
         coche.cambiarDireccion("marcha derecha");
 
 
+        Pintor pintor = new Pintor("npintor","apintor","dnipintor",
+                123,123,"fina","motos");
+        pintor.mostarDatos();
+
+        Mecanico mecanico = new Mecanico("nmecanico","amecanico",
+                "dnimecanico",123,5,true);
+
+        Comercial comercial = new Comercial("ncomercial","acomercial",
+                "dnicomercial",123,"mba");
+
+        pintor.calcularRetencion();
+        mecanico.calcularRetencion();
+        comercial.setVentas(20000);
+        comercial.calcularRetencion();
 
         // tipoMotor = null
 
