@@ -1,4 +1,4 @@
-public final class Comercial extends Trabajador{
+public final class Comercial extends Trabajador implements Autonomo{
 
     private String master;
     private int ventas;
@@ -45,5 +45,20 @@ public final class Comercial extends Trabajador{
     public void setVentas(int ventas) {
         this.ventas = ventas;
         this.sueldo += (ventas *0.30);
+    }
+
+    @Override
+    public void calcularCoutaAutonomo() {
+        double couta = ((sueldo*RETENCIONES_FIJAS) + (ventas*RETENCIONES_FIJAS))/3;
+        System.out.println("Tu cuota es de "+couta);
+    }
+
+    @Override
+    public void calcularJubilacion() {
+        if (ventas>10000){
+            System.out.println("Te quedan 5 años para jubilarte");
+        } else {
+            System.out.println("Te quedan 10 años para jubilarte");
+        }
     }
 }

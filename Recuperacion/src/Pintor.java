@@ -1,4 +1,4 @@
-public final class Pintor extends Trabajador {
+public final class Pintor extends Trabajador implements Autonomo{
 
     private String tipoBroncha, especialidad;
 
@@ -28,6 +28,13 @@ public final class Pintor extends Trabajador {
         System.out.println("Tu retencion es " +retencion);
     }
 
+    public void pintarCoche(Coche coche){
+
+        String[] colores = new String[]{"verde","azul","amarillo","rojo","violeta"};
+        int aleatorio = (int) (Math.random() * 5);
+        coche.setColor(colores[aleatorio]);
+    }
+
     public String getTipoBroncha() {
         return tipoBroncha;
     }
@@ -42,5 +49,20 @@ public final class Pintor extends Trabajador {
 
     public void setEspecialidad(String especialidad) {
         this.especialidad = especialidad;
+    }
+
+    @Override
+    public void calcularCoutaAutonomo() {
+        double couta = (this.sueldo * RETENCIONES_FIJAS) /4;
+        System.out.println("Tu cuota es de "+couta);
+    }
+
+    @Override
+    public void calcularJubilacion() {
+        if (especialidad.equals("coches")){
+            System.out.println("te quedan 10 años para la jubilacion");
+        } else {
+            System.out.println("te quedan 5 años para la jubilacion");
+        }
     }
 }

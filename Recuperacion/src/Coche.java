@@ -19,7 +19,7 @@ public class Coche {
         this.modelo = modelo;
         this.matricula = matricula;
         //this.cc = 1500;
-        //this.cv = 100;
+        this.cv = 100;
     }
     public Coche(String marca, String modelo, String matricula, int numeroPuertas, int anio){
         this.matricula = matricula;
@@ -28,29 +28,10 @@ public class Coche {
         this.numeroPuertas = numeroPuertas;
         this.anio = anio;
         //this.cc = 1500;
-        //this.cv = 100;
+        this.cv = 100;
     }
 
     // métodos
-
-    // TODO cambiar a la herencia de mecanico y pintor
-    public void reprogramarMotor(){
-        // ejecuto -- incremente en 25% el numero de cv
-        // solo lo quiero hacer si el coche tiene CV
-
-        if (this.cv > 0) {
-            double incrementeCV = this.cv * 0.25;
-            this.cv = this.cv + (int) incrementeCV;
-        } else {
-            System.out.println("No hay cv a incrementar");
-        }
-    }
-    public void pintarCoche(){
-
-        String[] colores = new String[]{"verde","azul","amarillo","rojo","violeta"};
-        int aleatorio = (int) (Math.random() * 5);
-        setColor(colores[aleatorio]);
-    }
 
     public void cambiarDireccion(String direccion){
         this.setDireccion(direccion);

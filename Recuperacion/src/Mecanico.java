@@ -32,6 +32,18 @@ public final class Mecanico extends Trabajador{
         System.out.println("Tu retencion es " +retencion);
     }
 
+    public void reprogramarMotor(Coche coche){
+        // ejecuto -- incremente en 25% el numero de cv
+        // solo lo quiero hacer si el coche tiene CV
+
+        if (coche.getCv() > 0) {
+            double incrementeCV = coche.getCv() * 0.25;
+            coche.setCv((int) (coche.getCv()+incrementeCV));
+        } else {
+            System.out.println("No hay cv a incrementar");
+        }
+    }
+
     public int getExperiencia() {
         return experiencia;
     }
