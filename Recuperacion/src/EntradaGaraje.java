@@ -73,14 +73,48 @@ public class EntradaGaraje {
         Comercial comercial = new Comercial("comercial","acomercial","345",345,345,"mba");
         comercial.setVentas(20000);
         norauto.contratarTrabajador(pintor);
-        norauto.contratarTrabajador(mecanico);
-        norauto.contratarTrabajador(comercial);
-        norauto.contratarTrabajador(new Comercial("comercial","acomercial","345",345,"mba"));
+        norauto.contratarTrabajador(pintor);
+        norauto.contratarTrabajador(new Trabajador() {
+            @Override
+            public void calcularRetencion() {
+                double retencion = (this.sueldo * 0.15) -500;
+                System.out.println(retencion);
+            }
+        });
 
-        System.out.println(norauto.getTrabajadores().size());
-        norauto.comprobarAutonomo(pintor);
+        norauto.getTrabajadores().get(2).calcularRetencion();
+        //norauto.contratarTrabajador(comercial);
+        //norauto.contratarTrabajador(new Comercial("comercial","acomercial","345",345,"mba"));
+
+
+
+        //System.out.println(norauto.getTrabajadores().size());
+        //norauto.comprobarAutonomo(pintor);
         //System.out.println("Sus datos son:");
         //norauto.listarTrabajadores();
+        // sitios = 10
+        norauto.recepcionarCoche(new Coche("Ford","Focus","123",100,1000));// sitios = 9
+        norauto.recepcionarCoche(new Coche("Ford","Focus","223",100,1000));// sitios = 8
+        norauto.recepcionarCoche(new Coche("Ford","Focus","323",100,1000));// sitios = 7
+        norauto.recepcionarCoche(new Coche("Ford","Focus","423",100,1000));// sitios = 6
+        norauto.recepcionarCoche(new Coche("Ford","Focus","523",100,1000));// sitios = 5
+        norauto.recepcionarCoche(new Coche("Ford","Focus","623",100,1000));// sitios = 4
+        norauto.recepcionarCoche(new Coche("Ford","Focus","723",100,1000));// sitios = 3
+        norauto.recepcionarCoche(new Coche("Ford","Focus","823",100,1000));// sitios = 2
+        norauto.recepcionarCoche(new Coche("Ford","Focus","923",100,1000));// sitios = 1
+        norauto.recepcionarCoche(new Coche("Ford","Focus","102",100,1000));// sitios = 0
+        norauto.recepcionarCoche(new Coche("Ford","Focus","112",100,1000));// sitios = 0
+
+        System.out.println(norauto.getCoches().size());
+
+        norauto.entregarCoche("102"); // sitios = 1
+
+        norauto.recepcionarCoche(new Coche("Ford","Focus","112",100,1000));// sitios = 0
+
+        norauto.entregarCoche("123456"); // ???
+
+        norauto.listarCoches();
+
 
 
     }

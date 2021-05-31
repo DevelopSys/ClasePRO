@@ -61,7 +61,6 @@ public class Empresa {
         autonomo.calcularJubilacion();
     }
 
-
     public void recepcionarCoche(Coche coche){
         if (sitiosDisponibles>0) {
             coches.add(coche);
@@ -69,6 +68,51 @@ public class Empresa {
         } else {
             System.out.println("No hau hueco, mas tarde");
         }
+    }
+    public void entregarCoche(String matricula){
+
+        boolean existe = false;
+        for (int i = 0; i < coches.size(); i++) {
+            if (coches.get(i).getMatricula().equals(matricula)){
+                coches.remove(i);
+                sitiosDisponibles++;
+                System.out.println("coche entregado correctamente");
+                existe = true;
+                // me permite salir del FOR
+                break;
+            }
+        }
+
+        // existe = true --> cuando ?? cuando se ha entrado en el bucle if
+        // existe = false --> cuando ?? cuando no ha entrado en el bucle for -> if
+        if (!existe){
+            System.out.println("Jefe te has equivocado, no hay matrícula");
+        }
+
+    }
+    public void listarCoches(){
+        /*for (int i = 0; i < coches.size() ; i++) {
+            coches.get(i).mostrarDatos();
+        }*/
+
+        for ( Coche itemCoche :coches) {
+            itemCoche.mostrarDatos();
+        }
+    }
+    public void mostrarCoche(String matricula){
+        /*for (int i = 0; i < coches.size() ; i++) {
+            if (coches.get(i).getMatricula().equals(matricula)){
+                coches.get(i).mostrarDatos();
+            }
+        }*/
+
+        for ( Coche itemCoche : coches ) {
+            if (itemCoche.getMatricula().equals(matricula)){
+                itemCoche.mostrarDatos();
+            }
+        }
+
+
     }
 
     public String getNombre() {

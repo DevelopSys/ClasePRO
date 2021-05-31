@@ -76,6 +76,13 @@ public class Coche {
         }
     }
 
+    public void mostrarDatos(){
+        System.out.println("Marca: "+marca);
+        System.out.println("Modelo: "+modelo);
+        System.out.println("Matricula: "+matricula);
+        System.out.println("CV: "+cv);
+        System.out.println("CC: "+cc);
+    }
 
     public int getVelocidad() {
         return velocidad;
