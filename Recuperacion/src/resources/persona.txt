@@ -1,0 +1,73 @@
+[{
+  "nombre": "Borja",
+  "edad": 18,
+  "altura": 1.74,
+  "carnet": true,
+  "hobbies": ["futbol", "musica", "cine","juegos","correr","deporte"],
+  "hijos": [
+    { "nombre": "Celia", "edad": 4 },
+    { "nombre": "Claudia", "edad": 1 }
+  ]
+},
+{
+  "nombre": "Renato",
+  "edad": 18,
+  "altura": 2.00,
+  "carnet": true,
+  "hobbies": ["futbol", "musica"],
+  "hijos": []
+},
+{
+  "nombre": "Ana",
+  "edad": 18,
+  "altura": 2.00,
+  "carnet": true,
+  "hobbies": ["futbol", "musica"],
+  "hijos": [
+               { "nombre": "Celia", "edad": 4 },
+               { "nombre": "Claudia", "edad": 1 },
+                              { "nombre": "Claudia", "edad": 1 }
+
+             ]
+},
+{
+  "nombre": "Alex",
+  "edad": 18,
+  "altura": 2.00,
+  "carnet": true,
+  "hobbies": ["futbol", "musica"],
+  "hijos": []
+},
+{
+  "nombre": "Valeria",
+  "edad": 18,
+  "altura": 2.00,
+  "carnet": true,
+  "hobbies": ["futbol", "musica"],
+  "hijos": [
+                          { "nombre": "Celia", "edad": 4 },
+                          { "nombre": "Claudia", "edad": 1 },
+                                         { "nombre": "Claudia", "edad": 1 },
+                                                                   { "nombre": "Celia", "edad": 4 },
+                          { "nombre": "Celia", "edad": 4 }
+
+
+                        ]
+},
+{
+  "nombre": "Jorge",
+  "edad": 18,
+  "altura": 2.00,
+  "carnet": true,
+  "hobbies": ["futbol", "musica"],
+  "hijos": []
+},
+{
+  "nombre": "Tomas",
+  "edad": 18,
+  "altura": 2.00,
+  "carnet": true,
+  "hobbies": ["futbol", "musica"],
+  "hijos": [                          { "nombre": "Celia", "edad": 4 }]
+}
+]
