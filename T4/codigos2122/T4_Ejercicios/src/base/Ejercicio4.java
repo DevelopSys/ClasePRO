@@ -15,6 +15,7 @@ public class Ejercicio4 {
 
         for (int i = 0; i < numero.length; i++) {
             numero[i] = (int) (Math.random() *101);
+
         }
          // relleno el cuadrado
         for (int i = 0; i < numero.length ; i++) {
