@@ -18,10 +18,26 @@ public class Ejercicio3 {
             int numero = lecturaTeclado.nextInt();
             numeros[i] = numero;
         }
-
         System.out.println("Orden inverso");
+        for (int i = 9; i >-1; i--) {
+            if (i == 0) {
+                System.out.println(numeros[i]);
+            } else if (i <= 9) {
+                System.out.print(numeros[i]+",");
+            }
+
+        }
+        // 0,9,8,7,6,5,4,3,2,1
 
 
         System.out.println("Orden normal");
+        // 1,2,3,4,5,6,7,8,9,0
+        for (int i = 0; i < numeros.length; i++) {
+            if (i<9){
+                System.out.print(numeros[i]+",");
+            } else {
+                System.out.println(numeros[i]);
+            }
+        }
     }
 }
