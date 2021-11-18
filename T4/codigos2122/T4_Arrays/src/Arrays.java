@@ -8,7 +8,7 @@ public class Arrays {
         int[] numerosDos = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         // tipo[]cosas = guardar diferentes tipos (int string boolean)
         Object[] cositas = {1,"hola", numerosDos};
-        cositas[2][0]
+        //cositas[2][0]
 
 
         int longitudArray = numerosDos.length;
