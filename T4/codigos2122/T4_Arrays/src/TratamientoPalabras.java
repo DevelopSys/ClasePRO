@@ -53,6 +53,7 @@ public class TratamientoPalabras {
         System.out.println(nombre);
         String dominio  = correo.substring(correo.indexOf("@")+1,correo.length());
         System.out.println(dominio);
+        
 
 
 
