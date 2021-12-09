@@ -15,7 +15,7 @@ public class Colecciones {
         listaCosas.add(5);
         tamanio = listaCosas.size();
         System.out.println(tamanio);
-        listaCosas.add("Borja");
+        listaCosas.add("1");
         tamanio = listaCosas.size();
         System.out.println(tamanio);
         //System.out.println(listaCosas);
@@ -25,10 +25,10 @@ public class Colecciones {
         listaCosas.add(6);
         listaCosas.add(0.9);
         listaCosas.add(6);
-        listaCosas.add("Hola");
+        listaCosas.add("4");
         listaCosas.add(6);
         listaCosas.add(6);
-        listaCosas.add("true");
+        listaCosas.add("9");
         listaCosas.add(6);
         listaCosas.add(34567);
         listaCosas.add(6);
@@ -93,6 +93,21 @@ public class Colecciones {
 
         System.out.println("El tamaño actual es de: "+listaCosas.size());
         listaCosas.remove(0);
+
+        System.out.println(listaCosas);
+
+        /*for ( Object item : listaCosas ) {
+
+            if (item.equals(6)){
+                listaCosas.remove(item);
+            }
+        }*/
+
+        for (int i = 0; i < listaCosas.size(); i++) {
+            if (((int)listaCosas.get(i))== 6){
+                listaCosas.remove(i);
+            }
+        }
 
         System.out.println(listaCosas);
 
