@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Colecciones {
 
@@ -21,10 +22,16 @@ public class Colecciones {
         String palabra = String.valueOf(listaCosas.get(1));
         System.out.println("El valor es: " + palabra);
         listaCosas.add(true);
+        listaCosas.add(6);
         listaCosas.add(0.9);
+        listaCosas.add(6);
         listaCosas.add("Hola");
+        listaCosas.add(6);
+        listaCosas.add(6);
         listaCosas.add("true");
+        listaCosas.add(6);
         listaCosas.add(34567);
+        listaCosas.add(6);
 
         // sacar de golpe todos los elementos del array
 
@@ -42,7 +49,7 @@ public class Colecciones {
         // cuando la encuentre sacar el mensaje
         // palabra encontrada y la posición de la misma
 
-        posiciones = 0;
+        /*posiciones = 0;
         for (Object item : listaCosas) {
 
             if (item.equals("Hola")) {
@@ -50,8 +57,44 @@ public class Colecciones {
                 System.out.println("En la posición "+posiciones);
             }
             posiciones++;
+        }*/
+        /*int posicionElemento  =listaCosas.indexOf("sdfgh");
+
+        if (posicionElemento>-1){
+            System.out.println("Palabra encontrada");
+            System.out.println("En la posicion "+posicionElemento);
         }
 
+        // Pidais por consola una palabra a buscar
+        // en el caso de que la palabra se encuente en la lista
+            // se modifique su valor por otro pedido por consola
+        // en el caso de que la palanra no se encuentre en la lista
+            // se agregará al final
+
+        Scanner lectura = new Scanner(System.in);
+        System.out.println("Que numero quieres buscar");
+        int palabraBusqueda = lectura.nextInt();
+
+        int posicionEncontrada = listaCosas.indexOf(palabraBusqueda);
+
+        if (posicionEncontrada > -1){
+            // 0 a n --> la palabra está
+            System.out.println("Por que palabra quieres sustituir");
+            palabraBusqueda = lectura.nextInt();
+            listaCosas.set(posicionEncontrada,palabraBusqueda);
+
+        } else {
+            // -1 --> la palabra no está
+            listaCosas.add(palabraBusqueda);
+        }
+
+        System.out.println(listaCosas);*/
+
+
+        System.out.println("El tamaño actual es de: "+listaCosas.size());
+        listaCosas.remove(0);
+
+        System.out.println(listaCosas);
 
     }
 
