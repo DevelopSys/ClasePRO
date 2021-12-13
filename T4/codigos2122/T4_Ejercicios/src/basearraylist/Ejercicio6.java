@@ -1,20 +1,31 @@
 package basearraylist;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Ejercicio6 {
 
     public static void main(String[] args) {
 
         Object[] coche1 = new Object[]{"Mercedes", "c220", 250, "ASD123"};
+
         Object[] coche2 = new Object[]{"Audi", "A5", 350};
-        Object[] coche3 = new Object[]{"VW", "Arteon", 180, true, 45.0, "Repro"};
+        Object[] coche3 = new Object[]{"VW", "Arteon", 234, true, 45.0, "Repro"};
 
         ArrayList<Object[]> listaCoches = new ArrayList();
         listaCoches.add(coche1);
         listaCoches.add(coche2);
         listaCoches.add(coche3);
-        listaCoches.add(new Object[]{"Ford", "Focus", 150});
+        listaCoches.add(new Object[]{"Ford", "Focus", 123});
+        listaCoches.add(new Object[]{"Ford", "Mondeo", 423});
+        listaCoches.add(new Object[]{"Ford", "Fiesta", 23});
+        listaCoches.add(new Object[]{"Mercedes", "c180", 64});
+        listaCoches.add(new Object[]{"Mercedes", "CLS", 456});
+        listaCoches.add(new Object[]{"Mercedes", "EQS", 756});
+        listaCoches.add(new Object[]{"Audi", "Q5", 123});
+        listaCoches.add(new Object[]{"Audi", "Etron", 123});
+        listaCoches.add(new Object[]{"VW", "TROC", 7865});
+        listaCoches.add(new Object[]{"VW", "Golf", 423});
 
         // obtener coches
 
@@ -40,10 +51,29 @@ public class Ejercicio6 {
 
         }*/
 
-        /*for ( Object[] coche : listaCoches ) {
-            System.out.println("Marca: "+coche[0]+" Modelo: "+coche[1]+" CV: "+coche[2]);
+        listaCoches.get(0)[2] = 700;
 
-        }*/
+        Scanner lecturaTeclado = new Scanner(System.in);
+        String marca = lecturaTeclado.next();
+        String[] cabeceras = {"Marca","Modelo","CV","Repro","asd"};
+
+        for (Object[] coche : listaCoches) {
+            //System.out.println("Marca: "+coche[0]+" Modelo: "+coche[1]+" CV: "+coche[2]);
+
+            //if ( coche[0].toString().equalsIgnoreCase(marca)) {
+                for (Object item : coche) {
+                    System.out.print(item + "\t");
+                }
+                System.out.println();
+
+            //}
+
+
+        }
+
+        // Que marca quires buscar: Mercedes
+
+        // ME dará tidios los datos de coches cuya marca es Mercedes
 
 
     }
