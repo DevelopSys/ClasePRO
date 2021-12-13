@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.function.Predicate;
 
 public class Colecciones {
 
@@ -103,11 +104,23 @@ public class Colecciones {
             }
         }*/
 
-        for (int i = 0; i < listaCosas.size(); i++) {
-            if (((int)listaCosas.get(i))== 6){
-                listaCosas.remove(i);
+        /*for (int i = 0; i < listaCosas.size(); i++) {
+
+            if (listaCosas.get(i) instanceof Integer){
+                // solo lo quiero hacer cuando se un numero
+                if (((int)listaCosas.get(i))== 6){
+                    listaCosas.remove(i);
+                }
             }
-        }
+         }
+         */
+        listaCosas.removeIf( new Predicate() {
+            @Override
+            public boolean test(Object o) {
+                return false;
+            }
+        });
+        
 
         System.out.println(listaCosas);
 
