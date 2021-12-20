@@ -46,6 +46,7 @@ public class ejercicioBase {
             }
 
         }*/
+        // ejemplo
 
         Enumeration<Object[]> listaCochesEnum = listaCoches.elements();
         while (listaCochesEnum.hasMoreElements()){
