@@ -36,8 +36,23 @@ public class Ejercicio16 {
                         System.out.println("Que coste tiene el coche");
                         int coste = lecturaTeclado.nextInt();
                         Object[] coche = new Object[]{marca, modelo, matricula, coste};
-                        System.out.println("Coche recepcionado");
-                        listaGaraje.add(coche);
+
+                        boolean encontrado = false;
+                        for ( Object[] item: listaGaraje) {
+                            if (item[2].toString().equalsIgnoreCase(matricula)){
+                               encontrado = true;
+                               break;
+                            }
+                        }
+
+
+                        if (!encontrado){
+                            listaGaraje.add(coche);
+                            System.out.println("Coche recepcionado");
+                        } else {
+                            System.out.println("No se ha podido añadir");
+                        }
+
                     } else {
                         System.out.println("No hay espacio disponible");
                     }
@@ -46,12 +61,12 @@ public class Ejercicio16 {
 
                 case 2:
 
-                    if (listaGaraje.size()>0){
-                        for ( Object[] coche : listaGaraje ) {
-                            System.out.println("Marca: "+coche[0]
-                                    +"\tModelo: "+coche[1]
-                                    +"\tMatricula: " +coche[2]
-                                    +"\tCoste: "+coche[3]);
+                    if (listaGaraje.size() > 0) {
+                        for (Object[] coche : listaGaraje) {
+                            System.out.println("Marca: " + coche[0]
+                                    + "\tModelo: " + coche[1]
+                                    + "\tMatricula: " + coche[2]
+                                    + "\tCoste: " + coche[3]);
                         }
                     } else {
                         System.out.println("No hay coches en el garaje");
@@ -63,20 +78,20 @@ public class Ejercicio16 {
                     String matricula = lecturaTeclado.next();
                     boolean encontrado = false;
 
-                    for ( Object[] coche : listaGaraje ) {
+                    for (Object[] coche : listaGaraje) {
 
-                        if (coche[2].toString().equalsIgnoreCase(matricula)){
+                        if (coche[2].toString().equalsIgnoreCase(matricula)) {
                             encontrado = true;
-                            System.out.println("Marca: "+coche[0]
-                                    +"\tModelo: "+coche[1]
-                                    +"\tMatricula: " +coche[2]
-                                    +"\tCoste: "+coche[3]);
+                            System.out.println("Marca: " + coche[0]
+                                    + "\tModelo: " + coche[1]
+                                    + "\tMatricula: " + coche[2]
+                                    + "\tCoste: " + coche[3]);
 
                             //break;
                         }
                     }
 
-                    if (!encontrado){
+                    if (!encontrado) {
                         System.out.println("El coche no está en el garaje");
                     }
 
@@ -84,11 +99,11 @@ public class Ejercicio16 {
                 case 4:
 
                     int costeAcumulado = 0;
-                    for ( Object[] coche : listaGaraje ) {
+                    for (Object[] coche : listaGaraje) {
                         costeAcumulado += (int) coche[3];
                     }
 
-                    System.out.println("Tu coste acumulado es de "+costeAcumulado);
+                    System.out.println("Tu coste acumulado es de " + costeAcumulado);
                     break;
                 case 5:
                     System.out.println("Que matrícula quieres buscar");
@@ -96,15 +111,16 @@ public class Ejercicio16 {
                     encontrado = false;
 
                     for (int i = 0; i < listaGaraje.size(); i++) {
-                        if (listaGaraje.get(i)[2].toString().equalsIgnoreCase(matricula)){
-                            System.out.println("Coche borrado");
-                            encontrado=true;
-                            listaGaraje.remove(i);
+                        if (listaGaraje.get(i)[2].toString().equalsIgnoreCase(matricula)) {
+
+                            encontrado = true;
+                            System.out.println("Coche borrado con matricula "+listaGaraje.remove(i)[2]);
+
                             break;
                         }
                     }
 
-                    if(!encontrado){
+                    if (!encontrado) {
                         System.out.println("Coche no encotrado en la lista");
                     }
 
@@ -114,6 +130,8 @@ public class Ejercicio16 {
                     System.out.println("Lista vaciada");
                     break;
             }
+
+            // TODO: me queda por hacer el caso uno
 
         } while (opcion != 7);
 
