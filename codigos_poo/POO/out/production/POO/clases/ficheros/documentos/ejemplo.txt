@@ -1,2 +1,0 @@
-Ejemplo de fichero de texto
-Esto es una linea nueva del fichero

@@ -1,2 +1,0 @@
-Usuario{nombre='Borja', apellido='Martin', DNI='qwe', telefono=123, edad=123}
-Usuario{nombre='otro', apellido='apellido', DNI='asd', telefono=234, edad=234}
