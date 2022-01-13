@@ -26,7 +26,12 @@ public class Entrada {
         */
 
         usuario1.setPassword("contraseña");
-        System.out.println(usuario1.getPassword());
+        //System.out.println(usuario1.getPassword());
+
+        //usuario1.mostrarDatos();
+        //System.out.println(usuario1.mostrarDatosRetorno());
+        usuario1.saludar("Borja");
+        usuario1.saludar("Luis");
 
 
 
