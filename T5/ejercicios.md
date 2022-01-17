@@ -1,4 +1,37 @@
 ## Ejercicios Objetos
+
+0. Coches
+
+Desarrollar una clase llamada Motor que: 
+
+-	Tenga dos atributos private de tipo int (litros de aceite) y de tipo int (CV). 
+-	Tenga un constructor con un parámetro de tipo int para los CV. Los litros de aceite por defecto serán 0. 
+-	Tenga un getter para cada uno de los atributos. 
+- 	Tenga un setter para los litros. 
+
+Desarrollar una clase llamada Coche que: 
+
+- 	Tenga un atributo private de tipo Motor, un atributo de tipo String (marca), otro de tipo String (modelo) y otro de tipo double con el precio acumulado con las averías. 
+- 	Tenga un constructor con dos parámetros de tipo String que inicialice la marca y el modelo. 
+- 	Tenga un getter para cada uno de los atributos. 
+- 	Un método acumularAveria que incrementará el importe gastado en averías. 
+
+Desarrollar una clase llamada Garaje que: 
+
+- 	Tendrá tres atributos, un coche, un String con la avería asociada y el número de coches que ha ido atendiendo. 
+- 	El garaje solo podrá atender a un coche en cada momento. Controlar esta premisa. 
+- 	Tenga un método aceptarCoche que recibe un parámetro de tipo Coche y la avería asociada. El garaje solo podrá atender a un coche en cada momento. Si ya está atendiendo uno, que devuelva un false. 
+- 	Tenga un método devolverCoche que dejara al garaje en estado de aceptar un nuevo coche. 
+
+Desarrollar una clase llamada Aplicacion que en su método main: 
+- 	Cree un garaje. 
+- 	Cree 2 coches. 
+- 	El garaje irá cogiendo los coches y devolviéndolos, acumulando un importe aleatorio (Math.random()) de la avería tratada. 
+- 	Si la avería del coche es “aceite” incrementar en 10 los litros de aceite. 
+- 	Los coches entrarán al menos 2 veces en el garaje. 
+- 	Mostrar la información de los coches al final del main.
+
+
 1. (Trigonometría) 
 
 Desarrollar una clase Triangulo que:
@@ -23,7 +56,16 @@ Desarrollar una clase Cuadrado
 -	Tenga un método que calcule su área (A=b*a)
 -	Tenga un método que calcule su perímetro (2*a+2*b)
 
-Desarrollar una clase entrada donde: se mostrará un menú por el cual se podrán seleccionar opciones a ejecutar (operaciones con triangulo, con circulo y con cuadrado) una vez seleccionada la figura a trabajar se pedirá los datos necesarios (base, altura o radio) y la operación a realizar (calcular area, diámetro y/o perímetro)- El menú será el siguiente:
+
+
+Desarrollar una clase entrada donde: 
+
+- Se cree una figura de cada tipo, pasando los datos necesarios para el cálculo de la base y períemetro
+- Calcula cada uno de los datos mostrando el mensaje "La base del rectángulo es: XXX"
+
+
+**Modificación**
+se mostrará un menú por el cual se podrán seleccionar opciones a ejecutar (operaciones con triangulo, con circulo y con cuadrado) una vez seleccionada la figura a trabajar se pedirá los datos necesarios (base, altura o radio) y la operación a realizar (calcular area, diámetro y/o perímetro)- El menú será el siguiente:
 - 1 Trabajar con triángulos
 	- Introduce base
 	- Introduce altura
