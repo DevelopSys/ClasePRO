@@ -1,4 +1,4 @@
-package ejercicios.ejercicio1;
+package ejercicios_base.ejercicio1;
 
 public class Persona {
 
@@ -46,8 +46,33 @@ public class Persona {
 
     }
 
+    public void incrementarEdad(int edadIncremento){
+        this.edad += edadIncremento;
+    }
+
+    public double calcularIMC(){
+
+        double imc = (this.peso / (this.altura * this.altura))*10000;
+        return imc;
+    }
+
+    public String estadoIMC(){
+        final double IMC = calcularIMC();
+        String estado = "";
+        if (IMC<18.5){
+            estado = "Peso inferior a normal";
+        } else if (IMC > 18.5 && IMC <24.9){
+            estado = "normal";
+        } else if (IMC >=25 && IMC < 29.9){
+            estado = "Peso superior a normal";
+        } else {
+            estado = "obesidad";
+        }
+        return estado;
+    }
+
     public void mostrarDatos(){
-        System.out.printf("Nombre: %s%nApellido: %s%nEdad: %d",nombre,apellido,edad);
+        System.out.printf("Nombre: %s%nApellido: %s%nEdad: %d%n",nombre,apellido,edad);
     }
 
     public String getNombre() {

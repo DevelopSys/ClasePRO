@@ -1,4 +1,4 @@
-package ejercicios.ejercicio1;
+package ejercicios_base.ejercicio1;
 
 public class Entrada {
 
