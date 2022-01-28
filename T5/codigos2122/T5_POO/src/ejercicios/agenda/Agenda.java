@@ -24,16 +24,15 @@ public class Agenda {
         }
     }
 
-    public void borrarPersona(int telefono){
+    public boolean borrarPersona(int telefono){
 
         for (int i = 0; i < listaPersonas.size(); i++) {
             if (telefono == listaPersonas.get(i).getTelefono()){
                 listaPersonas.remove(i);
+                return true;
             }
         }
+        return false;
 
     }
-
-
-
 }

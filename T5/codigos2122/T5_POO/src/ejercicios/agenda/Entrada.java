@@ -10,7 +10,14 @@ public class Entrada {
         // lista = Borja, Luis
 
         agenda.listar();
-        agenda.borrarPersona(1234);
+        if (agenda.borrarPersona(1234)){
+
+        }else {
+
+        }
+
+        // si has borrado a la persona saca un mensaje de
+        // borrado correctamente
         System.out.println("Despues de borrar");
         agenda.listar();
     }
