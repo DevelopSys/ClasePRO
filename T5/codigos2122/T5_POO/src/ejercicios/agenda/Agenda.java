@@ -35,4 +35,23 @@ public class Agenda {
         return false;
 
     }
+
+    public void buscarPersona(int telefono){
+        for ( Persona persona : listaPersonas ) {
+            if (persona.getTelefono() == telefono){
+                persona.mostrarDatos();
+                break;
+            }
+        }
+    }
+
+    public void editarPersona(int telefono){
+        for ( Persona persona : listaPersonas ) {
+            if (persona.getTelefono() == telefono){
+                persona.setNombre("Otro nombre");
+                persona.setDni("123123");
+                break;
+            }
+        }
+    }
 }
