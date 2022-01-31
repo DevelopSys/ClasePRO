@@ -44,32 +44,45 @@ public class Agenda {
 
     public boolean borrarPersona(int telefono) {
 
-        for (int i = 0; i < listaPersonas.size(); i++) {
+        /*for (int i = 0; i < listaPersonas.size(); i++) {
             if (telefono == listaPersonas.get(i).getTelefono()) {
                 listaPersonas.remove(i);
                 return true;
             }
+        }*/
+        if (exitePersona(telefono)!= null){
+            listaPersonas.remove(exitePersona(telefono));
+            return true;
         }
         return false;
 
     }
 
     public void buscarPersona(int telefono) {
-        for (Persona persona : listaPersonas) {
+        /*for (Persona persona : listaPersonas) {
             if (persona.getTelefono() == telefono) {
                 persona.mostrarDatos();
                 break;
             }
+        }*/
+        if (exitePersona(telefono)!= null){
+            exitePersona(telefono).mostrarDatos();
         }
     }
 
     public void editarPersona(int telefono) {
-        for (Persona persona : listaPersonas) {
+        /*for (Persona persona : listaPersonas) {
             if (persona.getTelefono() == telefono) {
                 persona.setNombre("Otro nombre");
                 persona.setDni("123123");
                 break;
             }
+        }*/
+        if (exitePersona(telefono)!= null){
+            Persona personaEncontrada = exitePersona(telefono);
+            personaEncontrada.setNombre("Nuevo");
+            personaEncontrada.setDni("ASD");
+            personaEncontrada.setTelefono(123);
         }
     }
 
