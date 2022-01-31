@@ -8,9 +8,10 @@ public class Entrada {
         agenda.anadirPersona(persona);
         agenda.anadirPersona(new Persona("Luis","Baonza",2345));
 
+        agenda.anadirPersona(new Persona("asd","asd",1234));
 
-        agenda.editarPersona(1234);
-        agenda.buscarPersona(1234);
+        //agenda.editarPersona(1234);
+        //agenda.buscarPersona(1234);
         //agenda.buscarPersona(1236);
         // lista = Borja, Luis
 
