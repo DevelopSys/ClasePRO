@@ -8,16 +8,15 @@ public class Pizza {
     private ArrayList<Ingrediente> listaIngredientes;
     private boolean estado;
 
-     public Pizza(int id, String nombre){
-         this.id = id;
+     public Pizza(String nombre){
+
          this.nombre = nombre;
          listaIngredientes = new ArrayList<>();
          // estado = false
          // precio = 0
      }
 
-    public Pizza(int id, String nombre, ArrayList listaIngredientes){
-        this.id = id;
+    public Pizza(String nombre, ArrayList listaIngredientes){
         this.nombre = nombre;
         this.listaIngredientes = listaIngredientes;
     }
@@ -29,12 +28,13 @@ public class Pizza {
     }
 
     public void verDatos(){
+         calcularPrecio();
         System.out.println(nombre);
         System.out.println(id);
         System.out.println(estado);
         System.out.println(precio);
         for (Ingrediente item : listaIngredientes) {
-            System.out.println(item.getNombre() + " - " + item.getPrecio());
+            System.out.println("\t"+item.getNombre() + " - " + item.getPrecio());
 
         }
     }
