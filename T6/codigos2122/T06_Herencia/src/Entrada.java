@@ -4,7 +4,7 @@ public class Entrada {
         /*Coche coche = new Coche("123A","123",100,2000);
         coche.calcularVelocidad(80);
         System.out.println(coche.getVelocidad());*/
-        Deportivo deportivo = new Deportivo("234B","234",200,2500,600);
+        /*Deportivo deportivo = new Deportivo("234B","234",200,2500,600);
         deportivo.calcularVelocidad(120);
         System.out.println(deportivo.getVelocidad());
         SUV suv= new SUV("234B","234",200,2500,true);
@@ -12,7 +12,15 @@ public class Entrada {
         System.out.println(suv.getVelocidad());
         Utilitario utilitario = new Utilitario("234B","234",200,2500,5);
         utilitario.calcularVelocidad(60);
-        System.out.println(utilitario.getVelocidad());
+        System.out.println(utilitario.getVelocidad());*/
+        Concesionario concesionario = new Concesionario();
+        Utilitario utilitario = new Utilitario("234B","234",200,2500,5);
+        SUV suv= new SUV("234C","234",200,2500,true);
+
+        concesionario.agregarCoche(utilitario);
+        concesionario.agregarCoche(suv);
+        //concesionario.agregarCoche(suv);
+        concesionario.borrarCoche("234asdasdasd");
 
     }
 }
