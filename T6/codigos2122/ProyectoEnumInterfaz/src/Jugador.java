@@ -2,8 +2,22 @@ public final class Jugador extends Persona{
 
     // sueldo nombre apellido
 
-    public Jugador(String nombre, String apellido, double sueldo) {
+    private String posicion;
+
+    public Jugador(String nombre, String apellido, double sueldo, String posicion) {
+
         super(nombre, apellido, sueldo);
+        this.posicion = posicion;
+    }
+
+    @Override
+    public void mostrarDatos() {
+        super.mostrarDatos();
+        System.out.println(posicion);
+    }
+
+    public void metodoJugador(){
+
     }
 
     @Override
