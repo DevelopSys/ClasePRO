@@ -23,6 +23,7 @@ public class Entrada {
         seleccion.addPersona(entrenador);
 
         seleccion.comprobarAtaque();
+        seleccion.repatirPrimaSeleccion();
 
 
 

@@ -23,5 +23,13 @@ public class Seleccion {
         System.out.println("El nivel de ataque de la seleccion es: "+nivelAtaque);
     }
 
+    public void repatirPrimaSeleccion(){
+        for ( Persona item : listaPersonas ) {
+            if (!(item instanceof Entrenador)){
+                ((Seleccionable)item).repatirPrima();
+            }
+        }
+    }
+
 
 }

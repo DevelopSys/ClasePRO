@@ -47,4 +47,10 @@ public final class Jugador extends Persona implements Seleccionable{
     public void actitudCampo() {
 
     }
+
+    @Override
+    public void repatirPrima() {
+        this.sueldo = this.sueldo *1.20;
+        System.out.println("Repartida prima a Jugador de: "+this.sueldo*0.20);
+    }
 }

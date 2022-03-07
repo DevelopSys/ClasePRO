@@ -35,4 +35,10 @@ public class Canterano extends Persona implements Seleccionable{
     public void actitudCampo() {
 
     }
+
+    @Override
+    public void repatirPrima() {
+        this.sueldo += 200;
+        System.out.println("Repartida a canterano una prima de 200");
+    }
 }
