@@ -25,12 +25,13 @@ public final class Directivo extends Persona implements Comision {
     }
 
     @Override
-    public double votar(int voto) {
-        return 0;
+    public double votar() {
+        double voto = (Math.random()*11)/2;
+        return voto;
     }
 
     @Override
-    public void obtenerBeneficio() {
-
+    public void obtenerBeneficio(int beneficio) {
+        System.out.println("El beneficio obtenido es: "+beneficio*0.20);
     }
 }

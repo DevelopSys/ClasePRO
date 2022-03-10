@@ -1,4 +1,4 @@
 public interface Comision {
-    double votar(int voto);
-    void obtenerBeneficio();
+    double votar();
+    void obtenerBeneficio(int beneficio);
 }

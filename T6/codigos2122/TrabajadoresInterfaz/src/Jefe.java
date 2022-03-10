@@ -22,13 +22,14 @@ public final class Jefe extends Trabajador implements Comision{
     }
 
     @Override
-    public double votar(int voto) {
-
-        return 0;
+    public double votar() {
+        double voto = (Math.random()*11)/3;
+        return voto;
     }
 
     @Override
-    public void obtenerBeneficio() {
-
+    public void obtenerBeneficio(int beneficio) {
+        this.sueldo += (beneficio*0.10);
+        System.out.println("El beneficio obtenido es: "+beneficio*0.10);
     }
 }
