@@ -9,6 +9,7 @@ public final class Autonomo extends Trabajador{
     public Autonomo(String dni, String nombre, String apellido, double sueldo, Departamento departamento, double cuota) {
         super(dni, nombre, apellido, sueldo, departamento);
         this.cuota = cuota;
+        realizarFactura();
     }
 
     @Override
@@ -17,6 +18,15 @@ public final class Autonomo extends Trabajador{
         System.out.println("Cuota: "+cuota);
         System.out.println("Factura: "+factura);
     }
+
+
+    public void realizarFactura(){
+        this.factura = String.format("Factura realizada por un importe de %.2f a la empresa con CIF %s",
+                this.sueldo, Administracion.CIF);
+
+    }
+
+
 
     @Override
     public void calcularSueldo() {
