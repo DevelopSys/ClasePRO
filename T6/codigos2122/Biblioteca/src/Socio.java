@@ -4,9 +4,8 @@ public final class Socio extends Persona {
     private int numeroSocio;
     private ArrayList<Prestable> listaPrestamos;
 
-    public Socio(String nombre, String apellido, String dni, int numeroSocio) {
+    public Socio(String nombre, String apellido, String dni) {
         super(nombre, apellido, dni);
-        this.numeroSocio = numeroSocio;
         this.listaPrestamos = new ArrayList();
     }
 
@@ -19,7 +18,7 @@ public final class Socio extends Persona {
         System.out.println(numeroSocio);
         System.out.println("Prestamos");
         for (Object item: listaPrestamos) {
-
+            System.out.println(item);
         }
     }
 
