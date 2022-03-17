@@ -48,6 +48,24 @@ public class Entrada {
 
             }
         };
+        Dialecto catalan = new Dialecto(castellano,50000);
+        catalan.saludar();
+        catalan.calcularNumeroHablantes(30, new Cuantificable() {
+            @Override
+            public void cuantificarHablantes(int n) {
+                catalan.setNumeroHablates(catalan.getNumeroHablates()*n);
+            }
+        });
+
+        Dialecto valenciano = new Dialecto(castellano,10000);
+        valenciano.saludar();
+        valenciano.calcularNumeroHablantes(30, new Cuantificable() {
+            @Override
+            public void cuantificarHablantes(int n) {
+                valenciano.setNumeroHablates(valenciano.getNumeroHablates()*(n/2));
+            }
+        });
+
 
         castellano.ingresarPalabra("Hola");
         castellano.ingresarPalabra("Adios");
