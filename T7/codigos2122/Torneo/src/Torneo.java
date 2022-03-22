@@ -33,7 +33,7 @@ public class Torneo {
 
     public void iniciarTorneo(){
         for ( Partido item: listaPartidos) {
-            item.jugarPartido();
+            //item.jugarPartido();
         }
     }
 

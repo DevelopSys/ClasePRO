@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Entrada {
 
@@ -13,10 +16,26 @@ public class Entrada {
         lista.add(atleti);
         lista.add(sevilla);
 
+        Collections.sort(lista, new Comparator<Torneo.Equipo>() {
+            @Override
+            public int compare(Torneo.Equipo o1, Torneo.Equipo o2) {
+                if (o1.getNivelAtaque()>o2.getNivelAtaque()){
+                    return -1;
+                }
+                return 0;
+            }
+        });
 
-        Torneo champion = new Torneo("Champion");
+        for ( Torneo.Equipo equipo : lista ) {
+            System.out.println(equipo.getNombre() +" "+equipo.getNivelAtaque());
+        }
+
+
+        /*Torneo champion = new Torneo("Champion");
         champion.realizarSorteo(lista);
-        champion.mostrarPartidos();
+        champion.mostrarPartidos();*/
+
+
 
 
 
