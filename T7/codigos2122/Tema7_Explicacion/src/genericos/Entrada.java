@@ -24,16 +24,16 @@ public class Entrada {
 
         // partidos para poder organizarlos --> Integer
         // listar retorna un Integet
-        Coleccion<Partido> coleccionPartidos = new Coleccion();
+        /*Coleccion<Partido> coleccionPartidos = new Coleccion();
         coleccionPartidos.agregarCosas(new Partido());
 
         // coche para poder organizarlos --> object
         // listar retorna un object
-        Coleccion<Coche> coleccionCoches = new Coleccion();
+        //Coleccion<Coche> coleccionCoches = new Coleccion();
         coleccionCoches.agregarCosas(new Coche());
 
 
-        Coleccion<Coleccionable> coleccionColeccionables = new Coleccion();
+        //Coleccion<Coleccionable> coleccionColeccionables = new Coleccion();
         coleccionColeccionables.agregarCosas(new Disco());
         coleccionColeccionables.agregarCosas(new Camiseta());
 
@@ -42,7 +42,7 @@ public class Entrada {
         Coleccion<Integer> coleccionNumeros = new Coleccion<>();
 
         ColeccionEspecifica<Disco> listaEspecifica1 = new ColeccionEspecifica<Disco>();
-        ColeccionEspecifica<Camiseta> listaEspecifica2 = new ColeccionEspecifica<Camiseta>();
+        ColeccionEspecifica<Camiseta> listaEspecifica2 = new ColeccionEspecifica<Camiseta>();*/
 
 
 
