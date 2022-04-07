@@ -110,7 +110,7 @@ public class FicherosController {
 
         FileWriter fileWriter = null;
         String lineaEscribir = "Esto es un ejemplo de una linea a escribir dento del fichero";
-        
+
 
         try {
             fileWriter = new FileWriter(file);

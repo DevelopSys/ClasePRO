@@ -37,7 +37,6 @@ public class EjericicioController {
             System.out.println("Opción incorrecta");
         }
     }
-
     public void listarChild(File child){
         int contador=0;
         int opcion=0;
@@ -67,6 +66,18 @@ public class EjericicioController {
         } else {
             System.out.println("Opción incorrecta");
         }
+    }
+    public void cifrarLinea(){
+
+        String lineaEscribir = "Esto es un ejemplo de una linea a escribir dento del fichero";
+        String[] letras = lineaEscribir.split("");
+        for ( String letra : letras ) {
+            int codigo = (byte)(letra.charAt(0));
+            int codigoCifrado = codigo *2;
+            char caracterCifrado = (char) codigoCifrado;
+            System.out.println(caracterCifrado);
+        }
+
     }
 
 }
