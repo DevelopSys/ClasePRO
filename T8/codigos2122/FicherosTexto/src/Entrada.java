@@ -16,7 +16,8 @@ public class Entrada {
         FicherosController ficherosController = new FicherosController();
         //ficherosController.getFileInfo(file);
         //ficherosController.getDirectoryInfo(directory2);
-        ficherosController.lecturaFichero(file);
+        //ficherosController.lecturaFichero(file);
+        ficherosController.lecturaBuffer(file);
 
 
 

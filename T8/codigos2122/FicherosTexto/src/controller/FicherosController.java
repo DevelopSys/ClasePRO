@@ -1,9 +1,7 @@
 package controller;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import javax.swing.*;
+import java.io.*;
 
 public class FicherosController {
 
@@ -51,10 +49,25 @@ public class FicherosController {
 
         try {
             fileReader = new FileReader(file);
-            int lectura = fileReader.read();
+            /*int lectura = fileReader.read();
             System.out.println(lectura);
             int lectura2 = fileReader.read();
-            System.out.println(lectura2);
+            System.out.println(lectura2);*/
+            int lectura=0;
+            /*do{
+                lectura = fileReader.read();
+                if (lectura>-1) {
+                    System.out.println(lectura);
+                }
+            } while (lectura!=-1);*/
+            /*while (lectura!=-1){
+                lectura = fileReader.read();
+                System.out.println(lectura);
+            }*/
+            while ((lectura=fileReader.read())!=-1){
+                System.out.println((char) lectura);
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -65,6 +78,19 @@ public class FicherosController {
             }
         }
 
+    }
+    public void lecturaBuffer(File file){
+
+
+        BufferedReader bufferedReader = null;
+
+        try {
+            bufferedReader = new BufferedReader(new FileReader(file));
+            String linea = bufferedReader.readLine();
+            System.out.println(linea);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
