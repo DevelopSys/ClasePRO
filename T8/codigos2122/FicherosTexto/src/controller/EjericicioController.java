@@ -8,7 +8,7 @@ public class EjericicioController {
     Scanner scanner = new Scanner(System.in);
 
     public void listParentDirectory(){
-        File file = new File("/Users/borjam/");
+        File file = new File("/Users/borjam/Desktop/ficheros");
         /*
         0- Fichero1
         1- Fichero2
@@ -42,18 +42,28 @@ public class EjericicioController {
         int contador=0;
         int opcion=0;
         File[] ficherosChild = child.listFiles();
+        System.out.println("Listando el directorio - "+child.getName());
         for ( File childItem : ficherosChild ) {
             System.out.println(contador +" - " + childItem.getName());
             contador++;
         }
+        System.out.println(contador +" - Volver al padre");
         System.out.println("Que opcion quieres");
         opcion = scanner.nextInt();
-        if (opcion>=0 && opcion<ficherosChild.length){
-            if (ficherosChild[opcion].isDirectory()){
-                listarChild(ficherosChild[opcion]);
-            } else {
-                System.out.println("Error. es un fichero");
+        if (opcion>=0 && opcion<=ficherosChild.length){
+
+            // parent
+            if (opcion==contador){
+                listarChild(child.getParentFile());
+            }else{
+                // child
+                if (ficherosChild[opcion].isDirectory()){
+                    listarChild(ficherosChild[opcion]);
+                } else {
+                    System.out.println("Error. es un fichero");
+                }
             }
+
         } else {
             System.out.println("Opción incorrecta");
         }
