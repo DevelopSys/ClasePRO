@@ -10,6 +10,7 @@ public class Entrada {
         File directory = null;
         File directory2 = null;
         file = new File("/Users/borjam/Desktop/ficheros/fichero.txt");
+        File file2 = new File("/Users/borjam/Desktop/ficheros/ficheroEscritura.txt");
         directory = new File("/Users/borjam/Desktop/ficheros");
         directory2 = new File("/Users/borjam/Desktop/ficheros_nuevo");
 
@@ -17,7 +18,8 @@ public class Entrada {
         //ficherosController.getFileInfo(file);
         //ficherosController.getDirectoryInfo(directory2);
         //ficherosController.lecturaFichero(file);
-        ficherosController.lecturaBuffer(file);
+        //ficherosController.lecturaBuffer(file);
+        ficherosController.escrituraFichero(file2);
 
 
 

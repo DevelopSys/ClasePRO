@@ -86,10 +86,44 @@ public class FicherosController {
 
         try {
             bufferedReader = new BufferedReader(new FileReader(file));
-            String linea = bufferedReader.readLine();
-            System.out.println(linea);
+            //String linea = bufferedReader.readLine();
+            //System.out.println(linea);
+            String lectura = null;
+            String lecturaCompleta = "";
+            while ((lectura = bufferedReader.readLine())!=null){
+                //lectura = bufferedReader.readLine();
+                System.out.println(lectura);
+                lecturaCompleta+=lectura;
+                lecturaCompleta+="\n";
+            }
+            System.out.println("La lectura completa es: ");
+            System.out.println(lecturaCompleta);
+
+
+
+            // imprimir toda la lectura completa
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+    public void escrituraFichero(File file){
+
+        FileWriter fileWriter = null;
+        String lineaEscribir = "Esto es un ejemplo de una linea a escribir dento del fichero";
+        
+
+        try {
+            fileWriter = new FileWriter(file);
+            fileWriter.write(101);
+
+        }catch (IOException e){
+            e.printStackTrace();
+        } finally {
+            try {
+                fileWriter.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
