@@ -126,6 +126,42 @@ public class FicherosController {
             }
         }
     }
+    public void escribirFicheroCompleto(File file){
+        FileWriter fileWriter= null;
+        BufferedWriter bufferedWriter = null;
+        PrintWriter printWriter = null;
+
+        try {
+            fileWriter = new FileWriter(file);
+            printWriter = new PrintWriter(fileWriter);
+            printWriter.println("Esto es un ejemplo de linea");
+            printWriter.println("Esto es un ejemplo de linea segunda");
+            printWriter.println("Esto es un ejemplo de linea tercera");
+            /*bufferedWriter = new BufferedWriter(fileWriter);
+            bufferedWriter.write("Esto es un ejemplo");
+            bufferedWriter.newLine();
+            bufferedWriter.write("Esto es un ejemplo de linea nueva");
+            bufferedWriter.newLine();*/
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+
+                /*if (bufferedWriter != null) {
+                    //fileWriter.close();
+                    bufferedWriter.close();
+                }*/
+                if (printWriter != null) {
+                    //fileWriter.close();
+                    printWriter.close();
+                }
+
+
+
+        }
+
+
+    }
 
 
 }

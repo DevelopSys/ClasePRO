@@ -80,4 +80,10 @@ public class EjericicioController {
 
     }
 
+    // Hacer un programa que pida por consola una linea y la guarde en un fichero
+    // el programa segura pidiendo lineas e introduciendolas en el fichero
+    // hasta que se pulse el 0
+    // cuando no se quiera continuar se imprimirá el contenimdo del
+    // fichero completo
+
 }
