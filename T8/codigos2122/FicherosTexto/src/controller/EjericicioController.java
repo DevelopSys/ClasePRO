@@ -161,5 +161,5 @@ public class EjericicioController {
 
 
     }
-    
+
 }
