@@ -43,14 +43,24 @@ public class BinariosController {
 
         try {
             ois = new ObjectInputStream(new FileInputStream(file));
-            Usuario usuario = (Usuario) ois.readObject();
+            /*Usuario usuario = (Usuario) ois.readObject();
             System.out.println(usuario.toString());
+            Usuario usuario2 = (Usuario) ois.readObject();
+            System.out.println(usuario2.toString());*/
+
+            Usuario usuarioLectura = null;
+            try {
+                while ((usuarioLectura = (Usuario) ois.readObject())!=null)
+                {
+                    System.out.println(usuarioLectura);
+                }
+            } catch (EOFException e){
+                System.out.println("Fichero terminado");
+            }
+
             /*
             * Usuario{nombre='Borja', apellido='Martin', password='1345A'}
             * Usuario{nombre='Pedro', apellido='Herrera', password='1345A'}
-            * Usuario{nombre='Borja', apellido='Martin', password='1345A'}
-            * Usuario{nombre='Pedro', apellido='Herrera', password='1345A'}
-
             * */
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -64,6 +74,20 @@ public class BinariosController {
             }
         }
     }
+
+    /*
+    * CON MVC hacer un programa que pida usuarios de forma recurrente
+    * con todos sus datos (nombre, apellido, pass)
+    * hasta que el usuario lo indique
+    * Cada vez que el usuario introduzca un usuario se escribira en el
+    * fichero
+    *
+    * Cuando el usuario no quiera meter mas usuarios se pedir si
+    * quiere leer el fichero
+    *   En caso de decir que si apareceran los datos del usuario
+    *   con este formato: Nombre: XXX Apellido: XXX
+    *
+    * */
 
 
 }
