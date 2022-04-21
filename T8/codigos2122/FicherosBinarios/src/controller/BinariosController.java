@@ -89,5 +89,13 @@ public class BinariosController {
     *
     * */
 
+    /*MODIFICACION
+    *
+    * Cuando el sistema arranca, si el fichero de los usuarios existe
+    * el sistema deberá de preguntar si se quieren importar los datos que ya estan
+    * guardados. Si se dice que si, estos datos pasaran al ArrayList "temporal"
+    * 
+    * */
+
 
 }
