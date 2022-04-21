@@ -7,7 +7,7 @@ import java.io.*;
 public class BinariosController {
 
     public void escribirBinario(){
-        File file = new File("src/resources/objetos.bin");
+        File file = new File("src/resources/objetosObjetos.bin");
 
         // CERRARLO!!!!
         ObjectOutputStream oos = null;
@@ -37,6 +37,32 @@ public class BinariosController {
     }
     public void lecturaBiniario(){
         File file = new File("src/resources/objetos.bin");
+
+        // CERRARLO!!!!
+        ObjectInputStream ois = null;
+
+        try {
+            ois = new ObjectInputStream(new FileInputStream(file));
+            Usuario usuario = (Usuario) ois.readObject();
+            System.out.println(usuario.toString());
+            /*
+            * Usuario{nombre='Borja', apellido='Martin', password='1345A'}
+            * Usuario{nombre='Pedro', apellido='Herrera', password='1345A'}
+            * Usuario{nombre='Borja', apellido='Martin', password='1345A'}
+            * Usuario{nombre='Pedro', apellido='Herrera', password='1345A'}
+
+            * */
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (ois != null) {
+                    ois.close();
+                }
+            } catch (IOException | NullPointerException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 
