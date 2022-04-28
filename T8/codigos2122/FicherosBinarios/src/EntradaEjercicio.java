@@ -12,6 +12,10 @@ public class EntradaEjercicio {
         String nombre, apellido, pass;
         int opcionUsuarios = 0, opcionLectura = 0;
 
+        // existe el archivo
+
+        ejercicioController.existeFichero();
+
         do {
             System.out.println("Intro nombre");
             nombre = scanner.next();
@@ -31,7 +35,8 @@ public class EntradaEjercicio {
         System.out.println("Quieres leer el fichero");
         opcionLectura = scanner.nextInt();
         if (opcionLectura==1){
-           ejercicioController.lecturaFichero();
+            // solo quiero mostrar datos
+           ejercicioController.lecturaFichero(true);
         }
         System.out.println("Terminado el ejercicio");
 

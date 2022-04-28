@@ -9,28 +9,39 @@ public class EjercicioController {
 
     private ArrayList<Usuario> listaUsuarios;
 
-    public EjercicioController(){
+    public EjercicioController() {
         listaUsuarios = new ArrayList<>();
     }
 
-    public void addUsuario(Usuario usuario){
+    public void addUsuario(Usuario usuario) {
         this.listaUsuarios.add(usuario);
     }
-    public void addUsuario(String nombre, String apellido, String pass){
+
+    public void addUsuario(String nombre, String apellido, String pass) {
         this.listaUsuarios.add(new Usuario(nombre, apellido, pass));
     }
 
-    public void escrituraUsuarios(){
-        File file = new File("src/resources/usuarios.bin");
+    public void existeFichero() {
+        File file = new File("src/resources/usuarios1.bin");
+        if (file.exists()) {
+            // leo y cargo en arraylist
+            // solo quiero escribir datos
+            lecturaFichero(false);
+        }
+    }
+
+    public void escrituraUsuarios() {
+        File file = new File("src/resources/usuarios1.bin");
         FileOutputStream fos;
         ObjectOutputStream oos = null;
 
 
         try {
             oos = new ObjectOutputStream(new FileOutputStream(file));
-            for (Usuario itemUser: listaUsuarios) {
+            /*for (Usuario itemUser: listaUsuarios) {
                 oos.writeObject(itemUser);
-            }
+            }*/
+            oos.writeObject(listaUsuarios);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -46,24 +57,29 @@ public class EjercicioController {
 
     }
 
-    public void mostrarDatosUsuario(Usuario usuario){
-        System.out.println("Nombre: "+usuario.getNombre());
-        System.out.println("Apellido: "+usuario.getApellido());
+    public void mostrarDatosUsuario(Usuario usuario) {
+        System.out.println("Nombre: " + usuario.getNombre());
+        System.out.println("Apellido: " + usuario.getApellido());
     }
 
-    public void lecturaFichero(){
-        File file = new File("src/resources/usuarios.bin");
+    public void lecturaFichero(boolean lectura) {
+        File file = new File("src/resources/usuarios1.bin");
         FileInputStream fis = null;
-        ObjectInputStream ois =null;
+        ObjectInputStream ois = null;
 
         try {
             ois = new ObjectInputStream(new FileInputStream(file));
             Usuario item = null;
             try {
-                while ((item = (Usuario) ois.readObject())!=null){
-                    mostrarDatosUsuario(item);
+                if (!lectura) {
+                    listaUsuarios = (ArrayList<Usuario>) ois.readObject();
+                } else {
+                    while ((item = (Usuario) ois.readObject()) != null) {
+                        mostrarDatosUsuario(item);
+                    }
                 }
-            } catch (EOFException e){
+
+            } catch (EOFException e) {
                 System.out.println("Terminado de leer fichero");
             }
 
