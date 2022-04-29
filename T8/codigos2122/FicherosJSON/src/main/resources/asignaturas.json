@@ -1,0 +1,159 @@
+{
+  "asignaturas": [
+    [
+      {
+        "siglas": "PMDM",
+        "nombre": "Programación Multimedia",
+        "profesor": { "nombre": "Borja", "Apellido": "Martin" },
+        "hora": 4,
+        "ciclo": "dam",
+        "curso": 2,
+        "conocimientos": ["java", "android", "kotlin"]
+      },
+      {
+        "siglas": "DI",
+        "nombre": "Desarrollo de Interfaces",
+        "profesor": { "nombre": "Borja", "Apellido": "Martin" },
+        "hora": 6,
+        "ciclo": "dam",
+        "curso": 2,
+        "conocimientos": ["javafx", "ts", "angular"]
+      },
+      {
+        "siglas": "AD",
+        "nombre": "Acceso a Datos",
+        "profesor": { "nombre": "Ruben", "Apellido": "Juarez" },
+        "hora": 6,
+        "ciclo": "dam",
+        "curso": 2,
+        "conocimientos": ["java", "heroky"]
+      },
+      {
+        "siglas": "PSP",
+        "nombre": "Programación Servicios y Procesos",
+        "profesor": { "nombre": "Jesús", "Apellido": "Niño" },
+        "hora": 4,
+        "ciclo": "dam",
+        "curso": 2,
+        "conocimientos": ["comunicaciones", "concurrencia"]
+      },
+      {
+        "siglas": "SGE",
+        "nombre": "Sisemas Gestión Empresarial",
+        "profesor": { "nombre": "Eduardo", "Apellido": "Del Olmo" },
+        "hora": 5,
+        "ciclo": "dam",
+        "curso": 2,
+        "conocimientos": ["CRM", "ERP"]
+      },
+      {
+        "siglas": "ING",
+        "nombre": "Inglés",
+        "profesor": { "nombre": "Rocio", "Apellido": "Pizarro" },
+        "hora": 2,
+        "ciclo": "dam|daw",
+        "curso": 2,
+        "conocimientos": ["Idioma"]
+      },
+      {
+        "siglas": "EIE",
+        "nombre": "Empresa e iniciativa emprendedora",
+        "profesor": { "nombre": "Marta", "Apellido": "Valdeita" },
+        "hora": 3,
+        "ciclo": "dam|daw",
+        "curso": 2,
+        "conocimientos": ["Emprendimiento", "Empresas"]
+      },
+      {
+        "siglas": "PRO",
+        "nombre": "Programación",
+        "profesor": { "nombre": "Borja", "Apellido": "Martin" },
+        "hora": 8,
+        "ciclo": "dam",
+        "curso": 1,
+        "conocimientos": ["java", "poo"]
+      },
+      {
+        "siglas": "BD",
+        "nombre": "Base de datos",
+        "profesor": { "nombre": "Edaurdo", "Apellido": "Del Olmo" },
+        "hora": 6,
+        "ciclo": "dam|daw",
+        "curso": 1,
+        "conocimientos": ["sql", "mysql", "normalizacion"]
+      },
+      {
+        "siglas": "XML",
+        "nombre": "Lenguaje de Marcas",
+        "profesor": { "nombre": "Eduardo", "Apellido": "Del Olmo" },
+        "hora": 5,
+        "ciclo": "dam|daw",
+        "curso": 1,
+        "conocimientos": ["css", "html", "xml", "php"]
+      },
+      {
+        "siglas": "ED",
+        "nombre": "Entornos de Desarrollo",
+        "profesor": { "nombre": "Jesús", "Apellido": "Niño" },
+        "hora": 3,
+        "ciclo": "dam|daw",
+        "curso": 1,
+        "conocimientos": ["scrum", "metodologias"]
+      },
+      {
+        "siglas": "DAWC",
+        "nombre": "Desarrollo aplicaciones web cliente",
+        "profesor": { "nombre": "Borja", "Apellido": "Martin" },
+        "hora": 6,
+        "ciclo": "daw",
+        "curso": 2,
+        "conocimientos": ["javascript", "react", "react native"]
+      },
+      {
+        "siglas": "DWES",
+        "nombre": "Desarrollo apliaciones web servidor",
+        "profesor": { "nombre": "David", "Apellido": "Ventura" },
+        "hora": 9,
+        "ciclo": "daw",
+        "curso": 2,
+        "conocimientos": ["php", "python"]
+      },
+      {
+        "siglas": "DAW",
+        "nombre": "Despliegue aplicaciones web",
+        "profesor": { "nombre": "Jesús", "Apellido": "Niño" },
+        "hora": 4,
+        "ciclo": "daw",
+        "curso": 2,
+        "conocimientos": ["tomcat", "wordpress"]
+      },
+      {
+        "siglas": "DI",
+        "nombre": "Diseño de interfaces",
+        "profesor": { "nombre": "Victor", "Apellido": "Martinez" },
+        "hora": 6,
+        "ciclo": "dam",
+        "curso": 2,
+        "conocimientos": ["css", "bootstrap"]
+      },
+      {
+        "siglas": "FCTs",
+        "nombre": "Formación en centros de trabajo",
+        "profesor": { "nombre": "", "Apellido": "" },
+        "hora": 370,
+        "ciclo": "dam|daw",
+        "curso": 2,
+        "conocimientos": ["trabajo en empresa"]
+      },
+      {
+        "siglas": "PROY",
+        "nombre": "Proyecto",
+        "profesor": { "nombre": "", "Apellido": "" },
+        "hora": 30,
+        "ciclo": "dam|daw",
+        "curso": 2,
+        "conocimientos": ["trabajo personal"]
+      }
+    ]
+  ]
+}
