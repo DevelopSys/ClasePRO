@@ -1,6 +1,7 @@
 package controller;
 
 import com.google.gson.Gson;
+import model.Asignatura;
 import model.Conocimiento;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -103,9 +104,28 @@ public class JSONController {
 
             JSONObject jsonAsignaturas = new JSONObject(buffer.toString());
             JSONArray asignaturas = jsonAsignaturas.getJSONArray("asignaturas");
+            for (int i = 0; i < asignaturas.length(); i++) {
+                JSONObject asignaturaJSON = asignaturas.getJSONObject(i);
+                Gson gson = new Gson();
+                Asignatura asignatura = gson.fromJson(asignaturaJSON.toString(),Asignatura.class);
+                caracteristicasAsignatura(asignatura);
+
+            }
+
             // Captura todas las asignaturas individuales y tener la posibilidad de
             // tratarlas como objetos JAVA
             // y ver su curso y su ciclo
+            // Pedir al usuario un curso y un ciclo del que quiere ver las asignturas
+                // dam
+                // 1
+            // si se introduce un curso que no esta en el JSON, el sistema indica CURSO NO ENCONTRADO
+            // el sistema deber mostrar las asignaturas del ciclo y curso pedido con el siguiente formato
+            // Nombre: XX
+            // Profesor: NOM AP
+            // Sigras: XX
+            // Duracion: XX
+            // Conocimientos: XX,XX,XX
+
             System.out.println(asignaturas);
 
         } catch (IOException e) {
@@ -120,6 +140,11 @@ public class JSONController {
             }
         }
 
+    }
+
+    public void caracteristicasAsignatura(Asignatura asignatura){
+        System.out.println(asignatura.getCiclo());
+        System.out.println(asignatura.getCurso());
     }
 
 
