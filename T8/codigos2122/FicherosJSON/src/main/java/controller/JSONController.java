@@ -88,7 +88,37 @@ public class JSONController {
         }
     }
 
-    public void detallarCosas(Conocimiento conocimiento){
+    public void leerJSONAsignturas(){
+
+        File file = new File("src/main/resources/asignaturas.json");
+        BufferedReader bufferedReader = null;
+
+        try {
+            bufferedReader = new BufferedReader(new FileReader(file));
+            StringBuffer buffer = new StringBuffer();
+            String linea = null;
+            while ((linea = bufferedReader.readLine())!=null){
+                buffer.append(linea);
+            }
+
+            JSONObject jsonAsignaturas = new JSONObject(buffer.toString());
+            JSONArray asignaturas = jsonAsignaturas.getJSONArray("asignaturas");
+            // Captura todas las asignaturas individuales y tener la posibilidad de
+            // tratarlas como objetos JAVA
+            // y ver su curso y su ciclo
+            System.out.println(asignaturas);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (bufferedReader != null) {
+                    bufferedReader.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
     }
 
