@@ -7,8 +7,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
 
 public class JSONController {
+
+    ArrayList<Asignatura> listaAsignaturas;
 
     String jsonString = "{\n" +
             "  \"nombre\": \"Borja\",\n" +
@@ -89,11 +95,11 @@ public class JSONController {
         }
     }
 
-    public void leerJSONAsignturas(){
+    public void leerJSONAsignturas(String ciclo, int curso){
 
         File file = new File("src/main/resources/asignaturas.json");
         BufferedReader bufferedReader = null;
-
+        listaAsignaturas = new ArrayList<>();
         try {
             bufferedReader = new BufferedReader(new FileReader(file));
             StringBuffer buffer = new StringBuffer();
@@ -108,9 +114,12 @@ public class JSONController {
                 JSONObject asignaturaJSON = asignaturas.getJSONObject(i);
                 Gson gson = new Gson();
                 Asignatura asignatura = gson.fromJson(asignaturaJSON.toString(),Asignatura.class);
-                caracteristicasAsignatura(asignatura);
+                listaAsignaturas.add(asignatura);
+                //caracteristicasAsignatura(asignatura, ciclo,curso);
 
             }
+
+             caracteristacasAsignaturas(ciclo, curso);
 
             // Captura todas las asignaturas individuales y tener la posibilidad de
             // tratarlas como objetos JAVA
@@ -126,7 +135,7 @@ public class JSONController {
             // Duracion: XX
             // Conocimientos: XX,XX,XX
 
-            System.out.println(asignaturas);
+
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -142,9 +151,84 @@ public class JSONController {
 
     }
 
-    public void caracteristicasAsignatura(Asignatura asignatura){
-        System.out.println(asignatura.getCiclo());
-        System.out.println(asignatura.getCurso());
+
+    public void caracteristacasAsignaturas(String ciclo, int curso){
+        for ( Asignatura item : listaAsignaturas) {
+            if(item.getCurso() == curso && item.getCiclo().contains(ciclo)){
+                System.out.println(item.getSiglas());
+                System.out.println(item.getCiclo());
+                System.out.println(item.getCurso());
+                System.out.println("Conocimientos");
+                for ( String itemCon : item.getConocimientos() ) {
+                    System.out.println(itemCon);
+                }
+            }
+        }
+    }
+    public void caracteristicasAsignatura(Asignatura asignatura, String ciclo, int curso){
+
+        if (asignatura.getCiclo().contains(ciclo) && asignatura.getCurso() == curso) {
+            System.out.println(asignatura.getSiglas());
+            System.out.println(asignatura.getCiclo());
+            System.out.println(asignatura.getCurso());
+        }
+    }
+    public void lecturaJSONAPI(int numero, String genero){
+        String urlString = "https://randomuser.me/api/?results="+numero+"&gender="+genero;
+        try {
+            URL url = new URL(urlString);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            // contestacion
+            BufferedReader bufferedReader =
+                    new BufferedReader(new InputStreamReader(connection.getInputStream()));
+
+            String lectura = bufferedReader.readLine();
+            JSONObject jsonObject = new JSONObject(lectura);
+            System.out.println(lectura);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void lectruaUsars(){
+
+        String urlString = "https://randomuser.me/api/?results=2";
+        try {
+            URL url = new URL(urlString);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            //File file;
+            //FileReader fileReader;
+            BufferedReader bufferedReader;
+
+            bufferedReader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            StringBuffer stringBuffer = new StringBuffer();
+            String linea = null;
+
+            while ((linea=bufferedReader.readLine())!=null){
+                stringBuffer.append(linea);
+            }
+
+            String response = stringBuffer.toString();
+            JSONObject responseJSON = new JSONObject(response);
+            JSONArray arrayResultados = responseJSON.getJSONArray("results");
+
+            for (int i = 0; i < arrayResultados.length(); i++) {
+                JSONObject objetoResultado = arrayResultados.getJSONObject(i);
+                //System.out.println(objetoResultado);
+                String mail = objetoResultado.getString("email");
+                System.out.println(mail);
+            }
+
+
+
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
 

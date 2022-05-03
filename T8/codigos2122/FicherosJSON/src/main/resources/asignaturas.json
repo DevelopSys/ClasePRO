@@ -69,7 +69,7 @@
         "nombre": "Programación",
         "profesor": { "nombre": "Borja", "Apellido": "Martin" },
         "hora": 8,
-        "ciclo": "dam",
+        "ciclo": "dam|daw",
         "curso": 1,
         "conocimientos": ["java", "poo"]
       },
