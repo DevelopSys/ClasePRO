@@ -217,10 +217,8 @@ public class JSONController {
                 //System.out.println(objetoResultado);
                 String mail = objetoResultado.getString("email");
                 System.out.println(mail);
+
             }
-
-
-
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
