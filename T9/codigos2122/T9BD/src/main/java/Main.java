@@ -14,7 +14,7 @@ public class Main {
         int edad = 0;
         ControllerBD controllerBD = new ControllerBD();
         //controllerBD.insertarAlumnoStatement();
-        controllerBD.insertarAlumnoPrepare();
+        //controllerBD.insertarAlumnoPrepare();
         /*
         do {
             System.out.println("Intro nombre");
@@ -32,5 +32,11 @@ public class Main {
         } while (continuar.equalsIgnoreCase("s"));
            */
 
+        System.out.println("Introduce nombre modificar;");
+        String nombreModificar = scanner.next();
+        System.out.println("Introduce edad modificar;");
+        int edadModificar = scanner.nextInt();
+
+        controllerBD.actualizarEdad(nombreModificar,edadModificar);
     }
 }

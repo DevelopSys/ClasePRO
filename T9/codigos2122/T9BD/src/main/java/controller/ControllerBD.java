@@ -128,6 +128,72 @@ public class ControllerBD {
     public void setConn(Connection conn) {
         this.conn = conn;
     }
+    public void actualizarEdad(String nombre, int edad){
+        String query = "UPDATE %s SET %s = ? WHERE %s = ?";
+
+        /*
+        * String query = "UPDATE alumnos" +
+                "SET edad = 30, " +
+                "WHERE nombre = 'Borja'";
+        *
+        * */
+
+        getConnection();
+        try {
+            preparedStatement = conn.prepareStatement(String.format(query,SchemeDB.TAB_ALU,
+                    SchemeDB.COL_EDAD,SchemeDB.COL_NOMBRE));
+            preparedStatement.setInt(1,edad);
+            preparedStatement.setString(2,nombre);
+            int rows = preparedStatement.executeUpdate();
+            System.out.println("Los cambios afectados son "+rows);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                preparedStatement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            closeConnection();
+        }
+
+
+    }
+
+    public void borrarElemento(int edad){
+        String query = "DELETE FROM %s WHERE %s < ?";
+
+        /*
+        * String query = "UPDATE alumnos" +
+                "SET edad = 30, " +
+                "WHERE nombre = 'Borja'";
+        *
+        * */
+
+        getConnection();
+        try {
+            preparedStatement = conn.prepareStatement(String.format(query,SchemeDB.TAB_ALU,
+                    SchemeDB.COL_EDAD));
+            preparedStatement.setInt(1,edad);
+            int rows = preparedStatement.executeUpdate();
+            System.out.println("Los borrar afectados son "+rows);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                preparedStatement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            closeConnection();
+        }
+
+
+    }
+
+
 
     // modificar la edad de un usuario. Para ello el sistema pedira el nombre del usuario
     // y la nueva edad del mismo. Una vez realizada la modificacion el sistema
