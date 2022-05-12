@@ -4,6 +4,7 @@ import database.SchemeDB;
 import model.Alumno;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class ControllerBD {
 
@@ -12,6 +13,8 @@ public class ControllerBD {
     private Statement statement;
     // comprueba tipos de datos
     private PreparedStatement preparedStatement;
+    // obtencion de resultados;
+    private ResultSet resultSet;
 
 
     private void getConnection(){
@@ -160,7 +163,6 @@ public class ControllerBD {
 
 
     }
-
     public void borrarElemento(int edad){
         String query = "DELETE FROM %s WHERE %s < ?";
 
@@ -192,9 +194,6 @@ public class ControllerBD {
 
 
     }
-
-
-
     // modificar la edad de un usuario. Para ello el sistema pedira el nombre del usuario
     // y la nueva edad del mismo. Una vez realizada la modificacion el sistema
     // avisará del numero de usuarios que ha cambiado SE HAN ACTUALIZADO X USUARIOS
@@ -202,4 +201,54 @@ public class ControllerBD {
     // borrar los usuarios. Para ello el sistema pedira una edad y borrá todos aquellos
     // usuarios que tengan una edad inferior a la pedida por el sistema
     // el sistema avisará del numero de usuarios borrados
+
+    public void procesarArrayList(ArrayList lista){
+        System.out.println(lista.size());
+    }
+
+    public void getResultados(){
+        ArrayList<Alumno> alumnos = new ArrayList<>();
+        getConnection();
+        try {
+            statement = conn.createStatement();
+            String query = "SELECT * FROM "+SchemeDB.TAB_ALU;
+            resultSet = statement.executeQuery(query);
+            
+            /*resultSet.next();
+            String nombre = resultSet.getString(SchemeDB.COL_NOMBRE);
+            String apellido = resultSet.getString(SchemeDB.COL_APELLIDO);
+            int edad = resultSet.getInt(SchemeDB.COL_EDAD);
+            int id = resultSet.getInt(SchemeDB.COL_ID);
+
+            System.out.println(nombre);
+            System.out.println(apellido);
+            System.out.println(edad);
+            System.out.println(id);*/
+            // resultSet.next();
+
+            while (resultSet.next()){
+                String nombre = resultSet.getString(SchemeDB.COL_NOMBRE);
+                String apellido = resultSet.getString(SchemeDB.COL_APELLIDO);
+                int edad = resultSet.getInt(SchemeDB.COL_EDAD);
+                int id = resultSet.getInt(SchemeDB.COL_ID);
+                Alumno alumno = new Alumno(nombre,apellido,edad);
+                alumnos.add(alumno);
+                System.out.println(alumno.getNombre());
+                System.out.println(alumno.getApellido());
+                System.out.println(alumno.getEdad());
+                //System.out.println(id);
+            }
+            procesarArrayList(alumnos);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                statement.close();
+                closeConnection();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 }

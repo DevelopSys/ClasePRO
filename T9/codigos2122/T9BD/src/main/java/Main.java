@@ -31,12 +31,13 @@ public class Main {
 
         } while (continuar.equalsIgnoreCase("s"));
            */
-
-        System.out.println("Introduce nombre modificar;");
+        /*System.out.println("Introduce nombre modificar;");
         String nombreModificar = scanner.next();
         System.out.println("Introduce edad modificar;");
         int edadModificar = scanner.nextInt();
 
-        controllerBD.actualizarEdad(nombreModificar,edadModificar);
+        controllerBD.actualizarEdad(nombreModificar,edadModificar);*/
+        controllerBD.getResultados();
+
     }
 }
