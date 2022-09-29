@@ -97,13 +97,10 @@ public class EntradaVariables {
         System.out.println("Valor max: "+maxValorFloat);
         System.out.println("Valor min: "+minValorFloat);
 
-        System.out.print("TIPO\t\t\t\tMAX\t\t\t\t\t\t\t\t\t\t\t\t\tMIN\n");
-        System.out.printf("Integer\t\t\t\t%d\t\t\t\t\t\t\t\t\t\t\t%d\n",maxValorInt, minValorInt);
-        System.out.printf("Double\t\t\t\t%.2f\t\t\t\t%.2f\n",maxValorFloat, minValorFloat);
-
-
-
-
+        //System.out.print("TIPO\t\t\t\tMAX\t\t\t\t\t\t\t\t\t\t\t\t\tMIN\n");
+        //System.out.printf("Integer\t\t\t\t%d\t\t\t\t\t\t\t\t\t\t\t%d\n",maxValorInt, minValorInt);
+        //System.out.printf("Double\t\t\t\t%.2f\t\t\t\t%.2f\n",maxValorFloat, minValorFloat);
+        
     }
 
 
