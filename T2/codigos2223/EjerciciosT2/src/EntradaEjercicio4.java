@@ -4,6 +4,9 @@ public class EntradaEjercicio4 {
 
     public static void main(String[] args) {
 
+        //double resultado = 100/55;
+        //System.out.println(resultado);
+
         // EntradaEjercicio4 nombre = new EntradaEjercicio4();
         String linea1 = new EntradaEjercicio4().pedirDatos();
         String linea2 = new EntradaEjercicio4().pedirDatos();
