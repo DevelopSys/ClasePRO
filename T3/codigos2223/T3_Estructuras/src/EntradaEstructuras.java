@@ -9,7 +9,37 @@ public class EntradaEstructuras {
         //calculoIMC();
         //estrucuturaSwitch();
         //ejercicioMenu();
-        estructuraFor();
+        //estructuraFor();
+        ejercicioFor();
+
+    }
+
+    private static void ejercicioFor() {
+        // REALIZAR UN PROGRAMA QUE PIDA POR CONSOLA EN NUMERO DE VECES
+        // QUE TENGO QUE INTRODUCIR DATOS
+
+        // SEGUN EL N VECES INDICADO PEDIRA TANTOS NUMEROS COMO SE INDIQUE
+        // LA CAPTURA DEL NUMERO SERA CON EL SIGUIENTE MENSAJE
+        // "Introduce el valor de la posicion 1: " --> INTRODUZCO
+        // "Introduce el valor de la posicion 2"  -->  INTRODUZCO
+        // "Introduce el valor de la posicion 3"  -->  INTRODUZCO
+        // "Introduce el valor de la posicion 4"  -->  INTRODUZCO
+
+        // MOD1: Calcular el sumatorio de todos los numeros introducidos
+        // Calcular el número medio introducido
+        // APARECER EL MENSAJE DE   "LA SUMA DE LOS NUMEROS ES 130"
+        //                          "LA MEDIA DE LOS NUMEROS ES 5,7"
+
+        Scanner lecturaTeclado = new Scanner(System.in);
+        int numeroDatos =0;
+
+        System.out.println("cuantos datos quieres introducir");
+        numeroDatos = lecturaTeclado.nextInt();
+
+        for (int i = 0; i < numeroDatos; i++) {
+            System.out.printf("Por favor introduce el dato de la posicion %d%n",i+1);
+            lecturaTeclado.nextInt();
+        }
 
     }
 
@@ -17,14 +47,7 @@ public class EntradaEstructuras {
         for (int i=0;i<5;i++){
             System.out.println("Incremental");
             System.out.println("Ejecucion "+i);
-
-            for (int x = 10; x < 0; x--) {
-                System.out.println("Decremental");
-            }
-
         }
-
-
     }
 
     private static void ejercicioMenu() {
