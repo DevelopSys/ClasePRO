@@ -10,7 +10,81 @@ public class EntradaEstructuras {
         //estrucuturaSwitch();
         //ejercicioMenu();
         //estructuraFor();
-        ejercicioFor();
+        //ejercicioFor();
+        //multiplicaciones();
+        ejercicioAleatorios();
+
+    }
+
+    private static void ejercicioAleatorios() {
+
+        int maxRango = 90;
+        int minRango = 20;
+        int numeroNumeros =  maxRango - minRango; //20
+
+        int aleatorio = (int) (Math.random()*(numeroNumeros+1)) +minRango;
+
+
+        //System.out.println(Math.random()*10);
+        //0-9 (0.9999999999999999)
+        for (int i = 0; i < 10000; i++) {
+            //Math.random(); // 0-1 (0.9999999999999999)
+            // [0-10]
+            //System.out.println(Math.random()*11);
+            // [1-10]
+            // [50-60]
+            //System.out.println((Math.random()*10)+1);
+            //System.out.println((Math.random()*11)+50);
+            //[0-10]
+            int aleatorio = (int)(Math.random()*11);
+            System.out.println(aleatorio);
+        }
+
+
+
+        // CREAR UN PROGRAMA QUE PIDA POR CONSOLA EL RANGO MINIMO Y MAXIMO
+        // EL MIN DEBE SER MAS PEQUEÑO QUE EL GRANDE, SINO AVISO Y PARA
+        // QUE GENERE N ALEATORIOS
+        // OBTENER  LA SUMA DE LOS ALEATORIOS GENERADOS
+        //          LA MEDIA DE LOS ALEATORIOS GENERADOS
+        //          EL MAX GENERADO
+        //          EL MIN GENERADO
+
+    }
+
+    private static void multiplicaciones() {
+
+        // DE QUE NUMERO QUIERES SACAR LA TABLA: 7
+        // 7x0=0
+        // 7x1=7
+        // 7x1=7
+        // 7x1=7
+        // 7x1=7
+        // 7x1=7
+        // 7x1=7
+        // 7x1=7
+        // 7x1=7
+        // 7x10=70
+        /*Scanner lecturaTeclado = new Scanner(System.in);
+        System.out.println("De que numero quieres ver la tabla");
+        int numeroTabla = lecturaTeclado.nextInt();
+        System.out.println("TABLA DEL "+numeroTabla);
+
+        for (int i = 0; i < 11; i++) {
+            System.out.printf("\tLa multiplicacion de %dx%d=%d%n",numeroTabla,i,numeroTabla*i);
+        }*/
+
+        System.out.println("Tablas de multipicar");
+
+        for (int i = 0; i < 11; i++) {
+        // saca las tablas
+            System.out.println("TABLA DEL "+i);
+            for (int j = 0; j < 11; j++) {
+                // sacar los valores de cada tabla
+                System.out.printf("\t%dx%d=%d%n",i,j,i*j);
+            }
+
+        }
 
     }
 
@@ -36,10 +110,17 @@ public class EntradaEstructuras {
         System.out.println("cuantos datos quieres introducir");
         numeroDatos = lecturaTeclado.nextInt();
 
+        int sumatorioValores=0;
+
         for (int i = 0; i < numeroDatos; i++) {
             System.out.printf("Por favor introduce el dato de la posicion %d%n",i+1);
-            lecturaTeclado.nextInt();
+            int numeroIntroducido = lecturaTeclado.nextInt();
+            sumatorioValores += numeroIntroducido;
         }
+
+        System.out.println("La suma de todos los numeros es "+sumatorioValores);
+        double media = (double) sumatorioValores/numeroDatos;
+        System.out.println("La media de todos los numeros es "+media);
 
     }
 
