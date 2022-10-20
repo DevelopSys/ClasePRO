@@ -12,34 +12,91 @@ public class EntradaEstructuras {
         //estructuraFor();
         //ejercicioFor();
         //multiplicaciones();
-        ejercicioAleatorios();
+        //ejercicioAleatorios();
+        //estructuraWhile();
+        //ejercicioWhile();
+        //estructuraDoWhile();
+        ejercicioDoWhile();
+
+
+
+    }
+
+    private static void ejercicioDoWhile() {
+        // HACER UN MENU --> switch
+            // 1. Sumar
+            // 2. Restar
+            // 3. Multiplicar
+            // 4. Dividir
+            // 5. Salir
+            // Que opcion queres hacer
+            // 1
+            // Opcion sumar --> me pide dos numeros y me muestra el resultado
+            
+    }
+
+    private static void estructuraDoWhile() {
+
+        int numero = 9;
+
+        do {
+            //System.out.println("Ejecucion en do-while");
+            System.out.println("Ejecucion con numero valor: "+numero);
+            numero++;
+        }while (numero<15);
+    }
+
+    private static void ejercicioWhile() {
+        // Pedir por consola numeros hasta introducir un negativo.
+        // Cuando termine el programa me mostrará
+        //      cuantos numeros he introducido
+        //      cuantos han sido multiplos de 4
+        //      cuantos han sido impares
+
+        Scanner lecturaTeclado = new Scanner(System.in);
+        int numeroIntroducido=0;
+        int multiplosCuatro=0;
+        int impares=0;
+        int numeros=0;
+
+        while (numeroIntroducido>=0){
+            System.out.println("Introduce numero");
+            numeroIntroducido = lecturaTeclado.nextInt();
+            // impar? multiplo? suma --> cuando sea > 0
+            numeros++;
+            if (numeroIntroducido>=0){
+                if (numeroIntroducido%2 != 0){
+                    impares++;
+                } else if (numeroIntroducido %4 ==0) {
+                    multiplosCuatro++;
+                }
+            }
+
+        }
+
+        System.out.printf("Has introducido %d numeros%n",numeros);
+        System.out.printf("De los cuales %d son impares%n",impares);
+        System.out.printf("De los cuales %d son multiplos de 4%n",multiplosCuatro);
+
+
+    }
+
+    private static void estructuraWhile() {
+        // mientras se cumpla condicion ejecuta
+        // vuelve a evaluar la condicion
+
+        int numero = 10;
+
+        while (numero>0){
+            System.out.println("Ejecucion con valor de numero "+numero);
+            numero--;
+        }
+
+
 
     }
 
     private static void ejercicioAleatorios() {
-
-        int maxRango = 90;
-        int minRango = 20;
-        int numeroNumeros =  maxRango - minRango; //20
-
-        int aleatorio = (int) (Math.random()*(numeroNumeros+1)) +minRango;
-
-
-        //System.out.println(Math.random()*10);
-        //0-9 (0.9999999999999999)
-        for (int i = 0; i < 10000; i++) {
-            //Math.random(); // 0-1 (0.9999999999999999)
-            // [0-10]
-            //System.out.println(Math.random()*11);
-            // [1-10]
-            // [50-60]
-            //System.out.println((Math.random()*10)+1);
-            //System.out.println((Math.random()*11)+50);
-            //[0-10]
-            int aleatorio = (int)(Math.random()*11);
-            System.out.println(aleatorio);
-        }
-
 
 
         // CREAR UN PROGRAMA QUE PIDA POR CONSOLA EL RANGO MINIMO Y MAXIMO
@@ -49,6 +106,57 @@ public class EntradaEstructuras {
         //          LA MEDIA DE LOS ALEATORIOS GENERADOS
         //          EL MAX GENERADO
         //          EL MIN GENERADO
+
+        Scanner lecturaTeclado = new Scanner(System.in);
+        int maxRango = 0;
+        int minRango = 0;
+
+        System.out.println("Introduce el rango minimo");
+        minRango = lecturaTeclado.nextInt();
+        System.out.println("Introduce el rango maximo");
+        maxRango = lecturaTeclado.nextInt();
+
+        if (minRango < maxRango) {
+            int sumatorioAleatorios = 0;
+            double mediaAleatorios = 0.0;
+            int max = minRango, min = maxRango;
+
+            int numeroNumeros = maxRango - minRango;
+            int repeticiones = (int) (Math.random() * 16) + 5;
+            System.out.printf("Se van a realizar %d repeticiones%n",repeticiones);
+            for (int i = 0; i < repeticiones; i++) {
+                System.out.printf("Repeticion %d",i);
+                int aleatorio = (int) (Math.random() * (numeroNumeros + 1)) + minRango;
+                System.out.println(" Aleatorio generado "+aleatorio);
+                sumatorioAleatorios += aleatorio;
+
+                if (aleatorio<min){
+                    min = aleatorio;
+                } else if (aleatorio>max) {
+                    max = aleatorio;
+                }
+
+            }
+            mediaAleatorios = (double) sumatorioAleatorios / repeticiones;
+
+            System.out.printf("La suma de todos los aleatorios es: %d%n",sumatorioAleatorios);
+            System.out.printf("La media de todos los aleatorios es: %.2f%n",mediaAleatorios);
+            System.out.printf("El max de los generados es: %d%n",max);
+            System.out.printf("El min de los generados es: %d%n",min);
+
+
+
+        } else {
+            System.out.println("Rango incompatible, terminando programa");
+        }
+
+
+        //System.out.println(Math.random()*10);
+        //0-9 (0.9999999999999999)
+        for (int i = 0; i < 10000; i++) {
+
+        }
+
 
     }
 
@@ -77,11 +185,11 @@ public class EntradaEstructuras {
         System.out.println("Tablas de multipicar");
 
         for (int i = 0; i < 11; i++) {
-        // saca las tablas
-            System.out.println("TABLA DEL "+i);
+            // saca las tablas
+            System.out.println("TABLA DEL " + i);
             for (int j = 0; j < 11; j++) {
                 // sacar los valores de cada tabla
-                System.out.printf("\t%dx%d=%d%n",i,j,i*j);
+                System.out.printf("\t%dx%d=%d%n", i, j, i * j);
             }
 
         }
@@ -105,29 +213,29 @@ public class EntradaEstructuras {
         //                          "LA MEDIA DE LOS NUMEROS ES 5,7"
 
         Scanner lecturaTeclado = new Scanner(System.in);
-        int numeroDatos =0;
+        int numeroDatos = 0;
 
         System.out.println("cuantos datos quieres introducir");
         numeroDatos = lecturaTeclado.nextInt();
 
-        int sumatorioValores=0;
+        int sumatorioValores = 0;
 
         for (int i = 0; i < numeroDatos; i++) {
-            System.out.printf("Por favor introduce el dato de la posicion %d%n",i+1);
+            System.out.printf("Por favor introduce el dato de la posicion %d%n", i + 1);
             int numeroIntroducido = lecturaTeclado.nextInt();
             sumatorioValores += numeroIntroducido;
         }
 
-        System.out.println("La suma de todos los numeros es "+sumatorioValores);
-        double media = (double) sumatorioValores/numeroDatos;
-        System.out.println("La media de todos los numeros es "+media);
+        System.out.println("La suma de todos los numeros es " + sumatorioValores);
+        double media = (double) sumatorioValores / numeroDatos;
+        System.out.println("La media de todos los numeros es " + media);
 
     }
 
     private static void estructuraFor() {
-        for (int i=0;i<5;i++){
+        for (int i = 0; i < 5; i++) {
             System.out.println("Incremental");
-            System.out.println("Ejecucion "+i);
+            System.out.println("Ejecucion " + i);
         }
     }
 
@@ -137,12 +245,12 @@ public class EntradaEstructuras {
         System.out.println("1. Menu1\n2. Menu2\n3. Menu3\n4. Menu4");
         System.out.println("Que opcion quieres ejecutar");
         opcion = lecturaTeclado.nextInt();
-        switch (opcion){
+        switch (opcion) {
             case 1:
                 System.out.println("Imprimiendo menu 1");
                 System.out.println("1.1 Submenu\n1.2 Submenu\n1.3 Submenu");
                 opcionSubmenu = lecturaTeclado.nextInt();
-                switch (opcionSubmenu){
+                switch (opcionSubmenu) {
                     case 1:
                         System.out.println("imprimiendo submenu 1.1");
                         break;
@@ -156,7 +264,7 @@ public class EntradaEstructuras {
                 break;
             case 2:
                 System.out.println("Imprimiendo menu 2");
-                 break;
+                break;
             case 3:
                 System.out.println("Imprimiendo menu 3");
                 break;
@@ -197,19 +305,19 @@ public class EntradaEstructuras {
         // REALIZAR UN MENU POR CONSOLA
 
         /*
-        * Que opcion quieres ejerucar: [1-4]
-        * MENU OPCION 1
-        *   que opcion del menu 1 quieres ejecutar
-        *   opcion: [1-3]
-        *   SUBMENU 1.1
-        *   SUBMENU 1.2
-        *   SUBMENU 1.3
-        *   Opcion no reconocida
-        * MENU OPCION 2
-        * MENU OPCION 3
-        * MENU OPCION 4
-        * Opcion no reconocida
-        * */
+         * Que opcion quieres ejerucar: [1-4]
+         * MENU OPCION 1
+         *   que opcion del menu 1 quieres ejecutar
+         *   opcion: [1-3]
+         *   SUBMENU 1.1
+         *   SUBMENU 1.2
+         *   SUBMENU 1.3
+         *   Opcion no reconocida
+         * MENU OPCION 2
+         * MENU OPCION 3
+         * MENU OPCION 4
+         * Opcion no reconocida
+         * */
 
     }
 
@@ -308,7 +416,7 @@ public class EntradaEstructuras {
         System.out.printf("Hola Borja tu IMC teniendo en cuenta tu altura de %dcm y tu peso de %.2fkg, tiene\n" +
                 "un valor de %.2f%n", altura, peso, IMC);
 
-        switch (sexo.charAt(0)){
+        switch (sexo.charAt(0)) {
             case 'M':
                 if (IMC < 18.50) {
                     System.out.println("Por debajo de lo normal ");
@@ -318,8 +426,7 @@ public class EntradaEstructuras {
                     System.out.println("Sobrepeso ");
                 } else if (IMC < 35) {
                     System.out.println("Obesidad clase I ");
-                }
-                else if (IMC < 40) {
+                } else if (IMC < 40) {
                     System.out.println("Obesidad clase II ");
                 } else {
                     System.out.println("Obesidad clase III ");
@@ -334,8 +441,7 @@ public class EntradaEstructuras {
                     System.out.println("Sobrepeso ");
                 } else if (IMC < 31) {
                     System.out.println("Obesidad clase I ");
-                }
-                else if (IMC < 34) {
+                } else if (IMC < 34) {
                     System.out.println("Obesidad clase II ");
                 } else {
                     System.out.println("Obesidad clase III ");
