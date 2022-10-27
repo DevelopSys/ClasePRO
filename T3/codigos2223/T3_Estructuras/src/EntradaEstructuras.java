@@ -16,10 +16,48 @@ public class EntradaEstructuras {
         //estructuraWhile();
         //ejercicioWhile();
         //estructuraDoWhile();
-        ejercicioDoWhile();
+        //ejercicioDoWhile();
+        //estructuraBreak();
+        //System.out.println(metodoRuptura());
 
 
+    }
 
+    private static void estructuraBreak() {
+
+
+        int numerosGenerados = 0;
+
+        for (int i = 0; i < 100; i++) {
+
+            int aleatorio = (int) (Math.random() *91);
+            numerosGenerados++;
+            System.out.println(aleatorio);
+            if (aleatorio == 50){
+                break;
+            }
+
+        }
+
+        System.out.println("Saliendo del bucle");
+        System.out.println("Generados: "+numerosGenerados);
+    }
+
+    public static int metodoRuptura(){
+        int numerosGenerados = 0;
+
+        for (int i = 0; i < 100; i++) {
+
+            int aleatorio = (int) (Math.random() *91);
+            numerosGenerados++;
+            //System.out.println(aleatorio);
+            if (aleatorio == 50){
+                return numerosGenerados;
+            }
+
+        }
+
+        return numerosGenerados;
     }
 
     private static void ejercicioDoWhile() {
