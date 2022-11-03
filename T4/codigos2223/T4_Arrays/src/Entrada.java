@@ -11,11 +11,23 @@ public class Entrada {
         //ejercicioUnoArrays();
         //ejercicioDosArrays();
         //ejercicioTresArrays();
-        //ejercicioCuatroArrays();
-        ejercicioCincoArrays();
+        ejercicioCuatroArrays();
+        //ejercicioCincoArrays();
     }
 
     private static void ejercicioCincoArrays() {
+
+        /*
+        * 5.- Realiza el sorteo de champion. Para ello se deben emparejar equipos del bombo1 con equipos del bombo2
+        * Una vez se emparejan los equipos se mostrarán todos los partidos de esta forma
+        * Cruce 1: Real Madrid vs PSG
+        * Cruce 2: Napoles vs Brujas
+        * Es importante que una vez un equipo salga emparejado no vuelva
+        * a salir emparejado
+        * Cruce 1: Real Madrid vs PSG
+        * Cruce 2: Napoles vs Brujas
+        * Cruce 3: Real Madrid vs Brujas
+        * */
         String[] bombo1 = {"Napoles","Oporto","B.Munich","Tottenham","Chelsea","R.Madrid", "M. City", "Benfica"};
         String[] bombo2 = {"Liverpool","Brujas","Inter","Entracht F.","AC. Milan","RB. Leipzig", "B. Dortmund","PSG"};
     }
@@ -41,6 +53,73 @@ public class Entrada {
             - 4 aciertos: 10000
             - 5 aciertos: 100000
          */
+
+        Scanner lecturaTeclado = new Scanner(System.in);
+        int[] cuponUsuario = new int[5];
+        int[] cuponSistema = new int[5];
+
+        // generar los numeros del usuario
+        int numeroUsuario =0;
+
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Introduce numero "+(i+1));
+            numeroUsuario = lecturaTeclado.nextInt();
+
+            while (numeroUsuario<0 || numeroUsuario>99){
+                System.out.println("Numero fuera de rango");
+                numeroUsuario = lecturaTeclado.nextInt();
+            }
+
+            cuponUsuario[i] = numeroUsuario;
+        }
+        System.out.println("Cupon del usuario: ");
+        for (int i = 0; i < 5; i++) {
+            System.out.printf("Numero %d: %d%n",i+1,cuponUsuario[i]);
+        }
+
+        for (int i = 0; i < 5; i++) {
+            cuponSistema[i] = (int)(Math.random()*100);
+        }
+        System.out.println("Cupon del sistema: ");
+        for (int i = 0; i < 5; i++) {
+            System.out.printf("Numero %d: %d%n",i+1,cuponSistema[i]);
+        }
+
+        // U = [3,4,12,45,64]
+        // S = [3,45,78,23,12]
+        int aciertos=0;
+        System.out.println("Comprobar");
+        for (int i = 0; i < 5; i++) {
+            if(cuponUsuario[i]== cuponSistema[i]){
+                aciertos++;
+            }
+            /*for (int j = 0; j < 5; j++) {
+                if (cuponUsuario[i] == cuponSistema[j]){
+                    aciertos++;
+                }
+            }*/
+        }
+
+        switch (aciertos){
+            case 1:
+                System.out.println("Has acertado 1 tienes un premio de 10");
+                break;
+            case 2:
+                System.out.println("Has acertado 2 tienes un premio de 100");
+                break;
+            case 3:
+                System.out.println("Has acertado 3 tienes un premio de 1000");
+                break;
+            case 4:
+                System.out.println("Has acertado 4 tienes un premio de 10000");
+                break;
+            case 5:
+                System.out.println("Has acertado 5 tienes un premio de 100000");
+                break;
+            case 0:
+                System.out.println("No has acertado ninguno");
+                break;
+        }
     }
 
     private static void busquedaArray() {
