@@ -11,7 +11,13 @@ public class Entrada {
         //ejercicioUnoArrays();
         //ejercicioDosArrays();
         //ejercicioTresArrays();
-        ejercicioCuatroArrays();
+        //ejercicioCuatroArrays();
+        ejercicioCincoArrays();
+    }
+
+    private static void ejercicioCincoArrays() {
+        String[] bombo1 = {"Napoles","Oporto","B.Munich","Tottenham","Chelsea","R.Madrid", "M. City", "Benfica"};
+        String[] bombo2 = {"Liverpool","Brujas","Inter","Entracht F.","AC. Milan","RB. Leipzig", "B. Dortmund","PSG"};
     }
 
     private static void ejercicioCuatroArrays() {
