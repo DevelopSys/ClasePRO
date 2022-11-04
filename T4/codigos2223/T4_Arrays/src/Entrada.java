@@ -11,8 +11,8 @@ public class Entrada {
         //ejercicioUnoArrays();
         //ejercicioDosArrays();
         //ejercicioTresArrays();
-        ejercicioCuatroArrays();
-        //ejercicioCincoArrays();
+        //ejercicioCuatroArrays();
+        ejercicioCincoArrays();
     }
 
     private static void ejercicioCincoArrays() {
@@ -30,7 +30,54 @@ public class Entrada {
         * */
         String[] bombo1 = {"Napoles","Oporto","B.Munich","Tottenham","Chelsea","R.Madrid", "M. City", "Benfica"};
         String[] bombo2 = {"Liverpool","Brujas","Inter","Entracht F.","AC. Milan","RB. Leipzig", "B. Dortmund","PSG"};
+
+        /*
+        1 - generar un aleatorio - 0-7 --> saco un equipo del bomboUno
+        2 - generar un aleatorio - 0-7 --> saco un equipo del bomboDos
+        3-  meto los dos equipos en un tercer array de cruces
+        */
+
+        Math.pow(20,3);
+
+
+        int aleatorio1;
+        int aleatorio2;
+        String[]cruces = new String[8];
+        int[] numerosBombo1 = {-1,-1,-1,-1,-1,-1,-1,-1}; // [-1 -1 -1 -1 -1 -1 -1 -1 ]
+        int[] numerosBombo2 = {-1,-1,-1,-1,-1,-1,-1,-1}; // [0 0 0 0 0 0 0 0]
+
+        for (int i = 0; i < bombo1.length; i++) {
+            aleatorio1 = (int) (Math.random()*8); // 6
+            //bombo1[aleatorio1];
+            while (estaNumero(aleatorio1,numerosBombo1)){
+                aleatorio1 = (int) (Math.random()*8); // 6
+            }
+
+            numerosBombo1[i] = aleatorio1;
+
+            aleatorio2 = (int) (Math.random()*8); // 4
+            //bombo1[aleatorio2];
+            while (estaNumero(aleatorio2,numerosBombo2)){
+                aleatorio2 = (int) (Math.random()*8); // 6
+            }
+            numerosBombo2[i] = aleatorio2;
+
+            // eqi1 vs eqi2
+            System.out.println(bombo1[aleatorio1] +" vs " +bombo2[aleatorio1]);
+            cruces[i] = bombo1[aleatorio1] +" vs "+bombo2[aleatorio2];
+        }
     }
+
+    private static boolean estaNumero(int numero, int[] numeros){
+        // algoritmo para ver si un numero esta en un array
+        for ( int item : numeros ) {
+            if(numero == item){
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     private static void ejercicioCuatroArrays() {
         /*
