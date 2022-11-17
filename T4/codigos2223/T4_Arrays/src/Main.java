@@ -16,40 +16,137 @@ public class Main {
         //ejercicioMover();
         //ejercicioOrdenar();
         //ejercicioSumaArrays();
-        ejercicioOperacionesArray();
+        //ejercicioOperacionesArray();
+        //ejercicioFrase();
+        resumen();
+    }
+
+    private static void resumen() {
+        // 1, "hola", true, 0.0
+        Object[] cosas = new Object[]{1,"hola",true,0,5,"false"};
+        // imprimir por consola
+        for ( Object item : cosas ) {
+
+
+            if (item instanceof String){
+                System.out.println(((String) item).length());
+            } else if (item instanceof Integer){
+                System.out.println("El cuadrado del numero es: "+Math.pow((int)item,2));
+            }
+
+            //System.out.println(item);
+        }
+
+    }
+
+    private static void ejercicioFrase() {
+        /*
+        * Crear un programa que lea por teclado una frase. Con la frase leída crear un array
+        * de String con cada una de las palabras que forman parte de la frase.
+        * Una vez introducida el programa mostrará:
+        La palabra más larga
+        La palabra más corta
+        La palabra o palabras que tienen exactamente 4 caracteres
+        * */
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Introduce la frase que quieres evaluar");
+        String frase = "Esto es un a ejemplo de frase para ejemplodepalabramuylarga tratar en el ejercicio";
+        String[] palabras = frase.split(" ");
+
+        String palabraLarga = palabras[0];
+        String palabraCorta = palabras[0];
+
+        for (String item : palabras) {
+            // mas grande
+            if (item.length() > palabraLarga.length()){
+                palabraLarga = item;
+            }
+            // mas pequeña
+            if (item.length()<palabraCorta.length()){
+                palabraCorta = item;
+            }
+        }
+
+        System.out.println("La palabra más corta es: "+palabraCorta);
+        System.out.println("La palabra más larga es: "+palabraLarga);
+
     }
 
     private static void ejercicioOperacionesArray() {
-        int[]numeros = new int[10];
+        int[] numeros = new int[10];
         numeros = rellenarArray(numeros);
         imprimirArrayComa(numeros);
         for (int i = 0; i < numeros.length; i++) {
-            if (numeros[i]%2 ==0){
+            if (numeros[i] % 2 == 0) {
                 //numeros[i] +=1;
-                numeros[i] = numeros[i]+1;
+                numeros[i] = numeros[i] + 1;
             } else {
-                numeros[i] = numeros[i]-1;
+                numeros[i] = numeros[i] - 1;
             }
         }
         imprimirArrayComa(numeros);
         for (int i = 0; i < numeros.length; i++) {
-            if (numeros[i]>=0 && numeros[i]<5){
+            if (numeros[i] >= 0 && numeros[i] < 5) {
                 //numeros[i] +=1;
-                numeros[i] = numeros[i]*2;
+                numeros[i] = numeros[i] * 2;
             }
         }
         imprimirArrayComa(numeros);
         for (int i = 0; i < numeros.length; i++) {
-                int aleatorio = (int) (Math.random()*11)-5;
-                numeros[i] = numeros[i]+aleatorio;
+            int aleatorio = (int) (Math.random() * 11) - 5;
+            numeros[i] = numeros[i] + aleatorio;
         }
         imprimirArrayComa(numeros);
+
+        // mover
+        int ultimo = numeros[numeros.length - 1];
+        for (int i = numeros.length - 1; i > 0; i--) {
+            numeros[i] = numeros[i - 1];
+        }
+        numeros[0] = ultimo;
+
+        imprimirArrayComa(numeros);
+
+        for (int i = 0; i < numeros.length; i++) {
+            int n = numeros[i + 1];
+            numeros[i + 1] = numeros[i];
+            numeros[i] = n;
+            i++;
+        }
+
+        imprimirArrayComa(numeros);
+
+
+        for (int i = 0; i < numeros.length / 2; i++) {
+            int n = numeros[i];
+            numeros[i] = numeros[numeros.length - i - 1];
+            numeros[numeros.length - i - 1] = n;
+        }
+        imprimirArrayComa(numeros);
+
+        int posicionPar = 0;
+        int posicionImpar = 0;
+        for (int i = 0; i < numeros.length; i++) {
+            if (numeros[i] % 2 == 0) {
+                posicionPar = i;
+                break;
+            }
+        }
+        for (int i = 0; i < numeros.length; i++) {
+            if (numeros[i] % 2 != 0) {
+                posicionImpar = i;
+            }
+        }
+
+        System.out.println("La posicion del primer par es " + posicionPar);
+        System.out.println("La posicion del ultimo impar es " + posicionImpar);
     }
 
-    private static void imprimirArrayComa(int[] array){
+    private static void imprimirArrayComa(int[] array) {
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i]);
-            if (i< array.length-1){
+            if (i < array.length - 1) {
                 System.out.print(", ");
             }
         }
@@ -76,7 +173,7 @@ public class Main {
         arrayDos = rellenarArray(arrayDos);
 
         for (int i = 0; i < longitud; i++) {
-            arrayResultado[i] = arrayUno[i]+arrayDos[i];
+            arrayResultado[i] = arrayUno[i] + arrayDos[i];
         }
 
         System.out.println("Array1");
@@ -87,23 +184,24 @@ public class Main {
         imprimirArrayEj(arrayResultado);
     }
 
-    private static void imprimirArrayEj(int[] array){
-        for (int item: array) {
-            System.out.print(item+" ");
+    private static void imprimirArrayEj(int[] array) {
+        for (int item : array) {
+            System.out.print(item + " ");
         }
         System.out.println();
     }
 
-    private static int[] rellenarArray(int[] array){
+    private static int[] rellenarArray(int[] array) {
         for (int i = 0; i < array.length; i++) {
-            array[i] = (int) (Math.random() * 10)+1;;
+            array[i] = (int) (Math.random() * 10) + 1;
+            ;
         }
 
         return array;
     }
 
     private static void ejercicioOrdenar() {
-        int[] numeros = {3,6,1,9,2,4,0,11,10};
+        int[] numeros = {3, 6, 1, 9, 2, 4, 0, 11, 10};
 
         Arrays.sort(numeros);
         /*int[]nuevo = Arrays.copyOf(numeros,15);
@@ -111,22 +209,21 @@ public class Main {
         nuevo[10] = 100;
         System.out.println(Arrays.compare(numeros,nuevo));*/
 
-        for (int i = 0; i < numeros.length-1; i++) {
-         // i=0 i=1 i=2
-            for (int j = 0; j < numeros.length-1-i; j++) {
+        for (int i = 0; i < numeros.length - 1; i++) {
+            // i=0 i=1 i=2
+            for (int j = 0; j < numeros.length - 1 - i; j++) {
                 // comparaciones
-                if (numeros[j]>numeros[j+1]){
-                    int temporal = numeros[j+1];
-                    numeros[j+1] = numeros[j];
+                if (numeros[j] > numeros[j + 1]) {
+                    int temporal = numeros[j + 1];
+                    numeros[j + 1] = numeros[j];
                     numeros[j] = temporal;
                 }
             }
         }
-        
-        
 
-        for (int item: numeros) {
-            System.out.print(item+" ");
+
+        for (int item : numeros) {
+            System.out.print(item + " ");
         }
     }
 
