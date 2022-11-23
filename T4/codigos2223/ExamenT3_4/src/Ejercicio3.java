@@ -42,7 +42,7 @@ public class Ejercicio3 {
                 case 4:
                     System.out.println("Ordenar array");
 
-                    Arrays.sort(numeros);
+                    //Arrays.sort(numeros);
                     for (int i = 0; i < numeros.length-1; i++) {
                         for (int j = 0; j < numeros.length-1-i; j++) {
                             if (numeros[j]>numeros[j+1]){
