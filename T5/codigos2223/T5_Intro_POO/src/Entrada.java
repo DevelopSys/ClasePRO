@@ -15,10 +15,25 @@ public class Entrada {
         Coche cocheSinPrecio2 = new Coche("Ford","Mustang",3,400);
         // marca = Ford modelo = Mustang cv = 400 numeroPuertas = 3 precio = 5000
 
-        cocheSinPrecio2.setMarca("FordGT");
-        System.out.println(cocheSinPrecio2.getMarca());
-        System.out.println(cochePrecio.getMarca());
-        System.out.println(cocheDefecto1.getMarca().equals("Mercedes"));
+
+        //System.out.println(cochePrecio.getVelocidad());
+        // acelero el coche
+        cocheSinPrecio1.mostrarDatos();
+        cocheSinPrecio1.cargarGasolina(150);
+        cocheSinPrecio1.acelerar(60);
+        cocheSinPrecio1.frenar(20);
+        cocheSinPrecio1.mostrarDatos();
+
+
+
+        // modificar el metodo acelerar para que
+        //  no pueda acelerar si no tengo al menos la misma cantidad de gasolina
+        //  que lo que se intenta acelerar
+        //  al acelarar se le sume a la velocidad lo que tenemos mas 1/100 de la
+        //  velocidad *  los cv (0,05 * cv)
+
+        // crear un método que permita poner gasolina a los coches
+
 
 
 
