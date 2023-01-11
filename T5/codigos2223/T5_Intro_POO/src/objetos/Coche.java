@@ -197,4 +197,19 @@ public class Coche {
     public void setMarcha(int marcha) {
         this.marcha = marcha;
     }
+
+    @Override
+    public String toString() {
+        return "Coche{" +
+                "marca='" + marca + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", cv=" + cv +
+                ", numeroPuertas=" + numeroPuertas +
+                ", precio=" + precio +
+                ", velocidad=" + velocidad +
+                ", litrosGasolina=" + litrosGasolina +
+                ", km=" + km +
+                ", marcha=" + marcha +
+                '}';
+    }
 }
