@@ -1,5 +1,7 @@
 package ejercicio3;
 
+import java.util.Scanner;
+
 public class Entrada {
 
     public static void main(String[] args) {
@@ -14,6 +16,9 @@ public class Entrada {
 
         profesor1.ponerNotas(alumno1);
         profesor1.ponerNotas(alumno2);
+
+        System.out.println("Pulsa enter para ver los resultados");
+        new Scanner(System.in).next();
 
         alumno1.mostrarNotas();
         System.out.println("Media alumno1: "+profesor1.calcularMedia(alumno1));
