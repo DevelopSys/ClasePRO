@@ -6,8 +6,8 @@ public class Agenda {
 
     private ArrayList<Persona> listaPersonas;
 
-    public Agenda(){
-            listaPersonas = new ArrayList<>();
+    public Agenda() {
+        listaPersonas = new ArrayList<>();
     }
 
     // Agregar persona. No se puede agregar una persona
@@ -18,12 +18,12 @@ public class Agenda {
     // new Persona("Nueva","Apellido",1234A,2345)
 
 
-    private Persona existePersona(String dni){
+    public Persona existePersona(String dni) {
 
         Persona personaEncontrada = null;
 
-        for (Persona item: listaPersonas) {
-            if (dni.equalsIgnoreCase((item.getDni()))){
+        for (Persona item : listaPersonas) {
+            if (dni.equalsIgnoreCase((item.getDni()))) {
                 personaEncontrada = item;
                 break;
             }
@@ -32,17 +32,78 @@ public class Agenda {
         return personaEncontrada;
     }
 
-    public boolean agregarPersona(Persona persona){
+    public boolean agregarPersona(Persona persona) {
         // add la persona cuando no existe
         // no add la persona cuando existe
-        boolean existe =existePersona(persona.getDni())==null;
-        if(existe){
+        boolean existe = existePersona(persona.getDni()) == null;
+        if (existe) {
             listaPersonas.add(persona);
 
         } else {
             System.out.println("El dni ya existe, no se puede add");
         }
         return existe;
+    }
+
+    public boolean borrarPersona(String dni) {
+
+        Persona persona = existePersona(dni);
+
+        if (persona != null) {
+            // borro si hay persona
+            listaPersonas.remove(persona);
+            return true;
+
+        } else {
+            System.out.println("No se ha borrado, porque no existe");
+            return false;
+        }
+
+    }
+
+    // vaciar agenda
+    public void vaciarAgenda(){
+        listaPersonas.clear();
+    }
+
+    public void actualizarPersona(String dni, Persona personaNueva){
+
+        Persona personaEncontrada = existePersona(dni);
+        if (personaEncontrada!=null){
+            // actualizo
+            // obtener de alguna forma la posicion de la persona que quiero actualizar
+            // listaPersonas.set(0,personaEncontrada);
+            //personaEncontrada = personaNueva;
+            personaEncontrada.setApellido(personaNueva.getApellido());
+            personaEncontrada.setNombre(personaNueva.getNombre());
+
+        } else {
+            System.out.println("No se ha encontrado la persona");
+        }
+
+    }
+
+    public void buscarPersona(String dni){
+        Persona personaEncontrada = existePersona(dni);
+        if (personaEncontrada!=null){
+            personaEncontrada.mostrarDatos();
+        } else {
+            System.out.println("Persona no encontrada");
+        }
+    }
+    public void listarAgenda() {
+        if (!listaPersonas.isEmpty()) {
+            /*for (int i = 0; i < listaPersonas.size(); i++) {
+                listaPersonas.get(i).mostrarDatos();
+            }*/
+
+            for (Persona item : listaPersonas) {
+                item.mostrarDatos();
+            }
+
+        } else {
+            System.out.println("No se puede listar porque está vacía");
+        }
     }
 
     /*public boolean agregarPersona(Persona persona){
@@ -67,7 +128,6 @@ public class Agenda {
         return !existe;
 
     }*/
-
 
 
 }
