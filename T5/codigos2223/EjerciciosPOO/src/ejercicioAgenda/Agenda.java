@@ -129,5 +129,11 @@ public class Agenda {
 
     }*/
 
+    public ArrayList<Persona> getListaPersonas() {
+        return listaPersonas;
+    }
 
+    public void setListaPersonas(ArrayList<Persona> listaPersonas) {
+        this.listaPersonas = listaPersonas;
+    }
 }
