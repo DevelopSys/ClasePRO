@@ -22,7 +22,9 @@ public class Entrada {
         centralita.agregarLlamada(llamadaNacional);
 
 
-        centralita.listarLlamadas();
+        //centralita.listarLlamadas();
+        //centralita.mostrarCosteAcumulado();
+        centralita.listarDetalleClase(LlamadaLocal.class);
 
     }
 }
