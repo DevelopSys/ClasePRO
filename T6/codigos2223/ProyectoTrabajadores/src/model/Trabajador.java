@@ -14,6 +14,8 @@ public abstract class Trabajador extends Persona {
         this.contratado = contratado;
     }
 
+    public abstract double calcularNetoAnual();
+
     @Override
     public void mostrarDatos() {
         super.mostrarDatos();

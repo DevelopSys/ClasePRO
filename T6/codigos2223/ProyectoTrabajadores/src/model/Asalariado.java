@@ -1,5 +1,7 @@
 package model;
 
+import constantes.DatosEmpresa;
+
 public final class Asalariado extends Trabajador {
 
     // nombre, trabajador, dni, sueldo, contratado
@@ -7,6 +9,7 @@ public final class Asalariado extends Trabajador {
 
     public Asalariado() {
     }
+
 
     public Asalariado(String nombre, String apellido, String dni, double sueldo, boolean contratado, int numeroPagas) {
         super(nombre, apellido, dni, sueldo, contratado);
@@ -17,6 +20,20 @@ public final class Asalariado extends Trabajador {
     public void mostrarDatos() {
         super.mostrarDatos();
         System.out.println("Numero pagas "+numeroPagas);
+    }
+
+    @Override
+    public double calcularNetoAnual() {
+        double netoAnual = getSueldo() - (getSueldo() * DatosEmpresa.IVA_ASALARIADOS);
+        //System.out.println("El neto anual es de "+netoAnual);
+        return netoAnual;
+    }
+
+    public void pedirAumento(int aumento){
+        int aleatorio = (int) (Math.random() *2);
+        if (aleatorio == 1){
+            setSueldo(getSueldo()+aumento);
+        }
     }
 
     public int getNumeroPagas() {

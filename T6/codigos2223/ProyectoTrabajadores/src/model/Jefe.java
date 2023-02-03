@@ -22,6 +22,12 @@ public final class Jefe extends Persona{
         System.out.println("Acciones: "+acciones);
     }
 
+    public void despedirTrabajador(Trabajador trabajador){
+        if (trabajador.isContratado()){
+            trabajador.setContratado(false);
+        }
+    }
+
     public int getAcciones() {
         return acciones;
     }
