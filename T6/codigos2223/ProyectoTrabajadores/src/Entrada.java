@@ -21,9 +21,11 @@ public class Entrada {
             // Para despedir un trabajador se le cambia el atributo contratado a false
 
 
-        Autonomo autonomo = new Autonomo("Borja","Martin","123A",20000,true,200);
+        /*Autonomo autonomo = new Autonomo("Borja","Martin","123A",20000,true,200);
         Asalariado asalariado = new Asalariado("Ejemplo", "Ejemplo","1234B", 20000, true,12);
         Jefe jefe1 = new Jefe("Jefe1","A1","1234A",12,10000);
+        Directivo jefe2 = new Jefe("Jefe1","A1","1234A",12,10000);
+
 
         Empresa empresa = new Empresa();
         empresa.agregarTrabajador(autonomo);
@@ -34,7 +36,9 @@ public class Entrada {
         empresa.emitirFactura("56789","Cliente 2",30000);
 
 
-        autonomo.mostrarDatos();
+        autonomo.mostrarDatos();*/
+
+
 
 
 

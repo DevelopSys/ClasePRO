@@ -1,9 +1,10 @@
 package model;
 
-public final class Jefe extends Persona{
+public final class Jefe extends Persona implements Directivo{
 
     private int acciones;
     private double beneficios;
+    private boolean contratado;
     // nombre, dni, apellidos
 
     public Jefe() {
@@ -28,6 +29,14 @@ public final class Jefe extends Persona{
         }
     }
 
+    public boolean isContratado() {
+        return contratado;
+    }
+
+    public void setContratado(boolean contratado) {
+        this.contratado = contratado;
+    }
+
     public int getAcciones() {
         return acciones;
     }
@@ -42,5 +51,10 @@ public final class Jefe extends Persona{
 
     public void setBeneficios(double beneficios) {
         this.beneficios = beneficios;
+    }
+
+    @Override
+    public int emitirVoto(int voto) {
+        return (int)(voto*0.5);
     }
 }
