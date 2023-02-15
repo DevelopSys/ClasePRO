@@ -1,6 +1,6 @@
 package model;
 
-public final class Libro extends Elemento{
+public final class Libro extends Elemento implements Prestable{
 
     private String ISBN, autor, editorial;
     private int numeroPaginas;
@@ -55,5 +55,16 @@ public final class Libro extends Elemento{
 
     public void setNumeroPaginas(int numeroPaginas) {
         this.numeroPaginas = numeroPaginas;
+    }
+
+    // TODO configurar prestamos
+    @Override
+    public boolean prestar() {
+        return false;
+    }
+
+    @Override
+    public boolean devolver() {
+        return false;
     }
 }

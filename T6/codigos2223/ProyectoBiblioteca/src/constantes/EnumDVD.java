@@ -16,7 +16,7 @@ public enum EnumDVD {
     String tipo;
     int edad;
 
-    private EnumDVD(String tipo, int edad){
+    EnumDVD(String tipo, int edad){
         this.tipo = tipo;
         this.edad = edad;
     }
@@ -24,13 +24,17 @@ public enum EnumDVD {
 
     }
 
+    public void mostrarDatos(){
+        System.out.println("Tipo y calificacion: "+ tipo +" "+edad);
+
+    }
+
+    public String getTipo(){return  this.tipo;}
+
     public int getEdad(){
         return this.edad;
     }
 
-    public void getCosa(){
-        System.out.println("Método llamado desde un enum");
-    }
 
 
 }

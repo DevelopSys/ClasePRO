@@ -5,15 +5,14 @@ import java.util.ArrayList;
 public final class Socio extends Persona{
 
     private int numeroSocio;
-    private ArrayList<String> prestamos;
+    private ArrayList<Prestable> prestamos;
 
     public Socio() {
         prestamos = new ArrayList<>();
     }
 
-    public Socio(String nombre, String apellido, String dni, int numeroSocio) {
+    public Socio(String nombre, String apellido, String dni) {
         super(nombre, apellido, dni);
-        this.numeroSocio = numeroSocio;
     }
 
     // TODO agregar prestamo
@@ -41,11 +40,11 @@ public final class Socio extends Persona{
         this.numeroSocio = numeroSocio;
     }
 
-    public ArrayList<String> getPrestamos() {
+    public ArrayList<Prestable> getPrestamos() {
         return prestamos;
     }
 
-    public void setPrestamos(ArrayList<String> prestamos) {
+    public void setPrestamos(ArrayList<Prestable> prestamos) {
         this.prestamos = prestamos;
     }
 }

@@ -14,9 +14,9 @@ public abstract class Persona {
     }
 
     public void mostrarDatos(){
-        System.out.printf("Nombre: "+nombre);
-        System.out.printf("Apellido: "+apellido);
-        System.out.printf("DNI: "+dni);
+        System.out.println("Nombre: "+nombre);
+        System.out.println("Apellido: "+apellido);
+        System.out.println("DNI: "+dni);
     }
 
     public String getNombre() {
