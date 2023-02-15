@@ -13,16 +13,22 @@ public final class Socio extends Persona{
 
     public Socio(String nombre, String apellido, String dni) {
         super(nombre, apellido, dni);
+        this.prestamos = new ArrayList<>();
     }
 
-    // TODO agregar prestamo
-    public void agregarPrestamo(){
 
+    public void agregarPrestamo(Prestable prestable){
+        this.prestamos.add(prestable);
     }
 
-    // TODO devolver prestamo
-    public void devolverPrestamo(){
+    public void mostrarPrestamos(){
+        for ( Prestable item: prestamos ) {
+            ((Elemento)item).mostrarDatos();
+        }
+    }
 
+    public void devolverPrestamo(Prestable prestable){
+        prestamos.remove(prestable);
     }
 
     @Override

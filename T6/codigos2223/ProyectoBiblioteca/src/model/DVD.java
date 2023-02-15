@@ -67,14 +67,17 @@ public class DVD extends Elemento implements Prestable{
         this.tipo = tipo;
     }
 
-    // TODO configurar prestamos
     @Override
     public boolean prestar() {
-        return false;
+        System.out.println("El dvd ha sido prestado, será devuelvo en 2 semanas");
+        setPrestado(true);
+        return true;
     }
 
     @Override
     public boolean devolver() {
+        System.out.println("El dvd ha sido devuelto");
+        setPrestado(false);
         return false;
     }
 

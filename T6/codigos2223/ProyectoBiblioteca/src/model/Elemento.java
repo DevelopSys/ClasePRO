@@ -18,6 +18,7 @@ public abstract class Elemento {
         System.out.println("ID: "+id);
         System.out.println("Seccion: "+seccion);
         System.out.println("Titulo: "+titulo);
+        System.out.println("Prestado: "+prestado);
     }
 
     public int getId() {

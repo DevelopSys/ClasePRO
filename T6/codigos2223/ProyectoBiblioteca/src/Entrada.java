@@ -21,7 +21,7 @@ public class Entrada {
         biblioteca.darBajaSocio(4);
         biblioteca.darBajaSocio(6);
         biblioteca.registrarPersona(new Socio("Borja7","Martin","123A"));
-        biblioteca.listarUsuarios();
+        //biblioteca.listarUsuarios();
 
 
         // int id, int seccion, String titulo, int anio, EnumCD tipo
@@ -33,7 +33,14 @@ public class Entrada {
         biblioteca.registrarElemento(new Libro(5,1,"Libro1","","Autor1","Editoria1",123));
         biblioteca.registrarElemento(new Libro(6,1,"Libro2","","Autor2","Editoria2",123));
 
-        biblioteca.listarElementos();
+        biblioteca.prestarElemento((Prestable)biblioteca.getListaElementos().get(5),1);
+        biblioteca.prestarElemento((Prestable)biblioteca.getListaElementos().get(3),1);
+        //biblioteca.devolverElemento((Prestable)biblioteca.getListaElementos().get(5),1);
+        //biblioteca.listarElementos();
+
+        //((Socio)(biblioteca.getListaPersonas().get(0))).mostrarPrestamos();
+        biblioteca.buscarSocio(1).mostrarPrestamos();
+
 
 
         //System.out.println("El número de socios que tiene la biblioteca es de "+ biblioteca.getNumeroSocios());

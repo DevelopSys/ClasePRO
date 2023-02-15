@@ -57,14 +57,17 @@ public final class Libro extends Elemento implements Prestable{
         this.numeroPaginas = numeroPaginas;
     }
 
-    // TODO configurar prestamos
     @Override
     public boolean prestar() {
-        return false;
+        System.out.println("El libro ha sido prestado, será devuelvo en 1 semana");
+        setPrestado(true);
+        return true;
     }
 
     @Override
     public boolean devolver() {
+        System.out.println("El libro ha sido devuelto");
+        setPrestado(false);
         return false;
     }
 }

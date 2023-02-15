@@ -59,23 +59,59 @@ public class Biblioteca {
         }
     }
 
+    public Socio buscarSocio(int numeroSocio) {
 
-    public void prestarElemento(){
-        // necesito un prestable y un socio (o un numero)
-            // si está disponible
-                // se pone el elemento en la lista del socio
-                // cambia el estado del elemento en la lista de la biblioteca
-        // relacion con el prestar del prestable
-        // relacion con el agregarPrestamo del socio
+        for (Persona item : listaPersonas) {
+            if (item instanceof Socio) {
+                if (((Socio) item).getNumeroSocio() == numeroSocio) {
+                    return (Socio) item;
+                }
+            }
+        }
+
+        return null;
     }
 
-    public void devolverElemento(){
+
+    public void prestarElemento(Prestable elemento, int numeroSocio) {
+        // necesito un prestable y un socio (o un numero)
+        // si está disponible
+        // se pone el elemento en la lista del socio
+        // cambia el estado del elemento en la lista de la biblioteca
+        // relacion con el prestar del prestable
+        // relacion con el agregarPrestamo del socio
+        Socio socioEncontrado = buscarSocio(numeroSocio);
+        if (socioEncontrado != null && !((Elemento) elemento).isPrestado()) {
+            elemento.prestar();
+            socioEncontrado.agregarPrestamo(elemento);
+        } else {
+            System.out.println("Alguno de los elementos del proceso ha falladao");
+        }
+    }
+
+    public void mostrarPrestables() {
+        for (Elemento item : listaElementos) {
+            /*if (item instanceof Libro || item instanceof DVD){
+                item.mostrarDatos();
+            }*/
+            if (item instanceof Prestable && item.isPrestado()) {
+                item.mostrarDatos();
+            }
+        }
+    }
+
+    public void devolverElemento(Prestable elemento, int numeroSocios) {
         // necesito un prestable y un socio (o un numero)
         // si no está disponible
-                // se quita el elemento en la lista del socio
-                // se cambia el estado del elemento
+        // se quita el elemento en la lista del socio
+        // se cambia el estado del elemento
         // relacion con el devolver del prestable
         // relacion con el reslizarDevoluvion del socio
+        Socio socioEnontrado = buscarSocio(numeroSocios);
+        if (socioEnontrado != null && ((Elemento) elemento).isPrestado()) {
+            elemento.devolver();
+            socioEnontrado.devolverPrestamo(elemento);
+        }
     }
 
     public ArrayList<Persona> getListaPersonas() {
