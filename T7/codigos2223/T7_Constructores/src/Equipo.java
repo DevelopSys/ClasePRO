@@ -1,15 +1,17 @@
 public class Equipo {
 
     private String nombre, liga;
-    private int posicion;
+    private int posicion, golesFavor;
+
 
     public Equipo() {
     }
 
-    public Equipo(String nombre, String liga, int posicion) {
+    public Equipo(String nombre, String liga, int posicion, int golesFavor) {
         this.nombre = nombre;
         this.liga = liga;
         this.posicion = posicion;
+        this.golesFavor = golesFavor;
     }
 
     public String getNombre() {
@@ -45,4 +47,4 @@ public class Equipo {
                 '}';
     }
 }
-}
+
