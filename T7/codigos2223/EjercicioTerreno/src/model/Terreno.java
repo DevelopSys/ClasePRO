@@ -3,6 +3,7 @@ package model;
 import utils.Orientacion;
 
 import java.net.PortUnreachableException;
+import java.util.ArrayList;
 
 public class Terreno {
 
@@ -119,6 +120,8 @@ public class Terreno {
         private int metrosCuadradosCasa;
         private boolean hayPiscina;
         private int numeroHabitaciones;
+        private ArrayList<Habitacion> habitaciones;
+
 
         public Casa() {
         }
@@ -126,6 +129,7 @@ public class Terreno {
         public Casa(int metrosCuadradosCasa, int numeroHabitaciones) {
             this.metrosCuadradosCasa = metrosCuadradosCasa;
             this.numeroHabitaciones = numeroHabitaciones;
+            this.habitaciones = new ArrayList<>();
         }
 
         public void mostrarDatos(){
@@ -134,8 +138,19 @@ public class Terreno {
             System.out.println("Numero habitaciones: "+numeroHabitaciones );
         }
 
-        public void construirHabitacion(int metros){
-            if (metrosCuadradosCasa>metros){
+        public void construirHabitacion(int metros, String estancia){
+
+            Habitacion habitacion = new Habitacion(estancia, metros);
+
+            // calcular el tamaño de todas las habitaciones construidas
+
+            int metrosHabitaciones = 0;
+            for ( Habitacion habitacionItem : habitaciones ) {
+                metrosHabitaciones += habitacionItem.getMetrosHabitacion();
+            }
+
+            if ((metrosCuadradosCasa-metrosHabitaciones)>metros){
+                habitaciones.add(habitacion);
                 numeroHabitaciones++;
             } else {
                 System.out.println("No hay espacio para construir");
@@ -184,6 +199,36 @@ public class Terreno {
         public void setNumeroHabitaciones(int numeroHabitaciones) {
             this.numeroHabitaciones = numeroHabitaciones;
         }
+
+        class Habitacion{
+            String estancia;
+            int metrosHabitacion;
+
+            public Habitacion() {
+            }
+
+            public Habitacion(String estancia, int metrosHabitacion) {
+                this.estancia = estancia;
+                this.metrosHabitacion = metrosHabitacion;
+            }
+
+            public String getEstancia() {
+                return estancia;
+            }
+
+            public void setEstancia(String estancia) {
+                this.estancia = estancia;
+            }
+
+            public int getMetrosHabitacion() {
+                return metrosHabitacion;
+            }
+
+            public void setMetrosHabitacion(int metrosHabitacion) {
+                this.metrosHabitacion = metrosHabitacion;
+            }
+        }
+
     }
 
 }
