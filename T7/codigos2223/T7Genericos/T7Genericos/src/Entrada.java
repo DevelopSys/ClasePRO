@@ -6,10 +6,10 @@ public class Entrada {
         ClaseColeccion<Integer, Double> claseColeccion
                 = new ClaseColeccion(new ArrayList<Integer>());
 
-        ClaseColeccion<Integer, > claseColeccion1
+        /*ClaseColeccion<Integer, > claseColeccion1
                 = new ClaseColeccion(new ArrayList<Integer>());
 
-        claseColeccion1.agregarElemento();
+        claseColeccion1.agregarElemento();*/
 
 
 
