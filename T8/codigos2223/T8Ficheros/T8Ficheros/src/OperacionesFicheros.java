@@ -147,18 +147,129 @@ public class OperacionesFicheros {
             reader = new FileReader(file);
             bufferedReader = new BufferedReader(reader);
             String linea = null; // desde 0 lineas a m linea
-
             // si hay linea
             while ((linea = bufferedReader.readLine()) != null){
                 //System.out.println(linea);
                 numeroLineas++;
+                System.out.println(linea);
+                numeroPalabras+=linea.split(" ").length;
+                numeroLetras+=linea.replaceAll(" ","").toCharArray().length;
             }
-
-            System.out.println("El numero de lineas es: "+numeroPalabras);
+            System.out.println("El numero de lineas es: "+numeroLineas);
+            System.out.println("El numero de palabras es: "+numeroPalabras);
+            System.out.println("El numero de letras es: "+numeroLetras);
 
         } catch (IOException e) {
             throw new RuntimeException(e);
+        } finally {
+            try {
+                bufferedReader.close();
+            } catch (IOException | NullPointerException e) {
+                throw new RuntimeException(e);
+            }
         }
+
+    }
+
+    public void lecturaCodigos(){
+
+        File file = new File("src/ficheros/codigos.txt");
+        FileReader reader = null;
+        BufferedReader bufferedReader = null;
+
+        try {
+            reader = new FileReader(file);
+            bufferedReader = new BufferedReader(reader);
+            String linea = null;
+            while ((linea = bufferedReader.readLine())!= null){
+                //System.out.println(linea);
+                String[] palabras = linea.split(" ");
+                for ( String palabra : palabras ) {
+                    try{
+
+                    System.out.print((char) Integer.parseInt(palabra));
+                    } catch (Exception e){
+
+                    }
+                }
+            }
+
+
+            //System.out.println((char)Integer.parseInt(linea));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public void lecturaByte(){
+
+        File file = new File("src/ficheros/lore.txt");
+        FileReader reader = null;
+
+        try {
+            reader = new FileReader(file);
+            int codigo = -1;
+            while ((codigo = reader.read())!= -1){
+                System.out.print(codigo+" ");
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public void escrituraBase(){
+
+        String ejemplo = "esto es un ejemplo de escritura base para comprobar que todo esta OK";
+
+        File file = new File("src/ficheros/escritura_codigos.txt");
+        // aparezcan todos los códigos de las letras de la palabra ejemplo
+        FileWriter fileWriter = null;
+
+        try {
+            fileWriter = new FileWriter(file);
+            char[] letras = ejemplo.toCharArray();
+            for ( char letra : letras ) {
+            //fileWriter.write( String.valueOf((byte)letra));
+            fileWriter.write((byte)letra);
+            }
+            //fileWriter.write("ejemplo");
+            //fileWriter.write("65");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                fileWriter.close();
+            } catch (IOException|NullPointerException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+    }
+
+    public void escrituraBuffer(){
+        String ejemplo = "esto es un ejemplo de escritura base para comprobar que todo esta OK";
+
+        File file = new File("src/ficheros/escritura_buffer.txt");
+        // aparezcan todos los códigos de las letras de la palabra ejemplo
+        FileWriter fileWriter = null;
+        //BufferedWriter bufferedWriter = null;
+        PrintWriter printWriter = null;
+
+
+        try {
+            fileWriter = new FileWriter(file);
+            printWriter = new PrintWriter(fileWriter);
+            printWriter.print("Esto es un ejemplo de escritura");
+            printWriter.print("donde vamos a escribir lineas multiples");
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } finally {
+            printWriter.close();
+        }
+
 
     }
 }

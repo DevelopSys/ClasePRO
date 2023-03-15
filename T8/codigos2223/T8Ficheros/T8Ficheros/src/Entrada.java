@@ -11,5 +11,10 @@ public class Entrada {
         //operacionesFicheros.leerFicheros();
         //operacionesFicheros.leerBufferFicheros();
         //operacionesFicheros.lecturaCodigos();
+        //operacionesFicheros.ejercicioConteo();
+        //operacionesFicheros.lecturaCodigos();
+        //operacionesFicheros.lecturaByte();
+        //operacionesFicheros.escrituraBase();
+        operacionesFicheros.escrituraBuffer();
     }
 }
