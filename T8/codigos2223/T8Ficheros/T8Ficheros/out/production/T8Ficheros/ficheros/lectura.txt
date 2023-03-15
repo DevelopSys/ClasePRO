@@ -1,0 +1,5 @@
+Esto es un ejemplo de lectura de fichero para comprobar la lectura conjunta
+Y esto es otra linea del fichero
+Con tres lineas
+con otra linea mas
+y una adicional
