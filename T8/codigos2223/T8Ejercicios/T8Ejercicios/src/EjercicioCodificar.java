@@ -6,13 +6,17 @@ import java.util.Scanner;
 public class EjercicioCodificar {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Introduce mensaje a codificar");
         String mensaje = null;
+        int clave =0;
         try {
             mensaje = bufferedReader.readLine();
-            System.out.println(mensaje);
+            System.out.println("Introduce la clave a codificar");
+            clave = Integer.parseInt(bufferedReader.readLine());
+            mensaje.toCharArray()
+
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         } finally {
