@@ -11,12 +11,15 @@ public class EntradaLector {
         for (int i = 0; i < categorias.size(); i++) {
             System.out.printf("%d - %s%n",i,categorias.get(i));
         }
+        System.out.printf("%d - %s%n",categorias.size(),"Todos");
 
         System.out.println("Que categoría quieres mostar");
         categoriaOpcion = scanner.nextInt();
         // cuando se produce el error - si el n intro es más grade que size catagorias --> error
         System.out.println("La categoria seleccionada es: "+categorias.get(categoriaOpcion));
         lector.lecturaProductos(categorias.get(categoriaOpcion));
+        // imprimir todos los productos
+
 
 
     }
