@@ -86,7 +86,20 @@ public class Lector {
             // interpretar la respuesta
             BufferedReader bufferedReader =
                     new BufferedReader(new InputStreamReader(connection.getInputStream()));
-            System.out.println(bufferedReader.readLine());
+            String lecturaCompleta = bufferedReader.readLine();
+            JSONObject objetoGeneral = new JSONObject(lecturaCompleta);
+            JSONArray arrayUsuarios = objetoGeneral.getJSONArray("users");
+            for (int i = 0; i < arrayUsuarios.length(); i++) {
+                JSONObject usuario = arrayUsuarios.getJSONObject(i);
+                String nombre = usuario.getString("firstName");
+                String apellido = usuario.getString("lastName");
+                String mail = usuario.getString("email");
+                String genero = usuario.getString("gender");
+
+                System.out.printf("%s %s %s %s%n",nombre,apellido,mail,genero);
+            }
+
+
             // sacar nombre, apellido correo y genero de todos los usuarios del JSON
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
