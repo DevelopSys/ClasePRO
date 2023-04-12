@@ -9,7 +9,8 @@ public class Conexion {
     private Connection connection;
 
     private void createConnection(){
-        String url = "jdbc:mysql://localhost/programacion";
+
+        String url = String.format("jdbc:mysql://localhost/%s",SchemeDB.DB_NAME);
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url,"root","");
@@ -25,5 +26,15 @@ public class Conexion {
             createConnection();
         }
         return connection;
+    }
+
+    public void closeConnecion(){
+        try {
+            if (connection!=null){
+                connection.close();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
