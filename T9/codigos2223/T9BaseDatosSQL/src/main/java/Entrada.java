@@ -11,7 +11,8 @@ public class Entrada {
         //operacionesDB.insercioAlumno();
         //operacionesDB.insercioMasiva();
         //operacionesDB.actualizacionDatos();
-        operacionesDB.borradoDatos();
+        // operacionesDB.borradoDatos();
+        operacionesDB.seleccion();
 
 
 

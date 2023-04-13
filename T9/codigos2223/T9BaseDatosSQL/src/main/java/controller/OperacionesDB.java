@@ -2,11 +2,9 @@ package controller;
 
 import database.Conexion;
 import database.SchemeDB;
+import model.Usuario;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Scanner;
 
 public class OperacionesDB {
@@ -155,9 +153,30 @@ public class OperacionesDB {
 
 
     }
-
     public void seleccion(){
-        String query = "SELECT * FROM alumno";
+
+        String query = String.format("SELECT * FROM %s",SchemeDB.TABLE_ALUMNO) ;
+        try {
+            Statement statement = connection.createStatement();
+            // PreparedStatement preparedStatement = connection.prepareStatement(query);
+            ResultSet resultSet =  statement.executeQuery(query); // CURSOR --> Filas
+            // int row = statement.executeUpdate(query); // NUMERO --> 6
+            // LOGIN
+            while (resultSet.next()){
+                String nombre = resultSet.getString(SchemeDB.COL_NAME) ;
+                String apellido = resultSet.getString(SchemeDB.COL_SURNAME);
+                String correo = resultSet.getString(SchemeDB.COL_EMAIL);
+                int telefono = resultSet.getInt(SchemeDB.COL_PHONE);
+
+                Usuario usuario = new Usuario(nombre,apellido,correo,telefono);
+                usuario.mostrarDatos();
+
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
 }
