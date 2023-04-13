@@ -79,10 +79,43 @@ Correo: Ejemplo1@ // introducido por teclado
 
 Realiza esta operación con todos los usuarios
 
-10. Realiza la simulación de un login. Para ello nada más inicial el programa se pedirá usuario (utilizar el correo) y contraseña:
+10. Crea una tabla llamada productos con la siguiente estructura:
+
+- id (pk)
+- nombre
+- descripción
+- precio
+- categoria
+
+Dicha tabla será rellenada desde el siguiente enlace de forma automática nada más comenzar el programa. En el caso de que la tabla ya esté rellena no será necesario hacer inserciones.
+
+```html
+https://dummyjson.com/products
+```
+
+
+11.  Realiza la simulación de un login. Para ello nada más inicial el programa se pedirá usuario (utilizar el correo) y contraseña:
 
 	-  Si el login ha sido correcto mostrar el mensaje de iniciado sesionando con éxito. 
 	-  Si el login es incorrecto mostrar el mensaje de volver a intentarlo, pidiendo de nuevo usuario y contraseña
-	
-	
+
+12. Una vez el usuario esté logeado aparecerá el siguiente menú:
+
+- Ver productos
+- Ver productos por categoria
+- Comprar productos
+- Ver información perfil
+- Cambiar información perfil
+- Cambiar contraseña
+
+Cada una de las opciones hará lo siguiente:
+
+- Ver productos: Mostrará una lista con el id y nombre de cada uno de los productos de la tabla
+- Ver productos por categoria: Pedirá una categoría y mostrará los productos de dicha categoria
+- Comprar productos: Pedirá el id del producto que se quiere comprar y mostrará el precio de producto
+- Ver información perfil: mostrará la información personal del usuario
+- Cambiar informacion peril: pedira cual es el dato que se quiere cambiar y procederá al cambio
+- Cambiar contraseña: pedirá la confirmación de la contraseña antigua y la nueva. En caso de ser correcto, realizará el cambio
+
+** Se puede hacer una tabla adicional llamada compras donde se asocien las compras que van haciendo los usuarios. En este caso se incorporará una opción en el menu de Ver compras (el cual mostrará los productos comprados por el usuario)**
 
