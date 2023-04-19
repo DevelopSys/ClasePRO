@@ -7,6 +7,7 @@ public class Entrada {
         //usuariosController.insertarPerfiles();
         //usuariosController.insertarUsuarios();
         //usuariosController.realizarOperaciones();
-        usuariosController.consularDatos();
+        // usuariosController.consularDatos();
+        usuariosController.getAllProductos();
     }
 }

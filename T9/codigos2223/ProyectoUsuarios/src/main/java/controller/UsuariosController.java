@@ -2,8 +2,16 @@ package controller;
 
 import database.ConexionDB;
 import database.SchemeDB;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import javax.swing.plaf.nimbus.State;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.sql.*;
 
 public class UsuariosController {
@@ -118,6 +126,48 @@ public class UsuariosController {
             throw new RuntimeException(e);
         }
 
+    }
+
+    public void getAllProductos(){
+        String urlString = "https://dummyjson.com/products";
+
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(String.format("INSERT INTO %s (%s, %s, %s, %s) VALUES (?,?,?,?)",
+                    SchemeDB.TABLE_PRODUCT,
+                    SchemeDB.COL_NAME, SchemeDB.COL_DESCRIPTION, SchemeDB.COL_PRICE, SchemeDB.COL_CATEGORY));
+            URL url = new URL(urlString);
+            HttpURLConnection connectionHttp = (HttpURLConnection) url.openConnection();
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(connectionHttp.getInputStream()));
+            String linea = null;
+            StringBuilder builder = new StringBuilder();
+            while ((linea = bufferedReader.readLine())!= null){
+                builder.append(linea);
+            }
+            JSONObject objectResponse = new JSONObject(builder.toString());
+            JSONArray arrayProducts = objectResponse.getJSONArray("products");
+            for (int i = 0; i < arrayProducts.length(); i++) {
+                JSONObject producto = arrayProducts.getJSONObject(i);
+                String name = producto.getString("title");
+                String descrition = producto.getString("description");
+                String category = producto.getString("category");
+                int price = producto.getInt("price");
+                preparedStatement.setString(1,name);
+                preparedStatement.setString(2,descrition);
+                preparedStatement.setInt(3,price);
+                preparedStatement.setString(4,category);
+                preparedStatement.execute();
+            }
+
+
+
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
