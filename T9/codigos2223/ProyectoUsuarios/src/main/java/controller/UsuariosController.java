@@ -170,4 +170,29 @@ public class UsuariosController {
         }
     }
 
+    public void login(){
+        String query = "SELECT * FROM usuarios WHERE nombre=? AND pass=? AND perfil=?";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            // saber si hay uno --> login
+            // saber si no hay uno  --> no login
+            ResultSet resultado = preparedStatement.executeQuery();
+            while (resultado.next()){
+                resultado.getString("nombre");
+                resultado.getString("apellido");
+                resultado.getInt("edad");
+            }
+
+
+            if (resultado.next()){
+                // login
+            } else {
+                // no login
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }
