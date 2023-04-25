@@ -2,8 +2,8 @@
 
 - [Índice](#índice)
 - [ORM](#orm)
-  - [Objetos](#Objetos imporantes en hibernate)
-  - [Decoradores](#Objetos imporantes en hibernate)
+  - [Objetos](##Objetos imporantes en hibernate)
+  - [Decoradores](##Decoradores)
 - [Crear un proyecto hibernate](#crear-un-proyecto-hibernate)
   - [Modificar el nombre de los atributos](#modificar-el-nombre-de-los-atributos)
   - [Anidar clases](#anidar-clases)
@@ -24,7 +24,7 @@ Cuando desde un programa queremos conectar con una base de datos, se utilizan do
 - Session: Utilizado para realizar la conexión físca con la base de datos. Es importante cerrar los objetos de tipo session
 - Query: Objetos que permiten ejecutar querys en formato SQL o HQL
 
-## Deco
+## Decoradores
 
 # Crear un proyecto hibernate
 
