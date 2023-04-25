@@ -2,7 +2,7 @@
 
 - [Índice](#índice)
 - [ORM](#orm)
-  - [Objetos](##Objetos imporantes en hibernate)
+  - [Objetos](##Objetos-imporantes-en-hibernate)
   - [Decoradores](##Decoradores)
 - [Crear un proyecto hibernate](#crear-un-proyecto-hibernate)
   - [Modificar el nombre de los atributos](#modificar-el-nombre-de-los-atributos)
