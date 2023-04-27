@@ -4,6 +4,7 @@ package org.example.model;
 import jakarta.persistence.*;
 
 public class Motor {
+
     @Column
     private int cc;
     @Column

@@ -11,7 +11,11 @@ public class Main {
 
         ConcesionarioController controller = new ConcesionarioController();
         //controller.agregarCoche(new Vehiculo("Mercedes","EQC",new Motor(3000,400),80000));
-        controller.agregarCoche(new Vehiculo("Mercedes","Clase A",new Motor(2000,200),60000));
+        //controller.agregarCoche(new Vehiculo("Mercedes","Clase A",new Motor(2000,200),60000));
+        //controller.obtenerVehiculo();
+        //controller.borrarVehiculo();
+        //controller.modificarVehiculo();
+        controller.realizarBusquedaMarca("Ford");
 
 
     }
