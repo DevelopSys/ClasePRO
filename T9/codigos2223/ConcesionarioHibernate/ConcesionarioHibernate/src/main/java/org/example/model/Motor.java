@@ -8,9 +8,13 @@ import java.util.List;
 
 
 
-
+@Table
+@Entity
 public class Motor {
 
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private int id;
     @Column
     private int cc;
     @Column

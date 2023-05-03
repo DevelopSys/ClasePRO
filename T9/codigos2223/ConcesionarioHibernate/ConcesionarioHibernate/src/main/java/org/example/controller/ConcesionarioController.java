@@ -1,6 +1,9 @@
 package org.example.controller;
 
 import org.example.database.HibernateUtil;
+import org.example.model.Cliente;
+import org.example.model.Ficha;
+import org.example.model.Motor;
 import org.example.model.Vehiculo;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -20,6 +23,64 @@ public class ConcesionarioController {
         session.beginTransaction();
         //session.persist(coche.getFicha());
         session.persist(coche);
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    // sacar todos los coches de un cliente cuyo nombre se
+    // pide por consola
+    // de que cliente quieres ver los coches
+    // Juan
+    // Juan tiene 4 coches y son;
+    // DATOS DE LOS COCHES
+    public void agregarCocheFicha(){
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        // session.persist(coche.getFicha());
+        // Ficha ficha = new Ficha(2023,2,true,'A');
+        Vehiculo vehiculo = new Vehiculo("VW","Arteon",
+                new Motor(3000,350),
+                30000,new Ficha(2022,5,true,'B'));
+        session.persist(vehiculo);
+        session.getTransaction().commit();
+        session.close();
+    }
+    public void agregarCocheFichaMotor(){
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+
+
+        Vehiculo vehiculo = new Vehiculo("VW","TROC",
+                new Motor(2000,150),
+                40000,
+                new Ficha(2023,1,false,'C')
+        );
+        session.persist(vehiculo);
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    public void agregarCocheFichaMotorCliente(){
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+
+
+        Vehiculo vehiculo = new Vehiculo("Opel","Astra",
+                new Motor(1500,100),
+                15000,
+                new Ficha(2023,1,true,'A'),
+                new Cliente("Borja","C/Estocolmo"));
+
+        session.persist(vehiculo);
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    public void getVehiculoFicha(){
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        Ficha ficha = session.get(Ficha.class,1);
+        System.out.println(ficha);
         session.getTransaction().commit();
         session.close();
     }

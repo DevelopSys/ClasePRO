@@ -15,10 +15,19 @@ public class Vehiculo {
     private String marca;
     @Column
     private String modelo;
-    @Embedded
+    @OneToOne (cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_motor")
     private Motor motor;
     @Column
     private int precio;
+
+    @OneToOne (cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_ficha")
+    private Ficha ficha;
+
+    @ManyToOne (fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn (name = "id_cliente")
+    private Cliente cliente;
 
     public Vehiculo(String marca, String modelo, Motor motor, int precio) {
         this.marca = marca;
@@ -27,7 +36,32 @@ public class Vehiculo {
         this.precio = precio;
     }
 
+    public Vehiculo(String marca, String modelo, Motor motor, int precio, Ficha ficha) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.motor = motor;
+        this.precio = precio;
+        this.ficha = ficha;
+    }
+
+    public Vehiculo(String marca, String modelo, Motor motor, int precio, Ficha ficha, Cliente cliente) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.motor = motor;
+        this.precio = precio;
+        this.ficha = ficha;
+        this.cliente = cliente;
+    }
+
     public Vehiculo() {
+    }
+
+    public Ficha getFicha() {
+        return ficha;
+    }
+
+    public void setFicha(Ficha ficha) {
+        this.ficha = ficha;
     }
 
     public int getId() {
@@ -78,6 +112,7 @@ public class Vehiculo {
                 ", modelo='" + modelo + '\'' +
                 ", motor=" + motor +
                 ", precio=" + precio +
+                ", ficha=" + ficha +
                 '}';
     }
 }
