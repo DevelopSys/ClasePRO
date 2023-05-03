@@ -3,20 +3,17 @@ package org.example.model;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
-
-
-
+@Table
+@Entity
 public class Motor {
 
     @Column
     private int cc;
     @Column
     private int cv;
-
-
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private int id;
 
 
     public Motor() {
@@ -44,12 +41,20 @@ public class Motor {
         this.cv = cv;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     @Override
     public String toString() {
         return "Motor{" +
                 "cc=" + cc +
                 ", cv=" + cv +
+                ", id=" + id +
                 '}';
     }
 }

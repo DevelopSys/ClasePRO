@@ -2,9 +2,6 @@ package org.example.model;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Entity
 @Table
 public class Vehiculo {
@@ -19,6 +16,9 @@ public class Vehiculo {
     private Motor motor;
     @Column
     private int precio;
+    @OneToMany
+    @JoinColumn (name = "id")
+    private Motor  id_motor;
 
     public Vehiculo(String marca, String modelo, Motor motor, int precio) {
         this.marca = marca;

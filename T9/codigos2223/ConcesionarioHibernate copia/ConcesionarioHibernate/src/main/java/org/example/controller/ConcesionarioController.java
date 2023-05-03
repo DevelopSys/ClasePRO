@@ -18,7 +18,6 @@ public class ConcesionarioController {
     public void agregarCoche(Vehiculo coche){
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        //session.persist(coche.getFicha());
         session.persist(coche);
         session.getTransaction().commit();
         session.close();

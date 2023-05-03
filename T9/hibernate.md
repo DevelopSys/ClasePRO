@@ -10,6 +10,7 @@
 - [Realizar acciones sobre la base de datos](#realizar-acciones-sobre-la-base-de-datos)
   - [Crear elementos - Inserciones](#crear-elementos---inserciones)
   - [Crear elementos - Selecciones](#crear-elementos---selecciones)
+- [Relaciones](#relaciones)
 
 # ORM
 
@@ -429,3 +430,311 @@ Alumno alumno = session.get(Alumno.class,6);
 Éste método hace una busqueda por elemento asociada a una clave primaria concreta.
 
 Otro de los métodos que se puede utilizar es createNativeQuery. Este método es más genérico, ya que con el se pueden ejecutar querys como tal. En el caso que dicha query devuelva un resultado de datos, se puede asociad al método list() para obtener el conjunto de resultados objenidos en formato lista
+
+# Relaciones
+
+La principal potencia que tienen las bases de datos relaciones es la capacidad de juntar varias tablas entre si mediante relaciones. Esta capacidad se consigue mediante las claves primarias y claves ajenas. En hibernate estas relaciones se mapean con las anotaciones @OnetoOne (relación uno a uno) @OnetoMany (relación una a mucbos) y @ManytoMany(relación mucho a muchos). A continuación vamos a explicar como se realizan cada una de las relaciones, para lo cual utilizaremos el siguiente esquema de tablas
+
+![Relaciones entre tablas](./images/relaciones.jpg)
+
+El ejemplo que realizaremos se base en los siguientes supuestos:
+
+- Un vehiculo tiene una y solo una ficha técnica
+- Un vehiculo pertenece a un cliente, pero un cliente puede tener más de un vehículo
+
+## OnetoOne
+
+Para la relación uno a uno, lo primero necesario es configurar la relación entre tablas. En la tabla vehiculo se crea una columna que representará la fk que relaciona ambas tablas. Este columna llamada id_ficha es la que se utilizará para poder hacer el mapeo entre tablas. A partir de este momento, la relación se puede realizar en dos sentidos
+
+- Unidireccional
+
+En una dirección unidireccional tan solo podremos recuperar los datos de una tabla sobre la otra. En este ejemplo, desde un cliente podemos recuperar su ficha técnica. Para poder hacer este tipo de relaciones, tan solo es necesario crear un atributo en la clase vehiculo del tipo con el que se asocia y ponerle las anotaciones @OnetoOne y @JoinColumn
+
+```java
+    @OneToOne (cascade = CascadeType.ALL)
+    @JoinColumn (name = "id_ficha")
+    private Ficha ficha;
+```
+
+Estas anotaciones lo que indican es lo siguiente:
+
+@OneToOne: Indica la cardinalidad de la relación. En este caso un vehículo tiene una ficha técnica
+@JoinColumn: Indica en que columna de la base de datos debe ir la primary key del objeto ficha que se indique
+
+Dentro de la clase que representa una ficha tendremos el siguiente código
+
+```java
+@Entity
+@Table (name = "ficha_tecnica")
+public class Ficha {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Column
+    private int anio;
+    @Column
+    private int mes;
+    @Column
+    private char etiqueta;
+    @Column
+    private boolean itv_pasada;
+
+    public Ficha() {
+    }
+
+    public Ficha(int anio, int mes, char etiqueta, boolean itv_pasada) {
+        this.anio = anio;
+        this.mes = mes;
+        this.etiqueta = etiqueta;
+        this.itv_pasada = itv_pasada;
+    }
+
+    public Ficha(int anio, int mes, char etiqueta, boolean itv_pasada, Vehiculo vehiculo) {
+        this.anio = anio;
+        this.mes = mes;
+        this.etiqueta = etiqueta;
+        this.itv_pasada = itv_pasada;
+        this.vehiculo = vehiculo;
+    }
+
+    public Vehiculo getVehiculo() {
+        return vehiculo;
+    }
+
+    public void setVehiculo(Vehiculo vehiculo) {
+        this.vehiculo = vehiculo;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getAnio() {
+        return anio;
+    }
+
+    public void setAnio(int anio) {
+        this.anio = anio;
+    }
+
+    public int getMes() {
+        return mes;
+    }
+
+    public void setMes(int mes) {
+        this.mes = mes;
+    }
+
+    public char getEtiqueta() {
+        return etiqueta;
+    }
+
+    public void setEtiqueta(char etiqueta) {
+        this.etiqueta = etiqueta;
+    }
+
+    public boolean isItv_pasada() {
+        return itv_pasada;
+    }
+
+    public void setItv_pasada(boolean itv_pasada) {
+        this.itv_pasada = itv_pasada;
+    }
+
+    @Override
+    public String toString() {
+        return "Ficha{" +
+                "id=" + id +
+                ", anio=" + anio +
+                ", mes=" + mes +
+                ", etiqueta=" + etiqueta +
+                ", itv_pasada=" + itv_pasada +
+                '}';
+    }
+}
+
+```
+
+Una vez hecho esto, ya podríamos realizar la persistencia de datos.
+
+```java
+Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.persist(new Vehiculo("VW","Tiguan",new Motor(2500,200),10000,
+                new Ficha(2,2022,'E',true)));
+        session.getTransaction().commit();
+        session.close();
+```
+
+En este punto pueden pasar dos cosas: si hemos marcado en la relacion un Cascade.ALL la inserción de datos se realizará sin problemas. En el caso de no hacerlo nos dará un error ya que no puede agregar una ficha que aún no está en base de datos. En este caso tendríamos que hacer lo siguiente:
+
+```java
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        Ficha ficha = new Ficha(2,2022,'E',true);
+        session.persist(ficha);
+        session.getTransaction().commit();
+        session.persist(new Vehiculo("VW","Tiguan",new Motor(2500,200),10000,
+                ficha));
+        session.getTransaction().commit();
+        session.close();
+```
+
+En este caso, primero se persiste la ficha técnica y una vez hecho esto se puede persistir el vehículo asociado a ella. Es evidente que la primera solución es mejor, ya que utiliza menos recursos
+
+- Bidireccional
+
+En el caso de querer acceder desde la clase que tiene da la relación (en nuestro caso ficha) a los datos del elemento asociado, tendríamos que marcar una relación @OneToOne marcando el mapeo del atributo de la clase que tiene la relación para poder acceder a ella. En nuestro ejemplo, queremos acceder a los datos del vehículo desde la ficha técnica. Para ello utilizaremos el siguiente código en la clase ficha
+
+```java
+    @OneToOne (mappedBy = "ficha")
+    private Vehiculo vehiculo;
+```
+
+El mappedBy hace relacion al nombre del atributode la clase donde se relaciona. Una vez hecho esto, podríamos realizar un acceso desde la clase ficha a todos los datos del vehículo. Es muy importante no acceder absolutamente a todos (hay que recordad que la clase vehiculo tiene un atributo ficha), ya que podria dar un error de acceso recursivo
+
+```java
+    @Override
+    public String toString() {
+        return "Ficha{" +
+                "id=" + id +
+                ", anio=" + anio +
+                ", mes=" + mes +
+                ", etiqueta=" + etiqueta +
+                ", itv_pasada=" + itv_pasada +
+                ", vehiculo=" + vehiculo.getMarca()   +
+                '}';
+    }
+```
+
+## OnetoMany - ManytoOne
+
+En el caso de una relación OnetoMany - ManytoOne, estamos hablando de una cardinalidad de uno a muchos. En el ejemplo que tenemos, esta relación se representa mediante la sentencia de: un vehículo pertenece a un cliente, y un cliente puede tener muchos vehiculos en propiedad. Las relaciones serían las siguientes:
+
+![Relaciones entre tablas](./images/relacion_cliente.jpg)
+
+- OneToMany: Cliente - Vehiculo. Un cliente puede tener muchos vechiulos
+- ManyToOne: Muchos vehiculos pertenecen a un cliente
+
+Para poder hacer este tipo de relaciones, lo primero que necesitamos configurar es una clave foranea. Em este caso el id del cliente, se pondrá cono fk dentro de la tabla vehículo con el nombre de id_cliente. En código tendremos que agregar el siguiente atributo en la clase vehiculo:
+
+```java
+    @ManyToOne (fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn (name = "id_cliente")
+    private Cliente cliente;
+```
+
+Las anotaciones son las siguientes:
+
+@ManyToOne: marca la cardinalidad muchos a uno. El atributo de cascade marca los cambios en relaciones y el de fetch el uso de recursos
+@JoinColumn: marca cual es la columna donde guardará la relación. En este caso la columna que tiene la relación fk.
+
+En el caso de querer tener una relación bidireccional es necesario tener un atributo en la clase de la que parte la relación (en nuestro caso cliente). En esta clase la relación es OneToMany, indicando el nombre del atributo que tiene la relación. Es muy importante tener en cuenta que el tipo de este atributo será List, ya que responde a la pregunta de los vehículos que pertenecen a dicho cliente. Para poder hacer esto se incorpora el siguiente atributo en la clase cliente
+
+```java
+    @OneToMany (mappedBy = "cliente", cascade = CascadeType.ALL)
+    private List<Vehiculo> listaVehiculos  = new ArrayList<>();
+```
+
+Una vez hecho esto, podermos realizar tanto agregar un vehículo con un cliente asociado
+
+```java
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.persist(new Vehiculo("VW","Tiguan",new Motor(2500,200),10000,
+                new Ficha(2,2022,'E',true),
+                new Cliente("Borja","C/Estocolmo")));
+        session.getTransaction().commit();
+        session.close();
+```
+
+Como poder acceder a todos los vehiculos que están asociados a un cliente concreto
+
+```java
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+
+        Cliente c = session.createNativeQuery("Select * From cliente where nombre = 'Borja'", Cliente.class).list().get(0);
+        session.getTransaction().commit();
+
+        List<Vehiculo> lista =  c.getListaVehiculos();
+        for ( Vehiculo v : lista ) {
+            System.out.println(v);
+        }
+        session.close();
+```
+
+## ManytoMany
+
+En este caso la relación se aplica cuando queremos guardad muchos datos asociados a un cliente. En nuesto ejemplo utilizaremos una tabla llamada flota, la cual relacionará un cliente con un vehiculo. En el diagrama de base de datos será necesario crear una tabla adicional llamada flota la cual tendrá dos campos fk que guardará los id de cliente y vehiculo respectívamente
+
+![Relaciones entre tablas](./images/relacion_cliente.jpg)
+
+En cuanto a código, en este caso no será necesario crear ninguna clase adicional, ya que tan solo se realizarán las relaciones mediante atributos en cada una de las clases. Por ello, en la clase vehículo se incorporarán el siguiente atributo
+
+```java
+    @ManyToMany (cascade = CascadeType.ALL)
+    @JoinTable (name = "flota", joinColumns = @JoinColumn(name = "id_vehiculo"), inverseJoinColumns = @JoinColumn(name ="id_cliente"))
+    private List<Cliente> flota = new ArrayList<>();
+```
+
+y en la clase cliente el siguiente:
+
+```java
+    @ManyToMany(mappedBy = "flota")
+    public List<Vehiculo> flota = new ArrayList<>();
+```
+
+Los decoradores utilizado son los siguientes:
+
+@ManyToMany (cascade = CascadeType.ALL) en la clase origen marca la cardinalidad. En la clase destino se utiliza el atributo mappedby para poder asociarlo
+@JoinTable. Dicho atributo marca la tabla donde se va a guardar la relación, indicando las columnas que tendrán dicha relación
+
+Adicionalmente, en la clase vehiculo se agregarán dos métodos, para poder agregar y eliminar registro de la tabla acicional. Todo se hace a traves de la lista de datos. Estos métodos quedarán de la siguiente forma:
+
+```java
+    public void addCliente(Cliente cliente) {
+        flota.add(cliente);
+        cliente.getFlota().add(this);
+    }
+    public void removeEmployee(Cliente cliente) {
+        flota.remove(cliente);
+        cliente.getFlota().remove(this);
+    }
+```
+
+Por último, para poder probar esto, tan solo será necesario llamar a un nuevo vehiculo y agregar un cliente a la lista. o sobre uno ya existente
+
+En el caso de querer asociar un vehiculo a la flota de un cliente, sería de la siguiente forma
+
+```java
+Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        Cliente cliente = session.createNativeQuery("SELECT * FROM cliente where nombre = 'Borja'", Cliente.class).list().get(0);
+        Vehiculo vehiculo = new Vehiculo("VW","TROC",new Motor(2500,200),10000,
+                new Ficha(2,2022,'E',true),
+                cliente);
+        vehiculo.addCliente(vehiculo.getCliente());
+        session.persist(vehiculo);
+        session.getTransaction().commit();
+        session.close();
+```
+
+En el caso de querer agregar un cliente y un vehiculo al mismo tiempo sería de la siguiente forma:
+
+```java
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        Vehiculo vehiculo = new Vehiculo("VW","Tiguan",new Motor(2500,200),10000,
+                new Ficha(2,2022,'E',true),
+                new Cliente("Cliente nuevo","C/Estocolmo"));
+        vehiculo.addCliente(vehiculo.getCliente());
+        session.persist(vehiculo);
+        session.getTransaction().commit();
+        session.close();
+```
