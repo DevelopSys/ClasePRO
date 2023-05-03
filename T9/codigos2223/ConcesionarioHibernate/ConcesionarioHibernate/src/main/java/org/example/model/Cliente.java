@@ -19,18 +19,18 @@ public class Cliente {
     private String direccion;
 
     @OneToMany (mappedBy = "cliente")
-    private List<Vehiculo> vehiculo;
+    private List<Vehiculo> listaVehiculos;
 
     public Cliente() {
     }
 
 
-    public List<Vehiculo> getVehiculo() {
-        return vehiculo;
+    public List<Vehiculo> getListaVehiculos() {
+        return listaVehiculos;
     }
 
-    public void setVehiculo(List<Vehiculo> vehiculo) {
-        this.vehiculo = vehiculo;
+    public void setListaVehiculos(List<Vehiculo> listaVehiculos) {
+        this.listaVehiculos = listaVehiculos;
     }
 
     public Cliente(String nombre, String direccion) {
@@ -68,7 +68,7 @@ public class Cliente {
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", direccion='" + direccion + '\'' +
-                ", vehiculos=" + vehiculo.size() +
+                ", vehiculos=" + listaVehiculos.size() +
                 '}';
     }
 }
