@@ -29,6 +29,20 @@ public class Vehiculo {
     @JoinColumn (name = "id_cliente")
     private Cliente cliente;
 
+    @ManyToOne (fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn (name = "id_garaje")
+    private Garaje garaje;
+
+    public Vehiculo(String marca, String modelo, Motor motor, int precio, Ficha ficha, Cliente cliente, Garaje garaje) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.motor = motor;
+        this.precio = precio;
+        this.ficha = ficha;
+        this.cliente = cliente;
+        this.garaje = garaje;
+    }
+
     public Vehiculo(String marca, String modelo, Motor motor, int precio) {
         this.marca = marca;
         this.modelo = modelo;
@@ -51,6 +65,23 @@ public class Vehiculo {
         this.precio = precio;
         this.ficha = ficha;
         this.cliente = cliente;
+    }
+
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Garaje getGaraje() {
+        return garaje;
+    }
+
+    public void setGaraje(Garaje garaje) {
+        this.garaje = garaje;
     }
 
     public Vehiculo() {
@@ -113,6 +144,8 @@ public class Vehiculo {
                 ", motor=" + motor +
                 ", precio=" + precio +
                 ", ficha=" + ficha +
+                ", cliente=" + cliente +
+                ", garaje=" + garaje +
                 '}';
     }
 }

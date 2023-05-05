@@ -10,8 +10,9 @@ public class Main {
     public static void main(String[] args) {
 
         ConcesionarioController controller = new ConcesionarioController();
+        controller.agregarCliente();
         //controller.agregarCocheFicha();
-        controller.getVehiculosCliente();
+        //controller.getVehiculosCliente();
         //controller.getListaVehiculos();
         //controller.agregarOtroCoche();
         //controller.agregarCoche(new Vehiculo("Mercedes","EQC",new Motor(3000,400),80000, new Ficha(2,2023,'A',true)));

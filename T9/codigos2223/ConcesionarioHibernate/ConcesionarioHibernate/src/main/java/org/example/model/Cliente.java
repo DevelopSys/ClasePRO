@@ -15,8 +15,14 @@ public class Cliente {
     @Column
     private String nombre;
 
-    @Column (name = "descripcion")
-    private String direccion;
+    @Embedded
+    private Direccion direccion;
+    @Embedded
+    @AttributeOverrides({@AttributeOverride(name = "localidad", column = @Column(name = "localidad_fac")),
+            @AttributeOverride(name = "provincia", column = @Column(name = "provincia_fac")),
+            @AttributeOverride(name = "calle", column = @Column(name = "calle_fac")),
+            @AttributeOverride(name = "numero", column = @Column(name = "numero_fac"))})
+    private Direccion direccionFacturacion;
 
     @OneToMany (mappedBy = "cliente")
     private List<Vehiculo> listaVehiculos;
@@ -24,6 +30,11 @@ public class Cliente {
     public Cliente() {
     }
 
+    public Cliente(String nombre, Direccion direccion, Direccion direccionFacturacion) {
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.direccionFacturacion = direccionFacturacion;
+    }
 
     public List<Vehiculo> getListaVehiculos() {
         return listaVehiculos;
@@ -33,7 +44,7 @@ public class Cliente {
         this.listaVehiculos = listaVehiculos;
     }
 
-    public Cliente(String nombre, String direccion) {
+    public Cliente(String nombre, Direccion direccion) {
         this.nombre = nombre;
         this.direccion = direccion;
     }
@@ -54,11 +65,11 @@ public class Cliente {
         this.nombre = nombre;
     }
 
-    public String getDireccion() {
+    public Direccion getDireccion() {
         return direccion;
     }
 
-    public void setDireccion(String direccion) {
+    public void setDireccion(Direccion direccion) {
         this.direccion = direccion;
     }
 
@@ -67,8 +78,8 @@ public class Cliente {
         return "Cliente{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
-                ", direccion='" + direccion + '\'' +
-                ", vehiculos=" + listaVehiculos.size() +
+                ", direccion=" + direccion +
+                ", listaVehiculos=" + listaVehiculos.size() +
                 '}';
     }
 }

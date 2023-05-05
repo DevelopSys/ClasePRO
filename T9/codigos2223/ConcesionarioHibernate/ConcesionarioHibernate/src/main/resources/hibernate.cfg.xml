@@ -6,10 +6,11 @@
         <property name="connection.username">root</property>
         <property name="connection.password"></property>
         <property name="hibernate.current_session_context_class">thread</property>
+        <mapping class="org.example.model.Garaje"/>
         <mapping class="org.example.model.Cliente"/>
         <mapping class="org.example.model.Motor"/>
         <mapping class="org.example.model.Vehiculo"/>
         <mapping class="org.example.model.Ficha"/>
-
+        <mapping class="org.example.model.Direccion"/>
     </session-factory>
 </hibernate-configuration>

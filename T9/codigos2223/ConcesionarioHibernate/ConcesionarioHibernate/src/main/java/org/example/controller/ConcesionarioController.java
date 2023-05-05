@@ -1,10 +1,7 @@
 package org.example.controller;
 
 import org.example.database.HibernateUtil;
-import org.example.model.Cliente;
-import org.example.model.Ficha;
-import org.example.model.Motor;
-import org.example.model.Vehiculo;
+import org.example.model.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -86,6 +83,37 @@ public class ConcesionarioController {
         session.close();
     }
 
+
+    public void agregarCliente(){
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+
+
+        Cliente cliente = new Cliente("Nuevo",
+                new Direccion("provincia3","localidad3","calle3",1),
+                new Direccion("provincia4","localidad4","calle4",2));
+        session.persist(cliente);
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    public void agregarVehiculoGaraje(){
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+
+
+        Vehiculo vehiculo = new Vehiculo("VW", "TROC",
+                new Motor(2000, 150),
+                40000,
+                new Ficha(2023, 1, false, 'C'),
+                new Cliente("Borja",new Direccion("provincia1","localidad1","calle1",1)),
+                new Garaje(50,new Direccion("provincia2","localidad2","calle2",1)));
+
+        session.persist(vehiculo);
+        session.getTransaction().commit();
+        session.close();
+    }
+
     public void agregarCocheFichaMotorCliente() {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
@@ -95,7 +123,7 @@ public class ConcesionarioController {
                 new Motor(1500, 100),
                 15000,
                 new Ficha(2023, 1, true, 'A'),
-                new Cliente("Borja", "C/Estocolmo"));
+                new Cliente("Borja", new Direccion()));
 
         session.persist(vehiculo);
         session.getTransaction().commit();

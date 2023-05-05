@@ -738,3 +738,15 @@ En el caso de querer agregar un cliente y un vehiculo al mismo tiempo sería de 
         session.getTransaction().commit();
         session.close();
 ```
+
+# Mapeo columnas del mismo tipo
+
+```java
+ @Embedded
+    @AttributeOverrides({@AttributeOverride(name = "localidad", column = @Column(name = "localidad_facturacion")),
+            @AttributeOverride(name = "provincia", column = @Column(name = "provincia_facturacion")),
+            @AttributeOverride(name = "calle", column = @Column(name = "calle_facturacion")),
+            @AttributeOverride(name = "numero", column = @Column(name = "numero_facturacion"))})
+    private Direccion direccion_facturacion;
+
+```
