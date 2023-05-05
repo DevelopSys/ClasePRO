@@ -15,23 +15,28 @@ public class Vehiculo {
     private String marca;
     @Column
     private String modelo;
-    @OneToOne (cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_motor")
     private Motor motor;
     @Column
     private int precio;
 
-    @OneToOne (cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_ficha")
     private Ficha ficha;
 
-    @ManyToOne (fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn (name = "id_cliente")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_cliente")
     private Cliente cliente;
 
-    @ManyToOne (fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn (name = "id_garaje")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_garaje")
     private Garaje garaje;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "configuracion", joinColumns = @JoinColumn(name = "id_vehiculo"),
+            inverseJoinColumns = @JoinColumn(name = "id_accesorio"))
+    List<Accesorio> listaAccesorios = new ArrayList<>();
 
     public Vehiculo(String marca, String modelo, Motor motor, int precio, Ficha ficha, Cliente cliente, Garaje garaje) {
         this.marca = marca;
@@ -67,6 +72,19 @@ public class Vehiculo {
         this.cliente = cliente;
     }
 
+    public void addAccesorio(Accesorio accesorio){
+        listaAccesorios.add(accesorio);
+        accesorio.getListaVehiculos().add(this);
+    }
+
+
+    public List<Accesorio> getListaAccesorios() {
+        return listaAccesorios;
+    }
+
+    public void setListaAccesorios(List<Accesorio> listaAccesorios) {
+        this.listaAccesorios = listaAccesorios;
+    }
 
     public Cliente getCliente() {
         return cliente;

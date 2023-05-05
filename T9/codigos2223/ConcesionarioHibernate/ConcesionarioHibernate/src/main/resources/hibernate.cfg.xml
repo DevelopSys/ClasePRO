@@ -12,5 +12,6 @@
         <mapping class="org.example.model.Vehiculo"/>
         <mapping class="org.example.model.Ficha"/>
         <mapping class="org.example.model.Direccion"/>
+        <mapping class="org.example.model.Accesorio"/>
     </session-factory>
 </hibernate-configuration>
