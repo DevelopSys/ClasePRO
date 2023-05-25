@@ -90,26 +90,97 @@ public class AlumnoController {
 
     public void actualizarAlumno(){
 
-        // modificar aquellos alumnos que tienen una edad de 20
-        // y ponerles la experienia a false
-        // updateOne( {nombre: "Borja"},  {$set: {edad: 23}})
-        // updateMany( criterio,  modificacion)
-
         Document documentoUpdate= new Document();
         documentoUpdate.put("edad", 20);
         Document documentoSet = new Document();
         documentoSet.put("$set",new Document().append("experiencia",true));
+        collection.updateMany(documentoUpdate,documentoSet);
 
+    }
+
+    public void actualizacionRango(){
+
+        Document documentoUpdate = new Document();
+        documentoUpdate.put("edad",new Document().append("$lte",20));
+
+        Document documentoSet = new Document();
+        documentoSet.put("$set",new Document().append("experiencia",true));
 
         collection.updateMany(documentoUpdate,documentoSet);
 
-        // modificar la experiencia de todos los alumnos que tengan
-        // mas de 20 y ponerla a true
 
-        // modificar la experiencia de todos los alumnos que tengan
-        // menos o = a 20 y ponerla a false
+        documentoUpdate = new Document();
+        documentoUpdate.put("edad",new Document().append("$gt",20));
+
+        documentoSet = new Document();
+        documentoSet.put("$set",new Document().append("experiencia",false));
+
+        collection.updateMany(documentoUpdate,documentoSet);
+
+    }
+    public void obtenerDatos(){
+
+        // find() -> All -> Document -> get
+        // find({}) -> condicion
+
+        // db.collection.find({experiencia: false})
+        MongoCursor<Document> cursor =  collection.find(new Document().append("experiencia",false)).iterator();
+        while (cursor.hasNext()){
+            Document document = cursor.next(); // {nombre: "Borja", edad: 39, experiencia: false, telefono: 123123}
+            System.out.println(document.getString("nombre") + ", "+ document.getInteger("edad") );
+        }
+
+        // obtener todos los usuarios que no tienen experiencia
 
 
+    }
+
+
+    public void setConocimientos(){
+
+        //2-  Aquellos usuarios que tenga mas de 30, añadirle a sus conocinientos: "gestion"
+        Document documentUpdate = new Document();
+        documentUpdate.put("edad", new Document().append("$lt",14));
+
+
+        Document documentSet = new Document();
+        documentSet.put("$push",new Document("conocimientos","gestion"));
+
+        collection.updateMany(documentUpdate, documentSet);
+
+
+    }
+    public void agregarConocimientos(){
+
+        //1-  agregar una lista de conocimientos "Programacion", "Base datos" con la key conocimientos
+        // a todos aquellos usuarios que tengan como experiencia true
+
+        ArrayList<String> conocimientos = new ArrayList<>();
+        conocimientos.add("Programacion");
+        conocimientos.add("Base datos");
+
+        Document documentUpdate = new Document();
+        documentUpdate.put("experiencia", true);
+
+        Document documentSet = new Document();
+        documentSet.put("$set",new Document("conocimientos",conocimientos));
+
+
+        collection.updateMany(documentUpdate,documentSet);
+
+
+
+        //3- A un usuario que tenga conocimientos, cambiarle la experiencia a false. Una vez esto completo,
+        // quitarle los conocimientos a dicho usuario
+
+        /*
+        * id: ObjectId
+        * nombre: "borja"
+        * edad: 39
+        * experiencia: true
+        * telefono: 1234
+        * conocimientos: List
+        * */
 
     }
 }

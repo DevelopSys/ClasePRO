@@ -13,8 +13,6 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-
-
         AlumnoController controller = new AlumnoController();
         //controller.insertarAlumno(new Alumno("A1",20,123,true));
         ArrayList<Alumno> alumnos = new ArrayList<>();
@@ -27,8 +25,11 @@ public class Main {
         //controller.insertarAlumno(alumnos,0);
         //controller.borrarAlumno("Juan");
         //controller.borrarEdad(18);
-        controller.actualizarAlumno();
+        //controller.actualizarAlumno();
+        //controller.actualizacionRango();
+        //controller.obtenerDatos();
+        //controller.agregarConocimientos();
+        controller.setConocimientos();
         // inserteis todos los alumnos en la coleccion
-
     }
 }
