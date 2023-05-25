@@ -1,50 +1,32 @@
 package org.example.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.ArrayList;
+
+
+@Getter
+@Setter
 public class Alumno {
 
     private String id;
     private String nombre;
     private int edad, telefono;
+    private boolean experiencia;
+
+    private ArrayList<String> conocimientos;
 
     public Alumno() {
+        conocimientos = new ArrayList<>();
     }
 
-    public Alumno(String nombre, int edad, int telefono) {
+    public Alumno(String nombre, int edad, int telefono, boolean experiencia) {
         this.nombre = nombre;
         this.edad = edad;
         this.telefono = telefono;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-
-    public int getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(int telefono) {
-        this.telefono = telefono;
+        this.experiencia = experiencia;
+        this.conocimientos = new ArrayList<>();
     }
 
     @Override

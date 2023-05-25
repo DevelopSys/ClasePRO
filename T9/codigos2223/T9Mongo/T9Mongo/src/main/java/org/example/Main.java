@@ -7,28 +7,27 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 import org.example.controller.AlumnoController;
+import org.example.model.Alumno;
+
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
 
 
         AlumnoController controller = new AlumnoController();
+        //controller.insertarAlumno(new Alumno("A1",20,123,true));
+        ArrayList<Alumno> alumnos = new ArrayList<>();
+        alumnos.add(new Alumno("N1",12,123,true));
+        alumnos.add(new Alumno("N2",23,1233,false));
+        alumnos.add(new Alumno("N3",43,423,true));
+        alumnos.add(new Alumno("N4",15,534,false));
+        alumnos.add(new Alumno("N5",32,64,true));
+        alumnos.add(new Alumno("N6",29,312,false));
+        //controller.insertarAlumno(alumnos,0);
+        controller.borrarAlumno("Juan");
 
-        // 1. Creo el cliente
-        /*MongoClient cliente = MongoClients.create(urlConnection);
-        // 2. Acceder a la base de datos
-        MongoDatabase baseDatos = cliente.getDatabase("academiaa");
-        //System.out.println(baseDatos.getName());
-        //baseDatos.createCollection("profesores");
-        MongoCollection coleccionAlumnos = baseDatos.getCollection("alumnoss");
-        Document alumno = new Document();
-        // String
-        alumno.put("nombre", "BorjaCodigo");
-        alumno.put("edad", 38);
-        alumno.put("experiencia", true);
-        alumno.put("curso", "DAM");
-        coleccionAlumnos.insertOne(alumno);
-                ;*/
+        // inserteis todos los alumnos en la coleccion
 
 
     }
