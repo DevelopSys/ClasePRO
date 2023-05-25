@@ -138,3 +138,124 @@ Adicionalmente se puede utilizar comparadores para realizar querys más exactas.
 - nin: no comprendido entre (hay que indicar un array)
 - eq: igual que
 - $or: anidación de o
+
+# Conectar Mongo con Java
+
+## Operaciones
+
+### Inserción
+
+Los pasos a ejecutar son los siguientes:
+
+1. Crear un documento con par clave - valor con los datos del objeto que se quiere agregar
+
+```java
+Document document = new Document();
+document.append("marca",c.getMarca());
+document.append("modelo",c.getModelo());
+document.append("precio",c.getPrecio());
+document.append("cv",c.getCc());
+document.append("cc",c.getCc());
+document.append("peso",c.getPeso());
+document.append("tipo_coche",c.getTipo());
+
+```
+
+2. Ejecutar la sentencia de inserción
+
+```java
+collection.insertOne(document);
+```
+
+### Borrado
+
+Los pasos serán los siguientes
+
+1. Crear un objeto con la condición de búsqueda
+
+```java
+Document = new Document();
+document.put("marca", "audi");
+```
+
+2. Ejecutar la sentencia de borrado
+
+```java
+collection.deleteOne(document);
+```
+
+### Actualización
+
+Los pasos serán los siguientes:
+
+1. Crear un objeto con los criterios de búsqueda
+
+```java
+// objeto que se quiere actualizar
+collection = mongoDatabase.getCollection("coches");
+        Document objeto = new Document();
+        objeto.put("modelo","Fiesta");
+```
+
+2. Crear un objeto con los datos que se quieran cambiar
+
+```java
+// actualización sobre el objeto
+Document objetoNuevo = new Document();
+objetoNuevo.put("cv",100);
+```
+
+3. Crear un objeto con los modificadores a crear
+
+```java
+// modificación de actualización
+Document updateObject = new Document();
+updateObject.put("$set", objetoNuevo);
+```
+
+4. Ejecutar la sentencia de actualización
+
+```java
+collection.updateOne(objeto, updateObject);
+```
+
+### Selección
+
+Los pasos serán los siguientes:
+
+1. Crear un objeto de tipo FindIterable mediante el método find
+
+```java
+FindIterable<Document> findIterable = collection.find();
+```
+
+2. Obtener un oterados para poder recorrer el documento
+
+```java
+MongoCursor<Document> iterator = findIterable.iterator();
+```
+
+3. Iterar el documento obtenido
+
+```java
+while (iterator.hasNext()){
+        Document document = iterator.next();
+        System.out.println(document.get("marca"));
+        System.out.println(document.get("modelo"));
+        System.out.println(document.get("cv"));
+        System.out.println("-----");
+}
+```
+
+**_En el caso de querer obtener elementos con una condición concreta, será necesario pasar al método find un documento con la condición de búsqueda_**
+
+```java
+Document = new Document("cv", new Document().append("$lt",160));
+FindIterable<Document> documents = collection.find(document);
+MongoCursor<Document> iterador = documents.iterator();
+while (iterador.hasNext()){
+    Document item = iterador.next();
+    System.out.println(item.get("modelo"));
+}
+
+```
