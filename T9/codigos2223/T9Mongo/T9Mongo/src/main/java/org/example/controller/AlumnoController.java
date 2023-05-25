@@ -1,10 +1,7 @@
 package org.example.controller;
 
 import com.mongodb.MongoException;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.*;
 import org.bson.Document;
 import org.example.model.Alumno;
 
@@ -91,12 +88,28 @@ public class AlumnoController {
         collection.deleteMany(documentCriterio);
     }
 
-    public void actualizarAlumno(String nombre, int edad){
+    public void actualizarAlumno(){
 
+        // modificar aquellos alumnos que tienen una edad de 20
+        // y ponerles la experienia a false
         // updateOne( {nombre: "Borja"},  {$set: {edad: 23}})
-
         // updateMany( criterio,  modificacion)
 
-    }
+        Document documentoUpdate= new Document();
+        documentoUpdate.put("edad", 20);
+        Document documentoSet = new Document();
+        documentoSet.put("$set",new Document().append("experiencia",true));
 
+
+        collection.updateMany(documentoUpdate,documentoSet);
+
+        // modificar la experiencia de todos los alumnos que tengan
+        // mas de 20 y ponerla a true
+
+        // modificar la experiencia de todos los alumnos que tengan
+        // menos o = a 20 y ponerla a false
+
+
+
+    }
 }
