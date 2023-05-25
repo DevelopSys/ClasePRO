@@ -81,4 +81,22 @@ public class AlumnoController {
 
     }
 
+    // rango de [18-25]
+
+    public void borrarEdad(int edad){
+        Document documentCriterio = new Document();
+        /*Document documentoQuery = new Document();
+        documentoQuery.put("$lt",18);*/
+        documentCriterio.put("edad",new Document().append("$lt",18));
+        collection.deleteMany(documentCriterio);
+    }
+
+    public void actualizarAlumno(String nombre, int edad){
+
+        // updateOne( {nombre: "Borja"},  {$set: {edad: 23}})
+
+        // updateMany( criterio,  modificacion)
+
+    }
+
 }

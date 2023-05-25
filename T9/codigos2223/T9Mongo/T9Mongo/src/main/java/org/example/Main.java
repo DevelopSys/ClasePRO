@@ -25,7 +25,8 @@ public class Main {
         alumnos.add(new Alumno("N5",32,64,true));
         alumnos.add(new Alumno("N6",29,312,false));
         //controller.insertarAlumno(alumnos,0);
-        controller.borrarAlumno("Juan");
+        //controller.borrarAlumno("Juan");
+        controller.borrarEdad(18);
 
         // inserteis todos los alumnos en la coleccion
 
