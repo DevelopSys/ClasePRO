@@ -1,5 +1,6 @@
 package org.example.controller;
 
+import com.google.gson.Gson;
 import com.mongodb.MongoException;
 import com.mongodb.client.*;
 import org.bson.Document;
@@ -136,6 +137,23 @@ public class AlumnoController {
     }
 
 
+
+
+    public void eliminarConocimientos(){
+
+        //3- A un usuario que tenga conocimientos, cambiarle la experiencia a false. Una vez esto completo,
+        // quitarle los conocimientos a dicho usuario
+        Document documentUpdate = new Document();
+        documentUpdate.put("edad", new Document().append("$lt",14));
+
+
+        Document documentSet = new Document();
+        documentSet.put("$unset",new Document("conocimientos",true));
+
+        collection.updateMany(documentUpdate, documentSet);
+
+
+    }
     public void setConocimientos(){
 
         //2-  Aquellos usuarios que tenga mas de 30, añadirle a sus conocinientos: "gestion"
@@ -170,8 +188,7 @@ public class AlumnoController {
 
 
 
-        //3- A un usuario que tenga conocimientos, cambiarle la experiencia a false. Una vez esto completo,
-        // quitarle los conocimientos a dicho usuario
+
 
         /*
         * id: ObjectId
@@ -182,5 +199,20 @@ public class AlumnoController {
         * conocimientos: List
         * */
 
+    }
+
+
+    public void seleccionarDatos(){
+        MongoCursor<Document> cursor = collection.find().iterator();
+
+        Gson gson = new Gson();
+
+        while (cursor.hasNext()){
+            Document document = cursor.next(); // pasar a alumno
+            Alumno alumno = gson.fromJson(document.toJson(),Alumno.class);
+            System.out.println(alumno.getNombre());
+            // mostrar todos los nombre de los usuarios
+            // y aquellos que tengan conocimientos, mostrarlos
+        }
     }
 }

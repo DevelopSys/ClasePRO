@@ -1,11 +1,6 @@
 package org.example;
 
 
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
-import org.bson.Document;
 import org.example.controller.AlumnoController;
 import org.example.model.Alumno;
 
@@ -29,7 +24,8 @@ public class Main {
         //controller.actualizacionRango();
         //controller.obtenerDatos();
         //controller.agregarConocimientos();
-        controller.setConocimientos();
-        // inserteis todos los alumnos en la coleccion
+        //controller.setConocimientos();
+        controller.seleccionarDatos();
+        // inserteis todos los alumnos en la coleccio
     }
 }
