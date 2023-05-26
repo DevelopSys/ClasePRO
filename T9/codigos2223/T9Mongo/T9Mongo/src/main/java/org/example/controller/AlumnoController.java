@@ -211,8 +211,30 @@ public class AlumnoController {
             Document document = cursor.next(); // pasar a alumno
             Alumno alumno = gson.fromJson(document.toJson(),Alumno.class);
             System.out.println(alumno.getNombre());
+            if (alumno.getConocimientos().size()>0){
+                for (String item:alumno.getConocimientos()) {
+                    System.out.println("\t "+item);
+                }
+            }
             // mostrar todos los nombre de los usuarios
             // y aquellos que tengan conocimientos, mostrarlos
         }
+    }
+
+    public void seleccionAnd(){
+        Document documentQuery = new Document();
+        documentQuery.put("telefono",1234);
+        documentQuery.put("experiencia",false);
+        documentQuery.put("edad",30);
+        MongoCursor<Document> cursor = collection.find(documentQuery).iterator();
+        Gson gson = new Gson();
+
+        while (cursor.hasNext()){
+            Alumno alumno =  gson.fromJson(cursor.next().toJson(), Alumno.class);
+            System.out.println(alumno.getNombre());
+        }
+
+
+
     }
 }

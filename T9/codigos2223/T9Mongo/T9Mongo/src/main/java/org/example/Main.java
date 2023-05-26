@@ -25,7 +25,7 @@ public class Main {
         //controller.obtenerDatos();
         //controller.agregarConocimientos();
         //controller.setConocimientos();
-        controller.seleccionarDatos();
+        controller.seleccionAnd();
         // inserteis todos los alumnos en la coleccio
     }
 }

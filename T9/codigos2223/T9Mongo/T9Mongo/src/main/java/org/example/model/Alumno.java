@@ -17,6 +17,16 @@ public class Alumno {
     private String nombre;
     private int edad, telefono;
     private boolean experiencia;
+    private String curso;
+
+    public Alumno(String nombre, int edad, int telefono, boolean experiencia, String curso) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.telefono = telefono;
+        this.experiencia = experiencia;
+        this.curso = curso;
+        this.conocimientos = new ArrayList<>();
+    }
 
     private ArrayList<String> conocimientos;
 
