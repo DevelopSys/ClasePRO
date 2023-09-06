@@ -1,3 +1,0 @@
-esto es un ejemplo de lectura de un fichero txt.
-Esto es otra linea del ficheroasdasd,asd,asd,asd,asd,asd,asd,asd,asd,asd.
-esto es una tercera linea del fichero.

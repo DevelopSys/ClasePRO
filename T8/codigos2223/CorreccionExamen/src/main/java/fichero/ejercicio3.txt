@@ -1,5 +1,0 @@
-Borja, 123, c1
-pepe, 234, c2
-nuevo, 1234, c3
-greter, 342, c4
-
