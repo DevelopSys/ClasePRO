@@ -5,6 +5,22 @@ import java.util.Scanner;
 public class Ejercicio9 {
 
     public static void main(String[] args) {
+
+        // cambiar letras
+
+        String palabra = "hola"; // hólá
+        palabra = palabra.replaceAll("a", "á");
+        palabra = palabra.replaceAll("e", "é");
+        palabra = palabra.replaceAll("i", "í");
+        palabra = palabra.replaceAll("o", "ó");
+        palabra = palabra.replaceAll("u", "ú");
+        // 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+        // c o r r e o @ g m a i l . c o m
+        palabra = palabra.substring(0,palabra.charAt('@'));
+        
+
+        System.out.println(palabra);
+
         Scanner scanner = new Scanner(System.in);
         int opcion = 0;
         do {
