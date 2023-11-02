@@ -6,6 +6,11 @@ public class EntradaAlgoritmos {
 
         int[] numeros = new int[]{1,23,42,53,123,653,87,198,43,56};
 
+        int[] extremos = calcularExtremos(numeros);
+        // max
+        System.out.println("El mas grande es: "+extremos[1]);
+        // min
+        System.out.println("El mas pequeño es: "+extremos[0]);
         // buscar un numero;
             // mediante métodos buscar un numero introducido por el usuario
             // el sistema dira:
@@ -33,8 +38,22 @@ public class EntradaAlgoritmos {
                 System.out.println("El numero no esta");
             }
         } while (!(boolean)respuesta[0]);
+    }
 
+    public static int[] calcularExtremos( int[] numeros ){
+        int max = numeros[0];
+        int min = numeros[0];
 
+        for ( int item : numeros ) {
+            if (item<min){
+                min = item;
+            }
+            if (item>max) {
+                max=item;
+            }
+        }
+
+        return new int[]{min,max};
     }
 
     public static Object[] estaNumero(int numeroBuscado, int[] numeros){
