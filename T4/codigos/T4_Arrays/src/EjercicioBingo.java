@@ -1,6 +1,9 @@
+import java.util.Arrays;
+
 public class EjercicioBingo {
 
     public static void main(String[] args) {
+
 
         int[][] carton = new int[3][7];
         int numeroPares = 0, numeroImpares = 0;
@@ -12,7 +15,13 @@ public class EjercicioBingo {
         }*/
         for (int i = 0; i < carton.length; i++) {
             for (int j = 0; j < carton[i].length; j++) {
-                carton[i][j] = (int) (Math.random() * 100);
+                // repito o no
+                int generado;
+                do {
+                    generado =(int) (Math.random() * 23)+1;
+
+                } while (estaNumero(generado,carton));
+                carton[i][j] = generado;
             }
         }
 
@@ -34,25 +43,38 @@ public class EjercicioBingo {
         }
 
         // suma filas
-        for (int i = 0; i < carton.length ; i++) {
-            int sumaFila =0;
+        for (int i = 0; i < carton.length; i++) {
+            int sumaFila = 0;
             for (int j = 0; j < carton[i].length; j++) {
                 sumaFila += carton[i][j];
             }
             System.out.printf("La suma de la fila %d es: " +
-                    "%d\n",i,sumaFila);
+                    "%d\n", i, sumaFila);
         }
 
         // suma columnas
         for (int i = 0; i < carton[0].length; i++) {
-            int sumaColumnas =0;
+            int sumaColumnas = 0;
             for (int j = 0; j < carton.length; j++) {
-                sumaColumnas+= carton[j][i];
+                sumaColumnas += carton[j][i];
             }
 
             System.out.printf("La suma de la columna %d es: " +
-                    "%d\n",i,sumaColumnas);
+                    "%d\n", i, sumaColumnas);
         }
+    }
+
+    public static boolean estaNumero(int numeroGenerado, int[][] carton) {
+
+        for (int[] fila : carton) {
+            for (int numeroColumna : fila) {
+                if (numeroColumna == numeroGenerado) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
 
