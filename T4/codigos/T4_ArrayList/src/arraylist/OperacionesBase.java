@@ -43,6 +43,35 @@ public class OperacionesBase {
         }
     }
 
+    public void eliminarElemento(String elemento){
+        if (lista.remove(elemento)){
+            System.out.println("Elemento borrado");
+            System.out.println("El tamaño de la lista es "+lista.size());
+        }else {
+            System.out.println("El elemento no esta en la lista");
+        }
+
+    }
+
+    public void vaciarLista(){
+        lista.clear();
+    }
+
+    public void modificarElemento(){
+        // modificar el elemento que esta en la segunda posicion
+        lista.set(2,"cambio");
+        System.out.println(lista.get(2));
+    }
+    public int buscarElemento(String elemento){
+
+        for (int i = 0; i < lista.size(); i++) {
+            if (elemento.equalsIgnoreCase(lista.get(i))){
+                return i;
+            }
+        }
+        return -1;
+    }
+
     public int obtenerTamanioLista(){
         // realiza acciones
         return lista.size();
