@@ -1,10 +1,60 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class EntradaAlgoritmos {
 
     public static void main(String[] args) {
-
+        
         int[] numeros = new int[]{1,23,42,53,123,653,87,198,43,56};
+
+        // 154,23,42,43,53,56,87,123,198,653
+        for (int i = 0; i < numeros.length; i++) {
+            // para i=1
+            for (int j = 0; j < numeros.length-i-1; j++) {
+                if (numeros[j]>numeros[j+1]){
+                    int aux = numeros[j];
+                    numeros[j]=numeros[j+1];
+                    numeros[j+1] = aux;
+                }
+            }
+        }
+
+        int[] arrayClone1 = new int[] {1,231,231,3123,123,1,32};
+        int[] arrayClone2 = new int[] {1,231,231,3123,123,1,32};
+
+        // 7 -> 10
+        //arrayClone = Arrays.copyOf(arrayClone,10);
+        //int[] arrayCopy = Arrays.copyOfRange(arrayClone,0,8);
+        int diferencia = Arrays.compare(arrayClone1, arrayClone2);
+        System.out.println(diferencia);
+        /*for (int item: arrayCopy) {
+            System.out.print(item+" ");
+        }*/
+
+
+
+
+
+
+
+
+        /*int[] numerosInvertir = new int[]{1,2,3,4,5,6,7,8,9,10};
+
+        for (int i = 0; i < numerosInvertir.length; i++) {
+            // i=0
+            int aux = numerosInvertir[i];
+            numerosInvertir[i] = numerosInvertir[numerosInvertir.length-1-i];
+            numerosInvertir[numerosInvertir.length-1-i] = aux;
+            //numerosInvertir[0] = numerosInvertir[4];
+        }
+        for (int item: numerosInvertir) {
+            System.out.print(item +" ");
+        }*/
+
+
+
+
+
 
         int[] extremos = calcularExtremos(numeros);
         // max
@@ -38,6 +88,7 @@ public class EntradaAlgoritmos {
                 System.out.println("El numero no esta");
             }
         } while (!(boolean)respuesta[0]);
+
     }
 
     public static int[] calcularExtremos( int[] numeros ){
@@ -55,7 +106,6 @@ public class EntradaAlgoritmos {
 
         return new int[]{min,max};
     }
-
     public static Object[] estaNumero(int numeroBuscado, int[] numeros){
 
         // esta? posicion?
