@@ -2,12 +2,18 @@ package arraylist;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class OperacionesBase {
 
     private ArrayList<String> lista = null;
 
     public void crearListaPalabras(){
+
+
+
+        Collections.sort(lista);
         System.out.println("Procedemos a crear una lista de palabras");
         lista = new ArrayList<>();
     }
