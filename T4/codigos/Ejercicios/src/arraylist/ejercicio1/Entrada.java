@@ -1,5 +1,6 @@
 package arraylist.ejercicio1;
 
+import javax.xml.stream.events.EndElement;
 import java.util.Scanner;
 
 public class Entrada {
@@ -9,7 +10,6 @@ public class Entrada {
         int opcion = 0;
         Scanner scanner = new Scanner(System.in);
         Garaje garaje = new Garaje(); // lista
-
         do {
             System.out.println("1. Agregar");
             System.out.println("2. Listar");
@@ -20,6 +20,7 @@ public class Entrada {
             System.out.println("7. Salir");
             System.out.println("Que tarea quieres hacer");
             opcion = scanner.nextInt();
+            String matricula;
             switch (opcion) {
                 case 1:
                     System.out.println("Introduce marca");
@@ -29,7 +30,7 @@ public class Entrada {
                     System.out.println("Introduce coste");
                     int coste = scanner.nextInt();
                     System.out.println("Introduce matricula");
-                    String matricula = scanner.next();
+                    matricula = scanner.next();
                     Object[] coche = new Object[]{marca, modelo, coste, matricula};
                     garaje.agregarCoche(coche);
                     break;
@@ -37,7 +38,21 @@ public class Entrada {
                     garaje.listarCoches();
                     break;
                 case 3:
-                    garaje.buscarCoche("1234A");
+                    System.out.println("Introduce matricula");
+                    matricula = scanner.next();
+                    garaje.buscarCoche(matricula);
+                    break;
+                case 4:
+                    System.out.println("Mostrar costes");
+                    garaje.mostrarCostes();
+                    break;
+                case 5:
+                    System.out.println("Introduce matricula del coche a eliminar");
+                    matricula = scanner.next();
+                    garaje.eliminarCoche(matricula);
+                    break;
+                case 6:
+                    garaje.vaciarLista();
                     break;
             }
         } while (opcion != 7);
