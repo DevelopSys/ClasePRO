@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Ejercicio5 {
 
+
     /*
      * Crea un programa que genere un número aleatorio (entre 0 y 20) de entrada y lo guarde en una variable.
      * El sistema irá pidiendo números al usuario hasta que coincida con el aleatorio generado (en caso de no coincidir
@@ -27,7 +28,7 @@ public class Ejercicio5 {
         do {
             int intentos = 0;
             int numero;
-            int aleatorio = (int) (Math.random() * 21);
+            int aleatorio = (int) (Math.random() * 21); // 10
             System.out.println(aleatorio);
             do {
                 System.out.println("Introduce numero");
@@ -42,12 +43,11 @@ public class Ejercicio5 {
                 System.out.println("Has superado el record");
                 record = intentos;
             }
-
             System.out.println("Quieres volver a jugar (S/N)");
             repetir = scanner.next();
 
         } while (repetir.toLowerCase().equals("s"));
-
-
     }
 }
+
+

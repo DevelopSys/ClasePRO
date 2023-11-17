@@ -20,6 +20,7 @@ public class Ejercicio1 {
             }
             sumatorio +=temperatura;
         }
+
         System.out.printf("La media de las temperaturas es de %.2f",sumatorio/nTemperaturas);
 
     }
