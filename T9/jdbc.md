@@ -1,11 +1,10 @@
-- [Acceso a datos:](#tema8)
-    - Interfaces de programación de acceso a bases de datos.
-    - Establecimiento de conexiones.
-    - Recuperación de información.
-    - Manipulación de la información.
-    - Ejecución de consultas sobre la base de datos. Mantenimiento de la persistencia de los objetos:
-    - Mecanismos de consulta.
-    - Recuperación, modificación y borrado de información.
+- [Interfaces de programación de acceso a bases de datos.](#interfaces-de-programación-de-acceso-a-bases-de-datos)
+- [Establecimiento de conexiones](#establecimiento-de-conexiones)
+  - [Realizar operaciones escritura](#realizar-operaciones-escritura)
+    - [Inserciones](#inserciones)
+    - [Borrados](#borrados)
+    - [Actualizaciones](#actualizaciones)
+    - [Consultas](#consultas)
 
 
 ### Interfaces de programación de acceso a bases de datos. 
@@ -79,7 +78,7 @@ import java.sql.SQLException;
 
 public class GestorDB {
 
-    private Connection connection;
+    private static Connection connection;
 
     public GestorDB() {
         realizarConexion();
@@ -99,6 +98,14 @@ public class GestorDB {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public static Connection getConnection(){
+        if (conn==null){
+            realizarConexion();
+        } 
+        
+        return connection
     }
 
     public void llamarConexion(){
