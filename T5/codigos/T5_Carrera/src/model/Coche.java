@@ -4,7 +4,7 @@ public class Coche {
 
     // parado, recto, izquierda, derecha
     private String nombre, matricula, direccion;
-    private int cv, cc, km, velocidad;
+    private int cv, cc, km, velocidad, puntos;
     private char categoria;
     // A -> cv>200
     // B -> cv entre 150-200
@@ -21,6 +21,19 @@ public class Coche {
         this.cv = cv;
         direccion = "parado";
         categoria = categorizarCoche(cv);
+        // puntos = 0
+    }
+
+    public int getPuntos() {
+        return puntos;
+    }
+
+    public void setPuntos(int puntos) {
+        this.puntos = puntos;
+    }
+
+    public void setCategoria(char categoria) {
+        this.categoria = categoria;
     }
 
     private char categorizarCoche(int cv) {
