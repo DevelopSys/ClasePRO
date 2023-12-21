@@ -53,35 +53,54 @@ public class Carrera {
             System.out.printf("El ganador de la carrera es %s con %dkm\n",
                     ganador.getNombre(), ganador.getKm());
         } else {
-            System.out.println("No hay ganador");
+            //System.out.println("No hay ganador");
             ganador = null;
         }
 
     }
 
+    public void resetearKM(){
+        for (Coche coche : participantes ) {
+            coche.setKm(0);
+        }
+    }
+
     public void iniciarCarrera() {
+        //resetearKM();
         for (int i = 0; i < circuito.getVueltas(); i++) {
-            System.out.println("Vuleta " + (i + 1));
+            //System.out.println("Vuleta " + (i + 1));
             // cada coche acelera
             // participantes (todos los coches)
             for (Coche item : participantes) {
                 item.acelerar((int) (Math.random() * 51) + 25);
             }
-            mostrarParrilla();
+            //mostrarParrilla();
         }
-        System.out.println("Vueltas oficiales terminadas");
+        //System.out.println("Vueltas oficiales terminadas");
         decidirGanador();
 
         // si no hay ganador -> vuelta extra
         // si hay ganador -> muestro datos
         while (ganador == null) {
-            System.out.println("Vuelta extra!!!");
+            //System.out.println("Vuelta extra!!!");
             for (Coche item : participantes) {
                 item.acelerar((int) (Math.random() * 51) + 25);
             }
+            ordenarParrilla();
             decidirGanador();
         }
 
+        repartirPuntos();
+        // mostrarParrilla();
+        // System.out.println("El ganado de la carrera es "+ganador.getNombre());
+
+    }
+
+    public void repartirPuntos(){
+        // primero 10 puntos más
+       participantes.get(0).setPuntos(participantes.get(0).getPuntos()+10);
+       participantes.get(1).setPuntos(participantes.get(1).getPuntos()+5);
+       participantes.get(2).setPuntos(participantes.get(2).getPuntos()+2);
     }
 
     public void inscribirParticipante(Coche coche) {
@@ -132,10 +151,8 @@ public class Carrera {
         }*/
     }
 
-    public void mostrarParrilla() {
 
-
-        // ordena la lista ->
+    public void ordenarParrilla(){
         Collections.sort(participantes, new Comparator<Coche>() {
             @Override
             public int compare(Coche o1, Coche o2) {
@@ -147,6 +164,12 @@ public class Carrera {
                 return 0;
             }
         });
+    }
+    public void mostrarParrilla() {
+
+
+        // ordena la lista ->
+
 
         for (int i = 0; i < participantes.size(); i++) {
             System.out.printf("%d - %s %d km\n", i + 1, participantes.get(i).getNombre()
