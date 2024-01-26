@@ -14,6 +14,7 @@ public final class Libro extends Elemento{
         Isbn = isbn;
         this.nPaginas = nPaginas;
     }
+    
 
     public String getIsbn() {
         return Isbn;
