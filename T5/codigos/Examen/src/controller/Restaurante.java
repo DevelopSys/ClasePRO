@@ -39,7 +39,6 @@ public class Restaurante implements Serializable {
 
     public void cobrarPedido(String dni) {
         Pedido pedidoCobrar = buscarPedido(dni);
-
         if (pedidoCobrar != null) {
             if (!pedidoCobrar.getEstado()){
                 caja += pedidoCobrar.getCuenta();
