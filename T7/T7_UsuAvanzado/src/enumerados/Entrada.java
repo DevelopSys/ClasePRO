@@ -1,5 +1,7 @@
-import model.Estaciones;
-import model.Registro;
+package enumerados;
+
+import enumerados.model.Estaciones;
+import enumerados.model.Registro;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package model;
+package enumerados.model;
 
 public enum Estaciones {
 
