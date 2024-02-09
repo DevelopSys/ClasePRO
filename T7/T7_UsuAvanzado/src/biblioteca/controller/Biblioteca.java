@@ -32,12 +32,12 @@ public class Biblioteca {
         // buscar la persona y que sea socio;
         Socio socio = new Socio();
         // buscar el prestable por el id
-        Prestable prestable = new Prestable();
+        //Prestable prestable = new Prestable();
         // el prestable esta prestado?
 
-        socio.agregarPrestamo(prestable);
+        //socio.agregarPrestamo(prestable);
         // cambias el estado
-        ((Elemento)prestable).setEstado(false);
+        //((Elemento)prestable).setEstado(false);
 
     }
 
