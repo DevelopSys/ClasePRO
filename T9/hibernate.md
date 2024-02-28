@@ -702,7 +702,7 @@ Adicionalmente, en la clase vehiculo se agregarán dos métodos, para poder agre
         flota.add(cliente);
         cliente.getFlota().add(this);
     }
-    public void removeEmployee(Cliente cliente) {
+    public void removeCliente(Cliente cliente) {
         flota.remove(cliente);
         cliente.getFlota().remove(this);
     }
