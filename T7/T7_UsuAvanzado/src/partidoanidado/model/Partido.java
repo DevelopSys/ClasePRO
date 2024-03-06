@@ -12,7 +12,29 @@ public class Partido {
     }
 
     public Partido() {
+    }
+    
+    public void iniciarPartido(){
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 3; j++) {
+                agregarGoles("local");
+                agregarGoles("visitante");
+            }
+            mostrarResultado();
+        }
+        System.out.println("Partido finalizado");
+        mostrarResultado();
+    }
 
+    public void agregarGoles(String equipo){
+        if (equipo.equals("local")){
+            int aleatorio = (int) (Math.random()*3);
+
+            golesLocales+= aleatorio;
+        } else {
+            int aleatorio = (int) (Math.random()*3);
+            golesVisitantes+= aleatorio;
+        }
     }
 
     public void mostrarResultado() {
