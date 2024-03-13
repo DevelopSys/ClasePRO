@@ -9,6 +9,8 @@ public class Entrada {
 
     public static void main(String[] args) {
         Terreno terreno = new Terreno(500000,500, Orientacion.norte);
+        //Terreno.Casa casa = terreno.new Casa(300);
+        //casa.construirPiscina();
 
         try{
             terreno.construirCasa(190);

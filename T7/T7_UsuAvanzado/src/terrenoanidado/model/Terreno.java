@@ -123,7 +123,7 @@ public class Terreno {
         this.orientacion = orientacion;
     }
 
-    public class Casa {
+     public class Casa {
         int metros, numeroHabitaciones, metrosDisponibles;
         boolean piscina;
 
