@@ -24,7 +24,7 @@ public class Entrada {
         operacionesFicheros.lecturaDirectorio("/");*/
 
         LecturaEscritura lecturaEscritura = new LecturaEscritura();
-        lecturaEscritura.
+        //lecturaEscritura.
 
 
     }
