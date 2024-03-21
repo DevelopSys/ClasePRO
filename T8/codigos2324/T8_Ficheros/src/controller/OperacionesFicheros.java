@@ -40,5 +40,21 @@ public class OperacionesFicheros {
 
 
     }
+    public void lecturaDirectorio(String fichero){
+        File file = new File(fichero);
+        if (file.isDirectory()){
+            /*for ( String nombre :file.list()){
+                System.out.println(nombre);
+            }*/
+
+            for ( File f :file.listFiles()){
+                System.out.println(f.getAbsolutePath());
+                if (f.isDirectory()){
+                    lecturaDirectorio(f.getAbsolutePath());
+                }
+            }
+        }
+
+    }
 
 }
