@@ -135,10 +135,13 @@ public class LecturaEscritura {
             }
         }
         FileWriter fileWriter = null;
-
+        PrintWriter printWriter = null;
 
         try {
             fileWriter = new FileWriter(file);
+            printWriter = new PrintWriter(fileWriter);
+            //fileWriter.write("Esto es un ejemplo \n");
+            printWriter.println(123);
             fileWriter.write(115);
             fileWriter.write(32);
             fileWriter.write(116);

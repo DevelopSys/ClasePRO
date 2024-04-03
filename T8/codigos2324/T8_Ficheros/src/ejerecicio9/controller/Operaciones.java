@@ -1,8 +1,6 @@
 package ejerecicio9.controller;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class Operaciones {
 
@@ -43,6 +41,33 @@ public class Operaciones {
         // Hola esto es un ejemplo
         // [] h,o,l,a, ,e,s,t,o
 
+
+    }
+    public void descifrar(String ruta, int clave){
+        File file = new File(ruta);
+        FileReader fileReader = null;
+
+        try {
+            fileReader = new FileReader(file);
+            int codigo = -1;
+            while ((codigo = fileReader.read()) != -1){
+                char letra = (char) (codigo/clave);
+                System.out.println(letra);
+            }
+
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Fichero no encontrado");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                assert fileReader != null;
+                fileReader.close();
+            } catch (IOException e) {
+                System.out.println("Fallo en el cerrado");
+            }
+        }
 
     }
 }
