@@ -7,7 +7,7 @@ import java.io.*;
 
 public class Operaciones {
 
-    public void lecturaJSONLocal(){
+    public void lecturaJSONLocal() {
         File file = new File("src/resources/asignaturas.txt");
         FileReader fileReader = null;
         BufferedReader bufferedReader = null;
@@ -17,18 +17,26 @@ public class Operaciones {
             bufferedReader = new BufferedReader(fileReader);
             StringBuilder lectura = new StringBuilder();
             String linea = null;
-            while ((linea = bufferedReader.readLine())!=null){
+            while ((linea = bufferedReader.readLine()) != null) {
                 lectura.append(linea);
             }
             //System.out.println(lectura.toString());
             JSONArray arrayAsignaturas = new JSONArray(lectura.toString());
-            JSONObject asignatura = arrayAsignaturas.getJSONObject(0);
-            String nombre = asignatura.getString("nombre");
-            String profesor = asignatura.getString("profesor");
-            int horas = asignatura.getInt("horas");
-            System.out.println("nombre = " + nombre);
-            System.out.println("profesor = " + profesor);
-            System.out.println("horas = " + horas);
+            for (int i = 0; i < arrayAsignaturas.length(); i++) {
+                JSONObject asignatura = arrayAsignaturas.getJSONObject(i);
+                String nombre = asignatura.getString("nombre");
+                String profesor = asignatura.getString("profesor");
+                int horas = asignatura.getInt("horas");
+                JSONArray conocimientos = asignatura.getJSONArray("conocimientos");
+                System.out.println("nombre = " + nombre);
+                System.out.println("profesor = " + profesor);
+                System.out.println("horas = " + horas);
+                for (int j = 0; j < conocimientos.length(); j++) {
+                    System.out.println(conocimientos.getString(j));
+                }
+            }
+
+
             //System.out.println(arrayAsignaturas);
 
         } catch (FileNotFoundException e) {
