@@ -1,9 +1,11 @@
 package lecturaJSON.controller;
-
+import com.google.gson.Gson;
+import lecturaJSON.model.Asignatura;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class Operaciones {
 
@@ -21,19 +23,24 @@ public class Operaciones {
                 lectura.append(linea);
             }
             //System.out.println(lectura.toString());
+            ArrayList<Asignatura> listaAsignaturas = new ArrayList<>();
             JSONArray arrayAsignaturas = new JSONArray(lectura.toString());
             for (int i = 0; i < arrayAsignaturas.length(); i++) {
-                JSONObject asignatura = arrayAsignaturas.getJSONObject(i);
-                String nombre = asignatura.getString("nombre");
+                JSONObject asignaturaJSON = arrayAsignaturas.getJSONObject(i);
+                Asignatura asignatura = new Gson().fromJson(asignaturaJSON.toString(),Asignatura.class);
+                listaAsignaturas.add(asignatura);
+                //System.out.println(asignatura.toString());
+                /*String nombre = asignatura.getString("nombre");
                 String profesor = asignatura.getString("profesor");
                 int horas = asignatura.getInt("horas");
                 JSONArray conocimientos = asignatura.getJSONArray("conocimientos");
+                Asignatura a = new Asignatura(nombre, profesor, horas, conocimientos)
                 System.out.println("nombre = " + nombre);
                 System.out.println("profesor = " + profesor);
                 System.out.println("horas = " + horas);
                 for (int j = 0; j < conocimientos.length(); j++) {
                     System.out.println(conocimientos.getString(j));
-                }
+                }*/
             }
 
 
