@@ -1,16 +1,52 @@
 package model;
 
 public class Equipo {
-    private String idTeam, strTeam, intFormedYear, strTeamBadge;
+    private String idTeam, intRank, strTeam, intFormedYear, strTeamBadge, intPoints, intGoalsFor, intGoalsAgainst;
 
-    public Equipo(String idTeam, String strTeam, String intFormedYear, String strTeamBadge) {
+    public Equipo(String idTeam, String intRank, String strTeam, String intFormedYear, String strTeamBadge, String intPoints, String intGoalsFor, String intGoalsAgainst) {
         this.idTeam = idTeam;
+        this.intRank = intRank;
         this.strTeam = strTeam;
         this.intFormedYear = intFormedYear;
         this.strTeamBadge = strTeamBadge;
+        this.intPoints = intPoints;
+        this.intGoalsFor = intGoalsFor;
+        this.intGoalsAgainst = intGoalsAgainst;
     }
 
     public Equipo() {
+    }
+
+    public String getIntRank() {
+        return intRank;
+    }
+
+    public void setIntRank(String intRank) {
+        this.intRank = intRank;
+    }
+
+    public String getIntPoints() {
+        return intPoints;
+    }
+
+    public void setIntPoints(String intPoints) {
+        this.intPoints = intPoints;
+    }
+
+    public String getIntGoalsFor() {
+        return intGoalsFor;
+    }
+
+    public void setIntGoalsFor(String intGoalsFor) {
+        this.intGoalsFor = intGoalsFor;
+    }
+
+    public String getIntGoalsAgainst() {
+        return intGoalsAgainst;
+    }
+
+    public void setIntGoalsAgainst(String intGoalsAgainst) {
+        this.intGoalsAgainst = intGoalsAgainst;
     }
 
     public String getIdTeam() {
