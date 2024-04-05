@@ -3,7 +3,7 @@
         "nombre":"Programacion",
         "horas": 8,
         "profesor": "Borja Martin",
-        "conocimientos": ["Programacion","POO","Java","MySQL"]
+        "conocimientos": Namacion","POO","Java","MySQL"]
     },
     {
         "nombre":"Lenguaje de marcas",
