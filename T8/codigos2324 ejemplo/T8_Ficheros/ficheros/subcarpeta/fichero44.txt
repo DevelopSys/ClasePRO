@@ -1,0 +1,1 @@
+Esto es un ejemplo para poder leer las caracteristicas de un fichero de texto plano
