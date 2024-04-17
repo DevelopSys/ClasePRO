@@ -15,7 +15,7 @@ public class OperacionesCifrado {
             fileWriter = new FileWriter(file);
             for (int i = 0; i < mensaje.length(); i++) {
                 char letra = mensaje.charAt(i);
-                int codigoCifrado = ((int)letra)*4;
+                int codigoCifrado = ((int)letra)*2;
                 fileWriter.write(codigoCifrado);
                 //System.out.println(letra);
                 //System.out.println();
@@ -44,7 +44,7 @@ public class OperacionesCifrado {
             fileReader = new FileReader(file);
             int codigo = -1;
             while ( (codigo = fileReader.read()) != -1){
-                int codigoDescifrado = codigo/4;
+                int codigoDescifrado = codigo/2;
                 System.out.print((char) codigoDescifrado);
             }
 
