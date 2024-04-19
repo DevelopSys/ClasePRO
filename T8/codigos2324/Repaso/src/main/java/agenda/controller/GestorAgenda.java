@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class GestorAgenda {
 
     // escribir un objeto
-    public void guardarUsuario() {
+    /*public void guardarUsuario() {
         // FILE -> OBJECTOUTPUTSTREAM -> FILEOUTPUTSTREAM -> FILE
         // FILE -> BUFFEREDWRITER     -> FILEWRITER       -> FILE
         File file = new File("src/main/java/agenda/resources/agenda.obj");
@@ -32,7 +32,7 @@ public class GestorAgenda {
 
         }
 
-    }
+    }*/
 
     public void leerUsuarios() {
 

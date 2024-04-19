@@ -28,7 +28,7 @@ public class EntradaTexto {
 
             switch (opcion) {
                 case 1:
-                    gestorAgenda.escribirUsuarios(new UsuarioTexto("Juan",6,5,8,32));
+                    //gestorAgenda.escribirUsuarios(new UsuarioTexto("Juan",6,5,8,32));
                     break;
                 case 2:
                     break;

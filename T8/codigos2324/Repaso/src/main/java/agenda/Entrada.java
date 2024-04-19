@@ -26,7 +26,8 @@ public class Entrada {
 
             switch (opcion) {
                 case 1:
-                    gestorAgenda.guardarUsuarioArrayList(new Usuario("Borja1","Martin1","correo1",123));
+                    System.out.println("escribiendo");
+                    gestorAgenda.guardarUsuarioArrayListExamen();
                     break;
                 case 2:
                     break;
