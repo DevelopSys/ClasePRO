@@ -1,0 +1,6 @@
+Borja, Martin, borja@gmailcom,7
+Juan, Gomez, juan@gmailcom, 8
+Celia, Lopez, celia@gmailcom, 9
+Claudia, Martin, claudia@gmailcom, 8
+Jesus, Fuentes, jesus@gmailcom, 6
+Maria, Saldaña, maria@gmailcom, 5
