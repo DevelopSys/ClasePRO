@@ -16,4 +16,8 @@ public class AcademiaController {
     public void inscribirAlumno() {
         alumnoRepository.darAltaAlumno(new Alumno("Borja", "Martin", "correo@gmail.com", 123123));
     }
+
+    public void eliminarAlumno() {
+        alumnoRepository.darBajaAlumno(1);
+    }
 }

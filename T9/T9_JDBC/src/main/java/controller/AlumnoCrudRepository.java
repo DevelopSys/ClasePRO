@@ -51,6 +51,36 @@ public class AlumnoCrudRepository {
 
     }
 
+    public void darBajaAlumno(int id) {
+
+        // Abrir la conexion
+        connection = DBConnection.getConnection();
+        // connection.setAutoCommit(true);
+        // Trabajo
+        Statement statement = null;
+        try {
+            statement = connection.createStatement();
+            String query = "DELETE FROM "+Esquema.TAB_ALUMNOS+" WHERE id="+id;
+            statement.execute(query);
+        } catch (SQLException e) {
+            System.out.println("Error de ejecucion SQL");
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (statement!=null){
+                    statement.close();
+                }
+            } catch (SQLException e) {
+                System.out.println("Error en cerrado");
+            }
+        }
+
+        // Cerrar la conexion
+        DBConnection.closeConnection();
+        connection = null;
+
+    }
+
     // DELETE https://www.w3schools.com/sql/sql_delete.asp
 
     // UPDATE https://www.w3schools.com/sql/sql_update.asp

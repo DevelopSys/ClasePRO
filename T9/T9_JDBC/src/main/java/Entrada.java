@@ -9,7 +9,7 @@ public class Entrada {
         // Connection connection = DBConnection.getConnection();
         // System.out.println(connection.toString());
         AcademiaController academiaController = new AcademiaController();
-        academiaController.inscribirAlumno();
-        academiaController.inscribirAlumno();
+        // academiaController.inscribirAlumno();
+        academiaController.eliminarAlumno();
     }
 }
