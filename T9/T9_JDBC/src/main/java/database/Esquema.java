@@ -12,5 +12,8 @@ public interface Esquema {
     String COL_CORREO = "correo";
     String COL_TELEFONO = "telefono";
     String COL_ESPECIALIDAD = "especialidad";
+    String COL_DIRECCION = "direccion";
+    String COL_SALARIO = "salario";
+    String COL_ID = "id";
 
 }

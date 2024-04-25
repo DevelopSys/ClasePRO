@@ -1,5 +1,6 @@
 import controller.AcademiaController;
 import database.DBConnection;
+import model.Profesor;
 
 import java.sql.Connection;
 
@@ -10,6 +11,8 @@ public class Entrada {
         // System.out.println(connection.toString());
         AcademiaController academiaController = new AcademiaController();
         // academiaController.inscribirAlumno();
-        academiaController.eliminarAlumno();
+        // academiaController.eliminarAlumno();
+        academiaController.contratarProfesor(new Profesor("Borja",
+                "correo@gmail", 1234, "madrid"));
     }
 }
