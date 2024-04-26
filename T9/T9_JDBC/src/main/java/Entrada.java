@@ -12,7 +12,11 @@ public class Entrada {
         AcademiaController academiaController = new AcademiaController();
         // academiaController.inscribirAlumno();
         // academiaController.eliminarAlumno();
-        academiaController.contratarProfesor(new Profesor("Borja",
-                "correo@gmail", 1234, "madrid"));
+        /*academiaController.contratarProfesor(new Profesor("Borja",
+                "correo@gmail", 1234, "madrid"));*/
+        //academiaController.actualizarSueldo(1,40000);
+        //academiaController.despedirProfesor(1);
+        //academiaController.obtenerAlumnos();
+        academiaController.obtenerProfesoresSalario();
     }
 }

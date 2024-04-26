@@ -6,11 +6,16 @@ import model.Profesor;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class ProfesorCrudRespository {
 
     private Connection connection;
+    private PreparedStatement ps;
+
+    private ResultSet rs;
 
     // INSERT
     public void insertarProfesor(Profesor profesor) {
@@ -19,7 +24,7 @@ public class ProfesorCrudRespository {
         connection = DBConnection.getConnection();
 
         // trabajo
-        PreparedStatement ps = null;
+
 
         String query = String.format("INSERT INTO %s (%s, %s, %s, %s) VALUES (?,?,?,?)",
                 Esquema.TAB_PROFESORES,
@@ -52,8 +57,83 @@ public class ProfesorCrudRespository {
     }
 
     // UPDATE
+    public void actualizarProfesor(int id, int salario) {
 
+        connection = DBConnection.getConnection();
+
+        String query = String.format("UPDATE %s SET %s=? WHERE %s=?", Esquema.TAB_PROFESORES,
+                Esquema.COL_SALARIO,
+                Esquema.COL_ID);
+
+        try {
+            ps = connection.prepareStatement(query);
+            ps.setInt(1, salario);
+            ps.setInt(2, 1);
+            int numeroUpdate = ps.executeUpdate();
+            System.out.println("Actualizados con exito: " + numeroUpdate);
+
+        } catch (SQLException e) {
+            System.out.println("Error en SQL");
+        }
+
+        DBConnection.closeConnection();
+        connection = null;
+
+    }
 
     // DELETE
 
+    public void eliminarProfesor(int id) {
+
+        connection = DBConnection.getConnection();
+
+        String query = String.format("DELETE FROM %s WHERE %s=?", Esquema.TAB_PROFESORES,
+                Esquema.COL_ID);
+
+        try {
+            ps = connection.prepareStatement(query);
+            ps.setInt(1, id);
+            int numeroUpdate = ps.executeUpdate();
+            System.out.println("Eliminados con exito: " + numeroUpdate);
+
+        } catch (SQLException e) {
+            System.out.println("Error en SQL");
+        }
+
+        DBConnection.closeConnection();
+        connection = null;
+
+    }
+
+    public ArrayList<Profesor> obtenerProfesores(int salario) {
+
+        ArrayList<Profesor> listaResultados = new ArrayList<>();
+        connection = DBConnection.getConnection();
+        String query = String.format("SELECT * FROM %s WHERE %s>?", Esquema.TAB_PROFESORES, Esquema.COL_SALARIO);
+        try {
+            ps = connection.prepareStatement(query);
+            ps.setInt(1, salario);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                int id = rs.getInt(Esquema.COL_ID);
+                String nombre = rs.getString(Esquema.COL_NOMBRE);
+                ;
+                String correo = rs.getString(Esquema.COL_CORREO);
+                ;
+                String direccion = rs.getString(Esquema.COL_DIRECCION);
+                ;
+                int salarioOBJ = rs.getInt(Esquema.COL_SALARIO);
+                Profesor profesor = new Profesor(id, nombre, correo, salarioOBJ, direccion);
+                listaResultados.add(profesor);
+            }
+            rs.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        DBConnection.closeConnection();
+        connection = null;
+        return listaResultados;
+    }
 }

@@ -5,9 +5,8 @@ import database.DBConnection;
 import database.Esquema;
 import model.Alumno;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.ArrayList;
 
 public class AlumnoCrudRepository {
 
@@ -17,6 +16,8 @@ public class AlumnoCrudRepository {
     // D -> Delete -> DELETE
 
     private Connection connection;
+    private Statement statement;
+    private ResultSet resultSet;
 
     public void darAltaAlumno(Alumno alumno) {
 
@@ -57,7 +58,6 @@ public class AlumnoCrudRepository {
         connection = DBConnection.getConnection();
         // connection.setAutoCommit(true);
         // Trabajo
-        Statement statement = null;
         try {
             statement = connection.createStatement();
             String query = "DELETE FROM "+Esquema.TAB_ALUMNOS+" WHERE id="+id;
@@ -87,7 +87,6 @@ public class AlumnoCrudRepository {
         connection = DBConnection.getConnection();
         // connection.setAutoCommit(true);
         // Trabajo
-        Statement statement = null;
         try {
             statement = connection.createStatement();
             String query = String.format("UPDATE FROM %s SET %s=%s WHERE %s=%d",
@@ -112,6 +111,41 @@ public class AlumnoCrudRepository {
         DBConnection.closeConnection();
         connection = null;
 
+    }
+
+    public ArrayList<Alumno> obtenerAlumnos(){
+        String query = "SELECT * FROM "+Esquema.TAB_ALUMNOS;
+        ArrayList<Alumno> listaResultado = new ArrayList<>();
+
+        connection = DBConnection.getConnection();
+
+        try {
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(query);
+
+            while (resultSet.next()){
+                int id = resultSet.getInt(Esquema.COL_ID);
+                String nombre = resultSet.getString(Esquema.COL_NOMBRE);
+                String apellido = resultSet.getString(Esquema.COL_APELLIDO);
+                String correo = resultSet.getString(Esquema.COL_CORREO);
+                int telefono = resultSet.getInt(Esquema.COL_TELEFONO);
+                Alumno alumno = new Alumno(id, nombre,apellido,correo,telefono);
+                listaResultado.add(alumno);
+
+            }
+
+
+
+        } catch (SQLException e) {
+            System.out.println("Error en ejecicion SQL");
+            System.out.println(e.getMessage());
+        }
+
+
+        DBConnection.closeConnection();
+        connection = null;
+
+        return listaResultado;
     }
 
     // DELETE https://www.w3schools.com/sql/sql_delete.asp

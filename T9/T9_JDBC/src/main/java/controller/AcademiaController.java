@@ -3,6 +3,8 @@ package controller;
 import model.Alumno;
 import model.Profesor;
 
+import java.util.ArrayList;
+
 public class AcademiaController {
 
     private AlumnoCrudRepository alumnoRepository;
@@ -18,6 +20,34 @@ public class AcademiaController {
         this.profesorRespository = new ProfesorCrudRespository();
     }
 
+
+    public void actualizarSueldo(int id, int salario){
+
+        // logica de ejecucion
+        profesorRespository.actualizarProfesor(id,salario);
+
+    }
+
+    public void despedirProfesor(int id){
+        // existe el profesor
+        profesorRespository.eliminarProfesor(id);
+        // mandas un correo
+        // haces papeleos
+    }
+
+    public void obtenerAlumnos(){
+        ArrayList<Alumno> resultado = alumnoRepository.obtenerAlumnos();
+        for ( Alumno item: resultado ) {
+            System.out.println(item.toString());
+        }
+    }
+
+    public void obtenerProfesoresSalario(){
+        ArrayList<Profesor> listado = profesorRespository.obtenerProfesores(30000);
+        for ( Profesor item : listado ) {
+            System.out.println(item.getNombre() + " "+item.getSalario());
+        }
+    }
 
     public void contratarProfesor(Profesor profesor){
 
