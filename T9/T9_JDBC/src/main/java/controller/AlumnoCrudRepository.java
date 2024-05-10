@@ -19,6 +19,19 @@ public class AlumnoCrudRepository {
     private Statement statement;
     private ResultSet resultSet;
 
+    public void ejemplo() throws SQLException {
+        // statement = connection.createStatement();
+        // statement.execute("INSERT INTO alumnos VALUES (asdasd,'asdasd',123,'asdasd)");
+        String query = "INSERT into alumnos VALUES (?,?,?,?)";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setInt(2,23);
+        preparedStatement.setString(1,"asdasdasd");
+        preparedStatement.setString(3,"asdasdasd");
+        preparedStatement.setString(4,"asdasdasd");
+        preparedStatement.execute();
+
+    }
+
     public void darAltaAlumno(Alumno alumno) {
 
         // Abrir la conexion

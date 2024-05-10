@@ -15,9 +15,12 @@ public class AcademiaController {
 
 
     public AcademiaController() {
-
         this.alumnoRepository = new AlumnoCrudRepository();
         this.profesorRespository = new ProfesorCrudRespository();
+
+
+
+
     }
 
 
