@@ -7,7 +7,9 @@ public class Entrada {
         //ProductCRUDRepository productCRUDRepository = new ProductCRUDRepository();
         //productCRUDRepository.importarProductos();
         TiendaController controller = new TiendaController();
-        controller.registrarUsuario("borja@gmail","123123");
+        //controller.registrarUsuario("borja@gmail.com","123123");
+        controller.iniciarSesion("borja@gmail.com","123123");
+        controller.realizarCompra(64);
 
     }
 }

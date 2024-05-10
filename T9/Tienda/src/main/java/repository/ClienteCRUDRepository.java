@@ -51,4 +51,25 @@ public class ClienteCRUDRepository {
 
     }
 
+    public int obtenerIdUsuario(String correo, String pass){
+        int idCliente = -1;
+        connection = DBConnection.getConnection();
+        try {
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(String.format("SELECT * FROM %s WHERE %s='%s' AND %s='%s'",
+                    Esquema.TAB_CLIENTES,
+                    Esquema.COL_CORREO,correo,
+                    Esquema.COL_PASS,pass));
+
+            while (resultSet.next()){
+                idCliente = resultSet.getInt(Esquema.COL_ID);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error en la consulta del correo");
+            System.out.println(e.getMessage());
+        }
+
+        return idCliente;
+    }
+
 }
