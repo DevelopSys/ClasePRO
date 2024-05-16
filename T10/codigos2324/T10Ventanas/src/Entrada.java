@@ -1,3 +1,4 @@
+import controller.GestorUsuarios;
 import ui.VentanaFormulario;
 import ui.VentanaPrincipal;
 
@@ -10,8 +11,9 @@ public class Entrada {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                VentanaPrincipal ventanaPrincipal = new VentanaPrincipal();
-                VentanaFormulario ventanaFormulario = new VentanaFormulario();
+                GestorUsuarios gestorUsuarios = new GestorUsuarios();
+                // VentanaPrincipal ventanaPrincipal = new VentanaPrincipal();
+                VentanaFormulario ventanaFormulario = new VentanaFormulario(gestorUsuarios);
             }
         });
 

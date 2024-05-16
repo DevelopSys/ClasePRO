@@ -1,21 +1,30 @@
 package ui;
 
+import controller.GestorUsuarios;
+import model.Usuario;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class VentanaFormulario extends JFrame {
+public class VentanaFormulario extends JFrame implements ActionListener {
 
     private JPanel panelCentral;
     private JTextField textoNombre, textoApellido, textoCorreo, textoTelefono;
     private JButton botonRegistro, botonListar;
     private JLabel etiquetaConfirmacion;
+    private GestorUsuarios gestorUsuarios;
 
-    public VentanaFormulario() {
+
+    public VentanaFormulario(GestorUsuarios gestorUsuarios) {
+        this.gestorUsuarios = gestorUsuarios;
         setTitle("Formulario de registro");
         setSize(1000, 1000);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         instancias();
         initGUI();
+        acciones();
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
@@ -32,9 +41,9 @@ public class VentanaFormulario extends JFrame {
         etiquetaConfirmacion = new JLabel();
     }
 
-    public void initGUI(){
+    public void initGUI() {
         setContentPane(panelCentral);
-        panelCentral.setLayout(new GridLayout(7,1,10,0));
+        panelCentral.setLayout(new GridLayout(7, 1, 10, 0));
         panelCentral.add(textoNombre);
         panelCentral.add(textoApellido);
         panelCentral.add(textoCorreo);
@@ -44,4 +53,46 @@ public class VentanaFormulario extends JFrame {
         panelCentral.add(etiquetaConfirmacion);
     }
 
+    public void acciones() {
+        botonRegistro.addActionListener(this);
+        botonListar.addActionListener(this);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == botonRegistro) {
+            // Crear usuarios
+            // Gestor y lo agrego
+            try{
+                if (textoNombre.getText().length()==0 || textoCorreo.getText().length() ==0 || textoApellido.getText().length()==0){
+                    throw new Exception("Datos incompletos");
+                } else {
+                    Usuario usuario = new Usuario(textoNombre.getText(), textoApellido.getText()
+                            , textoCorreo.getText(), Integer.parseInt(textoTelefono.getText()));
+                    gestorUsuarios.agregarUsuario(usuario);
+
+                    textoNombre.setText("");
+                    textoCorreo.setText("");
+                    textoApellido.setText("");
+                    textoTelefono.setText("");
+
+                    etiquetaConfirmacion.setText("El numero de usuarios registrados es: "
+                            + gestorUsuarios.getListaUsuarios().size());
+                }
+
+            } catch (NumberFormatException ex){
+                System.out.println("Datos incorrectos");
+            } catch (Exception ex){
+                System.out.printf(ex.getMessage());
+            }
+
+
+        } else if (e.getSource() == botonListar) {
+            if (gestorUsuarios.getListaUsuarios().isEmpty()){
+                System.out.println("No hay usuarios a listar");
+            } else {
+                gestorUsuarios.listarUsuarios();
+            }
+        }
+    }
 }
