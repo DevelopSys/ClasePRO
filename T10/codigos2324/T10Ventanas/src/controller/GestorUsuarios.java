@@ -12,6 +12,19 @@ public class GestorUsuarios {
         listaUsuarios = new ArrayList<>();
     }
 
+    public boolean realizarLogin(String correo, int telefono){
+        // login ok cuando se encuetra en lista
+        // login no ok cuando no se encuetra en lista
+
+        for ( Usuario item : listaUsuarios ) {
+            if (item.getCorreo().equalsIgnoreCase(correo) && item.getTelefono()==telefono){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public void listarUsuarios(){
         for ( Usuario usuario : listaUsuarios) {
             System.out.println(usuario);
