@@ -54,6 +54,7 @@ public class VentanaLogin extends JFrame implements ActionListener {
             } else {
                 if (gestorUsuarios.realizarLogin(textoCorreo.getText(), Integer.parseInt(textoTelefono.getText()))){
                     System.out.println("Realizado login correcto");
+                    VentanaGeneral ventanaGeneral = new VentanaGeneral();
                 } else {
                     System.out.println("Realizado login incorrecto");
                 }
