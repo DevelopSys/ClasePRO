@@ -28,13 +28,13 @@ public class VentanaLogin extends JFrame implements ActionListener {
 
     private void initGUI() {
         setContentPane(panelCentral);
-        panelCentral.setLayout(new GridLayout(3,1,10,0));
+        panelCentral.setLayout(new GridLayout(3, 1, 10, 0));
         panelCentral.add(textoCorreo);
         panelCentral.add(textoTelefono);
         panelCentral.add(botonLogin);
     }
 
-    private void acciones(){
+    private void acciones() {
         botonLogin.addActionListener(this);
     }
 
@@ -48,21 +48,23 @@ public class VentanaLogin extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         // login
-        try{
-            if (textoCorreo.getText().length() == 0 || textoTelefono.getText().length()==0){
-                throw  new Exception("No hay datos introducidos");
+        try {
+            if (textoCorreo.getText().length() == 0 || textoTelefono.getText().length() == 0) {
+                throw new Exception("No hay datos introducidos");
             } else {
-                if (gestorUsuarios.realizarLogin(textoCorreo.getText(), Integer.parseInt(textoTelefono.getText()))){
+                if (gestorUsuarios.realizarLogin(textoCorreo.getText(), Integer.parseInt(textoTelefono.getText())) != null) {
                     System.out.println("Realizado login correcto");
-                    VentanaGeneral ventanaGeneral = new VentanaGeneral();
+                    VentanaGeneral ventanaGeneral = new VentanaGeneral(gestorUsuarios
+                            .realizarLogin(textoCorreo.getText(), Integer.parseInt(textoTelefono.getText())));
+                    this.dispose();
                 } else {
                     System.out.println("Realizado login incorrecto");
                 }
             }
 
-        } catch (NumberFormatException ex){
+        } catch (NumberFormatException ex) {
             System.out.println("Datos erroneos");
-        } catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
     }

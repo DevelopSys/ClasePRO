@@ -1,5 +1,7 @@
 import controller.GestorUsuarios;
+import model.Usuario;
 import ui.VentanaFormulario;
+import ui.VentanaGeneral;
 import ui.VentanaLogin;
 import ui.VentanaPrincipal;
 
@@ -13,9 +15,11 @@ public class Entrada {
             @Override
             public void run() {
                 GestorUsuarios gestorUsuarios = new GestorUsuarios();
-                // VentanaPrincipal ventanaPrincipal = new VentanaPrincipal();
-                VentanaFormulario ventanaFormulario = new VentanaFormulario(gestorUsuarios);
-                VentanaLogin ventanaLogin = new VentanaLogin(gestorUsuarios);
+                //VentanaPrincipal ventanaPrincipal = new VentanaPrincipal();
+                // VentanaFormulario ventanaFormulario = new VentanaFormulario(gestorUsuarios);
+                 VentanaLogin ventanaLogin = new VentanaLogin(gestorUsuarios);
+                // VentanaGeneral ventanaGeneral = new VentanaGeneral(new Usuario("Borja",
+                //         "Martin", "correo", 123));
             }
         });
 

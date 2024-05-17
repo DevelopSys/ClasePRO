@@ -49,7 +49,7 @@
               <text value="Apellido:"/>
             </properties>
           </component>
-          <component id="d8236" class="javax.swing.JLabel" binding="texroApellido">
+          <component id="d8236" class="javax.swing.JLabel" binding="etiquetaApellido">
             <constraints>
               <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -59,6 +59,10 @@
           </component>
         </children>
       </grid>
+      <component id="8540b" class="javax.swing.JList" binding="listaHobbies">
+        <constraints border-constraint="East"/>
+        <properties/>
+      </component>
     </children>
   </grid>
 </form>
