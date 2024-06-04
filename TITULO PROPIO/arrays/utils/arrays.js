@@ -13,22 +13,27 @@ const resultante = tareas.filter((item, index) => {
 // console.log(resultante);
 
 const palos = ["C", "P", "R", "T"];
-const baraja = [];
+let baraja = [];
 
 for (let index = 0; index < palos.length; index++) {
   const palo = palos[index];
   // console.log(palo);
-  for (let index1 = 1; index1 < 13; index1++) {
-    if (index1 == 10) {
+  for (let index1 = 1; index1 < 14; index1++) {
+    if (index1 == 11) {
       baraja.push("J" + palo);
-    } else if (index1 == 11) {
-      baraja.push("Q" + palo);
     } else if (index1 == 12) {
+      baraja.push("Q" + palo);
+    } else if (index1 == 13) {
       baraja.push("K" + palo);
     } else {
       baraja.push(index1 + palo);
     }
   }
-
-  console.log(baraja);
 }
+
+baraja = _.shuffle(baraja);
+
+console.log(baraja);
+
+let carta = "1C";
+carta.su;
