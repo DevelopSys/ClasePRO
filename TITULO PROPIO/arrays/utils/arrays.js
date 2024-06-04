@@ -32,8 +32,13 @@ for (let index = 0; index < palos.length; index++) {
 }
 
 baraja = _.shuffle(baraja);
+// let cartaSacar = baraja.pop();
 
-console.log(baraja);
-
-let carta = "1C";
-carta.su;
+function getValorCarta(carta) {
+  valor = Number(carta.substring(0, carta.length - 1));
+  if (isNaN(valor)) {
+    return 10;
+  } else {
+    return valor;
+  }
+}
