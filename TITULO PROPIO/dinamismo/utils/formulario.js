@@ -21,7 +21,7 @@ botonEnviar.addEventListener("click", (e) => {
   ) {
     alert("Los datos no son correctos");
   } else {
-    lista.innerHTML += `<li class='list-group-item animate__animated animate__fadeInUpBig'> ${nombre} ${apellido} ${telefono}</li>`;
+    lista.innerHTML += `<li class='list-group-item animate__animated animate__fadeInUpBig'> ${nombre} ${apellido} ${telefono} <button class="btn btn-danger m-4">Eliminar</button> </li>`;
 
     console.log(nombre);
     console.log(apellido);
