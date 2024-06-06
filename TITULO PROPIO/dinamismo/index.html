@@ -61,8 +61,14 @@
             <option value="1">Femenino</option>
             <option value="2">No binario</option>
           </select>
-
-          <button class="btn btn-primary" id="boton-envio">Enviar</button>
+          <div class="row">
+            <button class="btn btn-primary col m-2" id="boton-envio">
+              Enviar
+            </button>
+            <button class="btn btn-primary col m-2" id="boton-vaciar">
+              Vaciar
+            </button>
+          </div>
         </section>
 
         <section class="col">
@@ -70,7 +76,21 @@
           <p>
             Esta sección esta destinada a mostrar los resultados del formulario
           </p>
-          <ul id="lista-usuarios" class="list-group"></ul>
+          <div class="row">
+            <button class="btn btn-success m-3 col" id="boton-obtener">
+              Activar
+            </button>
+            <button class="btn btn-success m-3 col" id="boton-desactivar">
+              Desactivar
+            </button>
+          </div>
+
+          <ul id="lista-usuarios" class="list-group">
+            <li class="list-group-item">
+              NOMBRE APELLIDO
+              <button class="btn btn-danger m-2">ELIMINAR</button>
+            </li>
+          </ul>
         </section>
       </div>
     </main>

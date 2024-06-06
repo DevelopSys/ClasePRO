@@ -4,6 +4,9 @@ let inputTelefono = document.querySelector("#input-telefono");
 let inputPass = document.querySelector("#input-pass");
 let selectGenero = document.querySelector("#select-genero");
 let botonEnviar = document.querySelector("#boton-envio");
+let botonVaciar = document.querySelector("#boton-vaciar");
+let botonObtener = document.querySelector("#boton-obtener");
+let botonDesactivar = document.querySelector("#boton-desactivar");
 let lista = document.querySelector("#lista-usuarios");
 
 botonEnviar.addEventListener("click", (e) => {
@@ -21,12 +24,45 @@ botonEnviar.addEventListener("click", (e) => {
   ) {
     alert("Los datos no son correctos");
   } else {
-    lista.innerHTML += `<li class='list-group-item animate__animated animate__fadeInUpBig'> ${nombre} ${apellido} ${telefono} <button class="btn btn-danger m-4">Eliminar</button> </li>`;
+    // crear el nodo
+    let nodoLI = document.createElement("li");
+    nodoLI.innerHTML = `${nombre} ${apellido} <button>Eliminar</button> `;
+    nodoLI.className = "list-group-item";
+    lista.append(nodoLI);
 
-    console.log(nombre);
+    // lista.innerHTML += `<li class='list-group-item animate__animated animate__fadeInUpBig'> ${nombre} ${apellido} ${telefono} <button class="btn btn-danger m-4">Eliminar</button> </li>`;
+    /* console.log(nombre);
     console.log(apellido);
     console.log(telefono);
     console.log(pass);
-    console.log(genero);
+    console.log(genero); */
   }
+});
+
+botonVaciar.addEventListener("click", () => {
+  lista.innerHTML = "";
+});
+
+botonObtener.addEventListener("click", () => {
+  let hijos = lista.childNodes;
+  hijos.forEach((element) => {
+    console.log(element);
+
+    element.classList = "list-group-item animate__animated animate__fadeInUp";
+    // let asdasd = ""
+    //console.log(contenido.split(" ")[0]);
+  });
+});
+
+botonDesactivar.addEventListener("click", () => {
+  // botonDesactivar.remove();
+  // lista.removeChild(botonEnviar);
+
+  let hijos = lista.childNodes;
+  hijos.forEach((element) => {
+    //console.log(element);
+    element.classList = "list-group-item animate__animated animate__shakeX";
+    // let asdasd = ""
+    //console.log(contenido.split(" ")[0]);
+  });
 });
