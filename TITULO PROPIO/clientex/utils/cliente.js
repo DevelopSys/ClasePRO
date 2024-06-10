@@ -46,7 +46,7 @@ function crearCarta(categoria, contenido, fecha) {
       break;
   }
 
-  let carta = `<div class="col mb-3">
+  let carta = `<section class="col mb-3">
     <div class="card" style="width: 18rem">
       <img src="${imagen}" class="card-img-top" alt="..." />
       <div class="card-body">
@@ -57,7 +57,7 @@ function crearCarta(categoria, contenido, fecha) {
         <span>${fecha}</span>
       </div>
     </div>
-  </div>`;
+  </section>`;
 
   divTimeline.innerHTML += carta;
 }
