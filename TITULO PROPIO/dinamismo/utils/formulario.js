@@ -26,8 +26,9 @@ botonEnviar.addEventListener("click", (e) => {
   } else {
     // crear el nodo
     let nodoLI = document.createElement("li");
-    nodoLI.innerHTML = `${nombre} ${apellido} <button>Eliminar</button> `;
+    nodoLI.innerHTML = `${nombre} ${apellido} <button class="btn btn-danger m-1" onclick="eliminarNodo(event)" >Eliminar</button> <button class="btn btn-primary m-1" onclick="seleccionarNodo(event)" >Seleccionar</button> `;
     nodoLI.className = "list-group-item";
+
     lista.append(nodoLI);
 
     // lista.innerHTML += `<li class='list-group-item animate__animated animate__fadeInUpBig'> ${nombre} ${apellido} ${telefono} <button class="btn btn-danger m-4">Eliminar</button> </li>`;
@@ -66,3 +67,21 @@ botonDesactivar.addEventListener("click", () => {
     //console.log(contenido.split(" ")[0]);
   });
 });
+
+function eliminarNodo(event) {
+  //lista.removeChild(event.target.parentNode);
+  event.target.parentNode.classList =
+    "list-group-item animate__animated animate__fadeOut";
+  // event.target.parentNode.classList.add("animate__fadeOut");
+  setTimeout(() => {
+    event.target.parentNode.remove();
+  }, 1000);
+}
+
+function seleccionarNodo(event) {
+  //lista.removeChild(event.target.parentNode);
+  lista.childNodes.forEach((element) => {
+    element.style.backgroundColor = "white";
+  });
+  event.target.parentNode.style.backgroundColor = "cadetblue";
+}
