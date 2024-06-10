@@ -5,10 +5,28 @@ let inputCategoria = document.querySelector("#select-categoria");
 let inputTexto = document.querySelector("#input-contenido");
 let divTimeline = document.querySelector("#div-timeline");
 let selectFiltro = document.querySelector("#select-filtro");
+let tweets = [];
 
 selectFiltro.addEventListener("change", (e) => {
   let seleccion = selectFiltro.value;
-  console.log(seleccion);
+  // console.log(seleccion);
+  // recorrer todos los tweets y buscar lo que conincida con la categoria -> crear carta
+  divTimeline.innerHTML = "";
+  if (seleccion.toLowerCase() == "todas") {
+    // recorre el array pinta
+    tweets.forEach((item) => {
+      crearCarta(item[0], item[1], item[2]);
+    });
+  } else {
+    // recorre el array - filtro y vuelvo a recorrer y pinta
+    tweets
+      .filter((item) => {
+        return item[0] == seleccion;
+      })
+      .forEach((item) => {
+        crearCarta(item[0], item[1], item[2]);
+      });
+  }
 });
 
 boton.addEventListener("click", (e) => {
@@ -16,6 +34,7 @@ boton.addEventListener("click", (e) => {
   let fecha = inputFecha.value;
   let categoria = inputCategoria.value;
   let texto = inputTexto.value;
+  tweets.push([categoria, nombre, fecha, texto]);
   crearCarta(categoria, texto, fecha);
 });
 
