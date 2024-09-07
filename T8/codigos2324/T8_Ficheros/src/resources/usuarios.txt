@@ -1,3 +1,0 @@
-Usuario: nombre='Usuario1', apellido='apellido1', dni='dni1', edad=123, telefono=123
-Usuario: nombre='nombre2', apellido='apellido2', dni='dni2', edad=234, telefono=234
-Usuario: nombre='nombre3', apellido='apeliido3', dni='dn3', edad=123123, telefono=123123
