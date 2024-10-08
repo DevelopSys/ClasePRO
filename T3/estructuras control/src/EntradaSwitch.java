@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class EntradaSwitch {
 
     public static void main(String[] args) {
@@ -41,5 +43,14 @@ public class EntradaSwitch {
                 break;
         }
         System.out.println("Terminando bloque");
+
+        Scanner scanner = new Scanner(System.in);
+        String palabra = scanner.next();
+        char letraScanner = scanner.next().charAt(0);
+        String  numeroChars = "4567";
+        String  aleatorioChars = "3456";
+        // numeroChars.charAt(0) == aleatorioChars.charAt(0)
+        // numeroChars.charAt(1) == aleatorioChars.charAt(1)
+
     }
 }
