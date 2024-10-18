@@ -9,7 +9,8 @@ public class EjerciciosFor {
         //ejercicio3();
         // ejercicio4();
         // ejercicio11();
-        ejercicio13();
+        // ejercicio13();
+        ejercicio16();
     }
 
     public static void ejericio1() {
@@ -234,7 +235,7 @@ public class EjerciciosFor {
                 .replaceAll("é", "e");
         String palabraInversa = "";
 
-        for (int i = palabra.length()-1; i >=0 ; i--) {
+        /*for (int i = palabra.length()-1; i >=0 ; i--) {
             palabraInversa+=palabra.charAt(i);
         }
 
@@ -242,8 +243,79 @@ public class EjerciciosFor {
             System.out.println("Es palindromo");
         } else {
             System.out.println("No es palindromo");
+        }*/
+
+        boolean palindromo = true;
+        for (int i = 0; i < palabra.length() / 2; i++) {
+            if (palabra.charAt(i) != palabra.charAt(palabra.length() - 1 - i)) {
+                palindromo = false;
+                break;
+            }
         }
+        // System.out.println("La palabra es palidromo: "+palindromo);
+        if (palindromo) {
+            System.out.println("Tu palabra es palindromo");
+        } else {
+            System.out.println("Tu palabra no es palindromo");
+        }
+    }
 
+    public static void ejercicio15() {
+        String frase = "Esta frase vale para poder aprender el for.Esta manera de trabajar me garantiza que entiendo " +
+                "el problema.Que todo el mundo este atento. Esto es otra frase.";
 
+        // numero de letras
+        int numeroLetras = frase.length();
+        // numero de letras sin espacios ni puntos
+        int numeroLetrasSinCosas = frase.replaceAll(" ","").replaceAll("\\.","").length();
+        // numero de palabras
+        // numero de oraciones
+        int numeroOraciones=0,numeroPalabras=0;
+        for (int i = 0; i < frase.length(); i++) {
+            if (frase.charAt(i)=='.'){
+                numeroOraciones++;
+            } else if (frase.charAt(i) == ' ') {
+                numeroPalabras++;
+            }
+        }
+        numeroPalabras+= (numeroOraciones-1);
+
+        System.out.println("El numero de frases " +numeroOraciones);
+        System.out.println("El numero de palbras "+numeroPalabras);
+        System.out.println("El numero de letras "+numeroLetras);
+        System.out.println("El numero de letras sin cosas "+numeroLetrasSinCosas);
+    }
+
+    public static void ejercicio16(){
+        int aleatorio = (int) (Math.random() *30)+1;
+        System.out.println(aleatorio);
+        int intentos = 0;
+        for (int i = 0; i < 10; i++) {
+            System.out.println("Por favor dime tu numero");
+            int numeroUsuario = scanner.nextInt();
+            intentos++;
+            if (aleatorio == numeroUsuario){
+                System.out.println("Enhorabuena has acertado");
+                break;
+            } else {
+                System.out.println("Lo siento, intentalo de nuevo");
+            }
+        }
+        System.out.println("El numero de intentos gastados es "+intentos);
+
+    }
+
+    public static void ejercicio17(){
+        System.out.println("Dime de que numero quieres calcular el factorial");
+        int numero = scanner.nextInt();
+        int factorial = 1;
+        if (numero<1){
+            System.out.println("No puedo calcular su factorial");
+        } else {
+            for (int i = 1; i <=numero  ; i++) {
+                factorial = factorial * i;
+            }
+            System.out.printf("El factorial del numero %d es %d", numero,factorial);
+        }
     }
 }
