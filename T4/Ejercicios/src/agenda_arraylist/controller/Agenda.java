@@ -1,7 +1,6 @@
-package controller;
+package agenda_arraylist.controller;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class Agenda {
 

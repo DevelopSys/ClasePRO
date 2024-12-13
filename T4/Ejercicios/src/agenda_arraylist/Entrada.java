@@ -1,6 +1,7 @@
-import controller.Agenda;
+package agenda_arraylist;
 
-import java.sql.Statement;
+import agenda_arraylist.controller.Agenda;
+
 import java.util.Scanner;
 
 public class Entrada {
