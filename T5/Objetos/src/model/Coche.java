@@ -1,12 +1,14 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Coche {
 
     // propiedades
     private String marca, modelo, color, matricula, bastidor;
     private double precio;
     private int cv, par;
-
+    private int km;
     // constructores -> por defecto tengo el constructor vacio sin escribir nada
     public Coche() {
         // para poder ejecutar funciones cuando el obj se crea
@@ -15,6 +17,14 @@ public class Coche {
         marca = "sin definir";
         bastidor = "sin definir";
         color = "sin definir";
+    }
+
+    public Coche(String marca, String modelo, String matricula, int cv){
+        this.marca = marca;
+        this.modelo = modelo;
+        this.matricula = matricula;
+        this.cv = cv;
+        // km =0
     }
 
     public Coche(String marca, String modelo, String color) {
@@ -67,6 +77,14 @@ public class Coche {
 
     // metodos especiales
 
+
+    public int getKm() {
+        return km;
+    }
+
+    public void setKm(int km) {
+        this.km = this.km + km;
+    }
 
     public String getMarca() {
         return this.marca;

@@ -3,7 +3,7 @@ import model.Coche;
 public class Entrada {
 
     public static void main(String[] args) {
-        Coche coche1 = new Coche();
+        /*Coche coche1 = new Coche();
         Coche coche2 = new Coche("Ford", "Focus", "gris");
         Coche coche5 = new Coche("Ford", "Focus", "gris");
         Coche coche3 = new Coche("Opel", "Corsa", 100);
@@ -23,6 +23,8 @@ public class Entrada {
         System.out.println("Los datos del coche 3 son");
         coche3.mostrarDatos();
         System.out.println("Los datos del coche 4 son");
-        coche4.mostrarDatos();
+        coche4.mostrarDatos();*/
+
+
     }
 }
