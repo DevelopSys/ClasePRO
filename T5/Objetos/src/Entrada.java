@@ -1,3 +1,4 @@
+import controller.Carrera;
 import model.Coche;
 
 public class Entrada {
@@ -24,6 +25,8 @@ public class Entrada {
         coche3.mostrarDatos();
         System.out.println("Los datos del coche 4 son");
         coche4.mostrarDatos();*/
+
+        Carrera carrera = new Carrera(0,"asdasd");
 
 
     }
