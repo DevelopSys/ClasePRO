@@ -42,6 +42,15 @@ public class Persona {
         // this.peso = 0;
         // this.altura =0;
     }
+    public double calcularIMC(){
+        double imc =  peso/Math.pow(altura,2);
+        return imc;
+    }
+
+    public void incrementarEdad(int edad){
+        //setEdad(this.edad+edad);
+        this.edad += edad;
+    }
 
     public void mostrarDatos() {
         System.out.printf("Nombre: %s" +
@@ -49,7 +58,7 @@ public class Persona {
                         "\nDNI: %s" +
                         "\nAltura: %.2f"
                         + "\nPeso: %.2f"
-                        + "\nEdad: %d",
+                        + "\nEdad: %d\n",
                 nombre, apellido, dni, altura, peso, edad);
     }
 
