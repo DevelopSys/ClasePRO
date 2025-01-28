@@ -5,15 +5,17 @@ public class Persona {
     private String nombre, apellido, dni;
     private int edad;
     private double altura, peso;
+    private char genero;
 
     public Persona(String nombre, String apellido, String dni,
-                   int edad, double altura, double peso) {
+                   int edad, double altura, double peso, char genero) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
         this.edad = edad;
         this.altura = altura;
         this.peso = peso;
+        this.genero = genero;
     }
 
     public Persona(String nombre, String apellido, String dni, int edad) {
