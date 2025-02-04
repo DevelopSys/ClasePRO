@@ -12,6 +12,14 @@ public class Coche extends Vehiculo{
         this.traccion = traccion;
     }
 
+    public Coche(){
+
+    }
+
+    public void metodoCoche(){
+        System.out.println("Esto es un metodo especifico de un coche");
+    }
+
     @Override
     public void mostrarDatos() {
         System.out.println("Traccion: "+traccion);
