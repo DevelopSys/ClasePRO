@@ -5,6 +5,8 @@ public class Asalariado extends Trabajador implements Empleador, Sindicador{
     private double retencion; // 0.21
     private int numeroPagas;
 
+    private boolean contratado;
+
     public Asalariado(String nombre, String apellido, int numeroSS, double salario,
                       double retencion, int numeroPagas) {
         super(nombre, apellido, numeroSS, salario);
@@ -32,6 +34,14 @@ public class Asalariado extends Trabajador implements Empleador, Sindicador{
     public void calcularSalarioMes() {
         double salarioMes = (getSalario()-(getSalario()*retencion))/numeroPagas;
         System.out.println("El salario mensual es: "+salarioMes);
+    }
+
+    public boolean isContratado() {
+        return contratado;
+    }
+
+    public void setContratado(boolean contratado) {
+        this.contratado = contratado;
     }
 
     public double getRetencion() {

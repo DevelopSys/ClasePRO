@@ -3,6 +3,7 @@ package model;
 public class Autonomo extends Trabajador implements Sindicador{
 
     private int coutaSS;
+    private boolean contratado;
 
     public Autonomo() {
     }
@@ -35,5 +36,13 @@ public class Autonomo extends Trabajador implements Sindicador{
     @Override
     public void realizarHuelga() {
         System.out.println("El autonomo secunda la huelga automaticamente");
+    }
+
+    public boolean isContratado() {
+        return contratado;
+    }
+
+    public void setContratado(boolean contratado) {
+        this.contratado = contratado;
     }
 }
