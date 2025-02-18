@@ -1,6 +1,6 @@
 package model;
 
-public class Autonomo extends Trabajador{
+public class Autonomo extends Trabajador implements Sindicador{
 
     private int coutaSS;
 
@@ -30,5 +30,10 @@ public class Autonomo extends Trabajador{
     public void mostrarDatos() {
         super.mostrarDatos();
         System.out.println("coutaSS = " + coutaSS);
+    }
+
+    @Override
+    public void realizarHuelga() {
+        System.out.println("El autonomo secunda la huelga automaticamente");
     }
 }

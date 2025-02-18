@@ -14,8 +14,14 @@ public class Jefe extends Trabajador implements Empleador{
         System.out.println("El salario mensual es :"+getSalario());
     }
 
-    @Override
-    public void realizarTrabajo() {
 
+    @Override
+    public boolean realizarTrabajo(int nHoras) {
+
+        System.out.println("El jefe se dispone a trabajar un numero de horas determinadas");
+        if (nHoras>2){
+            return false;
+        }
+        return true;
     }
 }

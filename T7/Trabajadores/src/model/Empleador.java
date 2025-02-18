@@ -1,6 +1,6 @@
 package model;
 
-public interface Empleador {
+public abstract interface Empleador {
 
-    void realizarTrabajo();
+    boolean realizarTrabajo(int nHoras);
 }
