@@ -21,7 +21,13 @@ public class Entrada {
         restaurante.agregarCliente(new Cliente("Borja"));
         restaurante.agregarCliente(new Cliente("Borja1"));
         restaurante.agregarCliente(new Cliente("Borja2"));
-
-        restaurante.mostrarClientes();
+        restaurante.agregarPedido(new Bebida("Cocacola",3,300),"Borja");
+        restaurante.agregarPedido(new Comida("Cocacola",6,3000),"Borja1");
+        restaurante.agregarPedido(new Comida("Cocacola",6,3000),"Borja2");
+        // restaurante.pedirCuenta("Borja");
+        // restaurante.pedirCuenta("Borja1");
+        // restaurante.pedirCuenta("Borja2");
+        //restaurante.mostrarClientes();
+        restaurante.mostrarCajaRestaurante();
     }
 }
