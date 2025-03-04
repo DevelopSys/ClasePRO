@@ -1,4 +1,6 @@
+import controller.Restaurante;
 import model.Bebida;
+import model.Cliente;
 import model.Comida;
 import model.Racion;
 
@@ -15,6 +17,11 @@ public class Entrada {
         comida.mostrarDatos();
         */
 
+        Restaurante restaurante = new Restaurante();
+        restaurante.agregarCliente(new Cliente("Borja"));
+        restaurante.agregarCliente(new Cliente("Borja1"));
+        restaurante.agregarCliente(new Cliente("Borja2"));
 
+        restaurante.mostrarClientes();
     }
 }
