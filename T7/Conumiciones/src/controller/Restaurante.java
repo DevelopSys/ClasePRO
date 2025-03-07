@@ -2,6 +2,8 @@ package controller;
 
 import model.Cliente;
 import model.Consumicion;
+import util.DatosFiscales;
+import util.Provedor;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -10,9 +12,38 @@ public class Restaurante {
 
     private ArrayList<Cliente> listaClientes;
     private double caja;
+    private Provedor provedor;
+
+    public Restaurante(Provedor provedor) {
+        listaClientes = new ArrayList<>();
+        this.provedor = provedor;
+    }
 
     public Restaurante() {
         listaClientes = new ArrayList<>();
+        // provedor = null
+
+    }
+
+    public void mostrarDatosFiscales(){
+        System.out.println("El NIF es "+ DatosFiscales.NIF);
+        System.out.println("La direccion es "+ DatosFiscales.DIR_FICAL);
+        System.out.println("El IVA aplicado es "+ DatosFiscales.IVA);
+    }
+    public void informacionProvedor(){
+        if (provedor == null){
+            System.out.println("El restaurante no tiene aun provedor asociado");
+        } else {
+            System.out.println("La informacion del provedor es:");
+            // nombre del Enum -> COCACOLA / MAHOU / COMIDASSL / BEBIDASSL
+            System.out.println("El nombre del enum es: "+provedor.name());
+            // nombre
+            System.out.println(provedor.getNombre());
+            System.out.println(provedor.getDescuento());
+            System.out.println(provedor.getContacto());
+            System.out.println("El descuento puede ser;");
+            provedor.calcularDescuento(3000);
+        }
     }
 
     // admitir clientes. Tan solo se podrá admitir un cliente
@@ -117,4 +148,27 @@ public class Restaurante {
         System.out.println(caja);
     }
 
+    public ArrayList<Cliente> getListaClientes() {
+        return listaClientes;
+    }
+
+    public void setListaClientes(ArrayList<Cliente> listaClientes) {
+        this.listaClientes = listaClientes;
+    }
+
+    public double getCaja() {
+        return caja;
+    }
+
+    public void setCaja(double caja) {
+        this.caja = caja;
+    }
+
+    public Provedor getProvedor() {
+        return provedor;
+    }
+
+    public void setProvedor(Provedor provedor) {
+        this.provedor = provedor;
+    }
 }

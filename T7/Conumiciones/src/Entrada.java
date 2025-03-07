@@ -3,6 +3,7 @@ import model.Bebida;
 import model.Cliente;
 import model.Comida;
 import model.Racion;
+import util.Provedor;
 
 public class Entrada {
 
@@ -17,17 +18,22 @@ public class Entrada {
         comida.mostrarDatos();
         */
 
-        Restaurante restaurante = new Restaurante();
+        Restaurante restaurante = new Restaurante(Provedor.COMIDASSL);
+
+
         restaurante.agregarCliente(new Cliente("Borja"));
         restaurante.agregarCliente(new Cliente("Borja1"));
         restaurante.agregarCliente(new Cliente("Borja2"));
+        Bebida bebida = new Bebida("Cocacola",3,300);
+        bebida.almacenar();
+        Racion racion = new Racion("Cocacola",6,1);
         restaurante.agregarPedido(new Bebida("Cocacola",3,300),"Borja");
         restaurante.agregarPedido(new Comida("Cocacola",6,3000),"Borja1");
-        restaurante.agregarPedido(new Comida("Cocacola",6,3000),"Borja2");
+        restaurante.agregarPedido(new Racion("Cocacola",6,1),"Borja2");
         // restaurante.pedirCuenta("Borja");
         // restaurante.pedirCuenta("Borja1");
         // restaurante.pedirCuenta("Borja2");
         //restaurante.mostrarClientes();
-        restaurante.mostrarCajaRestaurante();
+        // restaurante.mostrarCajaRestaurante();
     }
 }
