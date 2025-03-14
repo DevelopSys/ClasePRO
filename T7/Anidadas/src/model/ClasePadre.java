@@ -24,8 +24,11 @@ public class ClasePadre {
         System.out.println("edadPadre = " + edadPadre);
         System.out.println("correoPadre = " + correoPadre);
         // sacar los datos de la clase hija mostradDatos() -> claseHija
-        System.out.println("Y tengo una clase hija con los siguientes datos");
-        claseHija.mostrarDatos();
+        if (claseHija!=null){
+            System.out.println("Y tengo una clase hija con los siguientes datos");
+            claseHija.mostrarDatos();
+        }
+
     }
 
     public ClaseHija getClaseHija() {
