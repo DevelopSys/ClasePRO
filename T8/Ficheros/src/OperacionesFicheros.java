@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.Scanner;
 
 public class OperacionesFicheros {
 
@@ -37,6 +38,38 @@ public class OperacionesFicheros {
         }
     }
 
+
+    public void guardarDatos(String path){
+        Scanner scanner = new Scanner(System.in);
+        BufferedReader bufferedReader = new BufferedReader
+                (new InputStreamReader(System.in));
+        File file = new File(path);
+        FileWriter fileWriter = null;
+
+        try {
+            fileWriter = new FileWriter(file);
+            System.out.println("Introduce tu nombre");
+            String nombre = scanner.next();
+            System.out.println("Introduce tus apellido");
+            String apellido = bufferedReader.readLine();
+            System.out.println("Introduce la edad");
+            int edad = scanner.nextInt();
+            System.out.println("Introduce el mensaje a guardar");
+            String mensaje = bufferedReader.readLine();
+            fileWriter.write("nombre: "+nombre+"\n");
+            fileWriter.write("apellidos: "+apellido+"\n");
+            fileWriter.write("edad: "+edad+"\n");
+            fileWriter.write("mensaje: "+mensaje);
+        } catch (IOException e) {
+            System.out.println("Error en la escritura");
+        } finally {
+            try {
+                fileWriter.close();
+            } catch (IOException | NullPointerException e) {
+                System.out.println("error de escritura");
+            }
+        }
+    }
     // crear un metodo que me pida por consola mis datos personales,
     // ademas de un mensaje
 
