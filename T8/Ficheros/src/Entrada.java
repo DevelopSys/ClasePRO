@@ -5,6 +5,7 @@ public class Entrada {
         // operacionesFicheros.leerInformacion();
         // operacionesFicheros.crearDirectorio("src/recursos/escritura/completa");
         // operacionesFicheros.crearFichero("src/recursos/lectura/ejemplo_lectura.txt");
-        operacionesFicheros.lecturaUnitaria("src/recursos/lectura/ejemplo_lectura.txt");
+        // operacionesFicheros.lecturaUnitaria("src/recursos/lectura/ejemplo_lectura.txt");
+        operacionesFicheros.lecturaCodigoCompleta("src/recursos/lectura/ejemplo_lectura_codigo.txt");
     }
 }

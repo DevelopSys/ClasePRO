@@ -1,7 +1,4 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class OperacionesFicheros {
 
@@ -85,23 +82,34 @@ public class OperacionesFicheros {
 
     }
 
-
-    public void lecturaCodigoUnitaria(String path) {
+    public void lecturaCodigoCompleta(String path) {
         File file = new File(path);
         // hago lectura
         FileReader fileReader = null;
+        BufferedReader bufferedReader = null;
 
         try {
             fileReader = new FileReader(file);
-            int lectura = -1;
-            while ( (lectura = fileReader.read())!=-1 ){
-                System.out.println("lectura = " + lectura+" asociado a la letra: "+(char)lectura);
-                // System.out.print((char)lectura);
+            bufferedReader = new BufferedReader(fileReader);
+
+            /*String linea = bufferedReader.readLine();
+            System.out.println("La linea leida es: "+linea);
+            linea = bufferedReader.readLine();
+            System.out.println("La linea leida es: "+linea);*/
+
+            String linea = null;
+            while ((linea = bufferedReader.readLine())!=null){
+                // System.out.println(linea);
+                String[] letras = linea.split(" ");
+                for ( String letra : letras) {
+                    //System.out.println(letra);
+                    int letraNumero = Integer.parseInt(letra);
+                    System.out.print((char) (letraNumero/2));
+                }
+                System.out.println();
             }
-            /*int lectura = fileReader.read();
-            System.out.println("lectura = " + lectura+" asociado a la letra: "+(char)lectura);
-            lectura = fileReader.read();
-            System.out.println("lectura = " + lectura+" asociado a la letra: "+(char)lectura);*/
+
+
         } catch (FileNotFoundException e) {
             System.out.println("El fichero no existe");
         } catch (IOException e) {
