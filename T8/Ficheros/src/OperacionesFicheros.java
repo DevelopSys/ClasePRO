@@ -37,6 +37,32 @@ public class OperacionesFicheros {
         }
     }
 
+    // crear un metodo que me pida por consola mis datos personales,
+    // ademas de un mensaje
+
+    // todos los datos y el mensaje deberán guardarse
+    // en el fichero datos.txt
+
+    public void escribirFichero(String path){
+        File file = new File(path);
+        FileWriter fileWriter = null;
+
+        try {
+            fileWriter = new FileWriter(file);
+            fileWriter.write(105);
+        } catch (IOException e) {
+            System.out.println("Error en escritura");
+        } finally {
+            try {
+                fileWriter.close();
+            } catch (IOException | NullPointerException e) {
+                System.out.println("Error en el cerrado");
+            }
+        }
+
+
+    }
+
     public void recorrerDirectorio(File fichero) {
         for (int i = 0; i < contadorNivel; i++) {
             System.out.print("\t");
@@ -97,17 +123,22 @@ public class OperacionesFicheros {
             linea = bufferedReader.readLine();
             System.out.println("La linea leida es: "+linea);*/
 
+            StringBuffer stringBuffer = new StringBuffer();
             String linea = null;
             while ((linea = bufferedReader.readLine())!=null){
+                stringBuffer.append(linea);
+                // lecturaCompleta += linea;
                 // System.out.println(linea);
-                String[] letras = linea.split(" ");
+                /*String[] letras = linea.split(" ");
                 for ( String letra : letras) {
                     //System.out.println(letra);
                     int letraNumero = Integer.parseInt(letra);
                     System.out.print((char) (letraNumero/2));
                 }
-                System.out.println();
+                System.out.println();*/
             }
+            System.out.println(stringBuffer.toString());
+            // el string con todas las lineas del fichero
 
 
         } catch (FileNotFoundException e) {
