@@ -1,3 +1,4 @@
+Esta liea tiene numeros -1 1 +2 12
 este fichero nos vale para simular la lectura del mismo.
 El fichero cuenta con dos lineas para comprobar como se hace la lectura complete de este.
 Cierro el fichero.
