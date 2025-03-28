@@ -96,6 +96,32 @@ public class OperacionesFicheros {
 
     }
 
+    public void escrituraFicheroCompleta(String path){
+
+        File file = new File(path);
+        FileWriter fileWriter = null;
+        PrintWriter printWriter = null;
+
+        try {
+            fileWriter = new FileWriter(file, true);
+            printWriter = new PrintWriter(fileWriter);
+            // realiza la escritura
+            printWriter.println("Esta primera linea es la escritura completa");
+            printWriter.println("Esta segunda linea se ha incorporado de forma automatica");
+            printWriter.print(69);
+        } catch (IOException e) {
+            System.out.println("Error en la entrada / salida");
+        } finally {
+            try{
+                printWriter.close();
+            } catch (Exception e){
+                System.out.println("Error en el cerrado");
+            }
+
+        }
+
+
+    }
     public void recorrerDirectorio(File fichero) {
         for (int i = 0; i < contadorNivel; i++) {
             System.out.print("\t");

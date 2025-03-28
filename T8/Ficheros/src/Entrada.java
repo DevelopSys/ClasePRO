@@ -8,6 +8,7 @@ public class Entrada {
         // operacionesFicheros.lecturaUnitaria("src/recursos/lectura/ejemplo_lectura.txt");
         // operacionesFicheros.lecturaCodigoCompleta("src/recursos/lectura/ejemplo_lectura_codigo.txt");
         // operacionesFicheros.escribirFichero("src/recursos/escritura/completa/ejemplo_escritura.txt");
-        operacionesFicheros.guardarDatos("src/recursos/escritura/completa/ejemplo_escritura_datos.txt");
+        // operacionesFicheros.guardarDatos("src/recursos/escritura/completa/ejemplo_escritura_datos.txt");
+        operacionesFicheros.escrituraFicheroCompleta("src/recursos/escritura/completa/ejemplo_escritura_completa.txt");
     }
 }
