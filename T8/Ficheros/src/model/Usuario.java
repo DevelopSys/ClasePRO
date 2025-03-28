@@ -1,8 +1,11 @@
 package model;
 
 import javax.swing.plaf.PanelUI;
+import java.io.Serializable;
 
-public class Usuario {
+public class Usuario implements Serializable {
+
+    private final static long serialVersionUID = 9L;
 
     private String nombre, apellido, correo;
     private int telefono;

@@ -17,6 +17,9 @@ public class Entrada {
         operacionesUsuario.escribirUsuario("src/recursos/agenda.txt",new Usuario("Borja2","Martin","borja@gmail.com",1234));
         operacionesUsuario.escribirUsuario("src/recursos/agenda.txt",new Usuario("Borja3","Martin","borja@gmail.com",1234));
         operacionesUsuario.escribirUsuario("src/recursos/agenda.txt",new Usuario("Borja4","Martin","borja@gmail.com",1234));*/
-        operacionesUsuario.lecturaUsuarios("src/recursos/agenda.txt");
+        // operacionesUsuario.lecturaUsuarios("src/recursos/agenda.txt");
+        // operacionesUsuario.escribirUsuarioObjeto("src/recursos/agenda.obj",new Usuario("Borja","Martin","borja@gmail.com",1234));
+        operacionesUsuario.leerUsuarioObjeto("src/recursos/agenda.obj");
+
     }
 }
