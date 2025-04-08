@@ -60,13 +60,14 @@ public class UsuarioDTO {
         preparedStatement.execute();
 
     }
+
     public int borrarUsuario(int venta) {
         int despidos = 0;
         String query = String.format("DELETE FROM %s WHERE %s<?"
                 , SchemaDB.TAB_USER, SchemaDB.COL_AMOUNT);
         try {
             PreparedStatement ps = connection.prepareStatement(query);
-            ps.setInt(1,venta);
+            ps.setInt(1, venta);
             despidos = ps.executeUpdate();
 
         } catch (SQLException e) {
@@ -76,21 +77,44 @@ public class UsuarioDTO {
         return despidos;
 
     }
-    public void listarUsuarios(){
+
+    public void listarUsuarios() {
         // SELECT * FROM USUARIOS
-        String query = ("SELECT * FROM "+SchemaDB.TAB_USER);
+        String query = ("SELECT * FROM " + SchemaDB.TAB_USER);
         try {
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 String nombre = resultSet.getString(SchemaDB.COL_NAME);
                 String correo = resultSet.getString(SchemaDB.COL_MAIL);
                 String pass = resultSet.getString(SchemaDB.COL_PASS);
-                System.out.printf("Nombre: %s correo: %s pass: %s%n",nombre,correo,pass);
+                System.out.printf("Nombre: %s correo: %s pass: %s%n", nombre, correo, pass);
             }
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public int realizarLogin(String mail, String pass) {
+        // SELECT correo, pass FROM usuarios WHERE correo=XXX AND pass=XXX
+        // resultset.next()
+        String query = String.format("SELECT %s FROM %s WHERE %s=? AND %s=?", "id_perfil",
+                SchemaDB.TAB_USER,
+                SchemaDB.COL_MAIL, SchemaDB.COL_PASS
+        );
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, mail);
+            preparedStatement.setString(2, pass);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getInt("id_perfil");
+            }
+        } catch (SQLException e) {
+            System.out.println("Fallo en ejecucion");
+        }
+
+        return -1;
     }
 }

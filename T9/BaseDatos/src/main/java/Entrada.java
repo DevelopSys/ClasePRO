@@ -11,10 +11,10 @@ public class Entrada {
     public static void main(String[] args) {
         // Connection connection = DBConnector.getConnection();
         UsuarioDTO usuarioDTO = new UsuarioDTO();
-        Usuario usuario = new Usuario(1,"Marcos","Lopez","marcos@gmail","pass"
-                ,0,0);
+        Usuario usuario = new Usuario(1, "Marcos", "Lopez", "marcos@gmail", "pass"
+                , 0, 0);
         ;
-        usuarioDTO.listarUsuarios();
+        //usuarioDTO.listarUsuarios();
         //System.out.println("el numero de despidos es de "+usuarioDTO.borrarUsuario(55500));
         // usuarioDTO.insertarUsuarios(usuario);
         /*Scanner scanner = new Scanner(System.in);
@@ -32,6 +32,12 @@ public class Entrada {
                 System.out.println("Error en la query");
             }
         } while (fallo);*/
+        int idLogin = usuarioDTO.realizarLogin("borja@gmail.com", "123123");
+        if (idLogin!=-1) {
+            System.out.println("entrando a la app en modo "+idLogin);
+        } else {
+            System.out.println("error en el login");
+        }
 
         // hacer un sistema que permite el login de los usuarios. Para ello
         // el sistema pedirá el correo y pass del usuario que quiere acceder
