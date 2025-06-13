@@ -14,15 +14,21 @@
       integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
       crossorigin="anonymous"
     ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Document</title>
   </head>
   <body>
     <div class="container mt-4">
-      <h1 style="text-align: center">Juago Fantasy</h1>
+      <h1 style="text-align: center">Juego Fantasy</h1>
       <div class="row mt-4">
         <div class="col">
           <h2>Inscripción de equipos</h2>
           <input
+            id="inputNombreEquipo"
             type="text"
             class="form-control mb-3 mt-4"
             placeholder="nombre del equipo"
@@ -30,13 +36,14 @@
           />
 
           <input
+            id="inputPresupuestoEquipo"
             type="number"
             class="form-control mb-3"
             placeholder="presupuesto del equipo"
             aria-label="presupuesto del equipo"
           />
 
-          <select class="form-select mb-4">
+          <select class="form-select mb-4" id="selectEstadoEquipo">
             <option value="0" selected>Selecciona el estado de forma</option>
             <option value="1">En forma</option>
             <option value="2">Cansado</option>
@@ -49,7 +56,7 @@
         <div class="col">
           <h2 style="text-align: center">Equipos</h2>
 
-          <ul class="mt-4 list-group"></ul>
+          <ul class="mt-4 list-group" id="listaEquipos"></ul>
         </div>
       </div>
     </div>
