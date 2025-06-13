@@ -64,6 +64,8 @@ console.log("elementos buscados");
 console.log(elementosBuscados);
 
 // quiero que elimineis el elemento Presentar del array
+tareas = tareas.filter((item) => item != "Presentar");
+console.log(tareas);
 
 /* if (elementoBuscado2 == undefined) {
   console.log("elemento no encontrado");
