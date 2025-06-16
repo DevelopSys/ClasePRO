@@ -5,7 +5,17 @@ let inputNombreEquipo = document.querySelector("#inputNombreEquipo");
 let inputPresupuestoEquipo = document.querySelector("#inputPresupuestoEquipo");
 let selectEstadoEquipo = document.querySelector("#selectEstadoEquipo");
 let listaEquipos = document.querySelector("#listaEquipos");
-let equipos = [];
+
+let divEquipos = document.querySelector("#divEquipos");
+let botonComenzar = document.querySelector("#botonComenzar");
+
+let equipos = [
+  new Equipo("Equipo 1", 1000, 1),
+  new Equipo("Equipo 2", 2000, 2),
+  new Equipo("Equipo 3", 3000, 3),
+  new Equipo("Equipo 4", 4000, 1),
+  new Equipo("Equipo 5", 5000, 2),
+];
 
 botonAgregar.addEventListener("click", (event) => {
   console.log("Pulsacion detectada");
@@ -27,6 +37,38 @@ botonAgregar.addEventListener("click", (event) => {
     lanzaarMensaje("Por favor, completa todos los campos", "error");
   }
 });
+
+botonComenzar.addEventListener("click", () => {
+  equipos.forEach((equipo) => {
+    crearCartaEquipo(equipo);
+  });
+});
+
+function crearCartaEquipo(equipo) {
+  let nodoDiv = document.createElement("div");
+  nodoDiv.className = "col animate__animated animate__fadeIn";
+  nodoDiv.innerHTML = `<flip-card variant="click" class="trivia-card">
+            <div slot="front">
+              <div class="card">
+                <img src="..." class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">${equipo.nombre}</h5>
+                  <p class="card-text">${equipo.estado}</p>
+                </div>
+              </div>
+            </div>
+            <div slot="back">
+              <div class="card">
+                <img src="..." class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">${equipo.nombre}</h5>
+                  <p class="card-text">Presupuesto ${equipo.presupuesto}</p>
+                </div>
+              </div>
+            </div>
+          </flip-card>`;
+  divEquipos.append(nodoDiv);
+}
 
 // funcion agregarEquipo(){}
 // funcion limpiarFormulario(){}

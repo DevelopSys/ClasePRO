@@ -61,64 +61,11 @@
         </div>
       </div>
       <div class="row mt-4">
-        <button class="btn btn-primary">Comenzar liga</button>
+        <button class="btn btn-primary" id="botonComenzar">
+          Comenzar liga
+        </button>
       </div>
-      <div class="row mt-4">
-        <div class="col">
-          <flip-card variant="click" class="trivia-card">
-            <div slot="front">
-              <div class="card" style="width: 18rem">
-                <img
-                  src="https://images.saymedia-content.com/.image/t_share/MTc0MjUwOTUwNjYyMzAxNTY0/top-10-best-football-teams-of-all-time.jpg"
-                  class="card-img-top"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">España</h5>
-                  <p class="card-text">Estado de forma: En forma</p>
-                </div>
-              </div>
-            </div>
-            <div slot="back">
-              <div class="card" style="width: 18rem">
-                <img
-                  src="https://images.saymedia-content.com/.image/t_share/MTc0MjUwOTUwNjYyMzAxNTY0/top-10-best-football-teams-of-all-time.jpg"
-                  class="card-img-top"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">España</h5>
-                  <p class="card-text">Presupuesto: 1000000</p>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </flip-card>
-        </div>
-        <div class="col">
-          <flip-card variant="click" class="trivia-card">
-            <div slot="front">
-              <div class="card">
-                
-                <div class="card-body">
-                  <h5 class="card-title">España</h5>
-                  <p class="card-text">Estado de forma: En forma</p>
-                </div>
-              </div>
-            </div>
-            <div slot="back">
-              <div class="card" style="width: 18rem">
-                
-                <div class="card-body">
-                  <h5 class="card-title">España</h5>
-                  <p class="card-text">Presupuesto: 1000000</p>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </flip-card>
-        </div>
-      </div>
+      <div class="row row-cols-1 row-cols-md-2 g-4 mt-4" id="divEquipos"></div>
     </div>
     <script src="./js/objetos.js"></script>
     <script src="./js/index.js"></script>
