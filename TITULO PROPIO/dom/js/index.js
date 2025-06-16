@@ -5,8 +5,9 @@ let inputNombreEquipo = document.querySelector("#inputNombreEquipo");
 let inputPresupuestoEquipo = document.querySelector("#inputPresupuestoEquipo");
 let selectEstadoEquipo = document.querySelector("#selectEstadoEquipo");
 let listaEquipos = document.querySelector("#listaEquipos");
+let equipo = [];
 
-let editNombreEquipo = botonAgregar.addEventListener("click", (event) => {
+botonAgregar.addEventListener("click", (event) => {
   console.log("Pulsacion detectada");
   let nombre = inputNombreEquipo.value;
   let presupuesto = Number(inputPresupuestoEquipo.value);
@@ -23,19 +24,40 @@ let editNombreEquipo = botonAgregar.addEventListener("click", (event) => {
       timer: 3000,
       showConfirmButton: false,
     }); */
-
     // creo el nodo que quiero añadir
     let nodoLI = document.createElement("li");
-    nodoLI.className = "list-group-item animate__animated animate__fadeInRight";
+    nodoLI.className =
+      "list-group-item animate__animated animate__fadeInRight d-flex justify-content-between";
     nodoLI.innerText = nombre;
-
     let boton = document.createElement("button");
     boton.className = "btn btn-danger";
     boton.innerText = "Eliminar";
+    boton.addEventListener("click", () => {
+      boton.parentElement.classList.remove(
+        "animate__fadeIn",
+        "animate__animated"
+      );
+      boton.parentElement.classList.add("animate__animated", "animate__jello");
+
+      setTimeout(() => {
+        // aplicar la anumacion de salida
+        boton.parentElement.classList.remove(
+          "animate__jello",
+          "animate__animated"
+        );
+        boton.parentElement.classList.add(
+          "animate__animated",
+          "animate__fadeOutRight"
+        );
+
+        // borrar el elemento LI
+        setTimeout(() => {
+          boton.parentElement.remove();
+        }, 500);
+      }, 500);
+    });
     nodoLI.append(boton);
-
     listaEquipos.append(nodoLI);
-
     limpiarFormulario();
   } else {
     Swal.fire({
