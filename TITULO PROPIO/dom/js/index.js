@@ -8,14 +8,9 @@ let listaEquipos = document.querySelector("#listaEquipos");
 
 let divEquipos = document.querySelector("#divEquipos");
 let botonComenzar = document.querySelector("#botonComenzar");
+let comienzo = false;
 
-let equipos = [
-  new Equipo("Equipo 1", 1000, 1),
-  new Equipo("Equipo 2", 2000, 2),
-  new Equipo("Equipo 3", 3000, 3),
-  new Equipo("Equipo 4", 4000, 1),
-  new Equipo("Equipo 5", 5000, 2),
-];
+let equipos = [];
 
 botonAgregar.addEventListener("click", (event) => {
   console.log("Pulsacion detectada");
@@ -39,9 +34,14 @@ botonAgregar.addEventListener("click", (event) => {
 });
 
 botonComenzar.addEventListener("click", () => {
-  equipos.forEach((equipo) => {
-    crearCartaEquipo(equipo);
-  });
+  if (comienzo == false) {
+    equipos.forEach((equipo) => {
+      crearCartaEquipo(equipo);
+    });
+    comienzo = true;
+  } else {
+    lanzaarMensaje("Ya se ha comenzado el juego", "warning");
+  }
 });
 
 function crearCartaEquipo(equipo) {
