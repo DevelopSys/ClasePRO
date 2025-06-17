@@ -8,8 +8,8 @@ let listaEquipos = document.querySelector("#listaEquipos");
 
 let divEquipos = document.querySelector("#divEquipos");
 let botonComenzar = document.querySelector("#botonComenzar");
+let botonResetear = document.querySelector("#botonResetear");
 let comienzo = false;
-
 let equipos = [];
 
 botonAgregar.addEventListener("click", (event) => {
@@ -43,6 +43,43 @@ botonComenzar.addEventListener("click", () => {
     lanzaarMensaje("Ya se ha comenzado el juego", "warning");
   }
 });
+
+botonResetear.addEventListener("click", () => {
+  if (comienzo == false) {
+    lanzaarMensaje("No se ha comenzado el juego", "warning");
+  } else {
+    // quiero preguntar en un dialogo de confirmacion si quiero mantener los equipos
+    lanzarDialogo(
+      "¿Deseas mantener los equipos en el juego ?",
+      "Reiniciar Juego",
+      "Mantener",
+      "No mantener"
+    );
+  }
+});
+
+function lanzarDialogo(mensaje, titulo, botonConfirmar, botonCancelar) {
+  Swal.fire({
+    title: titulo,
+    text: mensaje,
+    icon: "warning",
+    showDenyButton: true,
+    showCancelButton: true,
+    confirmButtonText: botonConfirmar,
+    denyButtonText: botonCancelar,
+  }).then((result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+      divEquipos.innerHTML = "";
+      comienzo = false;
+    } else if (result.isDenied) {
+      divEquipos.innerHTML = "";
+      listaEquipos.innerHTML = "";
+      equipos = [];
+      comienzo = false;
+    }
+  });
+}
 
 function crearCartaEquipo(equipo) {
   let nodoDiv = document.createElement("div");
