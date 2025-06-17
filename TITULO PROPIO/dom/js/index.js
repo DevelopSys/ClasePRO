@@ -9,6 +9,7 @@ let listaEquipos = document.querySelector("#listaEquipos");
 let divEquipos = document.querySelector("#divEquipos");
 let botonComenzar = document.querySelector("#botonComenzar");
 let botonResetear = document.querySelector("#botonResetear");
+let botonJugadores = document.querySelector("#botonJugadores");
 let comienzo = false;
 let equipos = [];
 
@@ -56,6 +57,19 @@ botonResetear.addEventListener("click", () => {
       "No mantener"
     );
   }
+});
+
+botonJugadores.addEventListener("click", () => {
+  equipos.forEach((equipo) => {
+    for (let index = 0; index < 3; index++) {
+      equipo.plantilla.push(jugadores[index]);
+    }
+  });
+
+  equipos.forEach((equipo) => {
+    equipo.mostrarJugadores();
+    console.log("-----------------");
+  });
 });
 
 function lanzarDialogo(mensaje, titulo, botonConfirmar, botonCancelar) {
