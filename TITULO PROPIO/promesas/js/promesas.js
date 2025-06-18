@@ -40,15 +40,30 @@ boton.addEventListener("click", () => {
   let promesa = new Promise((res, rej) => {
     let listaResultados = coches.filter((item) => item.precio <= precio);
     if (listaResultados.length > 0) {
-      res("Hay coches disponibles");
+      res(listaResultados);
     } else {
       rej("No hay coches disponibles");
     }
   });
 
   promesa
-    .then((res) => {})
+    .then((res) => {
+      // pintar los coches en la lista
+      // modificar el div de alerta para indicar el numero de resultados
+      lista.innerHTML = "";
+      divAlerta.className = "alert alert-success";
+      divAlerta.textContent = "Se han encontrado " + res.length + " coches";
+      res.forEach((element) => {
+        let li = document.createElement("li");
+        li.textContent = `${element.marca} ${element.modelo} ${element.precio}`;
+        li.className = "list-group-item";
+        lista.appendChild(li);
+      });
+    })
     .catch((err) => {
+      divAlerta.className = "";
+      divAlerta.textContent = "";
+      lista.innerHTML = "";
       Swal.fire({
         icon: "warning",
         title: "",
