@@ -32,21 +32,20 @@ fetch("https://pokeapi.co/api/v2/pokemon/?offset=20&limit=100")
 
     data.results.forEach((pokemon) => {
       console.log(pokemon);
-      divCards.innertHTML += `<div class="col">
-          <div class="card">
-            <img src="https://i.pinimg.com/736x/54/f2/6b/54f26bea270ffdc9fd8a614c22d63970.jpg" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">${pokemon.name}</h5>
-              <p class="card-text">
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-            </div>
-          </div>
-        </div>`;
+      divCards.innerHTML += `<div class="col">
+    <div class="card">
+      <img src="https://i.pinimg.com/736x/54/f2/6b/54f26bea270ffdc9fd8a614c22d63970.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">${pokemon.name.toUpperCase()}</h5>
+        <a class="btn btn-primary" href="./detail.html">Ver detalle</a>
+      </div>
+    </div>
+  </div>`;
     });
   })
   .catch((error) => {
     console.error("Contesta ERROR");
+    console.log(error);
   });
+
+localStorage.setItem("valor", "https://pokeapi.co/api/v2/pokemon/21/");
