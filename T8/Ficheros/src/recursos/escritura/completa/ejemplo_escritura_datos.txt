@@ -1,4 +1,0 @@
-nombre: Borja
-apellidos: Martin Herrera
-edad: 40
-mensaje: este mensaje es para probar la lectura y la escritura
