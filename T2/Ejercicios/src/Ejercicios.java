@@ -108,7 +108,6 @@ public class Ejercicios {
                         System.out.println("no se puede dividir");
                     } else {
                         resultado = operando1 / operando2;
-
                     }
                     break;
                 case 5:
