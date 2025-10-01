@@ -1,4 +1,4 @@
-public class Entrada {
+public class EntradaIF {
     public static void main(String[] args) {
         int numero = 2;
         String mensaje;
@@ -19,7 +19,7 @@ public class Entrada {
         // el numero no esta entre los anteriores
         numero = 19;
         if (numero>0){
-            if (numero>=0 && numero<10){
+            if (numero<10){
                 System.out.println("El numero esta entre 0 y 9.99");
             } else if (numero<100){
                 System.out.println("El numero esta entre 10 y 99.99");
@@ -31,6 +31,8 @@ public class Entrada {
         } else {
             System.out.println("Numero negativo, no vale");
         }
+
+
 
 
 

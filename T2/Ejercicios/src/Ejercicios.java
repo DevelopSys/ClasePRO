@@ -71,6 +71,75 @@ public class Ejercicios {
         System.out.println("La modulo de los operandos es " + modulo);
     }
 
+    public void calcularaMenu() {
+        // Hágase un programa que lea dos variables enteras
+        // y obtenga las siguientes operaciones:
+        lectorTeclado = new Scanner(System.in);
+        System.out.println("Indica el primer numero de las operaciones");
+        int operando1 = lectorTeclado.nextInt();
+        System.out.println("Indica el segundo numero de las operaciones");
+        int operando2 = lectorTeclado.nextInt();
+
+        if (operando1 < 0 || operando2 < 0) {
+            System.out.println("Operandos no validos");
+        } else {
+            System.out.println("1- Sumar");
+            System.out.println("2- Restar");
+            System.out.println("3- Multi");
+            System.out.println("4- Divi");
+            System.out.println("5- Divi Real");
+            System.out.println("6- Modulo");
+            System.out.println("7- Salir");
+            System.out.println("Por favor introduce la opcion a realizar");
+            int opcion = lectorTeclado.nextInt();
+            double resultado = 0.0;
+            switch (opcion) {
+                case 1:
+                    resultado = operando1 + operando2;
+                    break;
+                case 2:
+                    resultado = operando1 - operando2;
+                    break;
+                case 3:
+                    resultado = operando1 * operando2;
+                    break;
+                case 4:
+                    if (operando2 == 0) {
+                        System.out.println("no se puede dividir");
+                    } else {
+                        resultado = operando1 / operando2;
+
+                    }
+                    break;
+                case 5:
+                    if (operando2 != 0) {
+                        resultado = (double) operando1 / operando2;
+
+                    } else {
+                        System.out.println("no se puede dividir");
+                    }
+                    break;
+                case 6:
+                    resultado = operando1 % operando2;
+
+                    break;
+                case 7:
+                    System.out.println("Seleccionado salir");
+                    break;
+                default:
+                    System.out.println("Opcion no contemplada");
+                    break;
+            }
+            if (opcion == 5) {
+                System.out.printf("El resultado de la operacion seleccionada es: %.2f\n",resultado);
+            } else {
+                System.out.println("El resultado de la operacion seleccionada es: " + (int) resultado);
+            }
+        }
+
+
+    }
+
     // modificado con ejercicio 9
     public void ejercicio4() {
         lectorTeclado = new Scanner(System.in);
@@ -95,11 +164,11 @@ public class Ejercicios {
 
         System.out.println("ARTICULO\t\t\t\t\t\tCANTIDAD\t\t\t\t\t\tPRECIO\t\t\t\t\t\tCOSTE");
         System.out.println("========\t\t\t\t\t\t========\t\t\t\t\t\t=======\t\t\t\t\t\t=====");
-        System.out.printf("Bebidas  \t\t\t\t\t\t      %d\t\t\t\t\t\t    %.2f\t\t\t\t\t\t   %.2f%n",numeroBebidas,PRECIO_BEBIDA,precioTotalBebidas);
-        System.out.printf("Bocatas  \t\t\t\t\t\t      %d\t\t\t\t\t\t    %.2f\t\t\t\t\t\t   %.2f%n",numeroBocatas,PRECIO_BOCATA,precioTotalBocatas);
+        System.out.printf("Bebidas  \t\t\t\t\t\t      %d\t\t\t\t\t\t    %.2f\t\t\t\t\t\t   %.2f%n", numeroBebidas, PRECIO_BEBIDA, precioTotalBebidas);
+        System.out.printf("Bocatas  \t\t\t\t\t\t      %d\t\t\t\t\t\t    %.2f\t\t\t\t\t\t   %.2f%n", numeroBocatas, PRECIO_BOCATA, precioTotalBocatas);
         System.out.println("        \t\t\t\t\t\t        \t\t\t\t\t\t      \t\t\t\t\t\t=====");
-        System.out.printf("TOTAL    \t\t\t\t\t\t        \t\t\t\t\t\t     \t\t\t\t\t\t%.2f%n",precioTotal);
-        System.out.printf("TOTAL P.P \t\t\t\t\t\t        \t\t\t\t\t\t      \t\t\t\t\t\t%.2f%n",precioTotal/comensales);
+        System.out.printf("TOTAL    \t\t\t\t\t\t        \t\t\t\t\t\t     \t\t\t\t\t\t%.2f%n", precioTotal);
+        System.out.printf("TOTAL P.P \t\t\t\t\t\t        \t\t\t\t\t\t      \t\t\t\t\t\t%.2f%n", precioTotal / comensales);
 
         lectorTeclado.close();
 
@@ -170,46 +239,46 @@ public class Ejercicios {
 
         gradosf = lectorTeclado.nextDouble();
         gradosk = ((5 * (gradosf - 32)) / 9) + 273.15;
-        gradosC = (5*(gradosf-32))/9;
+        gradosC = (5 * (gradosf - 32)) / 9;
 
         System.out.printf("Los grados %.2fF son %.2fK y %.2fC\n", gradosf, gradosk, gradosC);
         lectorTeclado.close();
     }
 
-    public void ejercicio10(){
+    public void ejercicio10() {
         lectorTeclado = new Scanner(System.in);
         System.out.println("Indica un numero de 5 digitos");
         int numero = lectorTeclado.nextInt();
-        System.out.println("El numero a analizar es "+numero);
+        System.out.println("El numero a analizar es " + numero);
         // 12345
-        int unidades = numero%10;
-        int decenas = (numero/10)%10;
-        int centenas = (numero/100)%10;
-        int millares = (numero/1000)%10;
-        int dMillares = numero/10000;
-        System.out.println("Decenas de M " +numero/10000);
-        System.out.println("Millares " +(numero/1000)%10);
-        System.out.println("Centenas " +(numero/100)%10);
-        System.out.println("Decenas " +(numero/10)%10);
-        System.out.println("Unidades " +numero%10);
+        int unidades = numero % 10;
+        int decenas = (numero / 10) % 10;
+        int centenas = (numero / 100) % 10;
+        int millares = (numero / 1000) % 10;
+        int dMillares = numero / 10000;
+        System.out.println("Decenas de M " + numero / 10000);
+        System.out.println("Millares " + (numero / 1000) % 10);
+        System.out.println("Centenas " + (numero / 100) % 10);
+        System.out.println("Decenas " + (numero / 10) % 10);
+        System.out.println("Unidades " + numero % 10);
         lectorTeclado.close();
     }
 
-    public void ejercicio11(){
+    public void ejercicio11() {
         lectorTeclado = new Scanner(System.in);
         System.out.println("Lee el primer numero");
-        int numero1 =lectorTeclado.nextInt();
+        int numero1 = lectorTeclado.nextInt();
 
 
-        boolean comprobacion1 = numero1%2==0;
-        boolean comprobacion2 = numero1>50;
+        boolean comprobacion1 = numero1 % 2 == 0;
+        boolean comprobacion2 = numero1 > 50;
 
-        System.out.println("La primera comprobacion da como resultado "+comprobacion1);
-        System.out.println("La segundo comprobacion da como resultado "+comprobacion2);
+        System.out.println("La primera comprobacion da como resultado " + comprobacion1);
+        System.out.println("La segundo comprobacion da como resultado " + comprobacion2);
         lectorTeclado.close();
     }
 
-    public void ejercicio12(){
+    public void ejercicio12() {
         lectorTeclado = new Scanner(System.in);
         System.out.println("Indica la primera palabra");
         String palabra1 = lectorTeclado.next();
@@ -220,27 +289,27 @@ public class Ejercicios {
         boolean primeraMenor = palabra1.length() < palabra2.length();
         boolean diferentes = !palabra1.equals(palabra2);
 
-        System.out.println("Las palabra son iguales "+iguales);
-        System.out.println("La primera es menor que la segunda"+primeraMenor);
-        System.out.println("Son diferentes"+!iguales);
+        System.out.println("Las palabra son iguales " + iguales);
+        System.out.println("La primera es menor que la segunda" + primeraMenor);
+        System.out.println("Son diferentes" + !iguales);
     }
 
-    public void metodosPalabras(){
+    public void metodosPalabras() {
         String palabra = "Hola que tal estas yo muy bien";
         // tamaño de la palabra (numero de caracteres)
         System.out.println(palabra.length());
-        System.out.println("Son iguales "+palabra.equalsIgnoreCase("Hola que tal"));
-        System.out.println("Son iguales "+palabra.toLowerCase().equals("hola que tal"));
-        System.out.println("Son iguales "+palabra.toUpperCase().equals("HOLA QUE TAL"));
-        int numeroLetras = palabra.replaceAll(" ","").length(); //Holaquetal
-        System.out.println("El numero de letras es "+numeroLetras);
-        String[] palabras = palabra.split(" ") ;
-        System.out.println("El numero de palabras es "+palabras.length);
+        System.out.println("Son iguales " + palabra.equalsIgnoreCase("Hola que tal"));
+        System.out.println("Son iguales " + palabra.toLowerCase().equals("hola que tal"));
+        System.out.println("Son iguales " + palabra.toUpperCase().equals("HOLA QUE TAL"));
+        int numeroLetras = palabra.replaceAll(" ", "").length(); //Holaquetal
+        System.out.println("El numero de letras es " + numeroLetras);
+        String[] palabras = palabra.split(" ");
+        System.out.println("El numero de palabras es " + palabras.length);
         // si contiene algo
         boolean contieneA = palabra.contains("A");
         // obtener una letra concreta
         //  Hola que tal estas yo muy bien
-        char letra = palabra.charAt(palabra.length()-1);
+        char letra = palabra.charAt(palabra.length() - 1);
         System.out.println(letra);
 
     }
