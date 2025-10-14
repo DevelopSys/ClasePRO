@@ -6,7 +6,7 @@ public class Main {
         // ejercicios.ejercicioParesRango(12,87);
         //ejercicios.ejercicioDado(-5);
         // ejercicios.ejercicioBase();
-        ejercicios.cambiarBase(129,2);
-        // ejercicios.cambiarDecimal("11110101",2);
+        // ejercicios.cambiarBase(129,2);
+        ejercicios.cambiarDecimal("23432",16);
     }
 }
