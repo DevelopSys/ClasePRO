@@ -81,14 +81,13 @@ public class Ejercicios {
 
         String resultadoCambio = "";
 
-        while (numero / base >= base) {
+        while (numero>= base) {
             numero = numero / base;
             if (base == 16) {
-                resultadoCambio = cambioValor(numero % base) + resultadoCambio;
+                resultadoCambio = cambioValor(numero % base)+ resultadoCambio;
             } else {
                 resultadoCambio = numero % base + resultadoCambio;
             }
-
         }
         if (base == 16) {
             resultadoCambio = cambioValor(numero / base) + resultadoCambio;
@@ -139,6 +138,13 @@ public class Ejercicios {
         String numeroStr = String.valueOf(numeroOriginal);
         String numero = "123123";
         int numeroStrg = Integer.parseInt(numero);
+        
+        
+        String numeroCompleto = "11110111";
+        for (int i = 0; i < numeroCompleto.length(); i++) {
+            String numeroIndividual = String.valueOf(numeroCompleto.charAt(i));
+            // int numero = Integer.valueOf(numeroIndividual);
+        }
 
     }
 
