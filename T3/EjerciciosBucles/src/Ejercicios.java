@@ -81,9 +81,9 @@ public class Ejercicios {
 
         String resultadoCambio = "";
 
-        while (numero>= base) {
+        while (numero >= base) {
             if (base == 16) {
-                resultadoCambio = cambioValor(numero % base)+ resultadoCambio;
+                resultadoCambio = cambioValor(numero % base) + resultadoCambio;
             } else {
                 resultadoCambio = numero % base + resultadoCambio;
             }
@@ -127,21 +127,55 @@ public class Ejercicios {
     }
 
     public void cambiarDecimal(String numeroOriginal, int base) {
-        // 123132A
-        // casting
-        // 5 -> 5.0
-        // 5.9 -> 5
-        // parseo
-        // 123 -> "123"
-        // "123" -> 123
 
-        // 1 1 1
+
+        int resutladoTotal = 0;
+        // 1 0 0 -> 2
         for (int i = 0; i < numeroOriginal.length(); i++) {
+            String numeroSTR;
+            int numeroInd = 0;
+            // 1F6
+            numeroSTR = String.valueOf(numeroOriginal.charAt(i));
+            if (base == 16) {
 
-            String numeroSTR = String.valueOf(numeroOriginal.charAt(i));
-            int numeroInd = Integer.parseInt(numeroSTR);
-            System.out.println(Math.pow(numeroInd,i));
+                if (Character.isDigit(numeroOriginal.charAt(i))) {
+                    numeroInd = Integer.parseInt(numeroSTR);
+                } else {
+                    switch (numeroOriginal.charAt(i)) {
+                        case 'A' -> {
+                            numeroInd = 10;
+                        }
+                        case 'B' -> {
+                            numeroInd = 11;
+                        }
+                        case 'C' -> {
+                            numeroInd = 12;
+                        }
+                        case 'D' -> {
+
+                            numeroInd = 13;
+                        }
+                        case 'E' -> {
+                            numeroInd = 14;
+                        }
+                        case 'F' -> {
+                            numeroInd = 15;
+                        }
+                    }
+                }
+
+            } else {
+                numeroInd = Integer.parseInt(numeroSTR);
+            }
+
+            // System.out.println("La posicion del char "+i);
+            // System.out.println("La potencia del teorema" +(numeroOriginal.length()-1- i));
+
+            // System.out.println(numeroInd);
+            resutladoTotal += numeroInd * Math.pow(base, (numeroOriginal.length() - 1 - i));
         }
+
+        System.out.println("El resultado correspondiente del paso de base es " + resutladoTotal);
 
     }
 

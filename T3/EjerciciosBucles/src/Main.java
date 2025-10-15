@@ -7,6 +7,6 @@ public class Main {
         //ejercicios.ejercicioDado(-5);
         // ejercicios.ejercicioBase();
         // ejercicios.cambiarBase(129,2);
-        ejercicios.cambiarDecimal("23432",16);
+        ejercicios.cambiarDecimal("ABCDEFR",16);
     }
 }
