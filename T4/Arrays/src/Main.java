@@ -5,6 +5,7 @@ public class Main {
         // operacionesArrays.iniciarArray();
         // operacionesArrays.arrayRuben();
         // operacionesArrays.realizarBusqueda();
-        operacionesArrays.ejercicioTemperaturas();
+        // operacionesArrays.ejercicioTemperaturas();
+        operacionesArrays.ejercicioRotacion();
     }
 }

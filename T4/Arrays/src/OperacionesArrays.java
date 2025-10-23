@@ -112,31 +112,31 @@ public class OperacionesArrays {
             int temperatura;
             do {
                 temperatura = scanner.nextInt();
-                if (temperatura<0){
+                if (temperatura < 0) {
                     System.out.println("Temperatura incorrecta, vuelve a introducir");
                 }
-            } while (temperatura<0);
+            } while (temperatura < 0);
 
             temperaturas[i] = temperatura;
         }
 
         // Arrays.sort(temperaturas);
 
-        int max= temperaturas[0], min=temperaturas[0];
-        for ( int item: temperaturas) {
-            if (item>max){
+        int max = temperaturas[0], min = temperaturas[0];
+        for (int item : temperaturas) {
+            if (item > max) {
                 max = item;
             }
-            if (item<min){
+            if (item < min) {
                 min = item;
             }
         }
 
         for (int i = 0; i < temperaturas.length; i++) {
-            if (temperaturas[i]<min){
+            if (temperaturas[i] < min) {
                 min = temperaturas[i];
             }
-            if (temperaturas[i]>max){
+            if (temperaturas[i] > max) {
                 max = temperaturas[i];
             }
         }
@@ -153,6 +153,46 @@ public class OperacionesArrays {
     // NO SE PUEDEN METER TEMPERATURAS NEGATIVAS.
     //  En caso de introducir una temperatura negativa volvera
     //  a pedirla
+    public void ejercicioRotacion() {
+        Scanner scanner = new Scanner(System.in);
+        int opcion = 0;
+        int[] numeros = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        do {
+            System.out.println("Indica en que sentido quieres rotar");
+            System.out.println("1-Rotacion izquierda");
+            System.out.println("2-Rotacion derecha");
+            System.out.println("3-Mostrar resultado");
+            System.out.println("4-Salir");
+            opcion = scanner.nextInt();
+            switch (opcion) {
+                case 1 -> {
+                    int aux = numeros[0];
+                    for (int i = 0; i < numeros.length-1; i++) {
+                        numeros[i] = numeros[i+1];
+                    }
+                    numeros[numeros.length-1]=aux;
+                }
+                case 2 -> {
+                    int aux = numeros[numeros.length - 1];
+                    for (int i = numeros.length - 1; i > 0; i--) {
+                        // i=4
+                        numeros[i]=numeros[i-1];
+                    }
+                    numeros[0] = aux;
+                }
+                case 3 -> {
+                    for (int item : numeros) {
+                        System.out.print(item + " ");
+                    }
+                    System.out.println();
+                }
+                case 4 -> {
+                    System.out.println("Saliendo....");
+                }
+            }
+        } while (opcion != 4);
 
+
+    }
 
 }
