@@ -4,6 +4,41 @@ import java.util.Scanner;
 
 public class OperacionesArrays {
     int[] temperaturas;
+    String[] amigos;
+    Scanner lectorTeclado;
+
+    public void iniciarAmigoInvisible(){
+        lectorTeclado = new Scanner(System.in);
+        int numeroAmigos;
+        do{
+            System.out.println("Cuantos amigos entran en el juego");
+            numeroAmigos = lectorTeclado.nextInt();
+            if (numeroAmigos%2!=0){
+                System.out.println("Numero impar, por favor intenta de nuevo");
+            }
+        }while (numeroAmigos%2!=0);
+        amigos = new String[numeroAmigos];
+        amigos[4] = "Borja";
+        mostrarAmigos();
+
+        System.out.println(estaNombre("Maria"));; // true - false
+    }
+
+    private boolean estaNombre(String nombre){
+        for (String item: amigos) {
+            if (item !=null && item.equalsIgnoreCase(nombre)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    private void mostrarAmigos(){
+        for ( String item : amigos ) {
+            System.out.println("Amigo con nombre: "+item);
+        }
+    }
 
     public void iniciarArray() {
         // int[] numeros = new int[4];
@@ -194,5 +229,42 @@ public class OperacionesArrays {
 
 
     }
+
+    public void ejercicioInversa(){
+        int[] numeros = {1,2,3,4,5,6,7,8,9,10};
+        for (int i = 0; i < numeros.length/2; i++) {
+            // System.out.println(numeros[i]);
+            int auxiliar = numeros[i];
+            numeros[i] = numeros[numeros.length-1-i];
+            numeros[numeros.length-1-i] = auxiliar;
+        }
+    }
+
+    public void ejercicioRotacionPares(){
+        int[] numeros = {1,2,3,4,5,6};
+        for (int i = 0; i < numeros.length; i+=2) {
+            int aux = numeros[i];
+            numeros[i] = numeros[i+1];
+            numeros[i+1]=aux;
+        }
+    }
+
+    // Amigo invisible
+    //1- El programa pide cuantos amigos entran en la bolsa
+        // si me dicen amigos impares, vuelvo a pedir numero de amigos
+        // hasta que no me digas un par no continuo
+        // 10
+    //2- Pide los nombres de los 10 amigos
+        // No puedo poner dos nombres iguales
+        // si meto un nombre igual, me pide nuevamente el nombre
+    //3- Se realiza el sorteo
+        // hace parejas y las muestra -> Borja - Maria
+        // hace parejas y las muestra -> Juan - Paco
+        // No se puede repetir el nombre -> Borja -> Borja
+        // No se puede repetir el nombre -> Maria -> Borja
+        // No se puede repetir el nombre -> Paco  -> Borja
+
+
+
 
 }

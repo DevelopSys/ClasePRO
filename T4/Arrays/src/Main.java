@@ -6,6 +6,9 @@ public class Main {
         // operacionesArrays.arrayRuben();
         // operacionesArrays.realizarBusqueda();
         // operacionesArrays.ejercicioTemperaturas();
-        operacionesArrays.ejercicioRotacion();
+        // operacionesArrays.ejercicioRotacion();
+        // operacionesArrays.ejercicioInversa();
+        //operacionesArrays.ejercicioRotacionPares();
+        operacionesArrays.iniciarAmigoInvisible();
     }
 }
