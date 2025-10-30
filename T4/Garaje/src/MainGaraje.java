@@ -15,6 +15,7 @@ public class MainGaraje {
             System.out.println("Menu para gestionar coches");
             System.out.println("1- Agregar coche al garaje");
             System.out.println("2- Listar coches del garaje");
+            System.out.println("3- Buscar coche");
             System.out.println("Que opcion quieres hacer");
             opcion = scanner.nextInt();
             switch (opcion) {
@@ -36,10 +37,15 @@ public class MainGaraje {
                     garaje.listarCoches();
                 }
                 case 3 -> {
-                    System.out.println("Saliendo");
+                    System.out.println("Dime la matricula que quieres buscar");
+                    String matricula = scanner.next();
+                    garaje.obtenerInformacion(matricula);
+                }
+                case 4->{
+
                 }
             }
-        } while (opcion != 3);
+        } while (opcion != 4);
 
 
     }

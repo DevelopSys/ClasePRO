@@ -19,32 +19,76 @@ public class Garaje {
                              int cv, String averia) {
 
         // NO SE PUEDEN ADMITIR COCHES QUE YA ESTEN EN EL GARAJE
-            // NO PUEDO ADMITIR UN COCHE CON UNA MATRICULA DUPLICADA
+        // NO PUEDO ADMITIR UN COCHE CON UNA MATRICULA DUPLICADA
 
-        int huecosLlenos =0;
-        for (int i = 0; i < listaCoches.length; i++) {
-            if (listaCoches[i][0] == null) {
-                listaCoches[i] =
-                        new Object[]{matricula, marca, modelo, cv, 0.0, averia};
-                System.out.println("Guardado correctamente");
-                break;
-            } else {
-                huecosLlenos++;
+        int huecosLlenos = 0;
+        Object[] cocheBuscado = estaCoche(matricula);
+        if (cocheBuscado != null) {
+            System.out.println("El coche ya lo tengo guardado");
+        } else {
+            for (int i = 0; i < listaCoches.length; i++) {
+                if (listaCoches[i][0] == null) {
+                    listaCoches[i] =
+                            new Object[]{matricula, marca, modelo, cv, 0.0, averia};
+                    System.out.println("Guardado correctamente");
+                    break;
+                } else {
+                    huecosLlenos++;
+                }
+            }
+            if (huecosLlenos == listaCoches.length) {
+                System.out.println("El garaje esta lleno, no podemos admitir el coche");
             }
         }
-        if (huecosLlenos==listaCoches.length){
-            System.out.println("El garaje esta lleno, no podemos admitir el coche");
+
+    }
+
+
+    // cuando se admite un coche, no se guarda siempre en la posicion 0.
+    // un coche se guarda en la primera posicion disponible
+
+    // en caso de no tener hueco -> salta un aviso "no hay sitio"
+    // en caso de si tener hueco -> saltar un aviso "guardado correctamente"
+
+
+    private boolean estaCocheBool(String matricula) {
+
+        for (Object[] coche : listaCoches) {
+            if (coche[0] != null && coche[0].equals(matricula)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public void obtenerInformacion(String matricula){
+
+        if (estaCoche(matricula)!=null){
+            for ( Object dato : estaCoche(matricula)) {
+                System.out.print(dato);
+            }
+            System.out.println();
+        } else {
+            System.out.println("El coche no esta");
         }
 
 
-        // cuando se admite un coche, no se guarda siempre en la posicion 0.
-        // un coche se guarda en la primera posicion disponible
+    }
+    private Object[] estaCoche(String matricula) {
 
-        // en caso de no tener hueco -> salta un aviso "no hay sitio"
-        // en caso de si tener hueco -> saltar un aviso "guardado correctamente"
+        for (Object[] coche : listaCoches) {
+            if (coche[0] != null && coche[0].equals(matricula)) {
+                return coche;
+            }
+        }
+
+        return null;
     }
 
     public void listarCoches() {
+
+
         for (Object[] coche : listaCoches) {
             for (Object dato : coche) {
                 System.out.print(dato + " ");
