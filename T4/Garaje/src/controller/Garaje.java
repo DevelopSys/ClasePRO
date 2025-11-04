@@ -97,5 +97,19 @@ public class Garaje {
         }
     }
 
+    public void areglarCoche(String matricula){
+        Object[] coche = estaCoche(matricula);
+        if (coche!=null){
+            System.out.println("Procedemos al arreglo");
+            // si la averia es aceite y tienes 100 o menos, te sumo a las averias 100
+            // si la averia es aceite y tienes mas de 100 , te sumo a las averias 200
+            // si la averia es motor y tienes menos de 100 , te sumo a las averias 400
+            // si la averia es motor y tienes mas o 100 , te sumo a las averias 600
+
+        } else {
+            System.out.println("No encontramos el coche indicado");
+        }
+    }
+
 
 }
