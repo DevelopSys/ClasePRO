@@ -62,10 +62,10 @@ public class Garaje {
         return false;
     }
 
-    public void obtenerInformacion(String matricula){
+    public void obtenerInformacion(String matricula) {
 
-        if (estaCoche(matricula)!=null){
-            for ( Object dato : estaCoche(matricula)) {
+        if (estaCoche(matricula) != null) {
+            for (Object dato : estaCoche(matricula)) {
                 System.out.print(dato);
             }
             System.out.println();
@@ -75,6 +75,7 @@ public class Garaje {
 
 
     }
+
     private Object[] estaCoche(String matricula) {
 
         for (Object[] coche : listaCoches) {
@@ -97,19 +98,48 @@ public class Garaje {
         }
     }
 
-    public void areglarCoche(String matricula){
+    public void areglarCoche(String matricula) {
         Object[] coche = estaCoche(matricula);
-        if (coche!=null){
+        if (coche != null) {
             System.out.println("Procedemos al arreglo");
+            if ((int) coche[3] <= 100 && coche[5].equals("aceite")) {
+                coche[4] = (double) coche[4] + 100;
+                acumulado += 100;
+
+            } else if ((int) coche[3] > 100 && coche[5].equals("aceite")) {
+                coche[4] = (double) coche[4] + 200;
+                acumulado += 200;
+            } else if ((int) coche[3] < 100 && coche[5].equals("motor")) {
+                coche[4] = (double) coche[4] + 400;
+                acumulado += 400;
+            } else if ((int) coche[3] >= 100 && coche[5].equals("motor")) {
+                coche[4] = (double) coche[4] + 600;
+                acumulado += 600;
+            } else {
+                coche[4] = (double) coche[4] + 50;
+                acumulado += 50;
+            }
+            eliminarCoche(matricula);
             // si la averia es aceite y tienes 100 o menos, te sumo a las averias 100
             // si la averia es aceite y tienes mas de 100 , te sumo a las averias 200
             // si la averia es motor y tienes menos de 100 , te sumo a las averias 400
             // si la averia es motor y tienes mas o 100 , te sumo a las averias 600
-
+            System.out.println("Coche arreglado correctamente");
         } else {
             System.out.println("No encontramos el coche indicado");
         }
     }
 
+    private void eliminarCoche(String matricula){
+        for (int i = 0; i <listaCoches.length; i++) {
+            if (listaCoches[i][0].toString().equals(matricula)){
+                listaCoches[i] = new Object[listaCoches[i].length];
+                break;
+            }
+        }
+    }
 
+    public double getAcumulado() {
+        return acumulado;
+    }
 }

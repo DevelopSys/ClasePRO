@@ -48,8 +48,11 @@ public class MainGaraje {
                     String matricula = scanner.next();
                     garaje.areglarCoche(matricula);
                 }
+                case 5->{
+                    System.out.println(garaje.getAcumulado());
+                }
             }
-        } while (opcion != 4);
+        } while (opcion != 6);
 
 
     }
