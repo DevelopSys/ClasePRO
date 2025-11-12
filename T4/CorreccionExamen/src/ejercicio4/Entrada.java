@@ -34,6 +34,8 @@ public class Entrada {
             System.out.println("3-Buscar");
             System.out.println("4-Eliminar");
             System.out.println("5-Ordenar");
+            System.out.println("6-Borrar nombre");
+            System.out.println("7-Vaciar");
             System.out.println("Que quieres hacer");
             opcion = scanner.nextInt();
             switch (opcion) {
@@ -65,11 +67,23 @@ public class Entrada {
                     }
                 }
                 case 4 -> {
+                    System.out.println("Indica que correo quieres borrar");
+                    String correo = scanner.next();
+                    agenda.eliminarObjeto(correo);
                 }
                 case 5 -> {
+                    agenda.ordenarListaEdad();
+                }
+                case 6 -> {
+                    System.out.println("Indica el nombre que quieres borrar");
+                    String nombre = scanner.next();
+                    agenda.eliminarNombre(nombre);
+                }
+                case 7 -> {
+                    agenda.vaciarLista();
                 }
             }
-        } while (opcion != 5);
+        } while (opcion != 8);
 
 
     }

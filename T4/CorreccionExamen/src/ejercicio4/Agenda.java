@@ -1,6 +1,7 @@
 package ejercicio4;
 
 import java.util.ArrayList;
+import java.util.function.Predicate;
 
 public class Agenda {
 
@@ -56,7 +57,49 @@ public class Agenda {
         }
         return null;
     }
+
     // eliminar
+    public void eliminarObjeto(String correo) {
+        if (listaContactos.remove(buscarContactoCorreo(correo))) {
+            System.out.println("Contacto borrado correctamente");
+        } else {
+            System.out.println("No se ha encontrado el contacto");
+        }
+    }
+
+    public void eliminarPosicion(String correo) {
+        for (int i = 0; i < listaContactos.size(); i++) {
+            // la i es la posicion
+            if (listaContactos.get(i)[1].equals(correo)) {
+                listaContactos.remove(i);
+                break;
+            }
+        }
+    }
+
+    public void vaciarLista() {
+        listaContactos.clear();
+    }
+
+    public void eliminarNombre(String nombre) {
+        listaContactos.removeIf(new Predicate<Object[]>() {
+            @Override
+            public boolean test(Object[] objects) {
+                return nombre.equals(objects[0]);
+            }
+        });
+    }
+
     // ordenar por edad
+    public void ordenarListaEdad() {
+        Object[] mayor = listaContactos.getFirst();
+        for (Object[] contacto : listaContactos) {
+            if ((int) (contacto[3]) > (int) mayor[3]) {
+                mayor = contacto;
+            }
+        }
+
+        System.out.println("El contacto mayor de tu lista es " + mayor[0]);
+    }
 
 }
