@@ -92,6 +92,11 @@ public class Agenda {
 
     // ordenar por edad
     public void ordenarListaEdad() {
+
+        // ordenar todos los usuarios de la agenda por edad,
+        // con un orden de menor mayor
+        listaContactos.
+
         Object[] mayor = listaContactos.getFirst();
         for (Object[] contacto : listaContactos) {
             if ((int) (contacto[3]) > (int) mayor[3]) {
