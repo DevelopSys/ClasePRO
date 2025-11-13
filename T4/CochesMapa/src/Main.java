@@ -9,9 +9,9 @@ public class Main {
         garajeController.anadirCoche(new Object[]{"1234E", "Seat", "Corsa", 110, 14000});
         garajeController.anadirCoche(new Object[]{"1234F", "Ford", "Corsa", 150, 23000});
 
-        // Todos aquellos coches que valgan menos de 20mil y tengan un cv > 100
-        
-        garajeController.listarCoches();
+
+        garajeController.busquedaPersonalizada();
+        // garajeController.listarCoches();
         // garajeController.buscarCoche("1234C");
         // garajeController.obtenerTamanio();
         // garajeController.eliminarCoche("1234B");

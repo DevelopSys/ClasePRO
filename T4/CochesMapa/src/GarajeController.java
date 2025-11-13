@@ -1,3 +1,4 @@
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Objects;
 import java.util.Set;
@@ -39,6 +40,18 @@ public class GarajeController {
 
     }
 
+
+    public void busquedaPersonalizada(){
+        // Todos aquellos coches que valgan menos de 20mil y tengan un cv > 100
+        // Collections elementos = (Collections) garaje.values();
+        Set<String> keys = garaje.keySet();
+        for (String  item: keys) {
+            Object[] coche = garaje.get(item);
+            if ((int)coche[4]<20000 && (int)coche[3]>100){
+                buscarCoche(item);
+            }
+        }
+    }
 
     // buscar coche
     public void buscarCoche(String matricula){
