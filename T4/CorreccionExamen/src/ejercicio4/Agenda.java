@@ -1,6 +1,7 @@
 package ejercicio4;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.function.Predicate;
 
 public class Agenda {
@@ -95,7 +96,16 @@ public class Agenda {
 
         // ordenar todos los usuarios de la agenda por edad,
         // con un orden de menor mayor
-        listaContactos.
+        listaContactos.sort(new Comparator<Object[]>() {
+            @Override
+            public int compare(Object[] o1, Object[] o2) {
+                if ((int)o1[3] > (int)o2[3]){
+                    return 1;
+                }  else {
+                    return -1;
+                }
+            }
+        });
 
         Object[] mayor = listaContactos.getFirst();
         for (Object[] contacto : listaContactos) {
