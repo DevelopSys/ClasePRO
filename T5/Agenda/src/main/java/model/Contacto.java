@@ -4,6 +4,7 @@ import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class Contacto {
 
     private String dni, nombre, apellido;
