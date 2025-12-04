@@ -7,7 +7,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class Coche {
     private String marca, modelo, matricula;
-    private int velocidad, cv, km;
+    private int velocidad, cv, km, puntos;
 
     public Coche(){
         this.cv = (int) (Math.random()*101)+50;

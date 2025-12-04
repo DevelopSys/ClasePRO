@@ -38,6 +38,15 @@ public class Main {
                     int cv = scanner.nextInt();
                     monza.inscribirParticipante(new Coche(marca, modelo, matricula, cv));
                 }
+                case 2->{
+                    monza.iniciarCarrera();
+                }
+                case 3->{
+                    monza.mostrarClasificacion();
+                }
+                case 4->{
+                    monza.repartirPuntos();
+                }
             }
         } while (opcion != 5);
 
