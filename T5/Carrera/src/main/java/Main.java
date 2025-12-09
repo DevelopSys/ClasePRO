@@ -16,7 +16,7 @@ public class Main {
         */
         Scanner scanner = new Scanner(System.in);
         int opcion = 0;
-        CarreraCoches monza = new CarreraCoches(7000);
+        // CarreraCoches monza = new CarreraCoches(7000);
 
         do {
             System.out.println("1. Inscribir participante");
@@ -36,16 +36,16 @@ public class Main {
                     String matricula = scanner.next();
                     System.out.println("Indica cv");
                     int cv = scanner.nextInt();
-                    monza.inscribirParticipante(new Coche(marca, modelo, matricula, cv));
+                    // monza.inscribirParticipante(new Coche(marca, modelo, matricula, cv));
                 }
                 case 2->{
-                    monza.iniciarCarrera();
+                    // monza.iniciarCarrera();
                 }
                 case 3->{
-                    monza.mostrarClasificacion();
+                    // monza.mostrarClasificacion();
                 }
                 case 4->{
-                    monza.repartirPuntos();
+                    // monza.repartirPuntos();
                 }
             }
         } while (opcion != 5);

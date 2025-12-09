@@ -15,13 +15,16 @@ public class CarreraCoches {
 
     private int km;
     private ArrayList<Coche> participantes;
+    private String nombre;
+    private Coche ganador;
 
-    public CarreraCoches(int km) {
+    public CarreraCoches(int km, String nombre) {
         this.km = km;
         this.participantes = new ArrayList<>();
+        this.nombre = nombre;
     }
 
-    public void inscribirParticipante(Coche coche) {
+    /*public void inscribirParticipante(Coche coche) {
         if (buscarCoche(coche.getMatricula()) != null) {
             System.out.println("Coche ya en la lista de participantes");
         } else {
@@ -43,7 +46,7 @@ public class CarreraCoches {
             }
         }
         return null;
-    }
+    }*/
 
     public void iniciarCarrera() {
 
@@ -51,6 +54,12 @@ public class CarreraCoches {
             System.out.println("No puedes iniciar la carrera, faltan participantes");
         } else {
             System.out.println("Iniciando carrera");
+
+            for (Coche item: participantes) {
+                item.setKm(0);
+                item.setVelocidad(0);
+            }
+
             boolean ganador = false;
             do {
                 for (Coche coche : participantes) {
@@ -64,6 +73,8 @@ public class CarreraCoches {
             } while (!ganador);
             System.out.println("Carrera terminada, tenemos ganador");
             ordenarCarrera();
+            repartirPuntos();
+            mostrarClasificacion();
         }
 
     }
@@ -80,6 +91,7 @@ public class CarreraCoches {
                 return 0;
             }
         });
+        ganador = participantes.getFirst();
     }
 
     public void mostrarClasificacion() {
@@ -98,5 +110,10 @@ public class CarreraCoches {
         participantes.get(2).setPuntos(participantes.get(2).getPuntos() + 5);
     }
 
+    public void mostrarInformacion(){
+        System.out.println("La informacion de "+nombre);
+        System.out.printf("Los KM son %d y el ganador es el coche con matricula %s%n",
+                this.km,ganador.getMatricula());
+    }
 
 }
