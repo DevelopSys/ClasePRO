@@ -46,4 +46,17 @@ public class Jefe extends Trabajador{
         super.mostrarDatos();
         System.out.println("nivelResponsabilidad = " + nivelResponsabilidad);
     }
+
+    public boolean contratarTrabajador(Trabajador trabajador){
+        if(trabajador.getSueldo() >30000
+                && trabajador instanceof Asalariado){
+            return false;
+        } else if(trabajador instanceof Asalariado){
+            return true;
+        } else if(trabajador.getSueldo()<30000 && trabajador instanceof Autonomo){
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
