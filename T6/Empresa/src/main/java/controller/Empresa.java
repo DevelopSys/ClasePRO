@@ -1,10 +1,11 @@
 package controller;
 
+import lombok.Data;
 import model.*;
 
-import java.lang.invoke.DirectMethodHandle$Holder;
 import java.util.HashMap;
 
+@Data
 public class Empresa {
 
     private HashMap<String, Persona> listaUsuarios;
@@ -87,15 +88,31 @@ public class Empresa {
                     && !listaUsuarios.containsKey(trabajador.getDni())
                     && !(trabajador instanceof Jefe)
                     && ((Jefe) jefe).contratarTrabajador(trabajador)
-                    ) {
+            ) {
                 System.out.println("La contratacion se da correctamente, bienvenido");
                 listaUsuarios.put(trabajador.getDni(), trabajador);
             } else {
                 System.out.println("Fallo en el proceso");
             }
 
+
         } else {
             System.out.println("Jefe no encontrado, el trabajador no se puede contratar");
+        }
+    }
+
+    public void subirSalario() {
+        for (Persona persona : listaUsuarios.values()) {
+            if (persona instanceof Regulador) {
+                // recorrer y sacar solo los trabajadores
+                for (Persona persona1 : listaUsuarios.values()) {
+                    if (persona1 instanceof Trabajador && !(persona1 instanceof Jefe)) {
+                        ((Regulador) persona).subirSalario((Trabajador) persona1, (int) (Math.random()*1000)+500);
+                    }
+                }
+                break;
+
+            }
         }
     }
 

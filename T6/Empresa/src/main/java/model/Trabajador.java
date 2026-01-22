@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @Data
-
+// implements Regulador
 public abstract class Trabajador extends Persona{
     private int sueldo;
 
@@ -23,6 +23,10 @@ public abstract class Trabajador extends Persona{
 
     public abstract void calcularNeto();
     public abstract void calcularBruto();
+
+    public void pedirAumento(int salario){
+        this.sueldo += salario;
+    }
 
 
 }

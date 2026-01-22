@@ -5,13 +5,15 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @Data
-public class Jefe extends Trabajador{
+public class Jefe extends Trabajador implements Regulador{
 
     private int nivelResponsabilidad;
+    private Tipo tipoJefe;
 
-    public Jefe(String nombre, String apellido, String dni, int sueldo, int nivelResponsabilidad) {
+    public Jefe(String nombre, String apellido, String dni, int sueldo, int nivelResponsabilidad, Tipo tipoJefe) {
         super(nombre, apellido, dni, sueldo);
         this.nivelResponsabilidad = nivelResponsabilidad;
+        this.tipoJefe = tipoJefe;
     }
 
     @Override
@@ -45,6 +47,7 @@ public class Jefe extends Trabajador{
     public void mostrarDatos() {
         super.mostrarDatos();
         System.out.println("nivelResponsabilidad = " + nivelResponsabilidad);
+        System.out.println("Mi nivel de dureza es de "+tipoJefe.getNivelDureza());
     }
 
     public boolean contratarTrabajador(Trabajador trabajador){
@@ -58,5 +61,11 @@ public class Jefe extends Trabajador{
         } else {
             return false;
         }
+    }
+
+    @Override
+    public boolean subirSalario(Trabajador trabajador, int salario) {
+        trabajador.setSueldo(trabajador.getSueldo()+salario);
+        return true;
     }
 }
