@@ -14,7 +14,7 @@ public class Asignatura {
 
     private Tema tema;
 
-    public Asignatura(){
+    public Asignatura() {
         this.temario = new ArrayList<>();
 
     }
@@ -27,34 +27,35 @@ public class Asignatura {
         this.temario = new ArrayList<>();
     }
 
-    public void listarTemario(){
+    public void listarTemario() {
         /*for ( Tema tema: temario ) {
             tema.mostrarDatos();
         }*/
 
         // temario.forEach(item->item.mostrarDatos());
-        // temario.forEach(Tema::mostrarDatos);
+        temario.forEach(Tema::mostrarDatos);
         // temario.forEach(item-> System.out.println(item.titulo));
-        temario.stream().map(Tema::getTitulo).forEach(System.out::println);
+        // temario.stream().map(Tema::getTitulo).forEach(System.out::println);
     }
-    public void mostrarDatos(){
+
+    public void mostrarDatos() {
         System.out.println("Los datos de la asgintaura son");
-        System.out.println(profesor.getNombre() +" "+profesor.getApellidos());
+        System.out.println(profesor.getNombre() + " " + profesor.getApellidos());
         System.out.println(this.nombre);
         System.out.println(this.codigo);
-        System.out.println("Dificultad "+ this.dificultad/temario.size());
-        System.out.println("% total "+ this.perctotal);
+        System.out.println("Dificultad " + this.dificultad / temario.size());
+        System.out.println("% total " + this.perctotal);
         System.out.println("Datos del temario");
-        System.out.println("Numero de temas: "+temario.size());
+        System.out.println("Numero de temas: " + temario.size());
         System.out.println(this.tipoAsignatura.name().toLowerCase());
         System.out.println(this.tipoAsignatura.getDescripcion());
         // pregunto de que tipo es la asignura -> LIBRE/OPTATIVA/TRONCAL
-        if(tipoAsignatura == Tipo.LIBRE){
+        if (tipoAsignatura == Tipo.LIBRE) {
             horasTemario /= 3;
         } else if (tipoAsignatura == Tipo.OPTATIVA) {
             horasTemario /= 2;
         }
-        System.out.println("Horas del temario: "+horasTemario);
+        System.out.println("Horas del temario: " + horasTemario);
     }
 
     public Profesor getProfesor() {
@@ -121,7 +122,7 @@ public class Asignatura {
         this.perctotal = perctotal;
     }
 
-    public class Tema{
+    public class Tema {
         private String titulo;
         private int nHpras;
         private int difucultad;
@@ -137,18 +138,18 @@ public class Asignatura {
             this.perc = perc;
             Asignatura.this.tema = this;
             // comprobaciones -> perc > 100 horas
-            if (perctotal+perc>100){
+            if (perctotal + perc > 100) {
                 System.out.println("Lo sentimos este tema no se puede añadir");
             } else {
                 Asignatura.this.dificultad += difucultad;
-                perctotal+=perc;
+                perctotal += perc;
                 horasTemario += nHpras;
                 temario.add(this);
             }
 
         }
 
-        public void mostrarDatos(){
+        public void mostrarDatos() {
             System.out.println("titulo = " + titulo);
             System.out.println("nHpras = " + nHpras);
             System.out.println("difucultad = " + difucultad);
