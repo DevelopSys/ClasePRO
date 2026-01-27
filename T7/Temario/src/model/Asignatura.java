@@ -12,8 +12,11 @@ public class Asignatura {
     private Tipo tipoAsignatura;
     private int perctotal;
 
+    private Tema tema;
+
     public Asignatura(){
         this.temario = new ArrayList<>();
+
     }
 
     public Asignatura(String nombre, Profesor profesor, int codigo, Tipo tipoAsignatura) {
@@ -132,6 +135,7 @@ public class Asignatura {
             this.nHpras = nHpras;
             this.difucultad = difucultad;
             this.perc = perc;
+            Asignatura.this.tema = this;
             // comprobaciones -> perc > 100 horas
             if (perctotal+perc>100){
                 System.out.println("Lo sentimos este tema no se puede añadir");
