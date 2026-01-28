@@ -1,3 +1,4 @@
+import controller.CentroEscolar;
 import model.Asignatura;
 import model.Profesor;
 import model.Tipo;
@@ -39,6 +40,24 @@ public class Main {
             String nombre, null
             int codigo, Tipo tipoAsignatura
          */
+
+         /*
+        Crear tema -> cod
+            this.titulo = titulo;
+            this.nHpras = nHpras;
+            this.difucultad = difucultad;
+            this.perc = perc;
+         */
+
+        CentroEscolar centroEscolar = new CentroEscolar();
+        /*
+        nhoras
+        perc
+        titulo
+        cod
+         */
+        // centroEscolar.crearTema(1,new Asignatura.Tema("asd",12,12));
+
 
     }
 }
