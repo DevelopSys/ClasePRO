@@ -8,7 +8,7 @@ import java.util.Collections;
 public class Main {
 
     public static void main(String[] args) {
-        Profesor profesor = new Profesor("Profesor1", "Apellido1", "123123A", 1);
+        /*Profesor profesor = new Profesor("Profesor1", "Apellido1", "123123A", 1);
         Asignatura asignatura1 = new Asignatura("Asignatura1", profesor, 1, Tipo.LIBRE);
         Asignatura asignatura2 = new Asignatura("Asignatura2", profesor, 2, Tipo.TRONCAL);
         Asignatura asignatura3 = new Asignatura("Asignatura3", profesor, 3, Tipo.LIBRE);
@@ -32,8 +32,13 @@ public class Main {
                 .map(Asignatura::getTemario)
                 .forEach(temas -> {
                     temas.forEach(Asignatura.Tema::mostrarDatos);
-                });
+                });*/
 
+        /*
+        Crear asignatura
+            String nombre, null
+            int codigo, Tipo tipoAsignatura
+         */
 
     }
 }
