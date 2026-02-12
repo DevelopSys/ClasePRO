@@ -42,6 +42,34 @@ public class MainMetodos {
                 scanner = new Scanner(System.in);
             }
         } while (opcion == 1);
+        do {
+
+            try {
+                System.out.println("1. Listar resultados");
+                System.out.println("2. Buscar resultados");
+                System.out.println("3. Salir");
+                System.out.println("Que quieres hacer");
+                opcion = scanner.nextInt();
+                switch (opcion) {
+                    case 1 -> {
+                        // mostrar todos
+                    }
+                    case 2 -> {
+                        System.out.println("Que resultado quieres mostrar");
+                        int busqueda = scanner.nextInt();
+                    }
+                    case 3 -> {
+                        System.out.println("Saliendo");
+                    }
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Dato mal introducido");
+                opcion = -1;
+            } finally {
+                scanner = new Scanner(System.in);
+            }
+        } while (opcion != 3);
+
 
     }
 }
