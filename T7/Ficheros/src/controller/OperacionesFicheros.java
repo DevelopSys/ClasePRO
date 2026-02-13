@@ -116,4 +116,30 @@ public class OperacionesFicheros {
         }
 
     }
+
+    public void descifrarCodigos(String s) {
+        File file = new File(s);
+        BufferedReader reader = null;
+
+        try {
+            reader = new BufferedReader(new FileReader(file));
+            String linea = reader.readLine();
+            String[] codigos = linea.split(" ");
+            for (String item: codigos) {
+                char letra = (char) (Integer.parseInt(item));
+                System.out.print(letra);
+            }
+
+        } catch (FileNotFoundException e) {
+            System.out.println("El fichero no existe");
+        } catch (IOException e) {
+            System.out.println("Error en la lectura");
+        } finally {
+            try {
+                reader.close();
+            } catch (IOException | NullPointerException e) {
+                System.out.println("Error en el cerrado");
+            }
+        }
+    }
 }

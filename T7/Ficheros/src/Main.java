@@ -10,6 +10,7 @@ public class Main {
         // operacionesFicheros.crearCarpeta("src/resources/pruebas/datos");
         // operacionesFicheros.crearCarpeta("src/resources/pruebas/analisis");
         // operacionesFicheros.leerFichero("src/resources/lectura.txt");
-        operacionesFicheros.leerFicheroLineas("src/resources/lectura.txt");
+        // operacionesFicheros.leerFicheroLineas("src/resources/lectura.txt");
+        operacionesFicheros.descifrarCodigos("src/resources/codigos.txt");
     }
 }
