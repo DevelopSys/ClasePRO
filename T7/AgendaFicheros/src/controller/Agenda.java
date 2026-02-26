@@ -63,6 +63,11 @@ public class Agenda {
                 .forEach(item->gestorFicheros.escribirContacto(item));
     }
 
+    public void importarContactos(){
+        // contactos.addAll(gestorFicheros.importarContactos());
+        contactos = gestorFicheros.importarContactos();
+    }
+
     public List<Contacto> getContacto() {
         return contactos;
     }

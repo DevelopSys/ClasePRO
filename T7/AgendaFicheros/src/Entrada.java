@@ -42,9 +42,11 @@ public class Entrada {
                     agenda.mostrarContactos();
                 }
                 case 4->{
+                    agenda.importarContactos();
+                }
+                case 5->{
                     agenda.exportarContactos();
                 }
-                case 5->{}
             }
 
         }while (opcion!=6);
