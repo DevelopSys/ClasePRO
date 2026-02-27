@@ -70,4 +70,28 @@ public class Gestor {
         }
 
     }
+
+    public void encritar(String mensaje){
+
+        try {
+            fileWriter
+                    = new FileWriter("src/main/java/ficheros/codigos_mensaje.txt");
+            for (int i = 0; i < mensaje.length(); i++) {
+                char letra = mensaje.charAt(i);
+                int codigo = letra;
+                String codigoLetra = String.valueOf(codigo);
+                fileWriter.write(codigoLetra);
+                fileWriter.write(" ");
+
+            }
+        } catch (IOException e) {
+            System.out.println("La ruta indicada no es correcta");
+        } finally {
+            try {
+                fileWriter.close();
+            } catch (IOException e) {
+                System.out.println("Error en el cerrado");
+            }
+        }
+    }
 }

@@ -40,8 +40,13 @@ public class Main {
                     case 3 -> {
                         gestor.desencritpar();
                     }
+                    case 4 -> {
+                        System.out.println("Indica cual es el mensaje a codificar");
+                        String mensaje = bufferedReader.readLine();
+                        gestor.encritar(mensaje);
+                    }
                 }
-            } while (opcion != 4);
+            } while (opcion != 5);
         } catch (Exception e) {
             System.out.println("Error en el flujo");
         }
