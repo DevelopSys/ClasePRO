@@ -3,6 +3,7 @@ package controller;
 import model.Usuario;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class Gestor {
     private ObjectInputStream objectInputStream;
@@ -40,5 +41,41 @@ public class Gestor {
         } catch (ClassNotFoundException | ClassCastException e) {
             System.out.println("Error en la clase asociada");
         }
+    }
+
+    public ArrayList<Usuario> importarLista(){
+        ArrayList<Usuario> lista = new ArrayList<>();
+        try {
+            objectInputStream = new ObjectInputStream(new FileInputStream(new File("src/ficheros/agenda.obj")));
+            lista = (ArrayList<Usuario>) objectInputStream.readObject();
+        } catch (IOException e) {
+            System.out.println("El fichero no se puede leer");
+        } catch (ClassNotFoundException e) {
+            System.out.println("El objeto no se puede leer");
+        } finally {
+            try {
+                objectInputStream.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return lista;
+    }
+
+    public void exportarListar(ArrayList<Usuario> lista){
+
+        try {
+            objectOutputStream = new ObjectOutputStream(new FileOutputStream(new File("src/ficheros/agenda.obj")));
+            objectOutputStream.writeObject(lista);
+        } catch (IOException e) {
+            System.out.println("Error en la ruta indicada");
+        } finally {
+            try {
+                objectOutputStream.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
     }
 }
