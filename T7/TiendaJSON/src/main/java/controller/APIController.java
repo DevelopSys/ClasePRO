@@ -1,5 +1,7 @@
 package controller;
 
+import com.google.gson.Gson;
+import model.Product;
 import netscape.javascript.JSObject;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -24,6 +26,7 @@ public class APIController {
 
     public void getAll() {
 
+        Gson gson = new Gson();
         // cerrarlo
         try {
             client = HttpClient.newHttpClient();
@@ -36,9 +39,15 @@ public class APIController {
             String productsStr = response.body();
             JSONObject productsJSON = new JSONObject(productsStr);
             JSONArray productsArray = productsJSON.getJSONArray("products");
-            JSONObject product = productsArray.getJSONObject(29);
-            double price = product.getDouble("price");
-            System.out.println(price);
+
+            for (int i = 0; i < productsArray.length(); i++) {
+                JSONObject productJSON = productsArray.getJSONObject(i);
+
+                Product product = gson.fromJson(productJSON.toString(), Product.class);
+                System.out.println(product.getId()+" "+product.getTitle()+" "+product.getPrice());
+            }
+            
+            // nombre y precio de todos los productos
 
         } catch (Exception e) {
             System.out.println("Error en la peticion HTTP");
