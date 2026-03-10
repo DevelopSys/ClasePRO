@@ -14,6 +14,7 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
 import java.net.http.HttpClient;
+import java.net.http.HttpHeaders;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
@@ -44,24 +45,42 @@ public class APIController {
                 JSONObject productJSON = productsArray.getJSONObject(i);
 
                 Product product = gson.fromJson(productJSON.toString(), Product.class);
-                System.out.println(product.getId()+" "+product.getTitle()+" "+product.getPrice());
+                System.out.println(product.getId() + " " + product.getTitle() + " " + product.getPrice());
             }
-            
+
             // nombre y precio de todos los productos
 
         } catch (Exception e) {
             System.out.println("Error en la peticion HTTP");
-        } finally {
-            try {
-                client.close();
-            } catch (NullPointerException e) {
-                System.out.println("Error en el cerrado");
-            }
         }
 
     }
+    public Product getById(int id) {
+        Gson gson = new Gson();
+        Product product = null;
+        try {
+            String urlProducto = url +"/" + id;
+            client = HttpClient.newHttpClient();
+            request = HttpRequest.newBuilder().GET().uri(URI.create(urlProducto)).build();
+            response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            String productSTR = response.body();
+            System.out.println(productSTR);
+            JSONObject object = new JSONObject(productSTR);
+            product = gson.fromJson(object.toString(), Product.class);
 
-    public void getAPI(){
+        } catch (Exception e) {
+            System.out.println("Error en el proceso de la peticion");
+            System.out.println(e.getMessage());
+        }
+
+        return product;
+    }
+
+    public void closeClient(){
+        client.close();
+    }
+
+    public void getAPI() {
         try {
             URL url = new URL(this.url);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();

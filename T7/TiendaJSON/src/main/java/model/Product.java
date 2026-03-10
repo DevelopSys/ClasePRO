@@ -3,11 +3,14 @@ package model;
 
 import lombok.*;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Product {
+public class Product implements Serializable {
+    private static final Long serialVersionUID = 123L;
     private long id;
     private String title;
     private String description;
