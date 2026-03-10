@@ -10,9 +10,9 @@ import lombok.*;
 public class Product {
     private long id;
     private String title;
+    private double price;
     private String description;
     private String category;
-    private double price;
     private double discountPercentage;
     private double rating;
     private long stock;
@@ -27,6 +27,21 @@ public class Product {
     private long minimumOrderQuantity;
     private String[] images;
     private String thumbnail;
+
+    public Product(long id, String title, double price) {
+        this.id = id;
+        this.title = title;
+        this.price = price;
+    }
+
+    public void mostrarDatos(){
+
+        System.out.println("Código = "+id+" Nombre = "+title+" Precio= "+price);
+        System.out.println();
+    }
+    public void comprarObjetos(long id){
+
+    }
 }
 
 
