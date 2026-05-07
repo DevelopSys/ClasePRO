@@ -17,6 +17,8 @@ public class User {
     private Long id;
     @Column(name = "nombre",nullable = false)
     private String name;
+    @Column(name = "apellido",nullable = false)
+    private String lastName;
     @Column(name = "correo",unique = true,nullable = false)
     private String email;
     @Column(name = "pass",nullable = false)
@@ -24,14 +26,17 @@ public class User {
     @Transient
     private int phone;
 
-    public User(String name, String email, String password) {
+
+    public User(String name, String lastName, String email, String password) {
         this.name = name;
+        this.lastName = lastName;
         this.email = email;
         this.password = password;
     }
 
-    public User(String name, String email, String password, int phone) {
+    public User(String name, String lastName, String email, String password, int phone) {
         this.name = name;
+        this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.phone = phone;

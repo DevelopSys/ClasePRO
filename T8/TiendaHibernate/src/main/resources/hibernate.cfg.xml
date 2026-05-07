@@ -11,14 +11,14 @@
         <property name="hibernate.connection.password">root</property>
 
         <!-- Dialecto de la base de datos -->
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 
         <!-- Mostrar SQL en consola -->
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
 
         <!-- Estrategia de actualización del esquema -->
-        <!-- <property name="hibernate.hbm2ddl.auto">update</property>-->
+        <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- Mapeo de clases -->
         <mapping class="model.User"/>
