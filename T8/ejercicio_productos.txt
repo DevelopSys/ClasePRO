@@ -1,0 +1,27 @@
+Base de datos:
+	producto: nombre, precio, descripcion
+	usuario: nombre, apellido, pass, id_perfil (fk)
+	perfiles: nombre
+	carrito: id_cliente (fk), id_producto (fk)
+
+
+- Realizar un login
+	
+	- Cliente
+		- Ver datos
+		- Modifica pass
+		- Mostrar los productos 
+		- Seleccionar producto compra: INSERT INTO carrito (id_cliente, id_producto, cantidad) VALUES (?, ?, 1)
+		- Mostrar carrito: SELECT  p.* FROM carrito c JOIN  productos p ON c.id_producto = p.id_producto WHERE c.id_cliente = ?;
+		- Ver total compra SELECT SUM(p.precio) AS total_carrito FROM carrito  c JOIN productos p ON c.id_producto = p.id_producto WHERE  c.id_cliente = :idCliente;
+
+	- Administrador
+		- Administrar usuarios (crear y modificar usuarios): solo el podrá crer admins
+		- Importar productos: lleva del api a la bd todos los productos si la tabla está vacia
+		- Vaciar tablas carritos, productos
+
+- Realizar un registro
+
+
+
+
