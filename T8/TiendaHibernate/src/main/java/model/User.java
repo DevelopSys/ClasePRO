@@ -41,4 +41,11 @@ public class User {
         this.password = password;
         this.phone = phone;
     }
+
+    public void showData(){
+        System.out.println("name = " + name);
+        System.out.println("lastName = " + lastName);
+        System.out.println("email = " + email);
+        System.out.println("password = " + password);
+    }
 }

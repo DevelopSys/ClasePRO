@@ -41,5 +41,17 @@ public class UserDAO {
 
     }
 
+    public User getUserById(int id){
+
+        User user = null;
+        session = sessionFactory.openSession();
+        transaction = session.beginTransaction();
+        user = session.find(User.class,id);
+        // user = session.find(User.class,id);
+        transaction.commit();
+
+        return user;
+    }
+
 
 }
