@@ -25,6 +25,9 @@ public class User {
     private String password;
     @Transient
     private int phone;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_perfil")
+    private Profile profile;
 
 
     public User(String name, String lastName, String email, String password) {
@@ -32,6 +35,14 @@ public class User {
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+    }
+
+    public User(String name, String lastName, String email, String password, Profile profile) {
+        this.name = name;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.profile = profile;
     }
 
     public User(String name, String lastName, String email, String password, int phone) {

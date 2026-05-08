@@ -9,7 +9,10 @@ public class Main {
         // controller.signInUser(new User("Borja1","Martin1","borja1@gmail.com","234234"));
         // controller.loginUser(2);
         // controller.findUsers("Borja");
-        controller.updateUser("Borja1", "Lopez","nuevo@gmail.com");
+        // controller.updateUser("Borja1", "Lopez","nuevo@gmail.com");
+        // controller.importProducts();
+        // controller.getProfileUser(2);
+        controller.getUsersProfile(1);
     }
 
     // cuando la aplicacion inicie llevar

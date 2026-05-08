@@ -22,6 +22,8 @@
 
         <!-- Mapeo de clases -->
         <mapping class="model.User"/>
+        <mapping class="model.Product"/>
+        <mapping class="model.Profile"/>
 
 
     </session-factory>
