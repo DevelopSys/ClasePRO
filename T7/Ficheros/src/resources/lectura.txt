@@ -1,4 +1,0 @@
-Esto es un ejemplo de lectura en texto plano
-Esa es la segunda linea del fichero
-Esta es la tercera linea del fichero
-Esta es la última linea del fichero
