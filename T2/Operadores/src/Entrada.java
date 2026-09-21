@@ -84,6 +84,8 @@ public class Entrada {
         System.out.println("La comparacion de != es: "+comparacion);
         comparacion = !comparacion; // cambia el valor de comparacion
 
+        
+
     }
 
 }
