@@ -84,7 +84,13 @@ public class Entrada {
         System.out.println("La comparacion de != es: "+comparacion);
         comparacion = !comparacion; // cambia el valor de comparacion
 
-        
+        // LOGICOS ( || (or) && (and) )
+
+        int v1 = 7;
+        int v2 = 17;
+        int v3 = 4;
+        boolean resultado = (v1*2 > v2 && v3<v2/2) && !(v1!=9);
+
 
     }
 
