@@ -33,6 +33,7 @@ public class EntradaCalculadora {
         System.out.println("5. Modular");
         System.out.println("Que quieres hacer");
         int opcion = lector.nextInt();
+        char mensaje = operando1 > 0 ? 'A' : 'B';
         boolean condicionDecimales = false;
         double resultado = 0.0;
         switch (opcion) {
