@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="341308cd-9914-4a60-9e24-3520b9ac8153" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Ejercicio4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Ejercicio6.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Ejercicio7.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Ejercicio8.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/EjercicioBases.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ejercicio10Sw.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ejercicio11If.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ejercicio13If.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ejercicio14If.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ejercicio3Sw.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "DevelopSys"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/DevelopSys/ClasePRO.git",
+    "accountId": "1d347060-a3e8-47d6-ba7e-8c7d0d4c55ca"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="3KikyUoJJPkTEveTWhk6GTDKwPA" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Ejercicio4.executor": "Run",
+    "Application.Ejercicio6.executor": "Run",
+    "Application.Ejercicio7.executor": "Run",
+    "Application.EjercicioBases.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "show.migrate.to.gradle.popup": "false"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="341308cd-9914-4a60-9e24-3520b9ac8153" name="Changes" comment="" />
+      <created>1792048030984</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1792048030984</updated>
+    </task>
+    <servers />
+  </component>
+</project>
