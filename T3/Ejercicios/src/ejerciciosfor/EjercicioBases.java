@@ -1,3 +1,5 @@
+package ejerciciosfor;
+
 import java.util.Scanner;
 
 public class EjercicioBases {

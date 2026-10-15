@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="341308cd-9914-4a60-9e24-3520b9ac8153" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/ejercicioswhile/Ejercicio3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ejercicioswhile/Ejercicio5.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EjercicioBases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EjercicioBases.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ejercicio4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ejerciciosfor/Ejercicio4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ejercicio6.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ejerciciosfor/Ejercicio6.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ejercicio7.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ejerciciosfor/Ejercicio7.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ejercicio8.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ejerciciosfor/Ejercicio8.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EjercicioBases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ejerciciosfor/EjercicioBases.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,22 +30,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "DevelopSys"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;DevelopSys&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/DevelopSys/ClasePRO.git",
-    "accountId": "1d347060-a3e8-47d6-ba7e-8c7d0d4c55ca"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/DevelopSys/ClasePRO.git&quot;,
+    &quot;accountId&quot;: &quot;1d347060-a3e8-47d6-ba7e-8c7d0d4c55ca&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 1
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="3KikyUoJJPkTEveTWhk6GTDKwPA" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -50,6 +57,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Ejercicio4.executor": "Run",
+    "Application.Ejercicio5.executor": "Run",
     "Application.Ejercicio6.executor": "Run",
     "Application.Ejercicio7.executor": "Run",
     "Application.EjercicioBases.executor": "Run",
