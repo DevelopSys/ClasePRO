@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class EntradaEjercicio {
 
     public static void main(String[] args) {
+
         Scanner lector = new Scanner(System.in);
         // Crear un programa que me pida el numero de amigos que quiero guardar
         // 6
@@ -11,10 +12,22 @@ public class EntradaEjercicio {
         System.out.println("Cuantos amigos quieres guardar");
         int numeroAmigos = lector.nextInt();
         String[] amigos = new String[numeroAmigos]; // [null null null null]
+        // amigos.for
         for (int i = 0; i < amigos.length; i++) {
             System.out.println("Indicame el nombre a guardar");
             String nombre = lector.next();
-            amigos[i] = nombre;
+            // esta repetido?
+            boolean repetido = false;
+            // busqueda
+
+            if (estaNombre(amigos,nombre)) {
+                System.out.println("Esta repetido");
+                i--;
+
+            } else {
+                System.out.println("No esta repetido");
+                amigos[i] = nombre;
+            }
         }
         int opcion;
         String amigoLargo = amigos[0];
@@ -44,6 +57,13 @@ public class EntradaEjercicio {
                     }
                 }
                 case 4 -> {
+                    System.out.println("Buscar elemento");
+                    String nombreBuscar = lector.next();
+
+                    System.out.println(estaNombre(amigos,nombreBuscar) ? "encontrado" : "no encontrado");
+
+                }
+                case 5 -> {
                     System.out.println("Saliendo......");
                 }
                 default -> {
@@ -51,7 +71,7 @@ public class EntradaEjercicio {
                 }
             }
 
-        } while (opcion != 4);
+        } while (opcion != 5);
 
 
         // x,x,x,x,x,x
@@ -71,5 +91,13 @@ public class EntradaEjercicio {
         // Si yo ya he introducido el nombre juan, al introducir lotra vez me dira
         // que ese nombre ya esta en el sistema
 
+    }
+    public static boolean estaNombre(String[] amigos, String amigo){
+        for (String item: amigos) {
+            if(item != null && item.equals(amigo)){
+                return true;
+            }
+        }
+        return false;
     }
 }
