@@ -38,7 +38,7 @@ public class Main {
                 NEUMATICOS 200 - 300
                 OTRA -> 50 - 100
             3. PEDIR INFO DE LOS COCHES CON UNA AVERIA
-                ACEITE ->  
+                ACEITE ->
 
          */
 
