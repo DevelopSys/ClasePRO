@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Main {
@@ -59,7 +61,18 @@ public class Main {
                     modificarNota(nombre, nota);
                 }
                 case 8 -> {
+                    /*Collections.sort(calificaciones, new Comparator<Object[]>() {
+                        @Override
+                        public int compare(Object[] o1, Object[] o2) {
+                            if ((double) o1[1] < (double) o2[1])
+                                return 1;
+                            return -1;
+                        }
+                    });*/
+                    calificaciones.sort((o1, o2)
+                            -> (double) o1[1] < (double) o2[1] ? -1 : 1);
                 }
+
                 case 9 -> System.out.println("Saliendo.....");
             }
         } while (opcion != 9);
@@ -69,10 +82,10 @@ public class Main {
     private static void modificarNota(String nombre, double nota) {
         // que asignatura
         // esta asignatura
-            // pedir nota y cambiarla
-            // error
+        // pedir nota y cambiarla
+        // error
         Object[] modificar = buscarAsignatura(nombre);
-        if(modificar!=null){
+        if (modificar != null) {
             modificar[1] = nota;
         } else {
             System.out.println("No se encuentra en la lista1");
@@ -133,7 +146,6 @@ public class Main {
         }
         return null;
     }
-
     public static void verNotasAsignaturas() {
 
         if (calificaciones.isEmpty()) {
