@@ -47,7 +47,7 @@ public class Coche {
 
     // metodos
     public void mostrarFichaTecnica() {
-        String marca = this.marca == null ? "sin definir" : "marca = "+getMarca();
+        String marca = this.marca == null ? "sin definir" : "marca = " + getMarca();
         System.out.println(marca);
         System.out.println("modelo = " + modelo);
         System.out.println("cv = " + cv);
@@ -58,14 +58,46 @@ public class Coche {
 
     // realizar el metodo acelerar -> incrementar la velocidad
     /*
+    km -> entre 5-10
     si tengo mas de 200 cv -> velocidad max es de 280
     si tengo menos -> velocida max es de 250
      */
+
+    public void acelerar(int velocidad) {
+        if (cv < 200 && (velocidad + this.velocidad) > 250) {
+            System.out.println("el coche no da");
+            // me quedo en la velocidad que tengo
+            this.velocidad = 250;
+        } else if (cv >= 200 && (this.velocidad + velocidad) > 280) {
+            System.out.println("el coche no da");
+            this.velocidad = 280;
+        } else {
+            this.velocidad += velocidad;
+        }
+
+        this.km += (int) ((int) (Math.random() * 6) + velocidad * 0.2); // 5-10
+    }
+
     // realizar el metodo frenar -> decrementar la velocidad
     /*
+    km -> entre 1-5
     no puedo decelerar negativo
     no puedo tener una velocidad de 0
      */
+    // 30
+    public void frenar(int velocidad) {
+        if (velocidad < 0) {
+            System.out.println("No se pueden frenar velocidades negativas");
+        } else {
+            if ((this.velocidad - velocidad) <= 0) {
+                this.velocidad = 0;
+            } else {
+                this.velocidad -= velocidad;
+            }
+
+            this.km += (int) (Math.random()*6)+2;
+        }
+    }
 
     public String getMarca() {
         return marca;
